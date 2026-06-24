@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FBF6EC" />
+  <title>Gift Shop · Animal Health Center, Marshall MN</title>
+  <meta name="description" content="More than animal supplies. Our in-store gift shop in Marshall, MN carries rustic home decor, seasonal pieces, sentimental gifts and branded gear." />
+  <meta property="og:title" content="Gift Shop · Animal Health Center &amp; Pet Resort" />
+  <meta property="og:description" content="From rustic home decor to branded gear, our in-store gift shop is one of Marshall's best kept secrets." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { cream:"#FBF6EC", sand:"#EFE3CE", ink:"#20180F", teal:"#1B6B6B", teal2:"#2c9494",
+        amber:"#C17F24", amber2:"#E6A93F", peach:"#F6D9A8", forest:"#3E6B23", rust:"#9c4a1a" },
+      fontFamily: { heading:["Nunito","system-ui","sans-serif"], body:["Inter","system-ui","sans-serif"] }
+    } } };
+  </script>
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🐾&lt;/text&gt;&lt;/svg&gt;" />
+</head>
+
+<body data-page="shop" class="font-body bg-cream text-ink">
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="bg-ink text-cream/85 text-[13px]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-between gap-4">
+      <span class="hidden sm:flex items-center gap-2 min-w-0">
+        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-amber2 flex-none"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+        <span class="truncate">1300 N. Hwy 59, Marshall, MN</span>
+      </span>
+      <div class="flex items-center gap-4 ml-auto">
+        <span data-hours-badge class="hours-badge is-closed">Checking hours…</span>
+        <a href="tel:+15075325000" class="font-bold text-cream hover:text-amber2 transition-colors">(507) 532-5000</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAV (floats over the hero photo, like the home page) ===== -->
+  <header data-site-header class="fixed left-1/2 -translate-x-1/2 z-40 w-[min(calc(100%-24px),1180px)] top-[50px]">
+    <div class="relative flex items-center justify-between gap-4 min-h-[64px] px-3 py-2 rounded-3xl bg-cream/30 backdrop-blur-md shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] ring-1 ring-ink/10">
+      <a href="index.html" class="flex items-center pl-1" aria-label="Animal Health Center home"><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-12 w-auto" /></a>
+      <nav class="hidden lg:flex items-center gap-1 text-[15px] font-bold text-ink/70" aria-label="Primary">
+        <a data-nav="about" href="about.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">About Us</a>
+        <a data-nav="resort" href="resort.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Pet Resort</a>
+        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Gift Shop</a>
+        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Livestock</a>
+        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Small Animal</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <a data-book class="hidden sm:inline-flex btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a>
+        <button data-menu-toggle class="lg:hidden grid place-items-center w-11 h-11 rounded-2xl bg-white shadow-sm text-ink" aria-label="Open menu" aria-controls="navDropdown" aria-expanded="false">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile dropdown -->
+      <nav data-menu-drawer id="navDropdown" class="nav-dropdown lg:hidden absolute top-[calc(100%+10px)] right-0 w-[min(320px,calc(100vw-24px))] grid gap-1 p-3 rounded-3xl bg-cream/97 backdrop-blur-md shadow-[0_20px_60px_-20px_rgba(60,40,16,.5)] ring-1 ring-ink/10 text-base font-heading font-800 text-ink/80" aria-label="Mobile">
+        <a data-nav="about" href="about.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">About Us</a>
+        <a data-nav="resort" href="resort.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Pet Resort</a>
+        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Gift Shop</a>
+        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Livestock</a>
+        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Small Animal</a>
+        <a data-book class="btn btn--amber justify-center mt-2">Book the Pet Resort →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- ===================== HERO ===================== -->
+  <section data-hero data-booknow-after class="hero-slideshow relative overflow-hidden">
+    <div class="hero-slideshow__slides absolute inset-0">
+      <div class="hero-slideshow__slide is-active" style="background-image:url('img/shop-hero3.png')"></div>
+    </div>
+    <div class="hero-slideshow__scrim absolute inset-0"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center min-h-[84vh]">
+      <div class="w-full max-w-xl pt-[150px] pb-16">
+        <p data-hero-line class="inline-flex items-center gap-2 text-amber2 font-bold text-sm bg-white/15 ring-1 ring-white/25 backdrop-blur-sm rounded-full px-4 py-2">
+          <span class="w-2 h-2 rounded-full bg-amber2"></span> The Gift Shop · Marshall's best kept secret
+        </p>
+        <h1 class="mt-6 font-heading display text-white text-[3.6rem] leading-[.92] sm:text-7xl xl:text-[5.4rem]">
+          <span data-hero-line class="block">A little something</span>
+          <span data-hero-line class="block italic text-amber2">for everyone.</span>
+        </h1>
+        <p data-hero-line class="mt-6 text-white/80 text-lg max-w-md">
+          Tucked inside the farm supply store you already know is a full gift and decor shop.
+          Rustic home pieces, seasonal finds and branded gear, all hand-picked, all in Marshall.
+        </p>
+        <div data-hero-line class="mt-8 flex flex-wrap gap-3">
+          <a href="#spotlight" class="btn btn--amber">See what is in store →</a>
+          <a href="#visit" class="btn btn--ghost-light">Plan your visit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 1 · SEASONAL SPOTLIGHT ===================== -->
+  <section id="spotlight" class="py-20 sm:py-28 relative overflow-hidden scroll-mt-24">
+    <div data-blob class="blob blob--peach w-[24rem] h-[24rem] right-[-8rem] top-0"></div>
+    <div data-blob class="blob blob--teal w-[18rem] h-[18rem] left-[-6rem] bottom-0"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
+
+      <!-- Layered photo window: rotating gifts photo + overlapping season card -->
+      <div class="relative max-w-[540px] mx-auto lg:mx-0 w-full" data-anim="up">
+        <div data-photo-rotate class="hero-slideshow relative rounded-[28px] overflow-hidden shadow-[0_40px_80px_-32px_rgba(60,40,16,.45)] aspect-[4/5] !min-h-0 ring-1 ring-ink/5">
+          <div data-rotate-slide class="hero-slideshow__slide is-active" style="background-image:url('img/gifts.jpg')"></div>
+          <div data-rotate-slide class="hero-slideshow__slide" style="background-image:url('img/gifts3.jpg')"></div>
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/55 to-transparent"></div>
+          <span class="absolute left-5 top-5 inline-flex items-center gap-2 text-ink font-heading font-800 text-xs tracking-wide bg-cream/90 backdrop-blur-sm rounded-full px-3.5 py-2 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-teal"></span> Real photos from our floor
+          </span>
+        </div>
+
+        <!-- floating "on the floor now" card, overlaps the photo corner -->
+        <div class="absolute -right-[5%] -bottom-[7%] w-[58%] max-w-[230px] grid gap-1 px-5 py-4 rounded-2xl bg-amber2 text-ink shadow-[0_24px_60px_-24px_rgba(60,40,16,.5)]">
+          <span class="font-heading font-900 text-lg leading-none">Always changing</span>
+          <span class="font-semibold text-[13px] leading-snug text-ink/80">Spring florals, fall harvest, Christmas. New every season.</span>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div data-anim="up">
+        <span class="service-kicker bg-teal/10 text-teal">Right Now In Store</span>
+        <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">What is fresh<br /><span class="italic text-teal">this season.</span></h2>
+        <p class="mt-5 text-ink/65 text-lg max-w-xl">
+          We hand-pick our gift and decor selection and rotate it with the seasons. What you see in spring is completely different from what we stock in fall and holiday.
+        </p>
+        <p class="mt-4 text-ink/65 text-lg max-w-xl">
+          Stop in and browse, or call us and we will tell you exactly what is on the floor today.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="tel:+15075325000" class="btn btn--amber">Call us at (507) 532-5000</a>
+          <a href="#" class="btn btn--ghost">Contact us</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="paw-divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
+
+  <!-- ===================== SECTION 2 · TOWN AND COUNTRY ===================== -->
+  <section class="py-20 sm:py-28 relative overflow-hidden bg-cream dotgrid">
+    <div class="soft-glow bg-amber2/15 w-[28rem] h-[28rem] -right-24 -top-10"></div>
+    <div class="soft-glow bg-teal2/12 w-[24rem] h-[24rem] -left-24 bottom-0"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+
+      <!-- intro -->
+      <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-end" data-anim="up">
+        <div class="max-w-2xl">
+          <span class="service-kicker bg-teal/10 text-teal">Town and Country</span>
+          <h2 class="mt-4 font-heading display text-ink text-4xl sm:text-5xl xl:text-6xl">A little boutique hiding inside your <span class="italic text-amber">farm supply store.</span></h2>
+        </div>
+        <p class="text-ink/65 text-lg max-w-sm lg:pb-2">
+          Most people drive past on their way to grab cattle vaccines or dog food and have no idea it is even here. Town and Country is our best kept secret.
+        </p>
+      </div>
+
+      <!-- editorial mosaic: varied tile sizes, captions overlaid on the image -->
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-6 gap-4 sm:gap-5" data-anim="cards">
+
+        <!-- TALL feature tile -->
+        <!-- PHOTO: rustic farmhouse home decor (local: tc-rustic.jpg) -->
+        <article class="group relative overflow-hidden rounded-[26px] sm:col-span-3 sm:row-span-2 min-h-[260px] sm:min-h-[460px] shadow-lg ring-1 ring-ink/5">
+          <img src="img/tc-rustic.jpg" alt="Rustic farmhouse decor and home pieces" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 p-6">
+            <span class="inline-block font-heading font-900 text-amber2 text-sm tracking-wide uppercase">Rustic &amp; farmhouse</span>
+            <p class="mt-1 text-cream text-lg font-semibold leading-snug">Rustic furniture, galvanized metal accents, and farmhouse pieces that actually feel like home.</p>
+          </div>
+        </article>
+
+        <!-- WIDE tile -->
+        <!-- PHOTO: seasonal greenery / holiday flat-lay (local: tc-seasonal.jpg) -->
+        <article class="group relative overflow-hidden rounded-[26px] sm:col-span-3 min-h-[220px] shadow-lg ring-1 ring-ink/5">
+          <img src="img/tc-seasonal.jpg" alt="Seasonal holiday gift display" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 p-6">
+            <span class="inline-block font-heading font-900 text-amber2 text-sm tracking-wide uppercase">Seasonal decor</span>
+            <p class="mt-1 text-cream text-base font-semibold leading-snug">Fall harvest, Christmas, Easter, spring florals. Always something new.</p>
+          </div>
+        </article>
+
+        <!-- two smaller tiles side by side under the wide one -->
+        <!-- PHOTO: sentimental / gift goods (local: tc-sentimental.jpg) -->
+        <article class="group relative overflow-hidden rounded-[26px] sm:col-span-2 min-h-[200px] shadow-lg ring-1 ring-ink/5">
+          <img src="img/tc-sentimental.jpg" alt="Sentimental gifts" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 p-5">
+            <span class="inline-block font-heading font-900 text-amber2 text-xs tracking-wide uppercase">Sentimental</span>
+            <p class="mt-1 text-cream text-sm font-semibold leading-snug">For new babies, birthdays, and the people who are hard to shop for.</p>
+          </div>
+        </article>
+        <!-- PHOTO: animal lover gift (local: tc-animal.jpg) -->
+        <article class="group relative overflow-hidden rounded-[26px] sm:col-span-1 min-h-[200px] shadow-lg ring-1 ring-ink/5">
+          <img src="img/tc-animal.jpg" alt="Gifts for animal lovers" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 p-5">
+            <span class="inline-block font-heading font-900 text-amber2 text-xs tracking-wide uppercase">Animal lovers</span>
+            <p class="mt-1 text-cream text-sm font-semibold leading-snug">For the dog mom and the horse lover alike.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- closing strip -->
+      <div class="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6" data-anim="up">
+        <p class="text-ink/65 text-lg max-w-xl">
+          Every piece in here was hand-picked. This is not a big box store. Stop in and see what is on the floor today.
+        </p>
+        <div class="flex flex-wrap gap-3 flex-none">
+          <a href="#" class="btn btn--ghost">See more gifts</a>
+          <a href="sms:+15078289458" class="btn btn--amber">Text us at (507) 828-9458</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 3 · THE GALLERY WALL ===================== -->
+  <!-- A light "gallery wall": two routing cards are the centerpiece, with the store's
+       real signs & metal-art cutouts arranged in the open margins around them. -->
+  <section class="gallery-wall relative overflow-hidden py-20 sm:py-28">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="max-w-2xl mx-auto text-center" data-anim="up">
+        <span class="service-kicker bg-white/70 text-rust shadow-sm ring-1 ring-rust/10">Straight off our wall</span>
+        <h2 class="mt-4 font-heading display text-ink text-4xl sm:text-5xl xl:text-6xl">Looking for something <span class="italic text-amber">specific?</span></h2>
+        <p class="mt-4 text-ink/65 text-lg">We have got you covered on the farm and at home.</p>
+      </div>
+
+      <!-- cards centerpiece + decor arranged around them, with clear breathing room -->
+      <div class="relative mt-20 lg:mt-32">
+
+        <!-- wall decor in the margins AROUND the cards (lg and up), never behind them -->
+        <div class="hidden lg:block" aria-hidden="true">
+          <!-- mid-left, well outside the Pet card -->
+          <img src="img/transparent/wall-pic2.png" alt="" class="wall-art absolute left-0 xl:-left-12 top-1/3 w-44 xl:w-52 -rotate-3" />
+          <!-- mid-right, well outside the Farm card -->
+          <img src="img/transparent/wall-pic4.png" alt="" class="wall-art absolute right-0 xl:-right-12 top-1/3 w-44 xl:w-52 rotate-3" />
+          <!-- top-left corner, clear of the Pet card -->
+          <img src="img/transparent/wall-pic.png" alt="" class="wall-art absolute left-0 xl:left-4 -top-28 w-32 xl:w-36 -rotate-2" />
+          <!-- top-right corner, clear of the Farm card -->
+          <img src="img/transparent/wall-pic3.png" alt="" class="wall-art absolute right-0 xl:right-2 -top-24 w-44 xl:w-48 rotate-2" />
+        </div>
+
+        <!-- routing cards (narrower than the decor span, so the margins stay open) -->
+        <div class="relative grid sm:grid-cols-2 gap-6 lg:gap-10 max-w-3xl mx-auto" data-anim="cards">
+
+          <!-- PET -->
+          <a href="small-animal.html" class="route-tag route-tag--teal group">
+            <span class="inline-flex items-center gap-2.5 font-heading font-800 text-xs tracking-[0.16em] uppercase text-teal">
+              <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><circle cx="6" cy="9.5" r="2"/><circle cx="11" cy="7" r="2"/><circle cx="17.5" cy="9.5" r="2"/><path d="M11.5 11.5c-3 0-5 2.2-5 4.3 0 1.8 1.8 3 5 3s5-1.2 5-3c0-2.1-2-4.3-5-4.3Z"/></svg>
+              At home
+            </span>
+            <h3 class="mt-4 font-heading font-900 text-ink text-2xl sm:text-3xl">Shopping for your pet?</h3>
+            <p class="mt-3 text-ink/65">Dog and cat food, supplies, treats, CBD and more, all under one roof.</p>
+            <span class="mt-6 inline-flex items-center gap-1.5 font-heading font-800 text-teal group-hover:gap-3 transition-all">Go to Pets and Small Animals <span aria-hidden="true">→</span></span>
+          </a>
+
+          <!-- FARM -->
+          <a href="livestock.html" class="route-tag route-tag--amber group">
+            <span class="inline-flex items-center gap-2.5 font-heading font-800 text-xs tracking-[0.16em] uppercase text-amber">
+              <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>
+              On the farm
+            </span>
+            <h3 class="mt-4 font-heading font-900 text-ink text-2xl sm:text-3xl">Shopping for your farm?</h3>
+            <p class="mt-3 text-ink/65">Cattle, equine, swine, sheep and general livestock supplies, locally stocked.</p>
+            <span class="mt-6 inline-flex items-center gap-1.5 font-heading font-800 text-amber group-hover:gap-3 transition-all">Go to Livestock <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- on small screens, show two signs as a tidy strip instead of the scattered decor -->
+      <div class="lg:hidden mt-12 flex items-center justify-center gap-6 opacity-90" aria-hidden="true">
+        <img src="img/transparent/wall-pic2.png" alt="" class="wall-art w-40 -rotate-2" />
+        <img src="img/transparent/wall-pic4.png" alt="" class="wall-art w-40 rotate-2" />
+      </div>
+
+      <p class="mt-10 text-center text-ink/55 max-w-xl mx-auto" data-anim="up">These hand-burned signs and metal pieces are just a taste of what is on our gift wall.</p>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 4 · VISIT US ===================== -->
+  <section id="visit" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
+    <div class="soft-glow bg-teal2/15 w-[26rem] h-[26rem] -left-20 top-10"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-start">
+      <div data-anim="up">
+        <span class="service-kicker bg-teal/10 text-teal">Visit Us</span>
+        <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">Come see it in person</h2>
+        <p class="mt-5 text-ink/65 text-lg max-w-xl">
+          Our gift and decor section is not online yet, but it is very much in store. The best way to shop it is to walk in. Our team is happy to point you in the right direction.
+        </p>
+        <div class="mt-8">
+          <a href="https://www.google.com/maps/search/?api=1&query=1300+N+Hwy+59+Marshall+MN+56258" target="_blank" rel="noopener" class="btn btn--amber">Get Directions →</a>
+        </div>
+      </div>
+
+      <div class="card p-8 sm:p-10" data-anim="up">
+        <h3 class="font-heading font-900 text-ink text-xl">Where to find us</h3>
+        <p class="mt-2 text-ink/65">1300 N. Hwy 59<br />Marshall, MN 56258</p>
+
+        <h4 class="mt-7 font-heading font-800 text-ink">Hours</h4>
+        <ul class="mt-3 space-y-1.5 text-sm text-ink/65">
+          <li class="flex justify-between gap-4"><span>Monday to Friday</span><span class="text-ink font-semibold">8:00am to 5:30pm</span></li>
+          <li class="flex justify-between gap-4"><span>Saturday</span><span class="text-ink font-semibold">8:00am to 12:00pm</span></li>
+          <li class="flex justify-between gap-4"><span>Sunday</span><span class="text-ink/45">Closed</span></li>
+        </ul>
+
+        <p class="mt-5 text-ink/55 text-sm">
+          Closed: New Year's Day, Memorial Day, Fourth of July, Labor Day, Thanksgiving, Christmas Day.
+        </p>
+        <p class="mt-2 text-ink/55 text-sm">
+          Limited hours 8am to 12pm: New Year's Eve and Christmas Eve.
+        </p>
+
+        <div class="mt-7 pt-6 border-t border-ink/10 grid sm:grid-cols-2 gap-4 text-sm">
+          <div>
+            <span class="block text-ink/50">Phone</span>
+            <a href="tel:+15075325000" class="font-heading font-800 text-ink text-lg hover:text-teal transition-colors">(507) 532-5000</a>
+          </div>
+          <div>
+            <span class="block text-ink/50">Text</span>
+            <a href="sms:+15078289458" class="font-heading font-800 text-ink text-lg hover:text-teal transition-colors">(507) 828-9458</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 5 · ONLINE ORDERING COMING SOON ===================== -->
+  <section class="relative overflow-hidden bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+      <div class="rounded-[2rem] bg-gradient-to-br from-amber2 to-amber text-ink p-10 sm:p-16 text-center relative overflow-hidden dotgrid">
+        <div class="relative" data-anim="up">
+          <span class="inline-grid place-items-center w-14 h-14 rounded-2xl bg-ink/10 text-2xl">⭐</span>
+          <h2 class="mt-5 font-heading display text-4xl sm:text-5xl">Online ordering<br />is on its way</h2>
+          <p class="mt-4 text-ink/75 text-lg max-w-xl mx-auto">
+            We are working on bringing the full store to your screen. Soon you will be able to browse and order from our complete product range without leaving home. Pet food, livestock supplies, gifts and more, all in one place.
+          </p>
+          <p class="mt-6 font-heading font-800 text-ink">Want a heads up when it launches?</p>
+          <p class="mt-1 text-ink/75">Call or text us and we will add you to the list.</p>
+          <div class="mt-7 flex flex-wrap gap-3 justify-center">
+            <a href="tel:+15075325000" class="btn btn--ink">Call (507) 532-5000</a>
+            <a href="sms:+15078289458" class="btn btn--ghost">Text (507) 828-9458</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 6 · GROOMING BAR ===================== -->
+  <section class="bg-ink text-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-center sm:justify-between gap-4 text-center sm:text-left">
+      <p class="font-heading font-800 text-cream text-lg">The best gift for a furry friend? A spa day with Tira.</p>
+      <a href="grooming.html" class="btn btn--amber !py-2.5 !px-5 !text-sm">Send a grooming gift →</a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-ink text-cream/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-16 w-auto brightness-0 invert" /></div>
+        <p class="mt-4 text-sm">Southwest Minnesota's one-stop shop for pets and livestock, big animals and small. Locally owned in Marshall, MN.</p>
+        <a href="https://www.facebook.com/animalhealthcentermn/" target="_blank" rel="noopener" aria-label="Facebook" class="mt-4 inline-grid place-items-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 transition-colors"><svg viewBox="0 0 24 24" class="w-5 h-5 fill-cream"><path d="M13 22v-8h3l.5-3.5H13V8.3c0-1 .3-1.7 1.8-1.7H17V3.4A26 26 0 0 0 14.6 3C12 3 10 4.6 10 7.7v2.8H7V14h3v8Z"/></svg></a>
+      </div>
+      <div><h4 class="font-heading font-800 text-cream">Explore</h4><ul class="mt-3 space-y-2 text-sm"><li><a href="about.html" class="hover:text-amber2 transition-colors">About Us</a></li><li><a href="resort.html" class="hover:text-amber2 transition-colors">Pet Resort</a></li><li><a href="grooming.html" class="hover:text-amber2 transition-colors">Grooming</a></li><li><a href="livestock.html" class="hover:text-amber2 transition-colors">Livestock</a></li><li><a href="small-animal.html" class="hover:text-amber2 transition-colors">Small Animal</a></li></ul></div>
+      <div><h4 class="font-heading font-800 text-cream">Hours</h4><ul class="mt-3 space-y-1.5 text-sm"><li class="flex justify-between gap-4"><span>Mon to Fri</span><span class="text-cream">8:00am to 5:30pm</span></li><li class="flex justify-between gap-4"><span>Saturday</span><span class="text-cream">8:00am to 12:00pm</span></li><li class="flex justify-between gap-4"><span>Sunday</span><span class="text-cream/50">Closed</span></li></ul><span data-hours-badge class="hours-badge is-closed mt-3">Checking hours…</span></div>
+      <div><h4 class="font-heading font-800 text-cream">Visit / Call</h4><p class="mt-3 text-sm">1300 N. Hwy 59<br />Marshall, MN 56258</p><a href="tel:+15075325000" class="mt-2 inline-block font-heading font-800 text-cream text-lg hover:text-amber2 transition-colors">(507) 532-5000</a><a data-book class="mt-4 btn btn--amber !py-2.5 !px-4 !text-sm">Book the Pet Resort →</a></div>
+    </div>
+    <div class="border-t border-white/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-between gap-2 text-xs text-cream/50"><p>© <span data-year>2026</span> Animal Health Center &amp; Pet Resort. All rights reserved.</p><p>For animals big and small.</p></div></div>
+  </footer>
+
+  <!-- ===================== STICKY BOOK BAR ===================== -->
+  <div data-booknow-bar class="booknow-bar">
+    <div class="bg-ink text-cream md:rounded-2xl md:shadow-2xl">
+      <div class="max-w-7xl md:max-w-none mx-auto px-4 py-3 flex items-center justify-between gap-3 md:gap-6">
+        <span class="hidden sm:block font-heading font-800 text-sm">Ready when you are.</span>
+        <div class="flex items-center gap-2.5 ml-auto"><a data-book class="btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a><a href="tel:+15075325000" class="btn !py-2.5 !px-4 !text-sm bg-white/10 text-cream">Call Us</a></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/widgets.js" defer></script>
+  <script src="js/animations.js" defer></script>
+</body>
+</html>

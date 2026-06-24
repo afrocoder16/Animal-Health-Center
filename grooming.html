@@ -3,207 +3,224 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#12281f" />
-  <title>Pet Grooming | Animal Health Center · Marshall, MN</title>
-  <meta name="description" content="Professional pet grooming at Animal Health Center in Marshall, MN. Hair cuts, shave downs, baths, brush-outs, blowouts, and nail trims for dogs and cats. Call to book." />
-  <meta property="og:title" content="Pet Grooming | Animal Health Center" />
-  <meta property="og:description" content="On-staff grooming for dogs and cats in Marshall, MN. Hair cuts, baths, blowouts, nail trims and more. Call (507) 532-5000 to schedule." />
+  <meta name="theme-color" content="#FBF6EC" />
+  <title>Pet Grooming — Bath, Brush &amp; a Bow · Animal Health Center, Marshall MN</title>
+  <meta name="description" content="In-house dog &amp; cat grooming in Marshall, MN — bathing, blow-dry, brush-outs, de-shedding, nail trims &amp; ear cleaning. Call for a quick quote." />
+  <meta property="og:title" content="Pet Grooming · Animal Health Center &amp; Pet Resort" />
+  <meta property="og:description" content="In-house dog &amp; cat grooming in Marshall, MN." />
   <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { cream:"#FBF6EC", sand:"#EFE3CE", ink:"#20180F", teal:"#1B6B6B", teal2:"#2c9494",
+        amber:"#C17F24", amber2:"#E6A93F", peach:"#F6D9A8", forest:"#3E6B23", rust:"#9c4a1a" },
+      fontFamily: { heading:["Nunito","system-ui","sans-serif"], body:["Inter","system-ui","sans-serif"] }
+    } } };
+  </script>
+  <link rel="stylesheet" href="css/custom.css" />
   <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🐾&lt;/text&gt;&lt;/svg&gt;" />
 </head>
-<body>
 
-  <!-- ===== Preloader ===== -->
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__mark">
-      <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
-        <path class="preloader__draw" d="M14 26c0-9 7-15 18-15s18 6 18 15c0 6-3 10-3 16 0 7-6 11-15 11s-15-4-15-11c0-6-3-10-3-16Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <span class="preloader__text">Animal Health Center</span>
-  </div>
+<body data-page="grooming" class="font-body bg-cream text-ink">
 
-  <!-- ===== Top bar ===== -->
-  <div class="topbar" id="topbar">
-    <div class="container topbar__inner">
-      <div class="topbar__left">
-        <span class="topbar__item"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg> 1300 N. Hwy. 59, Marshall, MN</span>
-        <span class="topbar__sep"></span>
-        <span class="topbar__item"><svg class="ico" viewBox="0 0 24 24"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22Zm1 11.6 4 2.3-.9 1.5L11 13V6h2Z"/></svg> Mon–Fri · 8am – 5:30pm</span>
-      </div>
-      <div class="topbar__right">
-        <span class="topbar__emergency"><span class="pulse"></span> Text us: (507) 828-9458</span>
-        <a class="topbar__phone" href="tel:+15075325000">(507) 532-5000</a>
+  <!-- ===== TOP BAR ===== -->
+  <div class="bg-ink text-cream/85 text-[13px]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-between gap-4">
+      <span class="hidden sm:flex items-center gap-2 min-w-0">
+        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-amber2 flex-none"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+        <span class="truncate">1300 N. Hwy 59, Marshall, MN</span>
+      </span>
+      <div class="flex items-center gap-4 ml-auto">
+        <span data-hours-badge class="hours-badge is-closed">Checking hours…</span>
+        <a href="tel:+15075325000" class="font-bold text-cream hover:text-amber2 transition-colors">(507) 532-5000</a>
       </div>
     </div>
   </div>
 
-  <!-- ===== Navigation ===== -->
-  <header class="nav" id="nav">
-    <div class="container nav__inner">
-      <a href="index.html" class="brand" aria-label="Animal Health Center home">
-        <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" width="40" height="40">
-            <path d="M14 26c0-9 7-15 18-15s18 6 18 15c0 6-3 10-3 16 0 7-6 11-15 11s-15-4-15-11c0-6-3-10-3-16Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-            <circle cx="25" cy="30" r="2.6" fill="currentColor"/>
-            <circle cx="39" cy="30" r="2.6" fill="currentColor"/>
-            <path d="M27 40c2 2 8 2 10 0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="brand__text">
-          <strong>Animal Health</strong>
-          <em>Center</em>
-        </span>
-      </a>
-      <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="index.html#about">About</a>
-        <a href="index.html#services">Store &amp; Services</a>
-        <a href="index.html#programs">Departments</a>
-        <a href="index.html#approach">How We Help</a>
-        <a href="index.html#team">Team</a>
-        <a href="index.html#contact" class="nav__cta">Visit Us</a>
+  <!-- ===== NAV ===== -->
+  <div class="h-[86px]" aria-hidden="true"></div>
+
+  <header data-site-header class="fixed left-1/2 -translate-x-1/2 z-40 w-[min(calc(100%-24px),1180px)] top-[50px]">
+    <div class="relative flex items-center justify-between gap-4 min-h-[64px] px-3 py-2 rounded-3xl bg-cream/30 backdrop-blur-md shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] ring-1 ring-ink/10">
+      <a href="index.html" class="flex items-center pl-1" aria-label="Animal Health Center home"><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-12 w-auto" /></a>
+      <nav class="hidden lg:flex items-center gap-1 text-[15px] font-bold text-ink/70" aria-label="Primary">
+        <a data-nav="about" href="about.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">About Us</a>
+        <a data-nav="resort" href="resort.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Pet Resort</a>
+        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Gift Shop</a>
+        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Livestock</a>
+        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Small Animal</a>
       </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="flex items-center gap-2">
+        <a data-book class="hidden sm:inline-flex btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a>
+        <button data-menu-toggle class="lg:hidden grid place-items-center w-11 h-11 rounded-2xl bg-white shadow-sm text-ink" aria-label="Open menu" aria-controls="navDropdown" aria-expanded="false">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile dropdown -->
+      <nav data-menu-drawer id="navDropdown" class="nav-dropdown lg:hidden absolute top-[calc(100%+10px)] right-0 w-[min(320px,calc(100vw-24px))] grid gap-1 p-3 rounded-3xl bg-cream/97 backdrop-blur-md shadow-[0_20px_60px_-20px_rgba(60,40,16,.5)] ring-1 ring-ink/10 text-base font-heading font-800 text-ink/80" aria-label="Mobile">
+        <a data-nav="about" href="about.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">About Us</a>
+        <a data-nav="resort" href="resort.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Pet Resort</a>
+        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Gift Shop</a>
+        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Livestock</a>
+        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Small Animal</a>
+        <a data-book class="btn btn--amber justify-center mt-2">Book the Pet Resort →</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <!-- ===== Page Hero ===== -->
-    <section class="page-hero">
-      <div class="container">
-        <p class="page-hero__eyebrow"><a href="index.html">Home</a> &rsaquo; Store &amp; Services &rsaquo; Pet Grooming</p>
-        <h1 class="page-hero__title">Pet Grooming</h1>
-        <p class="page-hero__sub">On-staff professional grooming for dogs and cats in Marshall, MN.</p>
-      </div>
-    </section>
 
-    <!-- ===== Main Content ===== -->
-    <section class="section">
-      <div class="container">
+  <!-- ===================== PAGE HERO ===================== -->
+  <section data-booknow-after class="sunrise relative overflow-hidden">
+    <div data-blob class="blob blob--teal w-[28rem] h-[28rem] -left-32 top-0"></div>
+    <div data-blob class="blob blob--peach w-[24rem] h-[24rem] right-[-6rem] top-20"></div>
+    <div class="soft-glow bg-amber2/25 w-[22rem] h-[22rem] left-1/2 -bottom-24"></div>
 
-        <p class="lead" data-reveal>
-          Our on-staff groomer Tira provides professional grooming services for both dogs and cats.
-          Whether your pet needs a full haircut, a simple bath and brush-out, or just a nail trim,
-          we'll have them looking and feeling their best.
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-20 flex items-center min-h-[70vh]">
+
+      <div class="relative z-10 max-w-lg">
+        <p data-hero-line class="inline-flex items-center gap-2 text-teal font-bold text-sm bg-white shadow-sm rounded-full px-4 py-2">
+          <span class="w-2 h-2 rounded-full bg-amber2"></span> The Grooming Tub
         </p>
-
-        <!-- Services -->
-        <div style="margin-top:2.5rem;">
-          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span> Services Offered</p>
-          <h2 class="h2" data-reveal data-delay="60">Everything your pet needs to look great.</h2>
-
-          <div class="page-cols" style="margin-top:1.6rem;" data-reveal data-delay="100">
-            <div class="page-col">
-              <h3>Grooming Services</h3>
-              <ul>
-                <li>Hair Cuts</li>
-                <li>Shave Downs</li>
-                <li>Bath</li>
-                <li>Brush &amp; Brush-out</li>
-                <li>Blowout</li>
-                <li>Nail Trim</li>
-              </ul>
-            </div>
-            <div class="page-col">
-              <h3>For dogs &amp; cats</h3>
-              <ul>
-                <li>All breeds and sizes welcome</li>
-                <li>Gentle, professional handling</li>
-                <li>On-site at Animal Health Center</li>
-                <li>Call to check availability</li>
-              </ul>
-            </div>
-          </div>
+        <h1 class="mt-6 font-heading display text-ink text-[3rem] leading-[.95] sm:text-6xl xl:text-7xl">
+          <span data-hero-line class="block">Bath, brush</span>
+          <span data-hero-line class="block">&amp; a <span class="text-teal">bow.</span></span>
+        </h1>
+        <p data-hero-line class="mt-6 text-ink/65 text-lg max-w-md">
+          Our in-house groomers bathe, brush, and tidy up dogs and cats — from a quick freshen-up
+          to a full clean-up. They know the regulars by name and tail wag.
+        </p>
+        <div data-hero-line class="mt-8 flex flex-wrap gap-3">
+          <a href="tel:+15075325000" class="btn btn--teal">Call to book grooming</a>
+          <a href="#what-we-do" class="btn btn--ghost">What's included</a>
         </div>
-
-        <!-- Pricing note -->
-        <div class="req-box" data-reveal style="margin-top:2rem;">
-          <strong>Pricing:</strong> Grooming prices vary by breed, coat type, and service. Call us at
-          <a href="tel:+15075325000" style="color:var(--forest);font-weight:600;">(507) 532-5000</a>
-          and we'll give you a quote and get you scheduled.
-        </div>
-
-        <!-- How to book -->
-        <div style="margin-top:3rem;">
-          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span> How to Book</p>
-          <h2 class="h2" data-reveal data-delay="60">Just give us a call.</h2>
-          <p data-reveal data-delay="80" style="color:var(--muted);max-width:58ch;">
-            To schedule a grooming appointment, call Animal Health Center at
-            <strong style="color:var(--forest);">(507) 532-5000</strong> during store hours.
-            We'll find a time that works for you and your pet.
-          </p>
-          <p class="eyebrow" data-reveal data-delay="100" style="margin-top:1rem;">
-            Store hours: Mon–Fri 8am–5:30pm · Sat 8am–12pm
-          </p>
-        </div>
-
-        <!-- CTA -->
-        <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:1rem;" data-reveal>
-          <a href="tel:+15075325000" class="btn btn--gold">Call to Book <span class="btn__arrow">→</span></a>
-          <a href="index.html#services" style="color:var(--green-3);font-weight:600;text-decoration:none;">← Back to Store &amp; Services</a>
-        </div>
-
       </div>
-    </section>
+
+      <div class="hidden lg:block absolute right-8 bottom-0 pointer-events-none" aria-hidden="true">
+        <span class="ground-shadow"></span>
+        <img src="img/transparent/dog-groomed.png" alt="A freshly groomed golden retriever with a bow" class="cutout h-[68vh] w-auto" />
+        <span class="absolute top-[8%] left-[-70px] bg-amber2 text-ink font-heading font-900 text-sm px-3.5 py-2 rounded-2xl shadow-lg rotate-[-6deg] pointer-events-auto">Fresh from the tub</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AT-A-GLANCE STRIP ===================== -->
+  <section class="bg-white border-y border-ink/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center" data-anim="cards">
+      <div><p class="font-heading display text-3xl text-teal" data-countup data-to="25" data-suffix="+">25+</p><p class="text-ink/55 text-sm">years serving the area</p></div>
+      <div><p class="font-heading display text-3xl text-teal">2</p><p class="text-ink/55 text-sm">species welcome — dogs &amp; cats</p></div>
+      <div><p class="font-heading display text-3xl text-teal">4</p><p class="text-ink/55 text-sm">core grooming services</p></div>
+      <div><p class="font-heading display text-3xl text-teal">1</p><p class="text-ink/55 text-sm">in-house tub, no drop &amp; wait elsewhere</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT WE DO ===================== -->
+  <section id="what-we-do" class="py-20 sm:py-28 relative overflow-hidden scroll-mt-24">
+    <div data-blob class="blob blob--peach w-[22rem] h-[22rem] right-[-7rem] top-10"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div class="relative flex items-end justify-center" data-anim="up">
+        <span class="ground-shadow"></span>
+        <img src="img/transparent/dog-and-cat.png" alt="A groomed dog and cat" class="w-full max-w-lg h-auto rounded-3xl shadow-lg" />
+        <span class="absolute bottom-4 -right-2 sm:right-4 bg-white shadow-lg rounded-2xl px-4 py-3 rotate-[3deg]">
+          <span class="block font-heading font-900 text-ink">On-staff groomers</span>
+          <span class="block text-ink/55 text-sm">dogs &amp; cats welcome</span>
+        </span>
+      </div>
+      <div data-anim="up">
+        <span class="service-kicker bg-teal/10 text-teal">What's included</span>
+        <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">Every visit<br />covers the basics.</h2>
+        <p class="mt-4 text-ink/65 text-lg">No surprise add-ons — every groom starts from the same solid checklist, then we tailor it to your pet's coat and condition.</p>
+        <ul class="mt-6 grid sm:grid-cols-2 gap-3">
+          <li class="feature-li">Bathing &amp; blow-dry</li>
+          <li class="feature-li">Brush-outs &amp; de-shedding</li>
+          <li class="feature-li">Nail trims &amp; ear cleaning</li>
+          <li class="feature-li">Cats welcome too</li>
+        </ul>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="tel:+15075325000" class="btn btn--teal">Call to book grooming</a>
+        </div>
+        <p class="mt-3 text-sm text-ink/45">Grooming pricing varies by size, coat &amp; condition — give us a call for a quick quote.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="paw-divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
+
+  <!-- ===================== WHY HERE ===================== -->
+  <section class="py-20 sm:py-28 bg-white relative overflow-hidden">
+    <div class="soft-glow bg-teal2/15 w-[26rem] h-[26rem] -left-20 top-10"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl" data-anim="up">
+        <span class="service-kicker bg-teal/10 text-teal">Why groom here</span>
+        <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">One stop, not<br />two appointments.</h2>
+        <p class="mt-4 text-ink/65 text-lg">Pick up food, toys, or boarding supplies on the same trip — your pet's groomer, store, and resort are all under one roof in Marshall.</p>
+      </div>
+      <div class="mt-10 grid sm:grid-cols-3 gap-6" data-anim="cards">
+        <div class="card p-6 bg-cream">
+          <h3 class="font-heading font-800 text-lg">Regulars welcome</h3>
+          <p class="mt-2 text-ink/65 text-sm">Our groomers know returning pets by name — and by what makes them comfortable.</p>
+        </div>
+        <div class="card p-6 bg-cream">
+          <h3 class="font-heading font-800 text-lg">Dogs &amp; cats</h3>
+          <p class="mt-2 text-ink/65 text-sm">Most grooming shops skip cats. Ours doesn't.</p>
+        </div>
+        <div class="card p-6 bg-cream">
+          <h3 class="font-heading font-800 text-lg">Pair it with a stay</h3>
+          <p class="mt-2 text-ink/65 text-sm">Boarding or daycare guests can roll straight into a grooming slot before pickup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="relative overflow-hidden bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+      <div class="rounded-[2rem] bg-gradient-to-br from-amber2 to-amber text-ink p-10 sm:p-16 text-center relative overflow-hidden dotgrid">
+        <div class="relative" data-anim="up">
+          <h2 class="font-heading display text-4xl sm:text-5xl">Ready for a<br />fresh, clean coat?</h2>
+          <p class="mt-4 text-ink/75 text-lg max-w-xl mx-auto">Give us a call — we'll get your dog or cat on the books and quote you over the phone.</p>
+          <div class="mt-8 flex flex-wrap gap-3 justify-center"><a href="tel:+15075325000" class="btn btn--ink">Call (507) 532-5000</a><a data-book class="btn btn--ghost">Book the Pet Resort →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <a href="index.html" class="brand brand--light">
-          <span class="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 64 64" width="38" height="38">
-              <path d="M14 26c0-9 7-15 18-15s18 6 18 15c0 6-3 10-3 16 0 7-6 11-15 11s-15-4-15-11c0-6-3-10-3-16Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-              <circle cx="25" cy="30" r="2.6" fill="currentColor"/>
-              <circle cx="39" cy="30" r="2.6" fill="currentColor"/>
-              <path d="M27 40c2 2 8 2 10 0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="brand__text"><strong>Animal Health</strong><em>Center</em></span>
-        </a>
-        <p>Southwest Minnesota's one stop shop for all your animal needs — both large and small. Locally owned in Marshall, MN.</p>
-        <div class="footer__social" aria-label="Social links">
-          <a href="https://www.facebook.com/animalhealthcentermn/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l.5-3.5H13V8.3c0-1 .3-1.7 1.8-1.7H17V3.4A26 26 0 0 0 14.6 3C12 3 10 4.6 10 7.7v2.8H7V14h3v8Z"/></svg></a>
-        </div>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-ink text-cream/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-16 w-auto brightness-0 invert" /></div>
+        <p class="mt-4 text-sm">Southwest Minnesota's one-stop shop for pets and livestock — big animals &amp; small. Locally owned in Marshall, MN.</p>
+        <a href="https://www.facebook.com/animalhealthcentermn/" target="_blank" rel="noopener" aria-label="Facebook" class="mt-4 inline-grid place-items-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 transition-colors"><svg viewBox="0 0 24 24" class="w-5 h-5 fill-cream"><path d="M13 22v-8h3l.5-3.5H13V8.3c0-1 .3-1.7 1.8-1.7H17V3.4A26 26 0 0 0 14.6 3C12 3 10 4.6 10 7.7v2.8H7V14h3v8Z"/></svg></a>
       </div>
-      <div class="footer__col">
-        <h4>Store &amp; Services</h4>
-        <a href="boarding.html">Pet Resort — Boarding</a>
-        <a href="daycare.html">Doggy Daycare</a>
-        <a href="grooming.html">Pet Grooming</a>
-        <a href="livestock.html">Large Animal Supplies</a>
-        <a href="pets.html">Pet Food &amp; Supplies</a>
-      </div>
-      <div class="footer__col">
-        <h4>Company</h4>
-        <a href="index.html#about">About Us</a>
-        <a href="index.html#programs">Who We're Shopping For</a>
-        <a href="index.html#approach">How We Help</a>
-        <a href="index.html#team">Our Team</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
-      <div class="footer__col footer__col--contact">
-        <h4>Visit / Call</h4>
-        <p>1300 N. Hwy. 59<br />Marshall, MN 56258</p>
-        <a href="tel:+15075325000" class="footer__phone">(507) 532-5000</a>
-        <span class="footer__emergency"><span class="pulse"></span> Open Saturdays 8–12</span>
-      </div>
+      <div><h4 class="font-heading font-800 text-cream">Explore</h4><ul class="mt-3 space-y-2 text-sm"><li><a href="about.html" class="hover:text-amber2 transition-colors">About Us</a></li><li><a href="resort.html" class="hover:text-amber2 transition-colors">Pet Resort</a></li><li><a href="grooming.html" class="hover:text-amber2 transition-colors">Grooming</a></li><li><a href="livestock.html" class="hover:text-amber2 transition-colors">Livestock</a></li><li><a href="small-animal.html" class="hover:text-amber2 transition-colors">Small Animal</a></li></ul></div>
+      <div><h4 class="font-heading font-800 text-cream">Hours</h4><ul class="mt-3 space-y-1.5 text-sm"><li class="flex justify-between gap-4"><span>Mon – Fri</span><span class="text-cream">8:00am – 5:30pm</span></li><li class="flex justify-between gap-4"><span>Saturday</span><span class="text-cream">8:00am – 12:00pm</span></li><li class="flex justify-between gap-4"><span>Sunday</span><span class="text-cream/50">Closed</span></li></ul><span data-hours-badge class="hours-badge is-closed mt-3">Checking hours…</span></div>
+      <div><h4 class="font-heading font-800 text-cream">Visit / Call</h4><p class="mt-3 text-sm">1300 N. Hwy 59<br />Marshall, MN 56258</p><a href="tel:+15075325000" class="mt-2 inline-block font-heading font-800 text-cream text-lg hover:text-amber2 transition-colors">(507) 532-5000</a><a data-book class="mt-4 btn btn--amber !py-2.5 !px-4 !text-sm">Book the Pet Resort →</a></div>
     </div>
-    <div class="container footer__bottom">
-      <p>© <span id="year"></span> Animal Health Center. All rights reserved.</p>
-      <p class="footer__credit">For animals big &amp; small · Built with care.</p>
-    </div>
+    <div class="border-t border-white/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-between gap-2 text-xs text-cream/50"><p>© <span data-year>2026</span> Animal Health Center &amp; Pet Resort. All rights reserved.</p><p>For animals big &amp; small.</p></div></div>
   </footer>
 
-  <button class="totop" id="toTop" aria-label="Back to top">↑</button>
-  <div class="progress" id="progress" aria-hidden="true"></div>
-  <script src="js/main.js" defer></script>
+  <!-- ===================== STICKY BOOK BAR ===================== -->
+  <div data-booknow-bar class="booknow-bar">
+    <div class="bg-ink text-cream md:rounded-2xl md:shadow-2xl">
+      <div class="max-w-7xl md:max-w-none mx-auto px-4 py-3 flex items-center justify-between gap-3 md:gap-6">
+        <span class="hidden sm:block font-heading font-800 text-sm">Ready when you are.</span>
+        <div class="flex items-center gap-2.5 ml-auto"><a data-book class="btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a><a href="tel:+15075325000" class="btn !py-2.5 !px-4 !text-sm bg-white/10 text-cream">Call Us</a></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/widgets.js" defer></script>
+  <script src="js/animations.js" defer></script>
 </body>
 </html>

@@ -1,48 +1,63 @@
-# Animal Health Center
+# Animal Health Center & Pet Resort
 
-A modern, fully responsive marketing site for a cattle &amp; livestock veterinary
-practice — built with **plain HTML, CSS, and JavaScript** (no frameworks, no build step).
+Marketing website for **Animal Health Center & Pet Resort** in Marshall, MN — Southwest
+Minnesota's one-stop shop for pets and livestock: a full retail store, a pet resort for
+boarding and daycare, on-staff grooming, and an in-store gift shop.
 
-> Healthier herds. Stronger future.
+A fast, static, multi-page site. No build step, no framework, no dependencies to install.
 
-## ✨ Highlights
+## Tech
 
-- **Premium design system** — pasture-green + prairie-gold palette, `Fraunces`
-  display serif paired with `Manrope`, consistent spacing, radii, and shadows.
-- **Cinematic hero** with layered gradient veil, grain texture, animated zoom,
-  and subtle scroll parallax.
-- **Scroll-reveal animations** via `IntersectionObserver` with staggered delays.
-- **Animated stat counters** and metric bars that fill on view.
-- **Sticky, blurred navigation** with an accessible slide-in mobile menu.
-- **Auto-playing testimonial carousel** with dots and pause-on-hover.
-- **Programs accordion**, four-step approach timeline, services & team grids.
-- **Floating-label contact form** with inline validation and a demo submit flow.
-- **Scroll-progress bar**, back-to-top button, and a brand preloader.
-- **Accessible &amp; performant** — semantic markup, keyboard support,
-  `prefers-reduced-motion` honored, fully responsive down to small phones.
+- **HTML + CSS + JavaScript** (vanilla)
+- **Tailwind** via CDN for utility classes
+- **GSAP + ScrollTrigger** via CDN for scroll animations
+- **Nunito** (headings) + **Inter** (body) via Google Fonts
 
-## 📁 Structure
+## Project structure
 
 ```
-index.html        # All page sections (semantic markup)
-css/styles.css    # Design system + components + responsive rules
-js/main.js        # Nav, reveals, counters, carousel, parallax, form
+.
+├── index.html              # Homepage
+├── about.html              # About + team + contact form
+├── resort.html             # Pet Resort (boarding & daycare)
+├── shop.html               # Gift Shop
+├── livestock.html          # Livestock supplies
+├── small-animal.html       # Dog & cat supplies
+├── grooming.html           # Grooming
+├── services.html           # Services overview
+├── promotions.html         # Promotions
+├── css/
+│   └── custom.css          # Design system + all custom components
+├── js/
+│   ├── widgets.js          # Interactions (menu, hours badge, booking, forms, …)
+│   └── animations.js       # GSAP scroll reveals & motion
+├── img/                    # Site imagery (img/transparent/ holds cutout PNGs)
+└── _archive/               # Previous designs & source material (not part of the site)
 ```
 
-## 🚀 Run it
+Shared chrome (top bar, nav, footer, sticky book bar) is duplicated inline in each page —
+there is no templating, so nav/footer edits must be applied across all pages.
 
-It's a static site — just open `index.html`, or serve the folder:
+## Run locally
+
+Serve the folder so relative paths resolve correctly:
 
 ```bash
 python3 -m http.server 8000
-# then visit http://localhost:8000
+# then open http://localhost:8000
 ```
 
-## 🛠 Customize
+Opening `index.html` directly in a browser also works for a quick look.
 
-- **Colors / type** — edit the CSS custom properties in `:root` (`css/styles.css`).
-- **Content** — section copy lives directly in `index.html`.
-- **Photography** — image URLs are referenced in `css/styles.css`; swap them for
-  your own ranch/herd photography. Each image has a solid color fallback.
-- **Contact form** — `js/main.js` currently simulates submission; wire the
-  `submit` handler to your backend or a form service.
+## Deploy
+
+It is a static site: upload the repository root (the HTML files plus `css/`, `js/`, `img/`)
+to any static host (Netlify, Vercel, GitHub Pages, S3, traditional shared hosting, etc.).
+No build or server runtime is required. The `_archive/` folder does not need to be deployed.
+
+## Notes
+
+- **Booking** uses an external KennelBooker link, wired at runtime by `js/widgets.js`.
+- **The contact form** (on `about.html`) is currently a front-end demo and does not send
+  anywhere; connect it to a backend or form service to go live.
+- Page copy intentionally avoids em/en dashes; keep that style when editing content.

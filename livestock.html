@@ -3,241 +3,398 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#12281f" />
-  <title>Large Animal Supplies | Animal Health Center · Marshall, MN</title>
-  <meta name="description" content="Large animal supplies at Animal Health Center in Marshall, MN. Vaccines, wormers, feed, implants, VFD products, syringes, PPE, disinfectants, and more for cattle, swine, equine, sheep and goats." />
-  <meta property="og:title" content="Large Animal Supplies | Animal Health Center" />
-  <meta property="og:description" content="Southwest Minnesota's one stop shop for livestock supplies. Vaccines, wormers, feed, implants and more for cattle, swine, equine, sheep & goats." />
+  <meta name="theme-color" content="#FBF6EC" />
+  <title>Livestock Supplies · Animal Health Center, Marshall MN</title>
+  <meta name="description" content="Cattle, swine, equine, sheep and goat supplies in Marshall, MN. Vaccines, wormers, feed, supplements, VFD products and a large-animal vet on staff." />
+  <meta property="og:title" content="Livestock Supplies · Animal Health Center &amp; Pet Resort" />
+  <meta property="og:description" content="Everything your operation needs, under one roof in Marshall, MN." />
   <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { cream:"#FBF6EC", sand:"#EFE3CE", ink:"#20180F", teal:"#1B6B6B", teal2:"#2c9494",
+        amber:"#C17F24", amber2:"#E6A93F", peach:"#F6D9A8", forest:"#3E6B23", rust:"#9c4a1a" },
+      fontFamily: { heading:["Nunito","system-ui","sans-serif"], body:["Inter","system-ui","sans-serif"] }
+    } } };
+  </script>
+  <link rel="stylesheet" href="css/custom.css" />
   <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🐾&lt;/text&gt;&lt;/svg&gt;" />
 </head>
-<body>
 
-  <!-- ===== Preloader ===== -->
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__mark">
-      <svg viewBox="0 0 64 64" width="56" height="56" aria-hidden="true">
-        <path class="preloader__draw" d="M14 26c0-9 7-15 18-15s18 6 18 15c0 6-3 10-3 16 0 7-6 11-15 11s-15-4-15-11c0-6-3-10-3-16Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <span class="preloader__text">Animal Health Center</span>
-  </div>
+<body data-page="livestock" class="font-body bg-cream text-ink">
 
-  <!-- ===== Top bar ===== -->
-  <div class="topbar" id="topbar">
-    <div class="container topbar__inner">
-      <div class="topbar__left">
-        <span class="topbar__item"><svg class="ico" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg> 1300 N. Hwy. 59, Marshall, MN</span>
-        <span class="topbar__sep"></span>
-        <span class="topbar__item"><svg class="ico" viewBox="0 0 24 24"><path d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22Zm1 11.6 4 2.3-.9 1.5L11 13V6h2Z"/></svg> Mon–Fri · 8am – 5:30pm</span>
-      </div>
-      <div class="topbar__right">
-        <span class="topbar__emergency"><span class="pulse"></span> Text us: (507) 828-9458</span>
-        <a class="topbar__phone" href="tel:+15075325000">(507) 532-5000</a>
+  <!-- ===== TOP BAR ===== -->
+  <div class="bg-ink text-cream/85 text-[13px]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-between gap-4">
+      <span class="hidden sm:flex items-center gap-2 min-w-0">
+        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-amber2 flex-none"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+        <span class="truncate">1300 N. Hwy 59, Marshall, MN</span>
+      </span>
+      <div class="flex items-center gap-4 ml-auto">
+        <span data-hours-badge class="hours-badge is-closed">Checking hours…</span>
+        <a href="tel:+15075325000" class="font-bold text-cream hover:text-amber2 transition-colors">(507) 532-5000</a>
       </div>
     </div>
   </div>
 
-  <!-- ===== Navigation ===== -->
-  <header class="nav" id="nav">
-    <div class="container nav__inner">
-      <a href="index.html" class="brand" aria-label="Animal Health Center home">
-        <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" width="40" height="40">
-            <path d="M14 26c0-9 7-15 18-15s18 6 18 15c0 6-3 10-3 16 0 7-6 11-15 11s-15-4-15-11c0-6-3-10-3-16Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-            <circle cx="25" cy="30" r="2.6" fill="currentColor"/>
-            <circle cx="39" cy="30" r="2.6" fill="currentColor"/>
-            <path d="M27 40c2 2 8 2 10 0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="brand__text">
-          <strong>Animal Health</strong>
-          <em>Center</em>
-        </span>
-      </a>
-      <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="index.html#about">About</a>
-        <a href="index.html#services">Store &amp; Services</a>
-        <a href="index.html#programs">Departments</a>
-        <a href="index.html#approach">How We Help</a>
-        <a href="index.html#team">Team</a>
-        <a href="index.html#contact" class="nav__cta">Visit Us</a>
+  <!-- ===== NAV (floats over the hero photo, like the home page) ===== -->
+  <header data-site-header class="fixed left-1/2 -translate-x-1/2 z-40 w-[min(calc(100%-24px),1180px)] top-[50px]">
+    <div class="relative flex items-center justify-between gap-4 min-h-[64px] px-3 py-2 rounded-3xl bg-cream/30 backdrop-blur-md shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] ring-1 ring-ink/10">
+      <a href="index.html" class="flex items-center pl-1" aria-label="Animal Health Center home"><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-12 w-auto" /></a>
+      <nav class="hidden lg:flex items-center gap-1 text-[15px] font-bold text-ink/70" aria-label="Primary">
+        <a data-nav="about" href="about.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">About Us</a>
+        <a data-nav="resort" href="resort.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Pet Resort</a>
+        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Gift Shop</a>
+        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Livestock</a>
+        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Small Animal</a>
       </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="flex items-center gap-2">
+        <a data-book class="hidden sm:inline-flex btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a>
+        <button data-menu-toggle class="lg:hidden grid place-items-center w-11 h-11 rounded-2xl bg-white shadow-sm text-ink" aria-label="Open menu" aria-controls="navDropdown" aria-expanded="false">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <!-- Mobile dropdown -->
+      <nav data-menu-drawer id="navDropdown" class="nav-dropdown lg:hidden absolute top-[calc(100%+10px)] right-0 w-[min(320px,calc(100vw-24px))] grid gap-1 p-3 rounded-3xl bg-cream/97 backdrop-blur-md shadow-[0_20px_60px_-20px_rgba(60,40,16,.5)] ring-1 ring-ink/10 text-base font-heading font-800 text-ink/80" aria-label="Mobile">
+        <a data-nav="about" href="about.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">About Us</a>
+        <a data-nav="resort" href="resort.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Pet Resort</a>
+        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Gift Shop</a>
+        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Livestock</a>
+        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Small Animal</a>
+        <a data-book class="btn btn--amber justify-center mt-2">Book the Pet Resort →</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <!-- ===== Page Hero ===== -->
-    <section class="page-hero">
-      <div class="container">
-        <p class="page-hero__eyebrow"><a href="index.html">Home</a> &rsaquo; Departments &rsaquo; Large Animal Supplies</p>
-        <h1 class="page-hero__title">Large Animal Supplies</h1>
-        <p class="page-hero__sub">Vaccines, wormers, feed, implants, and more for cattle, swine, equine, sheep &amp; goats — name brands you trust.</p>
-      </div>
-    </section>
 
-    <!-- ===== Main Content ===== -->
-    <section class="section">
-      <div class="container">
+  <!-- ===================== HERO ===================== -->
+  <section data-hero data-booknow-after class="hero-slideshow relative overflow-hidden">
+    <div class="hero-slideshow__slides absolute inset-0">
+      <div class="hero-slideshow__slide is-active" style="background-image:url('img/ls-hero.jpg')"></div>
+    </div>
+    <div class="hero-slideshow__scrim absolute inset-0"></div>
 
-        <p class="lead" data-reveal>
-          We offer a large variety of general livestock supplies for cattle, swine, equine, sheep, and goats —
-          and much more. Stop in and our knowledgeable staff will help you find exactly what you need.
-          If we don't have it in stock, we can probably get it.
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center min-h-[84vh]">
+      <div class="w-full max-w-2xl pt-[150px] pb-16">
+        <p data-hero-line class="inline-flex items-center gap-2 text-amber2 font-bold text-sm bg-white/15 ring-1 ring-white/25 backdrop-blur-sm rounded-full px-4 py-2">
+          <span class="w-2 h-2 rounded-full bg-amber2"></span> For the farm and the ranch
         </p>
-
-        <!-- Vaccines & Medications -->
-        <div style="margin-top:2.5rem;">
-          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span> Vaccines &amp; Medications</p>
-          <h2 class="h2" data-reveal data-delay="60">Top brands for cattle, swine &amp; more.</h2>
-
-          <div class="page-cols" style="margin-top:1.6rem;" data-reveal data-delay="100">
-            <div class="page-col">
-              <h3>Cattle vaccines</h3>
-              <div class="brand-tags">
-                <span class="brand-tag">Merck</span>
-                <span class="brand-tag">Zoetis</span>
-                <span class="brand-tag">Elanco</span>
-                <span class="brand-tag">Boehringer-Ingelheim</span>
-              </div>
-              <ul>
-                <li>Wormers — feed grade, drench, pour-on, injectable</li>
-                <li>Implants — Revalor, Synovex, Ralgro, Encore, Compudose</li>
-                <li>VFD products — CTC (10g, 20g, 50g), Tylan 10, Neo-Terra, others on request</li>
-                <li>Scour medications &amp; prescription medications</li>
-              </ul>
-            </div>
-            <div class="page-col">
-              <h3>Swine vaccines</h3>
-              <ul>
-                <li>PRRS, Ileitis, Salmonella</li>
-                <li>Erysipelas, Circo, Mycoplasma, Parvo</li>
-                <li>Disinfectants — Intervention, Synergize, BarnStorm, Tek-Trol</li>
-                <li>Feed — Denagard (VFD), Form-A-Feed, T.E.N. App-A-Tite</li>
-                <li>Supplements — Form-A-Feed, Bluelite, TechMix products</li>
-              </ul>
-            </div>
-          </div>
+        <h1 class="mt-6 font-heading display text-white text-[3.2rem] leading-[.95] sm:text-6xl xl:text-7xl">
+          <span data-hero-line class="block">Livestock</span>
+          <span data-hero-line class="block italic text-amber2">supplies.</span>
+        </h1>
+        <p data-hero-line class="mt-6 text-white/90 text-xl max-w-xl font-heading font-800">
+          Everything your operation needs, under one roof in Marshall.
+        </p>
+        <p data-hero-line class="mt-3 text-white/80 text-lg max-w-xl">
+          From cattle vaccines to swine feed to equine tack, Animal Health Center has been serving Southwest Minnesota farms and ranches for decades.
+        </p>
+        <div data-hero-line class="mt-8 flex flex-wrap gap-3">
+          <a href="#departments" class="btn btn--amber">Browse departments →</a>
+          <a href="tel:+15075325000" class="btn btn--ghost-light">Call (507) 532-5000</a>
         </div>
-
-        <!-- Medical / Injection Supplies -->
-        <div style="margin-top:3rem;">
-          <p class="eyebrow" data-reveal><span class="eyebrow__line"></span> Medical &amp; Injection Supplies</p>
-          <div class="cards" style="margin-top:1.4rem;">
-
-            <article class="card" data-reveal>
-              <div class="card__ico"><svg viewBox="0 0 24 24"><path d="M19 8h-2V6a5 5 0 0 0-10 0v2H5a1 1 0 0 0-1 1v9a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V9a1 1 0 0 0-1-1ZM9 6a3 3 0 0 1 6 0v2H9Zm4 8.7V17a1 1 0 0 1-2 0v-2.3a2 2 0 1 1 2 0Z"/></svg></div>
-              <h3>Syringes &amp; Needles</h3>
-              <p>Plastic syringes 1cc–60cc. Automatic syringes: AllFlex, Hauptner, PrimaTech, Ideal — plus replacement parts. Needles 14g–20g aluminum hub; detectable needles available.</p>
-            </article>
-
-            <article class="card" data-reveal data-delay="80">
-              <div class="card__ico"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5Zm-1 13-4-4 1.4-1.4L11 12.2l4.6-4.6L17 9Z"/></svg></div>
-              <h3>Personal Protective Equipment</h3>
-              <p>Disposable boots (Treader, Agri-Pro). Disposable coveralls — full suit with zipper, sizes M–3XL. Nitrile and latex gloves, sizes S–XXL.</p>
-            </article>
-
-            <article class="card" data-reveal data-delay="160">
-              <div class="card__ico"><svg viewBox="0 0 24 24"><path d="M11 2 4 13h6l-1 9 8-12h-6Z"/></svg></div>
-              <h3>Animal Handling</h3>
-              <p>Prods &amp; sort sticks — HotShot, SharpShock, Magrath, rattle paddles, Kane paddles, Kane rattle cans, sorting boards.</p>
-            </article>
-
-            <article class="card" data-reveal data-delay="240">
-              <div class="card__ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.2L4 17.2Zm4 4v2h8V8Zm0 4v2h5v-2Z"/></svg></div>
-              <h3>Marking &amp; ID</h3>
-              <p>Marking paints in sticks, aerosol, and concentrated formula. Marking supplies for swine — twist paint sticks, Sprayolo.</p>
-            </article>
-
-            <article class="card" data-reveal data-delay="320">
-              <div class="card__ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5a3 3 0 0 1 3 3c0 2-3 2-3 5h-2c0-3 3-3 3-5a1 1 0 0 0-2 0H9a3 3 0 0 1 3-3Zm-1 11h2v2h-2Z"/></svg></div>
-              <h3>Sanitation &amp; Disinfectants</h3>
-              <p>Rescue, Intervention, Tektrol, Synergize, Chlorhexidine, BarnStorm, FreshStart, Vikron S. Motomco pest control products.</p>
-            </article>
-
-            <article class="card" data-reveal data-delay="400">
-              <div class="card__ico"><svg viewBox="0 0 24 24"><path d="M3 13h2l3 6 4-14 3 9h5v2h-6l-2-6-4 13-4-8H3Z"/></svg></div>
-              <h3>Feed, Supplements &amp; Calf Care</h3>
-              <p>Form-A-Feed &amp; Purina feeds. Loose &amp; block salt, Tracer, Rangeland, lick tubs. Calf jackets, CIDRs, colostrum replacers &amp; supplements, calf milk replacer, OB &amp; latex gloves, dehorning supplies. Vetericyn, Banixx wound care, bedding pellets &amp; wood shavings.</p>
-            </article>
-
-          </div>
-        </div>
-
-        <div class="req-box" data-reveal style="margin-top:2.5rem;">
-          <strong>Don't see what you need?</strong> If we don't have it in stock, we can probably get it — just ask.
-          Call us at <a href="tel:+15075325000" style="color:var(--forest);font-weight:600;">(507) 532-5000</a> or stop in at 1300 N. Hwy. 59, Marshall, MN.
-        </div>
-
-        <!-- CTA -->
-        <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:1rem;" data-reveal>
-          <a href="tel:+15075325000" class="btn btn--gold">Call Us <span class="btn__arrow">→</span></a>
-          <a href="index.html#contact" class="btn btn--dark">Contact Us</a>
-          <a href="index.html#services" style="color:var(--green-3);font-weight:600;text-decoration:none;">← Back to Store &amp; Services</a>
-        </div>
-
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- ===================== DEPARTMENTS (tabbed switcher / mobile accordion) ===================== -->
+  <section id="departments" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="max-w-3xl" data-anim="up">
+        <span class="service-kicker bg-forest/12 text-forest">Departments</span>
+        <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">Pick your animal. <span class="italic text-forest">See the whole department.</span></h2>
+        <p class="mt-4 text-ink/65 text-lg">Choose a department to see everything we stock for it, laid out like a feed store catalog. On a phone, tap a department to open it.</p>
+      </div>
+
+      <div class="dept-switcher mt-10" data-widget="dept-switcher" data-default="cattle">
+
+        <!-- Desktop tab row -->
+        <div class="dept-tabs" role="tablist" aria-label="Livestock departments" data-anim="up">
+          <button type="button" class="dept-tab" role="tab" data-dept-tab="cattle">Cattle</button>
+          <button type="button" class="dept-tab" role="tab" data-dept-tab="swine">Swine</button>
+          <button type="button" class="dept-tab" role="tab" data-dept-tab="equine">Equine</button>
+          <button type="button" class="dept-tab" role="tab" data-dept-tab="sheep-goats">Sheep and Goats</button>
+          <button type="button" class="dept-tab" role="tab" data-dept-tab="general">General Livestock</button>
+        </div>
+
+        <div class="mt-6 lg:mt-8">
+
+          <!-- ===== CATTLE ===== -->
+          <div class="dept-panel" data-dept-panel="cattle">
+            <button type="button" class="dept-acc-head" data-dept-acc="cattle" aria-expanded="false">
+              <span>Cattle</span>
+              <svg class="dept-acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dept-panel__body">
+              <div class="grid lg:grid-cols-[minmax(0,18rem)_1fr] gap-8 lg:gap-12 items-start">
+                <div data-anim="up">
+                  <span class="service-kicker bg-amber2/15 text-amber">Cattle</span>
+                  <p class="mt-3 text-ink/65 text-lg">One of our largest and most stocked departments. Whether you are running a cow-calf operation or finishing cattle, we carry what you need to keep your herd healthy and productive.</p>
+                  <img src="img/ls-cattle.jpg" alt="Cattle on pasture with ear tags" class="mt-6 rounded-[26px] shadow-lg w-full object-cover aspect-[4/3] ring-1 ring-ink/5" loading="lazy" />
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4" data-anim="cards">
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Vaccines</h3><p class="prod-block__p">Merck, Zoetis, Elanco, Boehringer-Ingelheim. Merck refrigerated vaccines kept in stock. If you need a specific vaccine not on the shelf, ask us and we will do our best to get it.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Wormers</h3><p class="prod-block__p">Feed grade, drench, pour-on, and injectable options available.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Feed</h3><p class="prod-block__p">Form-A-Feed and Purina.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Supplements</h3><p class="prod-block__p">Loose and block salt, Tracer, Rangeland, Form-A-Feed lick tubs.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Implants</h3><p class="prod-block__p">Revalor, Synovex, Ralgro, Encore, Compudose.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Show Supplies</h3><p class="prod-block__p">Sullivan Show Products for exhibition cattle.</p></div>
+
+                  <!-- VFD callout — has a legal component, kept clear and prominent -->
+                  <div class="vfd-block sm:col-span-2">
+                    <div class="flex items-center gap-2.5">
+                      <svg viewBox="0 0 24 24" class="w-5 h-5 text-amber flex-none" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+                      <h3 class="font-heading font-900 text-ink text-base">VFD Products</h3>
+                    </div>
+                    <p class="mt-1.5 text-ink/75 text-sm">CTC (10g, 20g, 50g), Tylan 10, Neo-Terra, and others available on request. We provide VFDs for our clients. <strong class="text-ink">If you are purchasing VFD products elsewhere, you must bring a valid VFD from your veterinarian.</strong></p>
+                  </div>
+
+                  <div class="prod-block prod-block--compact sm:col-span-2"><h3 class="prod-block__h">General Cattle Supplies</h3><p class="prod-block__p">Calf jackets, CIDRs, calf care products, colostrum replacers and supplements, calf milk replacer, OB and latex gloves, dehorning supplies, scour medications, and prescription medications.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SWINE ===== -->
+          <div class="dept-panel" data-dept-panel="swine">
+            <button type="button" class="dept-acc-head" data-dept-acc="swine" aria-expanded="false">
+              <span>Swine</span>
+              <svg class="dept-acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dept-panel__body">
+              <div class="grid lg:grid-cols-[minmax(0,18rem)_1fr] gap-8 lg:gap-12 items-start">
+                <div data-anim="up">
+                  <span class="service-kicker bg-teal/10 text-teal">Swine</span>
+                  <p class="mt-3 text-ink/65 text-lg">From vaccines to disinfectants to VFD feed products, we carry what pork producers in Southwest Minnesota rely on.</p>
+                  <img src="img/ls-swine.jpg" alt="A young pig on straw bedding" class="mt-6 rounded-[26px] shadow-lg w-full object-cover aspect-[4/3] ring-1 ring-ink/5" loading="lazy" />
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4" data-anim="cards">
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Vaccines</h3><p class="prod-block__p">PRRS, Ileitis, Salmonella, Erysipelas, Circo, Mycoplasma, Parvo.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Supplements</h3><p class="prod-block__p">Form-A-Feed, Bluelite, Techmix products.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Disinfectants</h3><p class="prod-block__p">Intervention, Synergize, Barn Storm, Tek-Trol.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Marking Supplies</h3><p class="prod-block__p">Paint sticks, twist paint sticks, aerosol, Sprayolo.</p></div>
+                  <div class="prod-block prod-block--compact sm:col-span-2"><h3 class="prod-block__h">Feed</h3><p class="prod-block__p">Denagard (VFD), Form-A-Feed, T.E.N. App-A-Tite.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== EQUINE ===== -->
+          <div class="dept-panel" data-dept-panel="equine">
+            <button type="button" class="dept-acc-head" data-dept-acc="equine" aria-expanded="false">
+              <span>Equine</span>
+              <svg class="dept-acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dept-panel__body">
+              <div class="grid lg:grid-cols-[minmax(0,18rem)_1fr] gap-8 lg:gap-12 items-start">
+                <div data-anim="up">
+                  <span class="service-kicker bg-amber2/15 text-amber">Equine</span>
+                  <p class="mt-3 text-ink/65 text-lg">From performance horse nutrition to everyday tack and hoof care, our equine department covers the full range of what horse owners in the area need.</p>
+                  <img src="img/ls-equine.jpg" alt="A horse running in a pasture" class="mt-6 rounded-[26px] shadow-lg w-full object-cover aspect-[4/3] ring-1 ring-ink/5" loading="lazy" />
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4" data-anim="cards">
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Vaccinations</h3><p class="prod-block__p">Vetera Gold, Vetera EWT plus WNV, Pneumabort, and others available by request.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Supplements</h3><p class="prod-block__p">Mineral blocks, EquiLix, EquiPride, various fat supplements, Ralco Slick Mix.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Feed</h3><p class="prod-block__p">Purina, ProElite by Progressive, Triple Crown, oats, beet pulp.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Hay Chix Hay Nets</h3><p class="prod-block__p">Round bale nets, small square nets, half bale nets, and replacement nets.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Tack</h3><p class="prod-block__p">Halters, bridle sets, saddle pads, lead ropes, snaps, cinches, shoo fly boots, fly masks.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">General Equine Supplies</h3><p class="prod-block__p">Hoof care products, rasps, horse shoes, vet wrap, buckets, shampoos, fly control, wound care, forks.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== SHEEP AND GOATS ===== -->
+          <div class="dept-panel" data-dept-panel="sheep-goats">
+            <button type="button" class="dept-acc-head" data-dept-acc="sheep-goats" aria-expanded="false">
+              <span>Sheep and Goats</span>
+              <svg class="dept-acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dept-panel__body">
+              <div class="grid lg:grid-cols-[minmax(0,18rem)_1fr] gap-8 lg:gap-12 items-start">
+                <div data-anim="up">
+                  <span class="service-kicker bg-teal/10 text-teal">Sheep and Goats</span>
+                  <p class="mt-3 text-ink/65 text-lg">Whether you are raising sheep for market or keeping goats on the property, we carry the essentials for lamb and kid care.</p>
+                  <img src="img/ls-sheep-goat.jpg" alt="Sheep in a field" class="mt-6 rounded-[26px] shadow-lg w-full object-cover aspect-[4/3] ring-1 ring-ink/5" loading="lazy" />
+                </div>
+                <div class="grid gap-4" data-anim="cards">
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">What we carry</h3><p class="prod-block__p">Milk replacer, vaccines, prescription antibiotics, colostrum, and bottle feeding supplies including tube feeders, bottles, and nipples.</p></div>
+                  <p class="text-ink/70">Need something not on this list? Call us at <a href="tel:+15075325000" class="text-teal font-bold hover:underline">(507) 532-5000</a> and we will do our best to source it for you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== GENERAL LIVESTOCK ===== -->
+          <div class="dept-panel" data-dept-panel="general">
+            <button type="button" class="dept-acc-head" data-dept-acc="general" aria-expanded="false">
+              <span>General Livestock</span>
+              <svg class="dept-acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dept-panel__body">
+              <div class="grid lg:grid-cols-[minmax(0,18rem)_1fr] gap-8 lg:gap-12 items-start">
+                <div data-anim="up">
+                  <span class="service-kicker bg-rust/12 text-rust">General Livestock</span>
+                  <p class="mt-3 text-ink/65 text-lg">The essentials every operation needs regardless of what you raise. We keep a large and consistent inventory of syringes, needles, disinfectants, marking supplies, wound care, bedding, and more.</p>
+                  <img src="img/ls-general.jpg" alt="General livestock supplies" class="mt-6 rounded-[26px] shadow-lg w-full object-cover aspect-[4/3] ring-1 ring-ink/5" loading="lazy" />
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4" data-anim="cards">
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Syringes and Needles</h3><p class="prod-block__p">Plastic syringes from 1cc to 60cc. Automatic syringes from AllFlex, Hauptner, PrimaTech, and Ideal, including replacement parts. Needles from 14g to 20g, aluminum hub. Detectable needles also in stock.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Protective Gear</h3><p class="prod-block__p">Disposable boots (Treader and Agri-Pro), disposable coveralls full suit with zipper in sizes M to 3XL, disposable gloves in nitrile and latex sizes S to XXL.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Marking Supplies</h3><p class="prod-block__p">Paint sticks, aerosols, and concentrated marking paints.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Prods and Sort Sticks</h3><p class="prod-block__p">HotShot, SharpShock, Magrath, rattle paddles, Kane paddles, Kane rattle cans, sorting boards.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Pest Control</h3><p class="prod-block__p">Motomco bait and bait stations.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Disinfectants</h3><p class="prod-block__p">Rescue, Intervention, Tektrol, Synergize, Chlorhexidine, BarnStorm, FreshStart, Virkon S.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Feed and Bagged Supplies</h3><p class="prod-block__p">Yaggie's oats, beet pulp, salt blocks and bags, sodium bicarb, copper sulfate, barn lime.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Bedding</h3><p class="prod-block__p">Marth bedding pellets and wood shavings.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Clippers and Blades</h3><p class="prod-block__p">Available in store.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Wound Care</h3><p class="prod-block__p">Vetericyn, Banixx, vet wrap, bandages, gauze, scalpels, umbilical tape and needles, DMSO, NFZ Puffer, iodine, Triodine.</p></div>
+                  <div class="prod-block prod-block--compact sm:col-span-2"><h3 class="prod-block__h">Other</h3><p class="prod-block__p">Thermometers and lubricant.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 7 · LARGE ANIMAL VET ===================== -->
+  <section id="vet" class="py-20 sm:py-28 bg-forest text-cream relative overflow-hidden scroll-mt-24">
+    <div class="soft-glow bg-amber2/20 w-[26rem] h-[26rem] -right-24 -top-10"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div data-anim="up">
+        <span class="service-kicker bg-cream/15 text-cream">Veterinary</span>
+        <h2 class="mt-3 font-heading display text-cream text-4xl sm:text-5xl">Large animal veterinary support on site</h2>
+        <p class="mt-5 text-cream/85 text-lg max-w-xl">
+          Dr. Scott Kuecker has been serving large animal clients in Southwest Minnesota since 1992. A University of Minnesota graduate, Dr. Kuecker brings decades of experience with cattle, swine, equine, sheep, and goats. He is available at Animal Health Center and works closely with the team at the Marshall Animal Clinic to serve the full range of large animal veterinary needs in the region.
+        </p>
+        <p class="mt-4 text-cream/85 text-lg max-w-xl">
+          Have a question about a prescription product or a VFD? Come in and talk to us. We are here to help you make the right call for your operation.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="tel:+15075325000" class="btn btn--amber">Call us at (507) 532-5000</a>
+          <a href="about.html" class="btn btn--ghost-light">Meet the team</a>
+        </div>
+      </div>
+      <div class="relative" data-anim="up">
+        <div class="rounded-[26px] overflow-hidden bg-cream/10 ring-1 ring-cream/15 p-6 sm:p-8 text-center">
+          <img src="img/team-dr-scott.png" alt="Dr. Scott Kuecker, staff veterinarian" class="w-full max-w-xs mx-auto rounded-2xl object-cover" loading="lazy" />
+          <p class="mt-5 font-heading font-900 text-cream text-xl">Dr. Scott Kuecker</p>
+          <p class="text-cream/70">Staff Veterinarian · University of Minnesota, 1992</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 8 · CAN NOT FIND IT ===================== -->
+  <section class="relative overflow-hidden bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+      <div class="rounded-[2rem] bg-gradient-to-br from-amber2 to-amber text-ink p-10 sm:p-16 text-center relative overflow-hidden dotgrid">
+        <div class="relative" data-anim="up">
+          <h2 class="font-heading display text-4xl sm:text-5xl">Do not see what you need?</h2>
+          <p class="mt-4 text-ink/75 text-lg max-w-2xl mx-auto">
+            Our inventory runs deep but it does not cover everything in print. If you are looking for a product you do not see here, call or stop in. We can special order a wide range of products and will do our best to get you what you need fast.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3 justify-center">
+            <a href="tel:+15075325000" class="btn btn--ink">Call (507) 532-5000</a>
+            <a href="sms:+15078289458" class="btn btn--ghost">Text us at (507) 828-9458</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 9 · VISIT AND HOURS ===================== -->
+  <section id="visit" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
+    <div class="soft-glow bg-teal2/15 w-[26rem] h-[26rem] -left-20 top-10"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-start">
+      <div data-anim="up">
+        <span class="service-kicker bg-teal/10 text-teal">Visit Us</span>
+        <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">Come see us in Marshall</h2>
+        <p class="mt-5 text-ink/65 text-lg max-w-xl">
+          Pull in, walk the aisles, and talk to people who know the products. The whole back of the store is livestock.
+        </p>
+        <div class="mt-8">
+          <a href="https://www.google.com/maps/search/?api=1&query=1300+N+Hwy+59+Marshall+MN+56258" target="_blank" rel="noopener" class="btn btn--amber">Get Directions →</a>
+        </div>
+      </div>
+
+      <div class="card p-8 sm:p-10" data-anim="up">
+        <h3 class="font-heading font-900 text-ink text-xl">Where to find us</h3>
+        <p class="mt-2 text-ink/65">1300 N. Hwy 59<br />Marshall, MN 56258</p>
+
+        <h4 class="mt-7 font-heading font-800 text-ink">Hours</h4>
+        <ul class="mt-3 space-y-1.5 text-sm text-ink/65">
+          <li class="flex justify-between gap-4"><span>Monday to Friday</span><span class="text-ink font-semibold">8:00am to 5:30pm</span></li>
+          <li class="flex justify-between gap-4"><span>Saturday</span><span class="text-ink font-semibold">8:00am to 12:00pm</span></li>
+          <li class="flex justify-between gap-4"><span>Sunday</span><span class="text-ink/45">Closed</span></li>
+        </ul>
+
+        <p class="mt-5 text-ink/55 text-sm">Closed: New Year's Day, Memorial Day, Fourth of July, Labor Day, Thanksgiving, Christmas Day.</p>
+        <p class="mt-2 text-ink/55 text-sm">Limited hours 8am to 12pm: New Year's Eve and Christmas Eve.</p>
+
+        <div class="mt-7 pt-6 border-t border-ink/10 grid sm:grid-cols-2 gap-4 text-sm">
+          <div>
+            <span class="block text-ink/50">Phone</span>
+            <a href="tel:+15075325000" class="font-heading font-800 text-ink text-lg hover:text-teal transition-colors">(507) 532-5000</a>
+          </div>
+          <div>
+            <span class="block text-ink/50">Text</span>
+            <a href="sms:+15078289458" class="font-heading font-800 text-ink text-lg hover:text-teal transition-colors">(507) 828-9458</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 10 · ROUTING BAR ===================== -->
+  <section class="bg-ink text-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-center sm:justify-between gap-4 text-center sm:text-left">
+      <p class="font-heading font-800 text-cream text-lg">Looking for pet and small animal supplies?</p>
+      <a href="small-animal.html" class="btn btn--amber !py-2.5 !px-5 !text-sm">Go to Pets and Small Animals →</a>
+    </div>
+  </section>
+
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <a href="index.html" class="brand brand--light">
-          <span class="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 64 64" width="38" height="38">
-              <path d="M14 26c0-9 7-15 18-15s18 6 18 15c0 6-3 10-3 16 0 7-6 11-15 11s-15-4-15-11c0-6-3-10-3-16Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-              <circle cx="25" cy="30" r="2.6" fill="currentColor"/>
-              <circle cx="39" cy="30" r="2.6" fill="currentColor"/>
-              <path d="M27 40c2 2 8 2 10 0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="brand__text"><strong>Animal Health</strong><em>Center</em></span>
-        </a>
-        <p>Southwest Minnesota's one stop shop for all your animal needs — both large and small. Locally owned in Marshall, MN.</p>
-        <div class="footer__social" aria-label="Social links">
-          <a href="https://www.facebook.com/animalhealthcentermn/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l.5-3.5H13V8.3c0-1 .3-1.7 1.8-1.7H17V3.4A26 26 0 0 0 14.6 3C12 3 10 4.6 10 7.7v2.8H7V14h3v8Z"/></svg></a>
-        </div>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="bg-ink text-cream/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-16 w-auto brightness-0 invert" /></div>
+        <p class="mt-4 text-sm">Southwest Minnesota's one-stop shop for pets and livestock, big animals and small. Locally owned in Marshall, MN.</p>
+        <a href="https://www.facebook.com/animalhealthcentermn/" target="_blank" rel="noopener" aria-label="Facebook" class="mt-4 inline-grid place-items-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 transition-colors"><svg viewBox="0 0 24 24" class="w-5 h-5 fill-cream"><path d="M13 22v-8h3l.5-3.5H13V8.3c0-1 .3-1.7 1.8-1.7H17V3.4A26 26 0 0 0 14.6 3C12 3 10 4.6 10 7.7v2.8H7V14h3v8Z"/></svg></a>
       </div>
-      <div class="footer__col">
-        <h4>Store &amp; Services</h4>
-        <a href="boarding.html">Pet Resort — Boarding</a>
-        <a href="daycare.html">Doggy Daycare</a>
-        <a href="grooming.html">Pet Grooming</a>
-        <a href="livestock.html">Large Animal Supplies</a>
-        <a href="pets.html">Pet Food &amp; Supplies</a>
-      </div>
-      <div class="footer__col">
-        <h4>Company</h4>
-        <a href="index.html#about">About Us</a>
-        <a href="index.html#programs">Who We're Shopping For</a>
-        <a href="index.html#approach">How We Help</a>
-        <a href="index.html#team">Our Team</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
-      <div class="footer__col footer__col--contact">
-        <h4>Visit / Call</h4>
-        <p>1300 N. Hwy. 59<br />Marshall, MN 56258</p>
-        <a href="tel:+15075325000" class="footer__phone">(507) 532-5000</a>
-        <span class="footer__emergency"><span class="pulse"></span> Open Saturdays 8–12</span>
-      </div>
+      <div><h4 class="font-heading font-800 text-cream">Explore</h4><ul class="mt-3 space-y-2 text-sm"><li><a href="about.html" class="hover:text-amber2 transition-colors">About Us</a></li><li><a href="resort.html" class="hover:text-amber2 transition-colors">Pet Resort</a></li><li><a href="grooming.html" class="hover:text-amber2 transition-colors">Grooming</a></li><li><a href="livestock.html" class="hover:text-amber2 transition-colors">Livestock</a></li><li><a href="small-animal.html" class="hover:text-amber2 transition-colors">Small Animal</a></li></ul></div>
+      <div><h4 class="font-heading font-800 text-cream">Hours</h4><ul class="mt-3 space-y-1.5 text-sm"><li class="flex justify-between gap-4"><span>Mon to Fri</span><span class="text-cream">8:00am to 5:30pm</span></li><li class="flex justify-between gap-4"><span>Saturday</span><span class="text-cream">8:00am to 12:00pm</span></li><li class="flex justify-between gap-4"><span>Sunday</span><span class="text-cream/50">Closed</span></li></ul><span data-hours-badge class="hours-badge is-closed mt-3">Checking hours…</span></div>
+      <div><h4 class="font-heading font-800 text-cream">Visit / Call</h4><p class="mt-3 text-sm">1300 N. Hwy 59<br />Marshall, MN 56258</p><a href="tel:+15075325000" class="mt-2 inline-block font-heading font-800 text-cream text-lg hover:text-amber2 transition-colors">(507) 532-5000</a><a data-book class="mt-4 btn btn--amber !py-2.5 !px-4 !text-sm">Book the Pet Resort →</a></div>
     </div>
-    <div class="container footer__bottom">
-      <p>© <span id="year"></span> Animal Health Center. All rights reserved.</p>
-      <p class="footer__credit">For animals big &amp; small · Built with care.</p>
-    </div>
+    <div class="border-t border-white/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-between gap-2 text-xs text-cream/50"><p>© <span data-year>2026</span> Animal Health Center &amp; Pet Resort. All rights reserved.</p><p>For animals big and small.</p></div></div>
   </footer>
 
-  <button class="totop" id="toTop" aria-label="Back to top">↑</button>
-  <div class="progress" id="progress" aria-hidden="true"></div>
-  <script src="js/main.js" defer></script>
+  <!-- ===================== STICKY BOOK BAR ===================== -->
+  <div data-booknow-bar class="booknow-bar">
+    <div class="bg-ink text-cream md:rounded-2xl md:shadow-2xl">
+      <div class="max-w-7xl md:max-w-none mx-auto px-4 py-3 flex items-center justify-between gap-3 md:gap-6">
+        <span class="hidden sm:block font-heading font-800 text-sm">Ready when you are.</span>
+        <div class="flex items-center gap-2.5 ml-auto"><a data-book class="btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a><a href="tel:+15075325000" class="btn !py-2.5 !px-4 !text-sm bg-white/10 text-cream">Call Us</a></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/widgets.js" defer></script>
+  <script src="js/animations.js" defer></script>
 </body>
 </html>

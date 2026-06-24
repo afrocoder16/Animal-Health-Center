@@ -1,0 +1,9 @@
+Restructure nav into 6 pages, add Shop and Pet Resort detail sections
+
+Split Grooming, Livestock, and Small Animal into dedicated pages and
+updated the 6-item nav across all pages. Rebuilt Shop as a department
+showcase (Cattle, Equine, Swine, Furry Friends, Town and Country,
+Merchandise). Enriched Pet Resort with Daycare/Boarding/Kitty Korral
+detail sections, a rate estimator, and a rewards punch card.
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
