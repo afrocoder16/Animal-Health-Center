@@ -57,6 +57,16 @@ h1,h2,h3,h4,h5,.font-heading {
 /* reveal safety net — JS forces these visible if GSAP is blocked/reduced */
 [data-anim] { will-change: transform, opacity; }
 
+/* anti-FOUC — Tailwind CDN compiles in-browser, so for a beat the `hidden` /
+   `lg:hidden` utilities on the two nav menus aren't applied yet and both flash
+   into normal flow over the hero. These attribute-keyed fallbacks (no Tailwind
+   needed) keep the desktop nav and the closed mobile drawer hidden until the
+   utilities take over. The mobile drawer's own opacity:0 rule lives below. */
+[data-site-header] nav[aria-label="Primary"] { display: none; }
+@media (min-width: 1024px) {
+  [data-site-header] nav[aria-label="Primary"] { display: flex; }
+}
+
 /* ==========================================================================
    ORGANIC blob shapes & soft warm scenery (behind content)
    ========================================================================== */
@@ -196,6 +206,11 @@ h1,h2,h3,h4,h5,.font-heading {
   background:repeating-linear-gradient(45deg,var(--amber) 0 9px,var(--rust) 9px 18px);
   box-shadow:0 2px 5px rgba(60,40,16,.25); }
 
+/* livestock doorway: the whole staggered animal group is one link into livestock.html */
+.ranch-herd { display:grid; text-decoration:none; cursor:pointer; }
+.ranch-herd figcaption { transition: color .25s var(--ease-out); }
+.ranch-herd:hover figcaption { color: var(--rust); }
+
 /* ==========================================================================
    LOYALTY PUNCH CARD — premium membership card (teal, pops on cream)
    ========================================================================== */
@@ -240,7 +255,10 @@ h1,h2,h3,h4,h5,.font-heading {
 [data-site-header] { transition: top .3s var(--ease-out); }
 [data-site-header] > div { transition: background .3s var(--ease-out), box-shadow .3s var(--ease-out); }
 [data-site-header].is-stuck { top: 10px; }
-[data-site-header].is-stuck > div { background: rgba(251,246,236,.3); box-shadow: 0 12px 36px -16px rgba(60,40,16,.45); }
+/* once stuck, the pill can sit over any section (light or dark), not just the
+   hero photo it starts on — needs a near-solid surface or the logo/nav wash
+   out against whatever's behind it. */
+[data-site-header].is-stuck > div { background: rgba(251,246,236,.92); box-shadow: 0 12px 36px -16px rgba(60,40,16,.45); }
 
 /* active nav link inside the pill: teal background pill instead of the amber underline */
 [data-site-header] [data-nav].is-active,
@@ -253,10 +271,17 @@ h1,h2,h3,h4,h5,.font-heading {
   display: none;
 }
 
-/* mobile dropdown panel */
-.nav-dropdown { transition:transform .25s var(--ease-out), opacity .25s var(--ease-out); transform:translateY(-8px); opacity:0; pointer-events:none; }
+/* mobile dropdown panel — position:absolute here too so it never reserves
+   layout space (or flashes in flow) before Tailwind's `absolute` applies.
+   The solid background is set here (not via `bg-cream/97`, which the CDN build
+   leaves transparent) so the menu links stay readable over the hero photo. */
+.nav-dropdown { position:absolute; background:rgba(251,246,236,.98); transition:transform .25s var(--ease-out), opacity .25s var(--ease-out); transform:translateY(-8px); opacity:0; pointer-events:none; }
 .nav-dropdown.is-open { transform:translateY(0); opacity:1; pointer-events:auto; }
 body.menu-open { overflow:hidden; }
+/* the menu drawer is mobile-only; never let it show on desktop */
+@media (min-width: 1024px) {
+  [data-menu-drawer] { display: none !important; }
+}
 
 /* ==========================================================================
    INNER-PAGE HELPERS (services / shop / promotions / about)

@@ -21,12 +21,16 @@
   var gsap = window.gsap, ScrollTrigger = window.ScrollTrigger;
   gsap.registerPlugin(ScrollTrigger);
 
-  /* ---- scroll reveals (soft fade-up, staggered) ---- */
+  /* ---- scroll reveals (soft fade-up, staggered) ----
+     Use fromTo + immediateRender:false (not plain `from`) so that if a
+     ScrollTrigger ever mis-measures on mobile — late images/fonts reflow, a
+     racing refresh — the element is never left frozen at opacity:0. The
+     animated "from" frame is only applied once the trigger actually fires. ---- */
   $$('[data-anim="up"]').forEach(function (el) {
-    gsap.from(el, { y: 38, opacity: 0, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 88%" } });
+    gsap.fromTo(el, { y: 38, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", immediateRender: false, scrollTrigger: { trigger: el, start: "top 92%", once: true } });
   });
   $$('[data-anim="cards"]').forEach(function (g) {
-    gsap.from(g.children, { y: 40, opacity: 0, duration: 0.7, stagger: 0.1, ease: "power2.out", scrollTrigger: { trigger: g, start: "top 84%" } });
+    gsap.fromTo(g.children, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: "power2.out", immediateRender: false, scrollTrigger: { trigger: g, start: "top 88%", once: true } });
   });
 
   /* ---- HERO duo: graceful entrance + gentle parallax (no mouse chaos) ----
