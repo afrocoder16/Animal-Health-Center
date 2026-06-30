@@ -509,6 +509,17 @@
     else if (mqDesktop.addListener) mqDesktop.addListener(syncLayout); // older Safari
 
     syncLayout();
+
+    /* hero quick-jump chips: open the matching department on click, on both
+       desktop (select tab) and mobile (open accordion), then scroll to it */
+    $$("[data-dept-jump]").forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var key = chip.getAttribute("data-dept-jump");
+        if (!panelFor(key)) return;
+        if (mqDesktop.matches) selectTab(key);
+        else toggleAcc(key);
+      });
+    });
   }
 
   /* ======================================================================
@@ -618,6 +629,7 @@
     $$('[data-widget="quote"]').forEach(initQuoteForm);
     $$('[data-widget="dept-switcher"]').forEach(initDeptSwitcher);
     $$('[data-photo-rotate]').forEach(initPhotoRotate);
+    initGallery();
     initCountUps();
 
     setActiveNav();
@@ -626,6 +638,111 @@
     initStickyBookBar();
     wireBookingLinks();
     initFooterBits();
+  }
+
+  /* ======================================================================
+     GALLERY — filterable masonry wall + lightbox (gallery.html)
+     Photos come from window.AHC_GALLERY ([{f,c,cap,o}]). Renders tiles,
+     wires category filter pills, and a keyboard-accessible lightbox with
+     prev/next that respects the currently filtered set.
+     ====================================================================== */
+  function initGallery() {
+    var wall = $("[data-gal-wall]");
+    var data = window.AHC_GALLERY;
+    if (!wall || !data || !data.length) return;
+
+    var emptyMsg = $("[data-gal-empty]");
+    var pills = $$("[data-gal-filter]");
+    var countEl = $("[data-gal-count]");
+    if (countEl) countEl.textContent = String(data.length);
+
+    var CAT_LABEL = { dogs:"Cute dog", daycare:"Daycare", grooming:"Grooming",
+                      cats:"Kitty Korral", boarding:"Boarding", store:"In store" };
+
+    var current = "all";
+    var visible = [];          // the filtered list currently shown (for lightbox nav)
+
+    function tileFor(item, idx) {
+      var a = document.createElement("button");
+      a.type = "button";
+      a.className = "gal-item gal-in";
+      a.setAttribute("data-gal-idx", idx);
+      a.style.animationDelay = Math.min(idx * 0.03, 0.4) + "s";
+      var label = CAT_LABEL[item.c] || "AHC";
+      a.innerHTML =
+        '<span class="gal-item__tag">' + label + '</span>' +
+        '<img src="' + item.f + '" alt="' + (item.cap || "") + '" loading="lazy" />' +
+        '<span class="gal-item__cap">' + (item.cap || "") + '</span>';
+      a.addEventListener("click", function () { openLightbox(idx); });
+      return a;
+    }
+
+    function render(cat) {
+      current = cat;
+      visible = data.filter(function (d) { return cat === "all" || d.c === cat; });
+      wall.innerHTML = "";
+      visible.forEach(function (item, i) { wall.appendChild(tileFor(item, i)); });
+      if (emptyMsg) emptyMsg.classList.toggle("hidden", visible.length > 0);
+      if (window.ScrollTrigger) { try { window.ScrollTrigger.refresh(); } catch (e) {} }
+    }
+
+    pills.forEach(function (pill) {
+      pill.addEventListener("click", function () {
+        if (pill.classList.contains("is-active")) return;
+        pills.forEach(function (p) { p.classList.remove("is-active"); p.removeAttribute("aria-selected"); });
+        pill.classList.add("is-active"); pill.setAttribute("aria-selected", "true");
+        render(pill.getAttribute("data-gal-filter"));
+      });
+    });
+
+    /* ---- lightbox ---- */
+    var lb = $("[data-gal-lightbox]");
+    var lbImg = $("[data-gal-lb-img]"), lbCap = $("[data-gal-lb-cap]"), lbCount = $("[data-gal-lb-count]");
+    var lbIdx = 0;
+
+    function showAt(i) {
+      if (!visible.length) return;
+      lbIdx = (i + visible.length) % visible.length;
+      var item = visible[lbIdx];
+      lbImg.src = item.f; lbImg.alt = item.cap || "";
+      if (lbCap) lbCap.textContent = item.cap || "";
+      if (lbCount) lbCount.textContent = (lbIdx + 1) + " / " + visible.length;
+    }
+    function openLightbox(i) {
+      if (!lb) return;
+      lb.hidden = false;
+      showAt(i);
+      requestAnimationFrame(function () { lb.classList.add("is-open"); });
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox() {
+      if (!lb) return;
+      lb.classList.remove("is-open");
+      document.body.style.overflow = "";
+      setTimeout(function () { lb.hidden = true; lbImg.src = ""; }, 300);
+    }
+
+    if (lb) {
+      $("[data-gal-close]").addEventListener("click", closeLightbox);
+      $("[data-gal-prev]").addEventListener("click", function () { showAt(lbIdx - 1); });
+      $("[data-gal-next]").addEventListener("click", function () { showAt(lbIdx + 1); });
+      lb.addEventListener("click", function (e) { if (e.target === lb) closeLightbox(); });
+      document.addEventListener("keydown", function (e) {
+        if (lb.hidden) return;
+        if (e.key === "Escape") closeLightbox();
+        else if (e.key === "ArrowLeft") showAt(lbIdx - 1);
+        else if (e.key === "ArrowRight") showAt(lbIdx + 1);
+      });
+      // swipe on touch
+      var sx = 0;
+      lb.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener("touchend", function (e) {
+        var dx = e.changedTouches[0].clientX - sx;
+        if (Math.abs(dx) > 50) showAt(lbIdx + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+    }
+
+    render("all");
   }
 
   if (document.readyState === "loading") {

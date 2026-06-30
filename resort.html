@@ -26,37 +26,34 @@
   <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🐾&lt;/text&gt;&lt;/svg&gt;" />
 </head>
 
-<body data-page="resort" data-nav-spacer class="font-body bg-cream text-ink">
+<body data-page="resort" class="font-body bg-cream text-ink">
   <script src="js/chrome.js"></script>
 
   <main>
 
   <!-- ===================== HERO ===================== -->
-  <section data-booknow-after class="sunrise relative overflow-hidden">
-    <div data-blob class="blob blob--teal w-[30rem] h-[30rem] -left-32 top-4"></div>
-    <div data-blob class="blob blob--peach w-[26rem] h-[26rem] right-[-6rem] top-24"></div>
-    <div class="soft-glow bg-amber2/25 w-[24rem] h-[24rem] left-1/2 -bottom-24"></div>
+  <section data-hero data-booknow-after class="hero-slideshow relative overflow-hidden">
+    <div class="hero-slideshow__slides absolute inset-0">
+      <div class="hero-slideshow__slide is-active" style="background-image:url('img/pet-resort-hero4.webp')"></div>
+    </div>
+    <div class="hero-slideshow__scrim absolute inset-0"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 grid lg:grid-cols-[1fr_1.05fr] gap-8 items-center min-h-[78vh]">
-      <div class="relative z-10 pb-8 lg:pb-0">
-        <p data-hero-line class="inline-flex items-center gap-2 text-teal font-bold text-sm bg-white shadow-sm rounded-full px-4 py-2">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center min-h-[84vh]">
+      <div class="w-full max-w-2xl pt-[150px] pb-16">
+        <p data-hero-line class="inline-flex items-center gap-2 text-amber2 font-bold text-sm bg-white/15 ring-1 ring-white/25 backdrop-blur-sm rounded-full px-4 py-2">
           <span class="w-2 h-2 rounded-full bg-amber2"></span> Boarding · Daycare · Kitty Korral
         </p>
-        <h1 class="mt-6 font-heading display text-ink text-[3.2rem] leading-[.92] sm:text-7xl xl:text-[5rem]">
-          <span data-hero-line class="block">Their <span class="text-teal">favorite</span></span>
+        <h1 class="mt-6 font-heading display text-white text-[3.2rem] leading-[.92] sm:text-7xl xl:text-[5rem]">
+          <span data-hero-line class="block">Their <span class="text-amber2">favorite</span></span>
           <span data-hero-line class="block">staycation.</span>
         </h1>
-        <p data-hero-line class="mt-6 text-ink/65 text-lg max-w-md">
+        <p data-hero-line class="mt-6 text-white/90 text-xl max-w-xl font-heading font-800">
           Two split-by-size play rooms, comfy boarding suites, and the quiet Kitty Korral.
           Drop in for the day or book an overnight stay, all online.
         </p>
         <div data-hero-line class="mt-8 flex flex-wrap gap-3">
           <a data-book class="btn btn--amber">Book a Stay →</a>
-          <a href="#ready" class="btn btn--ghost">Is my pet ready?</a>
-        </div>
-        <div data-hero-line class="mt-9 flex items-center gap-6 text-ink/60 text-sm">
-          <span class="flex items-center gap-2"><span class="font-heading font-900 text-ink text-xl">$12</span> half-day daycare</span>
-          <span class="hidden sm:flex items-center gap-2"><span class="font-heading font-900 text-ink text-xl">$20</span> Kitty Korral / day</span>
+          <a href="#ready" class="btn btn--ghost-light">Is my pet ready?</a>
         </div>
         <div data-hero-line class="mt-6 flex flex-wrap gap-2.5">
           <a href="#daycare" class="chip-link">Daycare</a>
@@ -65,20 +62,6 @@
           <a href="#rates" class="chip-link">Rates</a>
           <a href="#rewards" class="chip-link">Rewards</a>
         </div>
-      </div>
-
-      <!-- happy dog duo -->
-      <div class="relative h-[44vh] lg:h-[70vh] flex items-end justify-center">
-        <div data-hero-star data-rate="7" class="absolute left-[4%] bottom-0 w-[52%]">
-          <span class="ground-shadow"></span>
-          <img src="img/transparent/dog-sitting.webp" alt="A happy golden retriever" class="cutout w-full h-auto" onerror="this.parentElement.style.display='none'" />
-        </div>
-        <div data-hero-star data-rate="12" data-bob class="absolute right-[4%] bottom-0 w-[38%] z-[3]">
-          <span class="ground-shadow"></span>
-          <img src="img/transparent/terrier-trot.webp" alt="A small terrier trotting" class="cutout w-full h-auto" onerror="this.parentElement.style.display='none'" />
-        </div>
-        <div class="absolute top-[8%] right-[6%] z-[4] hidden sm:block"><span class="inline-flex items-center gap-2 bg-white shadow-lg text-ink font-heading font-800 text-sm px-3.5 py-2 rounded-2xl"><span class="w-2 h-2 rounded-full bg-teal"></span> Daycare</span></div>
-        <div class="absolute top-[34%] left-[0%] z-[4] hidden sm:block"><span class="inline-flex items-center gap-2 bg-teal shadow-lg text-cream font-heading font-800 text-sm px-3.5 py-2 rounded-2xl"><span class="w-2 h-2 rounded-full bg-amber2"></span> Boarding</span></div>
       </div>
     </div>
   </section>
@@ -93,7 +76,7 @@
       </div>
       <div class="mt-10 grid md:grid-cols-3 gap-5" data-anim="cards">
         <article class="card-lift card overflow-hidden">
-          <img src="img/daycare-large-room-1.webp" alt="Doggy daycare play room" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=70'"/>
+          <img src="img/doggy-day-care.webp" alt="Doggy daycare play room" class="h-48 w-full object-cover" />
           <div class="p-6">
             <h3 class="font-heading font-900 text-ink text-xl">Doggy Daycare</h3>
             <p class="text-ink/60 text-sm mt-1">Two play rooms split by size, under 40lbs &amp; over 40lbs.</p>
@@ -102,7 +85,7 @@
           </div>
         </article>
         <article class="card-lift card overflow-hidden">
-          <img src="img/dog-boarding-1.webp" alt="Dog boarding suite" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=70'"/>
+          <img src="img/dog-bording-card.webp" alt="Dog boarding suite" class="h-48 w-full object-cover" />
           <div class="p-6">
             <h3 class="font-heading font-900 text-ink text-xl">Dog Boarding</h3>
             <p class="text-ink/60 text-sm mt-1">16 kennels (large/medium/small) + 2 family suites.</p>
@@ -111,7 +94,7 @@
           </div>
         </article>
         <article class="card-lift card overflow-hidden">
-          <img src="img/cat-boarding-1.webp" alt="The Kitty Korral cat boarding" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=70'"/>
+          <img src="img/kitty-korral-card.webp" alt="The Kitty Korral cat boarding" class="h-48 w-full object-cover" />
           <div class="p-6">
             <h3 class="font-heading font-900 text-ink text-xl">Kitty Korral</h3>
             <p class="text-ink/60 text-sm mt-1">A quiet, separate boarding space just for cats.</p>
@@ -384,8 +367,8 @@
           <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">Before you book</p>
           <h2 class="mt-2 font-heading display text-ink text-4xl sm:text-5xl">Is your pet<br />resort-ready?</h2>
           <p class="mt-4 text-ink/65 text-lg">Tick off these four and the booking button unlocks. A quick checklist so the first stay goes smoothly.</p>
-          <div data-float="20" class="hidden lg:block mt-8 w-44">
-            <div class="in-frame aspect-square"><img src="img/transparent/puppy-sleeping.webp" alt="A sleeping puppy" onerror="this.parentElement.style.display='none'"/></div>
+          <div data-float="20" class="hidden lg:block mt-8 w-56">
+            <div class="in-frame aspect-[4/3]"><img src="img/resort-ready.webp" alt="A dog ready for the resort" class="w-full h-full object-cover"/></div>
           </div>
         </div>
 

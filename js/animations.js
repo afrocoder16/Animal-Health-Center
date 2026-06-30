@@ -88,7 +88,7 @@
     }
   }
 
-  /* ---- auto-scroll tracks (reviews + marquee) ---- */
+  /* ---- auto-scroll tracks (reviews carousel — marquee now uses CSS animation) ---- */
   $$("[data-autoscroll]").forEach(function (track) {
     var dur = parseFloat(track.getAttribute("data-autoscroll")) || 36;
     var loop = gsap.to(track, { xPercent: -50, ease: "none", duration: dur, repeat: -1 });

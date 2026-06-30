@@ -100,7 +100,7 @@ h1,h2,h3,h4,h5,.font-heading {
 .hero-slideshow__slide.is-active { opacity:1; }
 .hero-slideshow__scrim {
   z-index:1;
-  background: linear-gradient(180deg, rgba(20,15,8,.55) 0%, rgba(20,15,8,.45) 45%, rgba(20,15,8,.65) 100%);
+  background: linear-gradient(180deg, rgba(20,15,8,.65) 0%, rgba(20,15,8,.55) 45%, rgba(20,15,8,.72) 100%);
 }
 
 /* ==========================================================================
@@ -430,6 +430,10 @@ body.menu-open { overflow:hidden; }
   font-size:.9rem; padding:.5rem .9rem; border-radius:999px; background:var(--white); color:var(--ink);
   box-shadow:var(--shadow-sm); transition:transform .25s var(--ease-out), box-shadow .25s var(--ease-out), color .2s; }
 .chip-link:hover { transform:translateY(-2px); color:var(--teal); box-shadow:var(--shadow); }
+/* light variant for use over dark hero photos */
+.chip-link--light { background:rgba(255,255,255,.12); color:var(--cream); box-shadow:none;
+  border:1px solid rgba(255,255,255,.25); backdrop-filter:blur(4px); }
+.chip-link--light:hover { background:rgba(255,255,255,.22); color:#fff; transform:translateY(-2px); box-shadow:var(--shadow); }
 
 /* numbered/labelled section kicker pill */
 .service-kicker { display:inline-block; font-family:"Nunito",sans-serif; font-weight:800; font-size:.78rem;
@@ -500,6 +504,42 @@ body.menu-open { overflow:hidden; }
 /* VFD callout — keep it visually distinct (legal component) in the dense grid */
 .vfd-block { padding:.95rem 1.1rem; border-radius:14px;
   background:rgba(230,169,63,.12); border:1px solid rgba(193,127,36,.28); }
+
+/* ==========================================================================
+   LARGE ANIMAL VET — portrait card + trust chips (forest section)
+   ========================================================================== */
+/* small frosted credential chips beside the copy */
+.vet-chip {
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.8rem;
+  color:var(--cream); background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18); border-radius:999px;
+  padding:.45rem .9rem; backdrop-filter:blur(4px);
+}
+
+/* the portrait card: photo on top, name plate below, amber accent + soft lift */
+.vet-card {
+  position:relative; max-width:24rem; margin:0 auto;
+  background:var(--white); border-radius:26px; overflow:hidden;
+  box-shadow:var(--shadow-lg); border:1px solid rgba(255,255,255,.4);
+  transform:rotate(-1.2deg); transition:transform .5s var(--ease-out), box-shadow .5s var(--ease-out);
+}
+.vet-card::before {                          /* amber rail across the very top */
+  content:""; position:absolute; left:0; right:0; top:0; height:6px; z-index:2;
+  background:linear-gradient(90deg, var(--amber), var(--amber-2));
+}
+.vet-card:hover { transform:rotate(0deg) translateY(-6px); box-shadow:0 50px 90px -30px rgba(10,30,12,.6); }
+.vet-card__photo { position:relative; aspect-ratio:1/1; overflow:hidden; background:#e9e2d4; }
+.vet-card__photo img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+.vet-card__since {
+  position:absolute; top:1rem; right:1rem; z-index:2;
+  font-family:"Nunito",sans-serif; font-weight:900; font-size:.72rem;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--ink);
+  background:var(--amber-2); border-radius:999px; padding:.4rem .8rem;
+  box-shadow:var(--shadow-sm);
+}
+.vet-card__body { padding:1.5rem 1.6rem 1.7rem; text-align:left; }
+@media (max-width:480px){ .vet-card { transform:rotate(0deg); } }
 
 /* ==========================================================================
    "PHOTO COMING SOON" PLACEHOLDER — about.html (people photos only).
@@ -701,6 +741,59 @@ body.menu-open { overflow:hidden; }
   transition: transform .8s var(--ease-out);
 }
 .groom-framed:hover > img { transform:scale(1.05); }
+
+/* ---- the fresh-cut gallery wall (real grooms showcase) ---- */
+.groom-gallery-sec { background:linear-gradient(180deg, var(--cream) 0%, #fff 100%); }
+
+/* masonry via CSS columns, balanced and responsive */
+.groom-wall {
+  column-count: 4;
+  column-gap: 1rem;
+}
+@media (max-width:1023px){ .groom-wall { column-count:3; } }
+@media (max-width:767px){  .groom-wall { column-count:2; column-gap:.75rem; } }
+@media (max-width:419px){  .groom-wall { column-count:1; } }
+
+.gw {
+  position:relative; margin:0 0 1rem; break-inside:avoid;
+  border-radius:20px; overflow:hidden;
+  border:5px solid #fff;
+  box-shadow:0 18px 44px -26px rgba(60,40,16,.55);
+  background:var(--cream-2);
+  transform:rotate(var(--gw-tilt, 0deg));
+  transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out);
+}
+/* a touch of hand-pinned tilt, alternating down the wall */
+.gw:nth-child(3n+1){ --gw-tilt:-1.1deg; }
+.gw:nth-child(3n+2){ --gw-tilt:0.9deg; }
+.gw:nth-child(3n+3){ --gw-tilt:-0.4deg; }
+.gw:hover {
+  transform:rotate(0deg) translateY(-4px) scale(1.015);
+  box-shadow:0 28px 60px -24px rgba(60,40,16,.6);
+  z-index:2;
+}
+.gw > img { width:100%; height:auto; display:block; }
+
+/* caption: gradient overlay, slides up on hover, readable on touch */
+.gw figcaption {
+  position:absolute; left:0; right:0; bottom:0;
+  padding:1.6rem .85rem .8rem;
+  font-family:"Nunito",sans-serif; font-weight:700; font-size:.8rem; line-height:1.25;
+  color:#fff;
+  background:linear-gradient(180deg, transparent, rgba(20,12,6,.82) 62%);
+  transform:translateY(28%); opacity:0;
+  transition: transform .4s var(--ease-out), opacity .4s var(--ease-out);
+}
+.gw:hover figcaption, .gw:focus-within figcaption { transform:translateY(0); opacity:1; }
+.gw__tag {
+  display:inline-block; margin-bottom:.2rem;
+  font-size:.6rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--peach);
+}
+/* always show captions on touch devices (no hover) */
+@media (hover:none) {
+  .gw figcaption { transform:translateY(0); opacity:1; }
+}
 
 /* gift certificate callout */
 .giftcert__mark {
@@ -941,10 +1034,129 @@ body.menu-open { overflow:hidden; }
 .store-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 @media (max-width: 640px) { .store-toast { bottom: 5.5rem; width: max-content; max-width: calc(100vw - 2rem); } }
 
+/* ---- marquee CSS keyframe fallback ---- */
+@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-css { animation: marquee-scroll 32s linear infinite; }
+.marquee-css:hover { animation-play-state: paused; }
+
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html{ scroll-behavior:auto; }
   *,*::before,*::after{ animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important; }
   [data-anim]{ opacity:1!important; transform:none!important; }
   .cutout--abs{ position:static; }
+}
+
+/* ==========================================================================
+   GALLERY PAGE — filterable masonry photo wall + lightbox (gallery.html)
+   Mobile-first: 2 columns on phones, scaling up. Photos are real, so the
+   wall uses CSS columns for true masonry without layout math.
+   ========================================================================== */
+.no-scrollbar::-webkit-scrollbar { display:none; }
+.no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+
+/* sticky filter bar sits just under the floating nav */
+.gal-filterbar {
+  position:sticky; top:64px; z-index:30;
+  background:rgba(251,246,236,.82); backdrop-filter:blur(10px);
+  border-top:1px solid rgba(60,40,16,.06); border-bottom:1px solid rgba(60,40,16,.06);
+}
+@media (min-width:640px){ .gal-filterbar { top:104px; } }
+
+.gal-pill {
+  flex:none; font-family:"Nunito",sans-serif; font-weight:800; font-size:.9rem;
+  padding:.5rem 1.05rem; border-radius:999px; color:var(--ink-soft);
+  background:var(--white); border:1px solid rgba(60,40,16,.1); cursor:pointer;
+  transition:transform .25s var(--ease-out), background .25s, color .2s, box-shadow .25s;
+  white-space:nowrap;
+}
+.gal-pill:hover { transform:translateY(-2px); box-shadow:var(--shadow-sm); }
+.gal-pill.is-active { background:var(--ink); color:var(--cream); border-color:var(--ink); }
+
+/* the masonry wall */
+.gal-wall { column-count:2; column-gap:.7rem; }
+@media (min-width:640px){ .gal-wall { column-count:3; column-gap:.9rem; } }
+@media (min-width:1024px){ .gal-wall { column-count:4; column-gap:1rem; } }
+@media (min-width:1440px){ .gal-wall { column-count:5; } }
+
+.gal-item {
+  position:relative; display:block; width:100%; margin:0 0 .7rem; break-inside:avoid;
+  border-radius:16px; overflow:hidden; cursor:zoom-in; background:var(--sand);
+  border:4px solid #fff; box-shadow:0 14px 34px -22px rgba(60,40,16,.5);
+  transition:transform .4s var(--ease-out), box-shadow .4s var(--ease-out);
+  -webkit-tap-highlight-color:transparent;
+}
+@media (min-width:640px){ .gal-item { margin-bottom:.9rem; } }
+@media (min-width:1024px){ .gal-item { margin-bottom:1rem; } }
+.gal-item img { width:100%; height:auto; display:block; transition:transform .5s var(--ease-out); }
+.gal-item:hover { transform:translateY(-4px); box-shadow:0 22px 48px -20px rgba(60,40,16,.55); z-index:2; }
+.gal-item:hover img { transform:scale(1.04); }
+
+/* hover caption + small category tag */
+.gal-item__cap {
+  position:absolute; left:0; right:0; bottom:0; padding:1.5rem .7rem .6rem;
+  font-family:"Nunito",sans-serif; font-weight:700; font-size:.78rem; line-height:1.25; color:#fff;
+  background:linear-gradient(180deg, transparent, rgba(20,12,6,.82) 70%);
+  transform:translateY(20%); opacity:0;
+  transition:transform .35s var(--ease-out), opacity .35s var(--ease-out);
+}
+.gal-item:hover .gal-item__cap, .gal-item:focus-within .gal-item__cap { transform:translateY(0); opacity:1; }
+.gal-item__tag {
+  position:absolute; top:.55rem; left:.55rem; z-index:2;
+  font-size:.58rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink); background:rgba(255,255,255,.92); border-radius:999px; padding:.22rem .55rem;
+  box-shadow:0 2px 8px -2px rgba(0,0,0,.3); opacity:0; transition:opacity .3s var(--ease-out);
+}
+.gal-item:hover .gal-item__tag { opacity:1; }
+/* always show captions/tags on touch since there is no hover */
+@media (hover:none){
+  .gal-item__cap { transform:translateY(0); opacity:1; }
+  .gal-item__tag { opacity:1; }
+  .gal-item { cursor:pointer; }
+}
+
+/* entrance animation when items mount/refilter */
+.gal-item.gal-in { animation:galPop .5s var(--ease-out) both; }
+@keyframes galPop { from { opacity:0; transform:translateY(14px) scale(.97); } to { opacity:1; transform:none; } }
+
+/* ---- lightbox ---- */
+.gal-lightbox {
+  position:fixed; inset:0; z-index:90; display:flex; align-items:center; justify-content:center;
+  background:rgba(16,10,4,.92); backdrop-filter:blur(6px); padding:1rem;
+  opacity:0; transition:opacity .3s var(--ease-out);
+}
+.gal-lightbox.is-open { opacity:1; }
+.gal-lb__stage { position:relative; max-width:min(92vw,1100px); max-height:88vh; display:flex; flex-direction:column; align-items:center; }
+.gal-lb__stage img {
+  max-width:100%; max-height:82vh; width:auto; height:auto; border-radius:14px;
+  box-shadow:0 40px 90px -20px rgba(0,0,0,.7); background:#000;
+}
+.gal-lb__cap {
+  margin-top:.9rem; color:rgba(255,255,255,.85); font-family:"Nunito",sans-serif;
+  font-weight:700; font-size:.95rem; text-align:center;
+}
+.gal-lb__close {
+  position:absolute; top:.6rem; right:.8rem; z-index:2; width:46px; height:46px;
+  display:grid; place-items:center; border-radius:999px; border:none; cursor:pointer;
+  background:rgba(255,255,255,.12); color:#fff; font-size:1.9rem; line-height:1;
+  transition:background .2s;
+}
+.gal-lb__close:hover { background:rgba(255,255,255,.25); }
+.gal-lb__nav {
+  position:absolute; top:50%; transform:translateY(-50%); z-index:2;
+  width:54px; height:54px; display:grid; place-items:center; border-radius:999px; border:none;
+  background:rgba(255,255,255,.12); color:#fff; font-size:2rem; line-height:1; cursor:pointer;
+  transition:background .2s, transform .2s;
+}
+.gal-lb__nav:hover { background:rgba(255,255,255,.28); }
+.gal-lb__prev { left:.5rem; }
+.gal-lb__next { right:.5rem; }
+@media (min-width:768px){ .gal-lb__prev { left:1.5rem; } .gal-lb__next { right:1.5rem; } }
+.gal-lb__count {
+  position:absolute; bottom:1rem; left:50%; transform:translateX(-50%);
+  color:rgba(255,255,255,.55); font-size:.8rem; font-family:"Nunito",sans-serif; font-weight:700;
+}
+@media (max-width:520px){
+  .gal-lb__nav { width:44px; height:44px; font-size:1.6rem; }
+  .gal-lb__cap { font-size:.85rem; }
 }

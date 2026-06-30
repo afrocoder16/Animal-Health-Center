@@ -34,7 +34,7 @@
   <!-- ===================== HERO ===================== -->
   <section data-hero data-booknow-after class="hero-slideshow relative overflow-hidden">
     <div class="hero-slideshow__slides absolute inset-0">
-      <div class="hero-slideshow__slide is-active" style="background-image:url('img/about-dog-cat.webp')"></div>
+      <div class="hero-slideshow__slide is-active" style="background-image:url('img/small-animal-hero.webp')"></div>
     </div>
     <div class="hero-slideshow__scrim absolute inset-0"></div>
 
@@ -44,11 +44,11 @@
           <span class="w-2 h-2 rounded-full bg-amber2"></span> For the pets you love
         </p>
         <h1 class="mt-6 font-heading display text-white text-[3.2rem] leading-[.95] sm:text-6xl xl:text-7xl">
-          <span data-hero-line class="block">Pets and</span>
-          <span data-hero-line class="block italic text-amber2">small animals.</span>
+          <span data-hero-line class="block">Spoil them</span>
+          <span data-hero-line class="block italic text-amber2">a little.</span>
         </h1>
         <p data-hero-line class="mt-6 text-white/90 text-xl max-w-xl font-heading font-800">
-          Everything your dog, cat, and small animal needs. All in one place in Marshall.
+          Everything your dog, cat, and small animal needs, all in one place in Marshall.
         </p>
         <p data-hero-line class="mt-3 text-white/80 text-lg max-w-xl">
           NutriSource, Fromm, Royal Canin, Honest Paws CBD and more. If we do not have it on the shelf, we can almost always get it.
@@ -57,12 +57,44 @@
           <a href="#departments" class="btn btn--amber">Browse the aisles →</a>
           <a href="tel:+15075325000" class="btn btn--ghost-light">Call (507) 532-5000</a>
         </div>
+
+        <!-- quick jump chips -->
+        <div data-hero-line class="mt-8 flex flex-wrap gap-2.5">
+          <a href="#departments" class="chip-link chip-link--light" data-dept-jump="dogs">Dogs</a>
+          <a href="#departments" class="chip-link chip-link--light" data-dept-jump="cats">Cats</a>
+          <a href="#departments" class="chip-link chip-link--light">Food &amp; treats</a>
+          <a href="#departments" class="chip-link chip-link--light">CBD</a>
+          <a href="#also-in-store" class="chip-link chip-link--light">Grooming &amp; more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRUST BAND ===================== -->
+  <section class="bg-ink text-cream relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-7 grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6 text-center" data-anim="cards">
+      <div>
+        <p class="font-heading display text-3xl sm:text-4xl text-amber2" data-countup data-to="12" data-suffix="+">12+</p>
+        <p class="text-cream/65 text-sm mt-1">food brands stocked</p>
+      </div>
+      <div>
+        <p class="font-heading display text-3xl sm:text-4xl text-amber2">CBD</p>
+        <p class="text-cream/65 text-sm mt-1">Honest Paws on shelf</p>
+      </div>
+      <div>
+        <p class="font-heading display text-3xl sm:text-4xl text-amber2">Dog &amp; Cat</p>
+        <p class="text-cream/65 text-sm mt-1">aisles up front</p>
+      </div>
+      <div>
+        <p class="font-heading display text-3xl sm:text-4xl text-amber2">Special</p>
+        <p class="text-cream/65 text-sm mt-1">orders welcome</p>
       </div>
     </div>
   </section>
 
   <!-- ===================== SECTION 1 · DEPARTMENTS (tabbed switcher / mobile accordion) ===================== -->
   <section id="departments" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
+    <div class="paw-deco paw-deco--2" aria-hidden="true"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
 
       <div class="max-w-3xl" data-anim="up">
@@ -155,6 +187,8 @@
   <section class="relative overflow-hidden bg-cream">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
       <div class="rounded-[2rem] bg-gradient-to-br from-teal via-teal2 to-teal text-cream p-10 sm:p-16 text-center relative overflow-hidden">
+        <div class="soft-glow bg-amber2/20 w-[20rem] h-[20rem] -left-16 -top-10"></div>
+        <div class="soft-glow bg-peach/15 w-[18rem] h-[18rem] -right-12 -bottom-12"></div>
         <div class="relative" data-anim="up">
           <h2 class="font-heading display text-4xl sm:text-5xl">Do not see your brand?</h2>
           <p class="mt-4 text-cream/85 text-lg max-w-2xl mx-auto">
@@ -170,7 +204,9 @@
   </section>
 
   <!-- ===================== SECTION 4 · ALSO IN STORE ===================== -->
-  <section class="py-20 sm:py-28 bg-white relative overflow-hidden">
+  <section id="also-in-store" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
+    <div class="paw-deco paw-deco--1" aria-hidden="true"></div>
+    <div class="soft-glow bg-amber2/10 w-[24rem] h-[24rem] -right-24 top-10"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-3xl" data-anim="up">
         <span class="service-kicker bg-amber2/15 text-amber">Also In Store</span>

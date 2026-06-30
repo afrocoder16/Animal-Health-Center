@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FBF6EC" />
-  <title>Gallery · Take a Look Around · Animal Health Center &amp; Pet Resort, Marshall MN</title>
-  <meta name="description" content="A peek inside Animal Health Center and our Pet Resort, the daycare rooms, boarding suites, the Kitty Korral, and around the store in Marshall, MN." />
-  <meta property="og:title" content="Gallery · Animal Health Center &amp; Pet Resort" />
-  <meta property="og:description" content="Take a look around our daycare rooms, boarding suites and the Kitty Korral." />
+  <title>Gallery &middot; Cute Pups &amp; A Look Inside &middot; Animal Health Center &amp; Pet Resort, Marshall MN</title>
+  <meta name="description" content="Real photos from Animal Health Center and our Pet Resort in Marshall, MN. Happy dogs at daycare, cats in the Kitty Korral, fresh grooming, boarding suites, and a look around the store." />
+  <meta property="og:title" content="Gallery &middot; Animal Health Center &amp; Pet Resort" />
+  <meta property="og:description" content="Cute pups, happy guests, and a look inside the store and Pet Resort." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,112 +31,70 @@
 
   <main>
 
-  <!-- ===================== HERO / HEADER ===================== -->
-  <section data-booknow-after class="relative overflow-hidden pt-12 sm:pt-16 pb-4">
+  <!-- ===================== HERO ===================== -->
+  <section data-booknow-after class="relative overflow-hidden pt-12 sm:pt-16 pb-2">
     <div class="soft-glow bg-teal2/15 w-[26rem] h-[26rem] -left-24 top-0"></div>
     <div class="soft-glow bg-amber2/15 w-[24rem] h-[24rem] right-[-6rem] top-10"></div>
+    <div class="paw-deco paw-deco--1" aria-hidden="true"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl" data-anim="up">
         <span class="service-kicker bg-teal/10 text-teal">Gallery</span>
-        <h1 class="mt-3 font-heading display text-ink text-4xl sm:text-6xl">Take a look around.</h1>
-        <p class="mt-4 text-ink/65 text-lg">A peek inside Animal Health Center and our Pet Resort. The rooms, the play space, and a few of our favorite guests.</p>
+        <h1 class="mt-3 font-heading display text-ink text-4xl sm:text-6xl">Happy faces,<br /><span class="italic text-amber">all in one place.</span></h1>
+        <p class="mt-4 text-ink/65 text-lg">Real moments from the Pet Resort and around the store. Daycare zoomies, pool days, fresh grooms, cozy cats in the Kitty Korral, and a whole lot of good dogs. Tap any photo to see it bigger.</p>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3" data-anim="up">
+        <div class="flex items-baseline gap-2"><span class="font-heading display text-3xl text-teal" data-gal-count>0</span><span class="text-ink/55 text-sm">photos</span></div>
+        <div class="flex items-baseline gap-2"><span class="font-heading display text-3xl text-amber">2</span><span class="text-ink/55 text-sm">play rooms</span></div>
+        <div class="flex items-baseline gap-2"><span class="font-heading display text-3xl text-forest">1</span><span class="text-ink/55 text-sm">Kitty Korral</span></div>
+        <div class="flex items-baseline gap-2"><span class="font-heading display text-3xl text-rust">∞</span><span class="text-ink/55 text-sm">wagging tails</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== GALLERY GROUPS ===================== -->
-  <!-- Every photo slot is a labeled placeholder. To drop in a real photo,
-       replace the .photo-soon block with the matching <img ... .webp> comment
-       above it, same wrapper, same aspect ratio, so the layout never shifts. -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-20 sm:pb-28">
-
-    <!-- 1 · Maci's Playroom (small dog daycare) -->
-    <section class="mt-12 sm:mt-16" data-anim="up">
-      <div class="flex items-baseline justify-between gap-3 flex-wrap">
-        <h2 class="font-heading font-900 text-ink text-2xl sm:text-3xl">Maci's Playroom</h2>
-        <span class="service-kicker bg-teal/10 text-teal !py-1.5">Small dog daycare</span>
+  <!-- ===================== FILTER + MASONRY WALL ===================== -->
+  <section class="relative">
+    <div class="gal-filterbar" data-gal-filterbar>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex gap-2 overflow-x-auto no-scrollbar" role="tablist" aria-label="Filter photos">
+        <button class="gal-pill is-active" data-gal-filter="all" role="tab">All</button>
+        <button class="gal-pill" data-gal-filter="dogs" role="tab">Cute Dogs</button>
+        <button class="gal-pill" data-gal-filter="daycare" role="tab">Daycare</button>
+        <button class="gal-pill" data-gal-filter="grooming" role="tab">Grooming</button>
+        <button class="gal-pill" data-gal-filter="cats" role="tab">Cats</button>
+        <button class="gal-pill" data-gal-filter="boarding" role="tab">Boarding</button>
+        <button class="gal-pill" data-gal-filter="store" role="tab">The Store</button>
       </div>
-      <div class="mt-5 grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4" data-anim="cards">
-        <!-- <img src="img/gallery-maci-1.webp" alt="Maci's Playroom" class="w-full aspect-square object-cover rounded-2xl shadow-sm ring-1 ring-ink/5" /> -->
-        <figure class="photo-soon photo-soon--teal aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Maci's Playroom photo 1</span></figure>
-        <figure class="photo-soon photo-soon--teal aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Maci's Playroom photo 2</span></figure>
-        <figure class="photo-soon photo-soon--teal aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Maci's Playroom photo 3</span></figure>
-        <figure class="photo-soon photo-soon--teal aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Maci's Playroom photo 4</span></figure>
-        <figure class="photo-soon photo-soon--sand aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Maci's Playroom photo 5</span></figure>
-        <figure class="photo-soon photo-soon--sand aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Maci's Playroom photo 6</span></figure>
-      </div>
-    </section>
-
-    <!-- 2 · Nellis Playroom (large dog daycare) -->
-    <section class="mt-14 sm:mt-20" data-anim="up">
-      <div class="flex items-baseline justify-between gap-3 flex-wrap">
-        <h2 class="font-heading font-900 text-ink text-2xl sm:text-3xl">Nellis Playroom</h2>
-        <span class="service-kicker bg-amber/10 text-amber !py-1.5">Large dog daycare</span>
-      </div>
-      <div class="mt-5 grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4" data-anim="cards">
-        <!-- <img src="img/gallery-nellis-1.webp" alt="Nellis Playroom" class="w-full aspect-square object-cover rounded-2xl shadow-sm ring-1 ring-ink/5" /> -->
-        <figure class="photo-soon photo-soon--amber aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Nellis Playroom photo 1</span></figure>
-        <figure class="photo-soon photo-soon--amber aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Nellis Playroom photo 2</span></figure>
-        <figure class="photo-soon photo-soon--amber aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Nellis Playroom photo 3</span></figure>
-        <figure class="photo-soon photo-soon--amber aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Nellis Playroom photo 4</span></figure>
-        <figure class="photo-soon photo-soon--sand aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Nellis Playroom photo 5</span></figure>
-        <figure class="photo-soon photo-soon--sand aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Nellis Playroom photo 6</span></figure>
-      </div>
-    </section>
-
-    <!-- 3 · Boarding Suites -->
-    <section class="mt-14 sm:mt-20" data-anim="up">
-      <div class="flex items-baseline justify-between gap-3 flex-wrap">
-        <h2 class="font-heading font-900 text-ink text-2xl sm:text-3xl">Boarding Suites</h2>
-        <span class="service-kicker bg-teal/10 text-teal !py-1.5">Dog boarding</span>
-      </div>
-      <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4" data-anim="cards">
-        <!-- <img src="img/gallery-boarding-1.webp" alt="A boarding suite" class="w-full aspect-square object-cover rounded-2xl shadow-sm ring-1 ring-ink/5" /> -->
-        <figure class="photo-soon photo-soon--teal aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Boarding photo 1</span></figure>
-        <figure class="photo-soon photo-soon--teal aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Boarding photo 2</span></figure>
-        <figure class="photo-soon photo-soon--teal aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Boarding photo 3</span></figure>
-        <figure class="photo-soon photo-soon--sand aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Boarding photo 4</span></figure>
-      </div>
-    </section>
-
-    <!-- 4 · The Kitty Korral -->
-    <section class="mt-14 sm:mt-20" data-anim="up">
-      <div class="flex items-baseline justify-between gap-3 flex-wrap">
-        <h2 class="font-heading font-900 text-ink text-2xl sm:text-3xl">The Kitty Korral</h2>
-        <span class="service-kicker bg-amber/10 text-amber !py-1.5">Cat boarding</span>
-      </div>
-      <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4" data-anim="cards">
-        <!-- <img src="img/gallery-kitty-1.webp" alt="The Kitty Korral" class="w-full aspect-square object-cover rounded-2xl shadow-sm ring-1 ring-ink/5" /> -->
-        <figure class="photo-soon photo-soon--amber aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Kitty Korral photo 1</span></figure>
-        <figure class="photo-soon photo-soon--amber aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Kitty Korral photo 2</span></figure>
-        <figure class="photo-soon photo-soon--amber aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Kitty Korral photo 3</span></figure>
-        <figure class="photo-soon photo-soon--sand aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Kitty Korral photo 4</span></figure>
-      </div>
-    </section>
-
-    <!-- 5 · Around the Store -->
-    <section class="mt-14 sm:mt-20" data-anim="up">
-      <div class="flex items-baseline justify-between gap-3 flex-wrap">
-        <h2 class="font-heading font-900 text-ink text-2xl sm:text-3xl">Around the Store</h2>
-        <span class="service-kicker bg-forest/10 text-forest !py-1.5">Retail &amp; gift shop</span>
-      </div>
-      <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4" data-anim="cards">
-        <!-- <img src="img/gallery-store-1.webp" alt="Around the store" class="w-full aspect-square object-cover rounded-2xl shadow-sm ring-1 ring-ink/5" /> -->
-        <figure class="photo-soon photo-soon--forest aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Around the Store photo 1</span></figure>
-        <figure class="photo-soon photo-soon--forest aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Around the Store photo 2</span></figure>
-        <figure class="photo-soon photo-soon--forest aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Around the Store photo 3</span></figure>
-        <figure class="photo-soon photo-soon--sand aspect-square rounded-2xl shadow-sm ring-1 ring-ink/5"><svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg><span class="photo-soon__label">Around the Store photo 4</span></figure>
-      </div>
-    </section>
-
-    <!-- back to resort -->
-    <div class="mt-14 sm:mt-16" data-anim="up">
-      <a href="resort.html#daycare" class="inline-flex items-center gap-2 font-heading font-800 text-teal hover:gap-3 transition-all">Back to the Pet Resort →</a>
     </div>
 
-  </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-20 sm:pb-28">
+      <div class="gal-wall" data-gal-wall aria-live="polite"></div>
+      <p class="gal-empty hidden text-center text-ink/50 py-16" data-gal-empty>No photos in this one yet, check back soon.</p>
+
+      <div class="mt-16 text-center" data-anim="up">
+        <p class="font-heading font-900 text-ink text-2xl sm:text-3xl">Want your pup in here?</p>
+        <p class="mt-2 text-ink/60">Book a daycare day or an overnight stay and tag us. We love a good photo.</p>
+        <div class="mt-6 flex flex-wrap gap-3 justify-center">
+          <a data-book class="btn btn--amber">Book a Stay</a>
+          <a href="resort.html" class="btn btn--ghost">Visit the Pet Resort</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   </main>
+
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div class="gal-lightbox" data-gal-lightbox hidden>
+    <button class="gal-lb__close" data-gal-close aria-label="Close">&times;</button>
+    <button class="gal-lb__nav gal-lb__prev" data-gal-prev aria-label="Previous photo">&#8249;</button>
+    <figure class="gal-lb__stage">
+      <img data-gal-lb-img src="" alt="" />
+      <figcaption data-gal-lb-cap class="gal-lb__cap"></figcaption>
+    </figure>
+    <button class="gal-lb__nav gal-lb__next" data-gal-next aria-label="Next photo">&#8250;</button>
+    <span class="gal-lb__count" data-gal-lb-count></span>
+  </div>
+
+  <script>window.AHC_GALLERY = [{"f": "img/gallery/g-boarding-golden-kennel-rest.webp", "c": "boarding", "cap": "Resting up in boarding", "o": "sq"}, {"f": "img/gallery/g-boarding-great-dane-bed.webp", "c": "boarding", "cap": "A great dane in his bunk", "o": "sq"}, {"f": "img/gallery/g-boarding-lab-resting-suite.webp", "c": "boarding", "cap": "Stretched out in a boarding suite", "o": "port"}, {"f": "img/gallery/g-cats-tabby-cat-tree.webp", "c": "cats", "cap": "Up the cat tree in the Korral", "o": "port"}, {"f": "img/gallery/g-cats-tortie-cat-look.webp", "c": "cats", "cap": "A tortie keeping watch", "o": "port"}, {"f": "img/gallery/g-cats-tuxedo-cat-condo.webp", "c": "cats", "cap": "Tuxedo cat in his condo", "o": "port"}, {"f": "img/gallery/g-cats-tuxedo-cat-desk.webp", "c": "cats", "cap": "Supervising from the desk", "o": "port"}, {"f": "img/gallery/g-daycare-golden-running-play.webp", "c": "daycare", "cap": "Full speed at daycare", "o": "port"}, {"f": "img/gallery/g-daycare-play-yard-group.webp", "c": "daycare", "cap": "Group play in the yard", "o": "sq"}, {"f": "img/gallery/g-daycare-play-yard-trio.webp", "c": "daycare", "cap": "Three is a party", "o": "sq"}, {"f": "img/gallery/g-daycare-poodle-snow-walk.webp", "c": "daycare", "cap": "A poodle on a snowy stroll", "o": "sq"}, {"f": "img/gallery/g-daycare-pool-day-group.webp", "c": "daycare", "cap": "Everyone in the pool", "o": "sq"}, {"f": "img/gallery/g-daycare-pool-day-splash.webp", "c": "daycare", "cap": "Pool day splash zone", "o": "sq"}, {"f": "img/gallery/g-daycare-pool-day-yellow-lab.webp", "c": "daycare", "cap": "Cooling off, pool day", "o": "sq"}, {"f": "img/gallery/g-daycare-puppies-ramp-play.webp", "c": "daycare", "cap": "Puppies taking on the ramp", "o": "port"}, {"f": "img/gallery/g-daycare-schnauzer-ball-play.webp", "c": "daycare", "cap": "Schnauzer on ball duty", "o": "sq"}, {"f": "img/gallery/g-daycare-small-dog-playroom.webp", "c": "daycare", "cap": "Small dog daycare in full swing", "o": "port"}, {"f": "img/gallery/g-daycare-snow-play-pair.webp", "c": "daycare", "cap": "Snow day with a friend", "o": "sq"}, {"f": "img/gallery/g-daycare-snow-play-romp.webp", "c": "daycare", "cap": "Romping through the snow", "o": "sq"}, {"f": "img/gallery/g-daycare-snow-play-trio.webp", "c": "daycare", "cap": "Snow day crew", "o": "sq"}, {"f": "img/gallery/g-daycare-splash-mat-play.webp", "c": "daycare", "cap": "Splash mat fun", "o": "sq"}, {"f": "img/gallery/g-daycare-two-dogs-room-play.webp", "c": "daycare", "cap": "Play room buddies", "o": "sq"}, {"f": "img/gallery/g-daycare-yellow-dogs-yard.webp", "c": "daycare", "cap": "Yellow labs in the play yard", "o": "sq"}, {"f": "img/gallery/g-dogs-aussie-deck-smile.webp", "c": "dogs", "cap": "A happy Aussie on the deck", "o": "port"}, {"f": "img/gallery/g-dogs-aussie-deck-tongue.webp", "c": "dogs", "cap": "Tongue out, living the dream", "o": "port"}, {"f": "img/gallery/g-dogs-beagle-fence-howl.webp", "c": "dogs", "cap": "A beagle with something to say", "o": "sq"}, {"f": "img/gallery/g-dogs-birthday-cake-pup.webp", "c": "dogs", "cap": "Birthday boy with his cake", "o": "sq"}, {"f": "img/gallery/g-dogs-bulldog-tongue.webp", "c": "dogs", "cap": "A bulldog being a bulldog", "o": "sq"}, {"f": "img/gallery/g-dogs-choc-lab-look-up.webp", "c": "dogs", "cap": "Those puppy-dog eyes", "o": "sq"}, {"f": "img/gallery/g-dogs-choc-pup-grass.webp", "c": "dogs", "cap": "A chocolate pup in the grass", "o": "port"}, {"f": "img/gallery/g-dogs-dachshund-snow.webp", "c": "dogs", "cap": "A dachshund in the snow", "o": "sq"}, {"f": "img/gallery/g-dogs-doodle-big-grin.webp", "c": "dogs", "cap": "This doodle is thrilled", "o": "port"}, {"f": "img/gallery/g-dogs-golden-big-smile.webp", "c": "dogs", "cap": "The biggest golden smile", "o": "sq"}, {"f": "img/gallery/g-dogs-golden-sit-smile.webp", "c": "dogs", "cap": "A golden with a golden smile", "o": "port"}, {"f": "img/gallery/g-dogs-heeler-mix-sit.webp", "c": "dogs", "cap": "A heeler mix sitting pretty", "o": "sq"}, {"f": "img/gallery/g-dogs-hound-deck-tongue.webp", "c": "dogs", "cap": "Hound dog, happy as can be", "o": "sq"}, {"f": "img/gallery/g-dogs-hound-wall-sniff.webp", "c": "dogs", "cap": "On the trail of something", "o": "sq"}, {"f": "img/gallery/g-dogs-husky-mix-grin.webp", "c": "dogs", "cap": "Best smile in the building", "o": "sq"}, {"f": "img/gallery/g-dogs-pittie-blanket-smile.webp", "c": "dogs", "cap": "Cozy blanket, big grin", "o": "port"}, {"f": "img/gallery/g-dogs-pom-blue-coat.webp", "c": "dogs", "cap": "Pom rocking a blue coat", "o": "sq"}, {"f": "img/gallery/g-dogs-pup-winter-coat.webp", "c": "dogs", "cap": "Bundled up for winter", "o": "sq"}, {"f": "img/gallery/g-dogs-shepherd-mix-pet.webp", "c": "dogs", "cap": "Soaking up the attention", "o": "port"}, {"f": "img/gallery/g-dogs-two-dogs-deck-door.webp", "c": "dogs", "cap": "Two buddies on the deck", "o": "sq"}, {"f": "img/gallery/g-dogs-two-doodles-deck.webp", "c": "dogs", "cap": "Two doodles on the deck", "o": "sq"}, {"f": "img/gallery/g-dogs-white-dog-portrait.webp", "c": "dogs", "cap": "A sweet senior portrait", "o": "sq"}, {"f": "img/gallery/g-grooming-cocker-fresh-bath.webp", "c": "grooming", "cap": "A cocker after a fresh bath", "o": "sq"}, {"f": "img/gallery/g-grooming-doodle-fresh-cut.webp", "c": "grooming", "cap": "A doodle, freshly done", "o": "land"}, {"f": "img/gallery/g-grooming-doodle-fresh-trim.webp", "c": "grooming", "cap": "A doodle after a fresh trim", "o": "sq"}, {"f": "img/gallery/g-grooming-grooming-room-doodles.webp", "c": "grooming", "cap": "Doodles in the grooming room", "o": "sq"}, {"f": "img/gallery/g-grooming-holiday-photo-bow.webp", "c": "grooming", "cap": "Dressed up for the holidays", "o": "sq"}, {"f": "img/gallery/g-grooming-holiday-photo-wreath.webp", "c": "grooming", "cap": "Holiday photo, wreath and all", "o": "sq"}, {"f": "img/gallery/g-grooming-poodle-fresh-cut.webp", "c": "grooming", "cap": "Fresh out of the grooming tub", "o": "land"}, {"f": "img/gallery/g-grooming-shih-tzu-bandana.webp", "c": "grooming", "cap": "Shih tzu in a fresh bandana", "o": "sq"}, {"f": "img/gallery/g-grooming-two-pups-fresh.webp", "c": "grooming", "cap": "Two pups, freshly groomed", "o": "sq"}, {"f": "img/gallery/g-store-toy-wall-aisle.webp", "c": "store", "cap": "The toy wall, fully stocked", "o": "land"}, {"f": "img/gallery/g-store-treat-display-rack.webp", "c": "store", "cap": "Treats for every good dog", "o": "port"}, {"f": "img/daycare-maci-room.webp", "c": "daycare", "cap": "Maci's playroom, ready to go", "o": "land"}, {"f": "img/daycare-maci-dog-1.webp", "c": "daycare", "cap": "A regular in Maci's room", "o": "land"}, {"f": "img/daycare-maci-dog-2.webp", "c": "daycare", "cap": "Playtime in Maci's room", "o": "sq"}, {"f": "img/daycare-nellis-room.webp", "c": "daycare", "cap": "The Nellis playroom", "o": "land"}, {"f": "img/daycare-nellis-dog-1.webp", "c": "daycare", "cap": "Big dog energy in Nellis", "o": "land"}, {"f": "img/daycare-nellis-dog-2.webp", "c": "daycare", "cap": "A Nellis room regular", "o": "land"}, {"f": "img/daycare-large-room-1.webp", "c": "daycare", "cap": "Room to run inside", "o": "port"}, {"f": "img/boarding-kennel-row.webp", "c": "boarding", "cap": "Our clean boarding kennels", "o": "sq"}, {"f": "img/boarding-lead-kennel-hallway.webp", "c": "boarding", "cap": "Down the boarding hallway", "o": "land"}, {"f": "img/boarding-outdoor-play.webp", "c": "boarding", "cap": "Outdoor boarding play yard", "o": "sq"}, {"f": "img/dog-boarding-1.webp", "c": "boarding", "cap": "A comfy boarding suite", "o": "port"}, {"f": "img/cat-boarding-1.webp", "c": "cats", "cap": "The Kitty Korral", "o": "sq"}, {"f": "img/kitty-lead-content-cat.webp", "c": "cats", "cap": "A content Korral guest", "o": "land"}, {"f": "img/kitty-shelves-condos.webp", "c": "cats", "cap": "Cat condos and shelves", "o": "port"}, {"f": "img/kitty-tree-window.webp", "c": "cats", "cap": "A window seat for cats", "o": "port"}, {"f": "img/kitty-wall-sign.webp", "c": "cats", "cap": "The hand-painted Korral sign", "o": "port"}];</script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
