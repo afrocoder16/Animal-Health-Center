@@ -336,9 +336,13 @@
     }
 
     if (!("IntersectionObserver" in window)) { els.forEach(run); return; }
+    var remaining = els.length;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+        if (!e.isIntersecting) return;
+        run(e.target);
+        io.unobserve(e.target);
+        if (--remaining === 0) io.disconnect();
       });
     }, { threshold: 0.4 });
     els.forEach(function (el) { io.observe(el); });
