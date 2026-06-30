@@ -8,8 +8,24 @@
 (function () {
   "use strict";
 
-  var KENNELBOOKER =
-    "https://www.kennelbooker.com/clientlogin.aspx?id=a0013ce4-96fa-44ef-9320-bb3de01b8c44";
+  /* ======================================================================
+     CONFIG: values most likely to change. Edit here, nowhere else.
+     Hours: keys are JS day numbers (0=Sun). Values are [openMins, closeMins]
+     from midnight (480 = 8:00am, 1050 = 5:30pm, 720 = 12:00pm), or null for closed.
+     ====================================================================== */
+  var CONFIG = {
+    kennelBooker: "https://www.kennelbooker.com/clientlogin.aspx?id=a0013ce4-96fa-44ef-9320-bb3de01b8c44",
+    hours: {
+      0: null,          // Sun closed
+      1: [480, 1050],   // Mon
+      2: [480, 1050],   // Tue
+      3: [480, 1050],   // Wed
+      4: [480, 1050],   // Thu
+      5: [480, 1050],   // Fri
+      6: [480, 720]     // Sat
+    }
+  };
+
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var hasGsap = function () { return !!window.gsap; };
   var $  = function (s, c) { return (c || document).querySelector(s); };
@@ -17,19 +33,7 @@
 
   /* ======================================================================
      1. LIVE OPEN / CLOSED BADGE  (every page)
-     Hours — KEEP IN SYNC with the visible "Hours" blocks in the HTML/footer:
-       Mon–Fri 8:00am–5:30pm · Sat 8:00am–12:00pm · Sun closed
-     Times are minutes-from-midnight. 480 = 8:00, 1050 = 17:30, 720 = 12:00.
      ====================================================================== */
-  var HOURS = {
-    0: null,          // Sun closed
-    1: [480, 1050],   // Mon
-    2: [480, 1050],   // Tue
-    3: [480, 1050],   // Wed
-    4: [480, 1050],   // Thu
-    5: [480, 1050],   // Fri
-    6: [480, 720]     // Sat
-  };
   var DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
   function fmtTime(mins) {
@@ -41,12 +45,12 @@
 
   function nextOpenLabel(day, mins) {
     // rest of today?
-    var t = HOURS[day];
+    var t = CONFIG.hours[day];
     if (t && mins < t[0]) return "Opens today " + fmtTime(t[0]);
     // search the next 7 days
     for (var i = 1; i <= 7; i++) {
       var d = (day + i) % 7;
-      var slot = HOURS[d];
+      var slot = CONFIG.hours[d];
       if (slot) {
         var when = i === 1 ? "tomorrow" : DAY_NAMES[d];
         return "Opens " + when + " " + fmtTime(slot[0]);
@@ -61,7 +65,7 @@
     var now = new Date();
     var day = now.getDay();
     var mins = now.getHours() * 60 + now.getMinutes();
-    var t = HOURS[day];
+    var t = CONFIG.hours[day];
     var isOpen = !!t && mins >= t[0] && mins < t[1];
     var text, cls;
     if (isOpen) {
@@ -146,7 +150,7 @@
     if (!boxes.length || !cta) return;
 
     var link = cta.querySelector("a") || cta;
-    if (link.tagName === "A") link.setAttribute("href", KENNELBOOKER);
+    if (link.tagName === "A") link.setAttribute("href", CONFIG.kennelBooker);
 
     function update() {
       var missing = boxes.filter(function (b) { return !b.checked; });
@@ -374,6 +378,48 @@
     });
   }
 
+  /* Grooming quote request (grooming.html). Validates with the Constraint
+     Validation API, then either POSTs to a real form endpoint or — while the
+     action is still the placeholder — simulates a friendly success so the demo
+     never errors. Wire `action` to Formspree / a Resend endpoint to go live. */
+  function initQuoteForm(form) {
+    var status = $("[data-form-status]", form);
+    var btn = form.querySelector('button[type="submit"]');
+    var action = form.getAttribute("action") || "";
+    var live = action && action.indexOf("REPLACE_WITH_FORM_ID") === -1 && action.indexOf("REPLACE") === -1;
+
+    function flagInvalid() {
+      $$(".form-input", form).forEach(function (i) { i.removeAttribute("aria-invalid"); });
+      $$(".form-input", form).forEach(function (i) { if (!i.checkValidity()) i.setAttribute("aria-invalid", "true"); });
+      var firstBad = form.querySelector('[aria-invalid="true"]');
+      if (firstBad) firstBad.focus();
+    }
+
+    form.addEventListener("submit", function (e) {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        flagInvalid();
+        if (status) { status.textContent = "Please fill in the highlighted fields."; status.style.color = "#c25b3a"; }
+        return;
+      }
+
+      // Endpoint not wired yet: intercept and simulate success (nothing sent).
+      if (!live) {
+        e.preventDefault();
+        if (btn) { btn.disabled = true; btn.style.opacity = ".7"; }
+        if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
+        setTimeout(function () {
+          form.reset();
+          if (btn) { btn.disabled = false; btn.style.opacity = "1"; }
+          if (status) { status.textContent = "Thanks! We'll be in touch with a quote soon. 🐾"; status.style.color = "#1f8a4c"; }
+        }, 900);
+        return;
+      }
+      // live endpoint: let the browser submit the POST normally.
+      if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
+    });
+  }
+
   /* ======================================================================
      8b. LIVESTOCK DEPARTMENT SWITCHER  (livestock.html)
      Tabs on desktop (one panel shown at a time), accordion on mobile
@@ -526,7 +572,7 @@
   /* set KennelBooker href on any element flagged for it */
   function wireBookingLinks() {
     $$("[data-book]").forEach(function (a) {
-      a.setAttribute("href", KENNELBOOKER);
+      a.setAttribute("href", CONFIG.kennelBooker);
       a.setAttribute("target", "_blank");
       a.setAttribute("rel", "noopener");
     });
@@ -571,6 +617,7 @@
     $$('[data-widget="rate-estimator"]').forEach(initRateEstimator);
     $$('[data-widget="promos"]').forEach(initWeeklyPromos);
     $$('[data-widget="contact"]').forEach(initContactForm);
+    $$('[data-widget="quote"]').forEach(initQuoteForm);
     $$('[data-widget="dept-switcher"]').forEach(initDeptSwitcher);
     $$('[data-photo-rotate]').forEach(initPhotoRotate);
     initCountUps();
