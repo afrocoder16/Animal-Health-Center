@@ -82,6 +82,27 @@
   }
 
   /* ======================================================================
+     TAB GROUP HELPER
+     Handles the "one active, rest inactive" tab pattern shared by the pet
+     filter, pricing toggle, and dept switcher. Sets is-active class and
+     the given ARIA attribute on each tab, then calls onActivate(key).
+     ====================================================================== */
+  function initTabGroup(tabs, getKey, ariaAttr, onActivate) {
+    function activate(key) {
+      tabs.forEach(function (t) {
+        var on = getKey(t) === key;
+        t.classList.toggle("is-active", on);
+        t.setAttribute(ariaAttr, on ? "true" : "false");
+      });
+      onActivate(key);
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener("click", function () { activate(getKey(t)); });
+    });
+    return activate;
+  }
+
+  /* ======================================================================
      2. PET PROFILE BUILDER  (home preview + shop.html)
      Tiles set the active category; [data-pet] items below are filtered.
      Items are scoped to the nearest [data-pet-scope] so the home preview and
@@ -93,12 +114,11 @@
     var items = $$("[data-pet]", scope);
     if (!tiles.length) return;
 
-    function apply(cat) {
-      tiles.forEach(function (t) {
-        var on = t.getAttribute("data-pet-tile") === cat;
-        t.classList.toggle("is-active", on);
-        t.setAttribute("aria-pressed", on ? "true" : "false");
-      });
+    function labelFor(cat) {
+      return ({ dog: "Dogs", cat: "Cats", horse: "Horses & Equine", farm: "Farm Animals" })[cat] || "All Animals";
+    }
+
+    function showFilter(cat) {
       var show = items.filter(function (i) {
         return cat === "all" || (" " + i.getAttribute("data-pet") + " ").indexOf(" " + cat + " ") > -1;
       });
@@ -118,26 +138,19 @@
         items.forEach(function (i) { i.hidden = show.indexOf(i) === -1; });
         refreshST();
       }
-
-      // reflect category name anywhere that asks for it
       $$("[data-pet-label]", scope).forEach(function (el) { el.textContent = labelFor(cat); });
-    }
-
-    function labelFor(cat) {
-      return ({ dog: "Dogs", cat: "Cats", horse: "Horses & Equine", farm: "Farm Animals" })[cat] || "All Animals";
     }
 
     tiles.forEach(function (t) {
       t.setAttribute("role", "button");
       t.setAttribute("tabindex", "0");
-      var go = function () { apply(t.getAttribute("data-pet-tile")); };
-      t.addEventListener("click", go);
       t.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(t.getAttribute("data-pet-tile")); }
       });
     });
 
-    apply(root.getAttribute("data-default") || "dog");
+    var activate = initTabGroup(tiles, function (t) { return t.getAttribute("data-pet-tile"); }, "aria-pressed", showFilter);
+    activate(root.getAttribute("data-default") || "dog");
   }
 
   /* ======================================================================
@@ -234,12 +247,7 @@
       full: { p: "$22", s: "Full day · 5 hours or more" }
     };
 
-    function set(plan) {
-      buttons.forEach(function (b) {
-        var on = b.getAttribute("data-plan") === plan;
-        b.classList.toggle("is-active", on);
-        b.setAttribute("aria-pressed", on ? "true" : "false");
-      });
+    function showPrice(plan) {
       var d = DATA[plan]; if (!d) return;
       if (hasGsap() && !reduce) {
         window.gsap.to(priceEl, {
@@ -256,10 +264,8 @@
       }
     }
 
-    buttons.forEach(function (b) {
-      b.addEventListener("click", function () { set(b.getAttribute("data-plan")); });
-    });
-    set("half");
+    var activate = initTabGroup(buttons, function (b) { return b.getAttribute("data-plan"); }, "aria-pressed", showPrice);
+    activate("half");
   }
 
   /* ======================================================================
@@ -447,18 +453,18 @@
     }
 
     /* DESKTOP: show exactly one panel, highlight its tab */
-    function selectTab(key) {
-      active = key;
-      tabs.forEach(function (t) {
-        var on = t.getAttribute("data-dept-tab") === key;
-        t.classList.toggle("is-active", on);
-        t.setAttribute("aria-selected", on ? "true" : "false");
-      });
-      panels.forEach(function (p) {
-        p.classList.toggle("is-active", p.getAttribute("data-dept-panel") === key);
-      });
-      reveal(panelFor(key));
-    }
+    var activateTab = initTabGroup(
+      tabs,
+      function (t) { return t.getAttribute("data-dept-tab"); },
+      "aria-selected",
+      function (key) {
+        panels.forEach(function (p) {
+          p.classList.toggle("is-active", p.getAttribute("data-dept-panel") === key);
+        });
+        reveal(panelFor(key));
+      }
+    );
+    function selectTab(key) { active = key; activateTab(key); }
 
     /* MOBILE: toggle one accordion panel open/closed (others close) */
     function toggleAcc(key) {
@@ -495,9 +501,6 @@
       }
     }
 
-    tabs.forEach(function (t) {
-      t.addEventListener("click", function () { selectTab(t.getAttribute("data-dept-tab")); });
-    });
     heads.forEach(function (h) {
       h.addEventListener("click", function () { toggleAcc(h.getAttribute("data-dept-acc")); });
     });
