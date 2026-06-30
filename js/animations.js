@@ -63,10 +63,16 @@
     gsap.to(el, { x: (i % 2 ? 26 : -26), y: (i % 2 ? -18 : 18), duration: 9 + i * 2, ease: "sine.inOut", yoyo: true, repeat: -1 });
   });
 
-  /* ---- ranch livestock rise onto ground line ---- */
+  /* ---- ranch section: photo background parallax + rope draw ----
+     The cattle-department photo drifts slower than the page so it reads as
+     depth behind the copy. yPercent (not background-attachment:fixed, which
+     breaks on iOS) + scrub keeps it smooth and correct on every device. ---- */
   var ranch = $("[data-ranch]");
   if (ranch) {
-    gsap.from($$("[data-livestock]", ranch), { y: 56, opacity: 0, duration: .9, stagger: .14, ease: "power3.out", scrollTrigger: { trigger: ranch, start: "top 72%" } });
+    var ranchBg = $("[data-ranch-parallax]", ranch);
+    if (ranchBg) {
+      gsap.fromTo(ranchBg, { yPercent: -14 }, { yPercent: 14, ease: "none", scrollTrigger: { trigger: ranch, start: "top bottom", end: "bottom top", scrub: 0.5 } });
+    }
     gsap.from($$("[data-lasso]", ranch), { scaleX: 0, transformOrigin: "left center", duration: 1, ease: "power2.out", scrollTrigger: { trigger: ranch, start: "top 76%" } });
   }
 

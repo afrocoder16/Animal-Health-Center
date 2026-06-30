@@ -189,27 +189,164 @@ h1,h2,h3,h4,h5,.font-heading {
 .pet-tile:hover { transform: translateY(-6px) rotate(-.5deg); box-shadow: var(--shadow-lg); }
 .pet-tile.is-active { box-shadow: 0 0 0 4px var(--amber-2), var(--shadow); transform: translateY(-3px); }
 
+/* Full-bleed photo routing tiles ("Who are you caring for today?") */
+.care-tile { transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out); }
+.care-tile:hover { transform: translateY(-6px); box-shadow: 0 28px 64px -28px rgba(60,40,16,.6); }
+.care-tile__overlay {
+  position:absolute; inset:0; pointer-events:none;
+  background: linear-gradient(180deg, rgba(26,18,8,0) 38%, rgba(26,18,8,.18) 58%, rgba(26,18,8,.78) 100%);
+  transition: background .4s var(--ease-out);
+}
+.care-tile:hover .care-tile__overlay {
+  background: linear-gradient(180deg, rgba(26,18,8,0) 30%, rgba(26,18,8,.24) 52%, rgba(26,18,8,.82) 100%);
+}
+.care-tile__label { position:absolute; left:0; right:0; bottom:0; padding:1.25rem 1.25rem 1.15rem; text-align:left; }
+.care-tile__arrow {
+  position:absolute; top:.9rem; right:.9rem; width:2.25rem; height:2.25rem;
+  display:grid; place-items:center; border-radius:9999px;
+  background: var(--amber-2); color:#2b1c08; font-weight:900; font-size:1.05rem; line-height:1;
+  box-shadow: 0 8px 20px -8px rgba(60,40,16,.6);
+  opacity:0; transform: translateY(-6px) scale(.85);
+  transition: opacity .35s var(--ease-out), transform .35s var(--ease-out);
+}
+.care-tile:hover .care-tile__arrow,
+.care-tile:focus-visible .care-tile__arrow { opacity:1; transform: translateY(0) scale(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .care-tile, .care-tile:hover { transform:none; }
+  .care-tile img { transition:none !important; }
+  .care-tile:hover img { transform:none !important; }
+  .care-tile__arrow { opacity:1; transform:none; }
+}
+
 /* ==========================================================================
    RANCH / COWBOY moment — warm, not dark. Sunset cream→amber with wood hint.
    ========================================================================== */
-.ranch {
-  position:relative; overflow:hidden; color:#3a2a14;
-  background:
-    radial-gradient(100% 70% at 50% 0%, #FBE6BE 0%, transparent 60%),
-    repeating-linear-gradient(90deg, rgba(156,74,26,.05) 0 2px, transparent 2px 70px),
-    linear-gradient(180deg, #F6DCA6 0%, #EAC07A 55%, #E0AE5E 100%);
-}
-.ranch h2,.ranch h3 { color:#3a2510; }
-.ranch-ground { position:absolute; left:0; right:0; bottom:0; height:30%;
-  background:linear-gradient(180deg, transparent, rgba(156,74,26,.18)); pointer-events:none; }
-.lasso-rope { height:6px; border-radius:6px;
-  background:repeating-linear-gradient(45deg,var(--amber) 0 9px,var(--rust) 9px 18px);
-  box-shadow:0 2px 5px rgba(60,40,16,.25); }
+/* Photo-backed ranch section: the real cattle department behind the copy,
+   parallaxed by GSAP (no background-attachment:fixed — that breaks on iOS). */
+.ranch--photo { color:#fff; background:#241a10; }
 
-/* livestock doorway: the whole staggered animal group is one link into livestock.html */
-.ranch-herd { display:grid; text-decoration:none; cursor:pointer; }
-.ranch-herd figcaption { transition: color .25s var(--ease-out); }
-.ranch-herd:hover figcaption { color: var(--rust); }
+/* parallax layer: taller than the section so it can drift without revealing edges */
+.ranch-bg { position:absolute; left:0; right:0; top:-24%; height:148%; z-index:0;
+  will-change: transform; pointer-events:none; }
+.ranch-bg picture { display:block; width:100%; height:100%; }
+.ranch-bg__img { width:100%; height:100%; object-fit:cover; object-position:center 42%; display:block; }
+
+/* readability overlay: dark enough to read, light enough the store stays recognizable */
+.ranch-overlay { position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+    linear-gradient(90deg, rgba(20,13,6,.72) 0%, rgba(20,13,6,.52) 45%, rgba(20,13,6,.34) 100%),
+    linear-gradient(180deg, rgba(20,13,6,.30) 0%, rgba(20,13,6,.10) 40%, rgba(20,13,6,.42) 100%);
+}
+
+.ranch h2,.ranch h3 { color:#fff; }
+.lasso-rope { height:6px; border-radius:6px;
+  background:repeating-linear-gradient(45deg,var(--amber-2) 0 9px,var(--rust) 9px 18px);
+  box-shadow:0 2px 5px rgba(0,0,0,.35); }
+
+/* category labels — light treatment so they read on the darkened photo */
+.ranch-cats {
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+  gap:.65rem; font-family:"Nunito", system-ui, sans-serif; font-weight:800;
+  font-size:1.0625rem; letter-spacing:.01em;
+}
+.ranch-cats--on-photo { color:#fff; text-align:center;
+  text-shadow:0 2px 10px rgba(0,0,0,.5); }
+.ranch-cats--on-photo a { color:#fff; text-decoration:none; transition: color .2s var(--ease-out); }
+.ranch-cats--on-photo a:hover { color: var(--amber-2); }
+.ranch-cats--on-photo span { color: rgba(255,255,255,.5); }
+
+/* ==========================================================================
+   GIFT SHOP TEASER — editorial collage, "best kept secret" reveal.
+   Warm cream band + asymmetric photo grid + hang-tag kicker.
+   ========================================================================== */
+.giftshop {
+  background:
+    radial-gradient(120% 90% at 50% -10%, #FFFDF7 0%, transparent 55%),
+    linear-gradient(180deg, var(--cream) 0%, #F6EAD3 100%);
+}
+
+/* little stitched "hang tag" badge for the kicker */
+.giftshop-tag {
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:"Nunito", system-ui, sans-serif; font-weight:800;
+  font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;
+  color:#8a4e1c; background:#fff;
+  padding:.5rem 1rem .5rem 1.6rem; border-radius:999px;
+  box-shadow:0 8px 20px -10px rgba(60,40,16,.4), inset 0 0 0 1px rgba(156,74,26,.14);
+  position:relative;
+}
+/* punched hole + ring, so it reads as a price tag */
+.giftshop-tag::before {
+  content:""; position:absolute; left:.7rem; top:50%; transform:translateY(-50%);
+  width:8px; height:8px; border-radius:50%;
+  background:var(--cream); box-shadow:inset 0 0 0 2px rgba(156,74,26,.45);
+}
+
+/* asymmetric editorial gallery: one tall, one wide, one square */
+.giftshop-gallery {
+  display:grid; gap:1.1rem;
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "tall wide"
+    "tall square";
+}
+.gs-photo--tall   { grid-area: tall; }
+.gs-photo--wide   { grid-area: wide; }
+.gs-photo--square { grid-area: square; }
+
+.gs-photo {
+  position:relative; display:block; overflow:hidden;
+  border-radius:26px; text-decoration:none;
+  box-shadow:0 22px 55px -28px rgba(60,40,16,.5);
+  background:var(--cream-2);
+}
+.gs-photo img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition: transform .9s var(--ease-out);
+}
+.gs-photo:hover img { transform: scale(1.06); }
+/* the tall photo stretches to match the stacked wide+square column height */
+.gs-photo--tall   { min-height:100%; }
+.gs-photo--tall img   { height:100%; min-height:26rem; }
+.gs-photo--wide img   { aspect-ratio: 16 / 9; }
+.gs-photo--square img { aspect-ratio: 1 / 1; }
+
+/* caption plate that fades up from the bottom of each photo */
+.gs-photo__cap {
+  position:absolute; left:0; right:0; bottom:0; z-index:2;
+  display:flex; flex-direction:column; gap:.1rem;
+  padding:2.2rem 1.25rem 1.1rem;
+  font-family:"Nunito", system-ui, sans-serif; font-weight:800;
+  color:#fff; font-size:1.05rem; line-height:1.2;
+  background:linear-gradient(180deg, transparent, rgba(32,22,10,.82));
+}
+.gs-photo__kicker {
+  font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--amber-2); font-weight:800;
+}
+
+/* category chips */
+.giftshop-chips {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem;
+  list-style:none; margin:0; padding:0;
+}
+.giftshop-chips li {
+  font-family:"Nunito", system-ui, sans-serif; font-weight:800;
+  font-size:.9rem; color:#6b4a22;
+  background:#fff; border-radius:999px;
+  padding:.5rem 1.05rem;
+  box-shadow:inset 0 0 0 1px rgba(156,74,26,.16), 0 4px 12px -8px rgba(60,40,16,.4);
+}
+
+@media (max-width: 700px) {
+  .giftshop-gallery {
+    grid-template-columns: 1fr;
+    grid-template-areas: "tall" "wide" "square";
+  }
+  .gs-photo--tall img { aspect-ratio: 4 / 3; }
+}
 
 /* ==========================================================================
    LOYALTY PUNCH CARD — premium membership card (teal, pops on cream)
@@ -403,6 +540,42 @@ body.menu-open { overflow:hidden; }
   font-size:2.4rem; line-height:1; }
 
 /* ==========================================================================
+   BOUTIQUE BRIDGE — minimal hero->boutique transition on the gift shop page.
+   Dark hero melts into the cream boutique via a gradient + a playful word
+   marquee + a soft scroll cue. No JS dependency beyond the shared marquee.
+   ========================================================================== */
+.boutique-bridge {
+  position:relative; overflow:hidden;
+  /* the actual transition: continues straight off the hero photo's red,
+     fades directly to cream (no brown/gray band in between) */
+  background:linear-gradient(180deg, #481910 0%, #481910 18%, var(--cream) 100%);
+  padding:3.5rem 0 4.5rem;
+}
+
+/* scrolling word marquee */
+.boutique-bridge__marquee { padding:.5rem 0 2.75rem; }
+.bridge-track {
+  display:flex; align-items:center; gap:1.6rem; width:max-content;
+  white-space:nowrap; will-change:transform;
+  font-family:"Nunito",sans-serif; font-weight:900;
+  font-size:clamp(1.6rem, 4.5vw, 2.6rem); letter-spacing:-.01em;
+  color:transparent; -webkit-text-stroke:1.4px rgba(255,247,236,.45);
+}
+.bridge-track .dot { -webkit-text-stroke:0; color:var(--amber-2); font-size:.7em; }
+
+/* centered handoff line */
+.boutique-bridge__inner { position:relative; z-index:2; text-align:center; padding:0 1.25rem; }
+.bridge-eyebrow {
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.82rem;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--amber-2);
+}
+.bridge-line {
+  margin-top:.6rem; font-family:"Nunito",sans-serif; font-weight:900;
+  font-size:clamp(1.5rem, 3.6vw, 2.4rem); line-height:1.12; letter-spacing:-.02em;
+  color:#fff;
+}
+
+/* ==========================================================================
    LIVESTOCK DEPARTMENT SWITCHER — tabs on desktop, accordion on mobile.
    One markup tree; CSS swaps which control set is shown at the lg breakpoint.
    JS (data-widget="dept-switcher") keeps tabs + panels + accordion in sync.
@@ -474,6 +647,299 @@ body.menu-open { overflow:hidden; }
 .form-input::placeholder { color:rgba(60,40,16,.4); }
 .form-input:focus { border-color:var(--teal-2); box-shadow:0 0 0 4px rgba(44,148,148,.18); }
 .form-input[aria-invalid="true"] { border-color:#c25b3a; box-shadow:0 0 0 4px rgba(194,91,58,.16); }
+.form-label { display:block; font-size:.875rem; font-weight:700; color:var(--ink); margin-bottom:.4rem; }
+
+/* ==========================================================================
+   GROOMING PAGE — photo-driven editorial hero + framed real photos.
+   No animal cutouts: full contained photos in soft rounded frames.
+   ========================================================================== */
+
+/* hero band: warm cream wash so the photo and copy share one calm field */
+.groom-hero {
+  background:
+    radial-gradient(90% 70% at 85% 10%, rgba(246,217,168,.4), transparent 55%),
+    linear-gradient(180deg, #FFFDF7 0%, var(--cream) 55%, var(--cream-2) 100%);
+}
+
+/* hero photo: contained, framed, gently tilted, with a floating tag */
+.groom-hero__photo {
+  position:relative; margin:0;
+  border-radius:30px; overflow:hidden;
+  border:7px solid #fff;
+  box-shadow:0 40px 80px -30px rgba(60,40,16,.5);
+  transform:rotate(1.4deg);
+  aspect-ratio: 4 / 5;
+}
+.groom-hero__photo > img { width:100%; height:100%; object-fit:cover; object-position:center 28%; display:block; }
+.groom-hero__tag {
+  position:absolute; left:1rem; bottom:1rem; z-index:2;
+  display:grid; gap:.05rem;
+  font-family:"Nunito",sans-serif; font-weight:800; color:var(--ink); font-size:.9rem;
+  background:rgba(251,246,236,.94); backdrop-filter:blur(4px);
+  padding:.65rem .95rem; border-radius:16px; box-shadow:0 12px 30px -12px rgba(60,40,16,.5);
+}
+.groom-hero__tag-k { color:var(--teal); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; }
+
+/* overlapping mini photo strip (real regulars) */
+.groom-strip { display:flex; }
+.groom-strip img {
+  width:54px; height:54px; border-radius:50%; object-fit:cover;
+  border:3px solid var(--cream); box-shadow:0 4px 12px -4px rgba(60,40,16,.4);
+  margin-left:-14px;
+}
+.groom-strip img:first-child { margin-left:0; }
+
+/* generic framed photo used across the page (what's-included + room peek) */
+.groom-framed {
+  position:relative; margin:0; overflow:hidden;
+  border-radius:24px; border:6px solid #fff;
+  box-shadow:0 24px 55px -28px rgba(60,40,16,.5);
+  background:var(--cream-2);
+}
+.groom-framed > img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition: transform .8s var(--ease-out);
+}
+.groom-framed:hover > img { transform:scale(1.05); }
+
+/* gift certificate callout */
+.giftcert__mark {
+  flex:none; display:grid; place-items:center; width:64px; height:64px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--amber-2), var(--amber)); color:#fff;
+  box-shadow:0 12px 26px -12px rgba(193,127,36,.6);
+}
+.giftcert__mark svg { width:32px; height:auto; }
+
+@media (max-width: 1023px) {
+  .groom-hero__photo { transform:none; max-width:30rem; margin-inline:auto; }
+}
+
+/* ==========================================================================
+   INDEPENDENCE DAY (July 4th) "THIS WEEK" PROMO SECTION — index.html.
+   Minimalist seasonal dressing for the weekly-deals block: a clean cream
+   panel framed by a thin red/white/blue stripe, restrained star accents, and
+   two deal cards recolored navy + red. Self-contained, scoped to `.july4-*`
+   so nothing else on the site is affected. All section copy is unchanged.
+   ========================================================================== */
+:root {
+  --usa-navy:  #1a2b4a;
+  --usa-navy-2:#24365c;
+  --usa-red:   #b32430;
+  --usa-red-2: #cf3340;
+}
+
+.july4 {
+  position: relative;
+  border-radius: 28px;
+  padding: 2.75rem 1.75rem 3rem;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(26,43,74,.05) 0%, transparent 55%),
+    linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+  border: 1px solid rgba(26,43,74,.08);
+  box-shadow: var(--shadow);
+}
+@media (min-width: 640px) { .july4 { padding: 3.25rem 3rem 3.5rem; } }
+
+/* thin red/white/blue stripe along the top edge */
+.july4::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px;
+  border-radius: 28px 28px 0 0;
+  background: linear-gradient(90deg,
+    var(--usa-red) 0 33.33%, var(--white) 33.33% 66.66%, var(--usa-navy) 66.66% 100%);
+}
+
+/* faint star scatter in the panel corner — decorative, low contrast */
+.july4::after {
+  content: ""; position: absolute; right: 1.75rem; top: 1.75rem; width: 7rem; height: 7rem;
+  pointer-events: none; opacity: .14;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a2b4a'%3E%3Cpath d='M12 2l2.5 6.5L21 9l-5 4 1.6 7L12 16.6 6.4 20 8 13 3 9l6.5-.5z'/%3E%3C/svg%3E") 0 0 / 1.6rem no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23b32430'%3E%3Cpath d='M12 2l2.5 6.5L21 9l-5 4 1.6 7L12 16.6 6.4 20 8 13 3 9l6.5-.5z'/%3E%3C/svg%3E") 3.4rem 2.2rem / 1.1rem no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a2b4a'%3E%3Cpath d='M12 2l2.5 6.5L21 9l-5 4 1.6 7L12 16.6 6.4 20 8 13 3 9l6.5-.5z'/%3E%3C/svg%3E") 1.2rem 4.6rem / .85rem no-repeat;
+}
+
+/* small "July 4th" pill above the kicker */
+.july4-flag {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-family: "Nunito", sans-serif; font-weight: 800; font-size: .72rem;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: .35rem .75rem; border-radius: 999px;
+  color: var(--usa-navy); background: rgba(26,43,74,.07);
+  border: 1px solid rgba(26,43,74,.14);
+}
+.july4-flag svg { width: .85rem; height: .85rem; fill: var(--usa-red); }
+
+/* recolored deal cards: clean navy + clean red, thin star tab, no heavy gradients */
+.july4-card { position: relative; overflow: hidden; }
+.july4-card--navy { background: linear-gradient(160deg, var(--usa-navy) 0%, var(--usa-navy-2) 100%); color: var(--white); }
+.july4-card--red  { background: linear-gradient(160deg, var(--usa-red) 0%, var(--usa-red-2) 100%); color: var(--white); }
+.july4-card .july4-card__day { color: rgba(255,255,255,.75); }
+.july4-card .july4-card__body { color: rgba(255,255,255,.85); }
+
+/* subtle star watermark bottom-right of each card */
+.july4-card::after {
+  content: ""; position: absolute; right: -1rem; bottom: -1.4rem; width: 6rem; height: 6rem;
+  pointer-events: none; opacity: .12;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2l2.5 6.5L21 9l-5 4 1.6 7L12 16.6 6.4 20 8 13 3 9l6.5-.5z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* patriotic accent for the section's link colors */
+.july4-link { color: var(--usa-navy); }
+.july4-link:hover { color: var(--usa-red); }
+
+/* ==========================================================================
+   DAYCARE ROOM CARDS — resort.html. Two equal-height cards (Maci's Playroom
+   teal, Nellis Playroom amber), each with a colored accent rail along the top
+   edge, a tidy photo cluster, and a feature list pinned to the bottom so both
+   cards line up regardless of content length.
+   ========================================================================== */
+.room-card {
+  position: relative; padding: 1.75rem; border-radius: 24px;
+  background: var(--white); box-shadow: var(--shadow);
+  border: 1px solid rgba(60,40,16,.06); overflow: hidden;
+  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+}
+@media (min-width: 640px) { .room-card { padding: 2rem; } }
+.room-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.room-card::before {                          /* accent rail along the top edge */
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px;
+}
+.room-card--teal::before  { background: linear-gradient(90deg, var(--teal), var(--teal-2)); }
+.room-card--amber::before { background: linear-gradient(90deg, var(--amber), var(--amber-2)); }
+.room-card ul { margin-top: auto; }           /* pin feature list to the bottom */
+
+/* small caption chip on the empty-room photo */
+.room-card__caption {
+  position: absolute; left: .55rem; bottom: .55rem; z-index: 1;
+  font-family: "Nunito", sans-serif; font-weight: 800; font-size: .7rem;
+  letter-spacing: .04em; padding: .2rem .55rem; border-radius: 999px;
+  background: rgba(32,24,15,.62); color: #fff; backdrop-filter: blur(2px);
+}
+
+/* amber variant of the ticked feature item (Nellis Playroom) */
+.feature-li--amber::before { background: radial-gradient(circle at 35% 30%, var(--amber-2), var(--amber)); }
+
+/* ==========================================================================
+   KITTY KORRAL — resort.html. Calm, spacious, magazine-style, deliberately
+   quieter than the punchy dog sections. Soft warm wash, a faint walking-cat
+   silhouette echoing the room's hand-painted sign, gentle captions, and an
+   airy rates/vaccination panel. Generous white space is the whole point.
+   ========================================================================== */
+.kitty {
+  background:
+    radial-gradient(120% 80% at 50% -10%, #FFFFFF 0%, transparent 60%),
+    linear-gradient(180deg, #FFFDFA 0%, var(--cream) 100%);
+}
+
+/* faint walking-cat silhouette, top-right, a quiet nod to the painted sign */
+.kitty-cat-motif {
+  position: absolute; top: 2.5rem; right: 3vw; width: clamp(6rem, 14vw, 11rem);
+  height: auto; z-index: 0; pointer-events: none; opacity: .06;
+  fill: none; stroke: var(--ink); stroke-width: 1.2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* the lead reassurance line, set apart and calm but prominent */
+.kitty-reassure {
+  font-family: "Nunito", sans-serif; font-weight: 800;
+  font-size: clamp(1.05rem, 2.4vw, 1.45rem); line-height: 1.5;
+  color: var(--teal-ink); letter-spacing: -.01em;
+}
+.kitty-reassure__mark {
+  display: inline-grid; place-items: center; vertical-align: -.18em;
+  width: 1.6rem; height: 1.6rem; margin-right: .5rem;
+  color: var(--amber);
+}
+.kitty-reassure__mark svg { width: 1.25rem; height: 1.25rem; }
+
+/* soft caption on the photos, treated as quiet guest/detail notes */
+.kitty-caption {
+  position: absolute; left: 1rem; bottom: 1rem; z-index: 1;
+  font-family: "Nunito", sans-serif; font-weight: 800; font-size: .82rem;
+  letter-spacing: .01em; padding: .4rem .85rem; border-radius: 999px;
+  background: rgba(251,246,236,.82); color: var(--ink); backdrop-filter: blur(3px);
+  box-shadow: 0 8px 20px -10px rgba(60,40,16,.4);
+}
+.kitty-caption--soft { font-size: .76rem; font-weight: 700; padding: .3rem .7rem; }
+
+/* airy info panel, soft and rounded, no hard card edges */
+.kitty-panel {
+  background: rgba(255,255,255,.6); border: 1px solid rgba(60,40,16,.07);
+  border-radius: 28px; padding: 2rem; box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(2px);
+}
+@media (min-width: 768px) { .kitty-panel { padding: 2.5rem 3rem; } }
+
+/* ==========================================================================
+   BACKGROUND DECORATION — resort.html. Tiny, soft, on-brand paw-print accents
+   tucked into empty section margins. Decorative only: behind content, very low
+   opacity, non-interactive, and hidden on small screens so they never crowd
+   text/photos or interfere on mobile. Sparse by design.
+   ========================================================================== */
+.paw-deco {
+  position: absolute; z-index: 0; pointer-events: none; opacity: .07;
+  width: 8rem; height: 8rem; background-repeat: no-repeat; background-size: contain;
+}
+/* a soft two-paw cluster, tinted ink */
+.paw-deco--1 {
+  left: 2vw; bottom: 3rem; transform: rotate(-12deg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2320180F'%3E%3Ccircle cx='6' cy='10' r='2'/%3E%3Ccircle cx='12' cy='8' r='2'/%3E%3Ccircle cx='18' cy='10' r='2'/%3E%3Cpath d='M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z'/%3E%3C/svg%3E");
+}
+/* a single small paw, tinted teal, opposite corner */
+.paw-deco--2 {
+  right: 3vw; top: 4rem; width: 5.5rem; height: 5.5rem; transform: rotate(14deg); opacity: .06;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231B6B6B'%3E%3Ccircle cx='6' cy='10' r='2'/%3E%3Ccircle cx='12' cy='8' r='2'/%3E%3Ccircle cx='18' cy='10' r='2'/%3E%3Cpath d='M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z'/%3E%3C/svg%3E");
+}
+@media (max-width: 768px) { .paw-deco { display: none; } }
+
+/* ==========================================================================
+   GIFT SHOP STORE DEMO — gift-shop-store.html. A familiar e-commerce product
+   grid: category filter pills, product cards with image/name/desc/price/
+   rating/Add to Cart, a cart-icon bump, and a brief "added" toast. Demo only,
+   in-memory cart count, no backend.
+   ========================================================================== */
+
+/* category filter pills */
+.store-filter { flex: none; font-family: "Nunito", sans-serif; font-weight: 800; font-size: .85rem;
+  padding: .6rem 1.1rem; border-radius: 999px; color: var(--ink-soft); background: var(--white);
+  border: 1px solid rgba(60,40,16,.1); white-space: nowrap;
+  transition: background .2s var(--ease-out), color .2s, box-shadow .2s, border-color .2s; }
+.store-filter:hover { border-color: rgba(27,107,107,.35); color: var(--teal-ink); }
+.store-filter.is-active { background: var(--teal); color: var(--cream); border-color: var(--teal); box-shadow: var(--shadow-sm); }
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* product card */
+.store-card { display: flex; flex-direction: column; background: var(--white); border-radius: 22px;
+  overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid rgba(60,40,16,.06);
+  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out); }
+.store-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.store-card__img { aspect-ratio: 1 / 1; overflow: hidden; background: var(--cream-2); }
+.store-card__img img, .store-card__img .photo-soon { width: 100%; height: 100%; object-fit: cover; }
+.store-card__body { padding: 1.1rem 1.2rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.store-card__cat { font-family: "Nunito", sans-serif; font-weight: 800; font-size: .68rem;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--teal); }
+.store-card__name { margin-top: .35rem; font-family: "Nunito", sans-serif; font-weight: 900;
+  color: var(--ink); font-size: 1.05rem; line-height: 1.25; }
+.store-card__desc { margin-top: .35rem; color: var(--ink-soft); font-size: .88rem; line-height: 1.45; flex: 1; }
+.store-card__rating { margin-top: .55rem; font-size: .82rem; letter-spacing: .03em; }
+.store-card__footer { margin-top: .85rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.store-card__price { font-family: "Nunito", sans-serif; font-weight: 900; color: var(--ink); font-size: 1.15rem; }
+.store-card button[data-add-cart].is-added { background: var(--forest) !important; }
+
+/* cart icon bump on add */
+@keyframes cartBump { 0%{ transform:scale(1); } 35%{ transform:scale(1.15); } 100%{ transform:scale(1); } }
+[data-cart-btn].is-bumped [data-cart-count] { animation: cartBump .4s var(--ease-out); }
+
+/* brief "added to cart" toast, bottom-center */
+.store-toast { position: fixed; left: 50%; bottom: 1.5rem; z-index: 60; transform: translate(-50%, 1rem);
+  background: var(--ink); color: var(--cream); font-family: "Nunito", sans-serif; font-weight: 800;
+  font-size: .85rem; padding: .75rem 1.3rem; border-radius: 999px; box-shadow: var(--shadow-lg);
+  opacity: 0; pointer-events: none; transition: opacity .25s var(--ease-out), transform .25s var(--ease-out); }
+.store-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 640px) { .store-toast { bottom: 5.5rem; width: max-content; max-width: calc(100vw - 2rem); } }
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {
