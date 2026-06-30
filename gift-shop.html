@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FBF6EC" />
   <title>Gift Shop · Animal Health Center, Marshall MN</title>
-  <meta name="description" content="More than animal supplies. Our in-store gift shop in Marshall, MN carries rustic home decor, seasonal pieces, sentimental gifts and branded gear." />
+  <meta name="description" content="More than animal supplies. Our in-store gift shop in Marshall, MN carries rustic home decor, seasonal pieces, sentimental gifts and branded gear. Gift certificates available." />
   <meta property="og:title" content="Gift Shop · Animal Health Center &amp; Pet Resort" />
-  <meta property="og:description" content="From rustic home decor to branded gear, our in-store gift shop is one of Marshall's best kept secrets." />
+  <meta property="og:description" content="From rustic home decor to branded gear, our in-store gift shop is one of Marshall's best kept secrets. Gift certificates for grooming, the resort, and the shop." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,57 +27,14 @@
 </head>
 
 <body data-page="shop" class="font-body bg-cream text-ink">
-
-  <!-- ===== TOP BAR ===== -->
-  <div class="bg-ink text-cream/85 text-[13px]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-between gap-4">
-      <span class="hidden sm:flex items-center gap-2 min-w-0">
-        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-amber2 flex-none"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
-        <span class="truncate">1300 N. Hwy 59, Marshall, MN</span>
-      </span>
-      <div class="flex items-center gap-4 ml-auto">
-        <span data-hours-badge class="hours-badge is-closed">Checking hours…</span>
-        <a href="tel:+15075325000" class="font-bold text-cream hover:text-amber2 transition-colors">(507) 532-5000</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== NAV (floats over the hero photo, like the home page) ===== -->
-  <header data-site-header class="fixed left-1/2 -translate-x-1/2 z-40 w-[min(calc(100%-24px),1180px)] top-[50px]">
-    <div class="relative flex items-center justify-between gap-4 min-h-[64px] px-3 py-2 rounded-3xl bg-cream/30 backdrop-blur-md shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] ring-1 ring-ink/10">
-      <a href="index.html" class="flex items-center pl-1" aria-label="Animal Health Center home"><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-12 w-auto" /></a>
-      <nav class="hidden lg:flex items-center gap-1 text-[15px] font-bold text-ink/70" aria-label="Primary">
-        <a data-nav="about" href="about.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">About Us</a>
-        <a data-nav="resort" href="resort.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Pet Resort</a>
-        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Gift Shop</a>
-        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Livestock</a>
-        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Small Animal</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a data-book class="hidden sm:inline-flex btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a>
-        <button data-menu-toggle class="lg:hidden grid place-items-center w-11 h-11 rounded-2xl bg-white shadow-sm text-ink" aria-label="Open menu" aria-controls="navDropdown" aria-expanded="false">
-          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
-        </button>
-      </div>
-
-      <!-- Mobile dropdown -->
-      <nav data-menu-drawer id="navDropdown" class="nav-dropdown lg:hidden absolute top-[calc(100%+10px)] right-0 w-[min(320px,calc(100vw-24px))] grid gap-1 p-3 rounded-3xl bg-cream/97 backdrop-blur-md shadow-[0_20px_60px_-20px_rgba(60,40,16,.5)] ring-1 ring-ink/10 text-base font-heading font-800 text-ink/80" aria-label="Mobile">
-        <a data-nav="about" href="about.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">About Us</a>
-        <a data-nav="resort" href="resort.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Pet Resort</a>
-        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Gift Shop</a>
-        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Livestock</a>
-        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Small Animal</a>
-        <a data-book class="btn btn--amber justify-center mt-2">Book the Pet Resort →</a>
-      </nav>
-    </div>
-  </header>
+  <script src="js/chrome.js"></script>
 
   <main>
 
-  <!-- ===================== HERO ===================== -->
+  <!-- ===================== SECTION 1: HERO (keep as-is) ===================== -->
   <section data-hero data-booknow-after class="hero-slideshow relative overflow-hidden">
     <div class="hero-slideshow__slides absolute inset-0">
-      <div class="hero-slideshow__slide is-active" style="background-image:url('img/shop-hero3.png')"></div>
+      <div class="hero-slideshow__slide is-active" style="background-image:url('img/shop-hero3.webp')"></div>
     </div>
     <div class="hero-slideshow__scrim absolute inset-0"></div>
 
@@ -95,201 +52,436 @@
           Rustic home pieces, seasonal finds and branded gear, all hand-picked, all in Marshall.
         </p>
         <div data-hero-line class="mt-8 flex flex-wrap gap-3">
-          <a href="#spotlight" class="btn btn--amber">See what is in store →</a>
+          <a href="#product-preview" class="btn btn--amber">See what is in store →</a>
           <a href="#visit" class="btn btn--ghost-light">Plan your visit</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SECTION 1 · SEASONAL SPOTLIGHT ===================== -->
-  <section id="spotlight" class="py-20 sm:py-28 relative overflow-hidden scroll-mt-24">
-    <div data-blob class="blob blob--peach w-[24rem] h-[24rem] right-[-8rem] top-0"></div>
-    <div data-blob class="blob blob--teal w-[18rem] h-[18rem] left-[-6rem] bottom-0"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
-
-      <!-- Layered photo window: rotating gifts photo + overlapping season card -->
-      <div class="relative max-w-[540px] mx-auto lg:mx-0 w-full" data-anim="up">
-        <div data-photo-rotate class="hero-slideshow relative rounded-[28px] overflow-hidden shadow-[0_40px_80px_-32px_rgba(60,40,16,.45)] aspect-[4/5] !min-h-0 ring-1 ring-ink/5">
-          <div data-rotate-slide class="hero-slideshow__slide is-active" style="background-image:url('img/gifts.jpg')"></div>
-          <div data-rotate-slide class="hero-slideshow__slide" style="background-image:url('img/gifts3.jpg')"></div>
-          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/55 to-transparent"></div>
-          <span class="absolute left-5 top-5 inline-flex items-center gap-2 text-ink font-heading font-800 text-xs tracking-wide bg-cream/90 backdrop-blur-sm rounded-full px-3.5 py-2 shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-teal"></span> Real photos from our floor
-          </span>
-        </div>
-
-        <!-- floating "on the floor now" card, overlaps the photo corner -->
-        <div class="absolute -right-[5%] -bottom-[7%] w-[58%] max-w-[230px] grid gap-1 px-5 py-4 rounded-2xl bg-amber2 text-ink shadow-[0_24px_60px_-24px_rgba(60,40,16,.5)]">
-          <span class="font-heading font-900 text-lg leading-none">Always changing</span>
-          <span class="font-semibold text-[13px] leading-snug text-ink/80">Spring florals, fall harvest, Christmas. New every season.</span>
-        </div>
-      </div>
-
-      <!-- Copy -->
-      <div data-anim="up">
-        <span class="service-kicker bg-teal/10 text-teal">Right Now In Store</span>
-        <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">What is fresh<br /><span class="italic text-teal">this season.</span></h2>
-        <p class="mt-5 text-ink/65 text-lg max-w-xl">
-          We hand-pick our gift and decor selection and rotate it with the seasons. What you see in spring is completely different from what we stock in fall and holiday.
-        </p>
-        <p class="mt-4 text-ink/65 text-lg max-w-xl">
-          Stop in and browse, or call us and we will tell you exactly what is on the floor today.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="tel:+15075325000" class="btn btn--amber">Call us at (507) 532-5000</a>
-          <a href="#" class="btn btn--ghost">Contact us</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="paw-divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
-
-  <!-- ===================== SECTION 2 · TOWN AND COUNTRY ===================== -->
-  <section class="py-20 sm:py-28 relative overflow-hidden bg-cream dotgrid">
-    <div class="soft-glow bg-amber2/15 w-[28rem] h-[28rem] -right-24 -top-10"></div>
-    <div class="soft-glow bg-teal2/12 w-[24rem] h-[24rem] -left-24 bottom-0"></div>
+  <!-- ===================== SECTION 2: GIFT CERTIFICATES ===================== -->
+  <section id="gift-certificates" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
+    <div class="soft-glow bg-amber2/20 w-[30rem] h-[30rem] -right-24 -top-16"></div>
+    <div class="soft-glow bg-rust/10 w-[22rem] h-[22rem] -left-20 bottom-0"></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
 
-      <!-- intro -->
-      <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-end" data-anim="up">
-        <div class="max-w-2xl">
-          <span class="service-kicker bg-teal/10 text-teal">Town and Country</span>
-          <h2 class="mt-4 font-heading display text-ink text-4xl sm:text-5xl xl:text-6xl">A little boutique hiding inside your <span class="italic text-amber">farm supply store.</span></h2>
+      <div class="max-w-2xl" data-anim="up">
+        <span class="service-kicker bg-amber/10 text-amber">Give a gift</span>
+        <h2 class="mt-4 font-heading display text-ink text-4xl sm:text-5xl xl:text-6xl">The gift for the pet lover<br /><span class="italic text-amber">in your life.</span></h2>
+        <p class="mt-5 text-ink/65 text-lg max-w-xl">
+          Not sure what to get them? A gift certificate is always the right size. Use it for grooming, a stay at the resort, or anything in the shop.
+        </p>
+      </div>
+
+      <!-- three gift certificate cards -->
+      <div class="mt-12 grid sm:grid-cols-3 gap-6" data-anim="cards">
+
+        <!-- Grooming -->
+        <div class="card p-8 flex flex-col gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-peach flex items-center justify-center flex-none">
+            <!-- scissors / grooming icon -->
+            <svg viewBox="0 0 24 24" class="w-7 h-7 text-amber" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+              <line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/>
+              <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading font-900 text-ink text-xl">Grooming gift certificate</h3>
+            <p class="mt-2 text-ink/65">A fresh, clean coat, on you. Great for the dog or cat owner who deserves a break.</p>
+          </div>
+          <a href="grooming.html" class="mt-auto inline-flex items-center gap-1.5 font-heading font-800 text-teal text-sm hover:gap-3 transition-all">Learn about grooming <span aria-hidden="true">→</span></a>
         </div>
-        <p class="text-ink/65 text-lg max-w-sm lg:pb-2">
-          Most people drive past on their way to grab cattle vaccines or dog food and have no idea it is even here. Town and Country is our best kept secret.
-        </p>
+
+        <!-- Pet Resort -->
+        <div class="card p-8 flex flex-col gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-teal/10 flex items-center justify-center flex-none">
+            <!-- home / resort icon -->
+            <svg viewBox="0 0 24 24" class="w-7 h-7 text-teal" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 11l2-2m0 0l7-7 7 7M5 9v10a1 1 0 0 0 1 1h3m10-11 2 2m-2-2v10a1 1 0 0 1-1 1h-3m-6 0a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1m-6 0h6"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading font-900 text-ink text-xl">Pet Resort gift certificate</h3>
+            <p class="mt-2 text-ink/65">Boarding or daycare for their pet. A thoughtful gift for the friend who travels or just needs a day.</p>
+          </div>
+          <a href="resort.html" class="mt-auto inline-flex items-center gap-1.5 font-heading font-800 text-teal text-sm hover:gap-3 transition-all">Learn about the resort <span aria-hidden="true">→</span></a>
+        </div>
+
+        <!-- Gift Shop -->
+        <div class="card p-8 flex flex-col gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-amber2/20 flex items-center justify-center flex-none">
+            <!-- gift box icon -->
+            <svg viewBox="0 0 24 24" class="w-7 h-7 text-amber" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 12 20 22 4 22 4 12"/>
+              <rect x="2" y="7" width="20" height="5"/>
+              <line x1="12" y1="22" x2="12" y2="7"/>
+              <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+              <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-heading font-900 text-ink text-xl">Gift Shop gift certificate</h3>
+            <p class="mt-2 text-ink/65">Let them pick their own treasure from the shop. Rustic decor, florals, seasonal finds, and more.</p>
+          </div>
+          <span class="mt-auto inline-flex items-center gap-1.5 font-heading font-800 text-amber text-sm">Browse products below</span>
+        </div>
+
       </div>
 
-      <!-- editorial mosaic: varied tile sizes, captions overlaid on the image -->
-      <div class="mt-12 grid grid-cols-1 sm:grid-cols-6 gap-4 sm:gap-5" data-anim="cards">
-
-        <!-- TALL feature tile -->
-        <!-- PHOTO: rustic farmhouse home decor (local: tc-rustic.jpg) -->
-        <article class="group relative overflow-hidden rounded-[26px] sm:col-span-3 sm:row-span-2 min-h-[260px] sm:min-h-[460px] shadow-lg ring-1 ring-ink/5">
-          <img src="img/tc-rustic.jpg" alt="Rustic farmhouse decor and home pieces" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent"></div>
-          <div class="absolute inset-x-0 bottom-0 p-6">
-            <span class="inline-block font-heading font-900 text-amber2 text-sm tracking-wide uppercase">Rustic &amp; farmhouse</span>
-            <p class="mt-1 text-cream text-lg font-semibold leading-snug">Rustic furniture, galvanized metal accents, and farmhouse pieces that actually feel like home.</p>
-          </div>
-        </article>
-
-        <!-- WIDE tile -->
-        <!-- PHOTO: seasonal greenery / holiday flat-lay (local: tc-seasonal.jpg) -->
-        <article class="group relative overflow-hidden rounded-[26px] sm:col-span-3 min-h-[220px] shadow-lg ring-1 ring-ink/5">
-          <img src="img/tc-seasonal.jpg" alt="Seasonal holiday gift display" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent"></div>
-          <div class="absolute inset-x-0 bottom-0 p-6">
-            <span class="inline-block font-heading font-900 text-amber2 text-sm tracking-wide uppercase">Seasonal decor</span>
-            <p class="mt-1 text-cream text-base font-semibold leading-snug">Fall harvest, Christmas, Easter, spring florals. Always something new.</p>
-          </div>
-        </article>
-
-        <!-- two smaller tiles side by side under the wide one -->
-        <!-- PHOTO: sentimental / gift goods (local: tc-sentimental.jpg) -->
-        <article class="group relative overflow-hidden rounded-[26px] sm:col-span-2 min-h-[200px] shadow-lg ring-1 ring-ink/5">
-          <img src="img/tc-sentimental.jpg" alt="Sentimental gifts" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent"></div>
-          <div class="absolute inset-x-0 bottom-0 p-5">
-            <span class="inline-block font-heading font-900 text-amber2 text-xs tracking-wide uppercase">Sentimental</span>
-            <p class="mt-1 text-cream text-sm font-semibold leading-snug">For new babies, birthdays, and the people who are hard to shop for.</p>
-          </div>
-        </article>
-        <!-- PHOTO: animal lover gift (local: tc-animal.jpg) -->
-        <article class="group relative overflow-hidden rounded-[26px] sm:col-span-1 min-h-[200px] shadow-lg ring-1 ring-ink/5">
-          <img src="img/tc-animal.jpg" alt="Gifts for animal lovers" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent"></div>
-          <div class="absolute inset-x-0 bottom-0 p-5">
-            <span class="inline-block font-heading font-900 text-amber2 text-xs tracking-wide uppercase">Animal lovers</span>
-            <p class="mt-1 text-cream text-sm font-semibold leading-snug">For the dog mom and the horse lover alike.</p>
-          </div>
-        </article>
-      </div>
-
-      <!-- closing strip -->
-      <div class="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-6" data-anim="up">
-        <p class="text-ink/65 text-lg max-w-xl">
-          Every piece in here was hand-picked. This is not a big box store. Stop in and see what is on the floor today.
-        </p>
+      <!-- CTA -->
+      <div class="mt-14 rounded-[1.75rem] bg-gradient-to-br from-amber2/20 to-peach/40 ring-1 ring-amber/20 p-8 sm:p-10 flex flex-col sm:flex-row sm:items-center gap-6" data-anim="up">
+        <div class="flex-1">
+          <p class="font-heading font-900 text-ink text-xl">Ready to give a gift certificate?</p>
+          <p class="mt-1.5 text-ink/65">Gift certificates are set up in store or over the phone. Stop in at 1300 N. Hwy 59 or give us a call.</p>
+        </div>
         <div class="flex flex-wrap gap-3 flex-none">
-          <a href="#" class="btn btn--ghost">See more gifts</a>
-          <a href="sms:+15078289458" class="btn btn--amber">Text us at (507) 828-9458</a>
+          <a href="tel:+15075325000" class="btn btn--amber">Call (507) 532-5000</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=1300+N+Hwy+59+Marshall+MN+56258" target="_blank" rel="noopener" class="btn btn--ghost">Get Directions →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SECTION 3 · THE GALLERY WALL ===================== -->
-  <!-- A light "gallery wall": two routing cards are the centerpiece, with the store's
-       real signs & metal-art cutouts arranged in the open margins around them. -->
-  <section class="gallery-wall relative overflow-hidden py-20 sm:py-28">
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+  <!-- ===================== SECTION 3: PRODUCT PREVIEW ===================== -->
+  <section id="product-preview" class="scroll-mt-24">
 
-      <div class="max-w-2xl mx-auto text-center" data-anim="up">
-        <span class="service-kicker bg-white/70 text-rust shadow-sm ring-1 ring-rust/10">Straight off our wall</span>
-        <h2 class="mt-4 font-heading display text-ink text-4xl sm:text-5xl xl:text-6xl">Looking for something <span class="italic text-amber">specific?</span></h2>
-        <p class="mt-4 text-ink/65 text-lg">We have got you covered on the farm and at home.</p>
-      </div>
-
-      <!-- cards centerpiece + decor arranged around them, with clear breathing room -->
-      <div class="relative mt-20 lg:mt-32">
-
-        <!-- wall decor in the margins AROUND the cards (lg and up), never behind them -->
-        <div class="hidden lg:block" aria-hidden="true">
-          <!-- mid-left, well outside the Pet card -->
-          <img src="img/transparent/wall-pic2.png" alt="" class="wall-art absolute left-0 xl:-left-12 top-1/3 w-44 xl:w-52 -rotate-3" />
-          <!-- mid-right, well outside the Farm card -->
-          <img src="img/transparent/wall-pic4.png" alt="" class="wall-art absolute right-0 xl:-right-12 top-1/3 w-44 xl:w-52 rotate-3" />
-          <!-- top-left corner, clear of the Pet card -->
-          <img src="img/transparent/wall-pic.png" alt="" class="wall-art absolute left-0 xl:left-4 -top-28 w-32 xl:w-36 -rotate-2" />
-          <!-- top-right corner, clear of the Farm card -->
-          <img src="img/transparent/wall-pic3.png" alt="" class="wall-art absolute right-0 xl:right-2 -top-24 w-44 xl:w-48 rotate-2" />
-        </div>
-
-        <!-- routing cards (narrower than the decor span, so the margins stay open) -->
-        <div class="relative grid sm:grid-cols-2 gap-6 lg:gap-10 max-w-3xl mx-auto" data-anim="cards">
-
-          <!-- PET -->
-          <a href="small-animal.html" class="route-tag route-tag--teal group">
-            <span class="inline-flex items-center gap-2.5 font-heading font-800 text-xs tracking-[0.16em] uppercase text-teal">
-              <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor" aria-hidden="true"><circle cx="6" cy="9.5" r="2"/><circle cx="11" cy="7" r="2"/><circle cx="17.5" cy="9.5" r="2"/><path d="M11.5 11.5c-3 0-5 2.2-5 4.3 0 1.8 1.8 3 5 3s5-1.2 5-3c0-2.1-2-4.3-5-4.3Z"/></svg>
-              At home
+    <!-- section header -->
+    <div class="py-14 sm:py-20 bg-cream relative overflow-hidden">
+      <div class="soft-glow bg-teal2/12 w-[24rem] h-[24rem] -left-20 top-0"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-wrap items-end justify-between gap-6" data-anim="up">
+          <div class="max-w-xl">
+            <span class="service-kicker bg-teal/10 text-teal">In the shop</span>
+            <h2 class="mt-4 font-heading display text-ink text-4xl sm:text-5xl xl:text-6xl">Take a look at what we carry.</h2>
+            <p class="mt-4 text-ink/65 text-lg">
+              Browse a sample of what is on the shelves. Online ordering is coming soon. For now, give us a call or stop in to grab anything you see.
+            </p>
+          </div>
+          <!-- coming soon badge -->
+          <div class="flex-none">
+            <span class="inline-flex items-center gap-2 bg-amber2/15 ring-1 ring-amber/25 text-amber font-heading font-800 text-sm rounded-full px-4 py-2">
+              <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Online ordering coming soon
             </span>
-            <h3 class="mt-4 font-heading font-900 text-ink text-2xl sm:text-3xl">Shopping for your pet?</h3>
-            <p class="mt-3 text-ink/65">Dog and cat food, supplies, treats, CBD and more, all under one roof.</p>
-            <span class="mt-6 inline-flex items-center gap-1.5 font-heading font-800 text-teal group-hover:gap-3 transition-all">Go to Pets and Small Animals <span aria-hidden="true">→</span></span>
-          </a>
-
-          <!-- FARM -->
-          <a href="livestock.html" class="route-tag route-tag--amber group">
-            <span class="inline-flex items-center gap-2.5 font-heading font-800 text-xs tracking-[0.16em] uppercase text-amber">
-              <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>
-              On the farm
-            </span>
-            <h3 class="mt-4 font-heading font-900 text-ink text-2xl sm:text-3xl">Shopping for your farm?</h3>
-            <p class="mt-3 text-ink/65">Cattle, equine, swine, sheep and general livestock supplies, locally stocked.</p>
-            <span class="mt-6 inline-flex items-center gap-1.5 font-heading font-800 text-amber group-hover:gap-3 transition-all">Go to Livestock <span aria-hidden="true">→</span></span>
-          </a>
+          </div>
         </div>
       </div>
+    </div>
 
-      <!-- on small screens, show two signs as a tidy strip instead of the scattered decor -->
-      <div class="lg:hidden mt-12 flex items-center justify-center gap-6 opacity-90" aria-hidden="true">
-        <img src="img/transparent/wall-pic2.png" alt="" class="wall-art w-40 -rotate-2" />
-        <img src="img/transparent/wall-pic4.png" alt="" class="wall-art w-40 rotate-2" />
+    <!-- category filter bar -->
+    <div class="sticky top-[86px] z-30 bg-cream/95 backdrop-blur-md border-y border-ink/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+        <div data-filter-bar class="flex items-center gap-2.5 overflow-x-auto no-scrollbar">
+          <button type="button" data-filter="all" class="store-filter is-active">All</button>
+          <button type="button" data-filter="rustic" class="store-filter">Rustic &amp; Farmhouse</button>
+          <button type="button" data-filter="seasonal" class="store-filter">Seasonal Decor</button>
+          <button type="button" data-filter="sentimental" class="store-filter">Sentimental Gifts</button>
+          <button type="button" data-filter="animal" class="store-filter">Animal Lover</button>
+          <button type="button" data-filter="merch" class="store-filter">AHC Merchandise</button>
+        </div>
       </div>
+    </div>
 
-      <p class="mt-10 text-center text-ink/55 max-w-xl mx-auto" data-anim="up">These hand-burned signs and metal pieces are just a taste of what is on our gift wall.</p>
+    <!-- product grid -->
+    <div class="py-12 sm:py-16 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div data-product-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" data-anim="cards">
+
+          <!-- Rustic & Farmhouse -->
+          <article class="store-card" data-category="rustic">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--amber aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">Galvanized Metal Lantern</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Rustic &amp; Farmhouse</span>
+              <h3 class="store-card__name">Galvanized Metal Lantern</h3>
+              <p class="store-card__desc">Weathered metal candle lantern with a rustic handle, perfect for porch or mantel.</p>
+              <div class="store-card__rating" aria-label="4 out of 5 stars"><span class="text-amber">★★★★</span><span class="text-ink/25">★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$28.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="rustic">
+            <div class="store-card__img">
+              <img src="https://images.unsplash.com/photo-1702629027226-bbc63fdf3e3a?auto=format&fit=crop&w=700&q=75" alt="Cozy plaid throw blanket" loading="lazy" />
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Rustic &amp; Farmhouse</span>
+              <h3 class="store-card__name">Cozy Plaid Throw Blanket</h3>
+              <p class="store-card__desc">Soft woven throw in a warm plaid, perfect for the couch on a cool Minnesota night.</p>
+              <div class="store-card__rating" aria-label="5 out of 5 stars"><span class="text-amber">★★★★★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$34.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="rustic">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--sand aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">Reclaimed Wood Centerpiece Tray</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Rustic &amp; Farmhouse</span>
+              <h3 class="store-card__name">Reclaimed Wood Centerpiece Tray</h3>
+              <p class="store-card__desc">A rustic serving tray with rope handles, great for table decor or gift baskets.</p>
+              <div class="store-card__rating" aria-label="4 out of 5 stars"><span class="text-amber">★★★★</span><span class="text-ink/25">★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$26.50</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="rustic">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--teal aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">Mason Jar Pendant Light</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Rustic &amp; Farmhouse</span>
+              <h3 class="store-card__name">Mason Jar Pendant Light</h3>
+              <p class="store-card__desc">A single mason jar pendant with an Edison bulb, ready to hang above a kitchen island.</p>
+              <div class="store-card__rating" aria-label="4 out of 5 stars"><span class="text-amber">★★★★</span><span class="text-ink/25">★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$42.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Seasonal Decor -->
+          <article class="store-card" data-category="seasonal">
+            <div class="store-card__img">
+              <img src="https://images.unsplash.com/photo-1731413072274-ebb46c66416e?auto=format&fit=crop&w=700&q=75" alt="Autumn harvest door wreath" loading="lazy" />
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Seasonal Decor</span>
+              <h3 class="store-card__name">Autumn Harvest Door Wreath</h3>
+              <p class="store-card__desc">A dried-floral wreath with seasonal accents, ready for the front door.</p>
+              <div class="store-card__rating" aria-label="5 out of 5 stars"><span class="text-amber">★★★★★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$38.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="seasonal">
+            <div class="store-card__img">
+              <img src="https://images.unsplash.com/photo-1665124197613-ffbb755f4ac2?auto=format&fit=crop&w=700&q=75" alt="Harvest spice soy candle" loading="lazy" />
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Seasonal Decor</span>
+              <h3 class="store-card__name">Harvest Spice Soy Candle</h3>
+              <p class="store-card__desc">Hand-poured soy candle in warm cinnamon and clove, 40+ hour burn time.</p>
+              <div class="store-card__rating" aria-label="5 out of 5 stars"><span class="text-amber">★★★★★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$16.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="seasonal">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--amber aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">Pumpkin Spice Table Runner</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Seasonal Decor</span>
+              <h3 class="store-card__name">Pumpkin Spice Table Runner</h3>
+              <p class="store-card__desc">A quilted autumn table runner with a pumpkin print, 13 by 72 inches.</p>
+              <div class="store-card__rating" aria-label="4 out of 5 stars"><span class="text-amber">★★★★</span><span class="text-ink/25">★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$22.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Sentimental Gifts -->
+          <article class="store-card" data-category="sentimental">
+            <div class="store-card__img">
+              <img src="https://images.unsplash.com/photo-1580191947416-62d35a55e71d?auto=format&fit=crop&w=700&q=75" alt="Bless this home wooden wall sign" loading="lazy" />
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Sentimental Gifts</span>
+              <h3 class="store-card__name">"Bless This Home" Wall Sign</h3>
+              <p class="store-card__desc">A hand-lettered wooden sign with a hanging rope, a warm housewarming gift.</p>
+              <div class="store-card__rating" aria-label="5 out of 5 stars"><span class="text-amber">★★★★★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$24.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="sentimental">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--sand aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">New Baby Keepsake Box</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Sentimental Gifts</span>
+              <h3 class="store-card__name">New Baby Keepsake Box</h3>
+              <p class="store-card__desc">A lined wooden keepsake box for tiny hospital bracelets and first locks of hair.</p>
+              <div class="store-card__rating" aria-label="5 out of 5 stars"><span class="text-amber">★★★★★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$32.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="sentimental">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--forest aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">"Grandma's Garden" Stepping Stone</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Sentimental Gifts</span>
+              <h3 class="store-card__name">"Grandma's Garden" Stepping Stone</h3>
+              <p class="store-card__desc">A cast stone garden marker, a sweet gift for the gardener in the family.</p>
+              <div class="store-card__rating" aria-label="4 out of 5 stars"><span class="text-amber">★★★★</span><span class="text-ink/25">★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$19.50</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Animal Lover -->
+          <article class="store-card" data-category="animal">
+            <div class="store-card__img">
+              <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=700&q=75" alt="Dog mom coffee mug" loading="lazy" />
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Animal Lover</span>
+              <h3 class="store-card__name">"Dog Mom" Coffee Mug</h3>
+              <p class="store-card__desc">A 15oz ceramic mug with a playful paw print design, dishwasher safe.</p>
+              <div class="store-card__rating" aria-label="5 out of 5 stars"><span class="text-amber">★★★★★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$14.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="animal">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--amber aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">Horse Silhouette Barn Sign</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Animal Lover</span>
+              <h3 class="store-card__name">Horse Silhouette Barn Sign</h3>
+              <p class="store-card__desc">A laser-cut metal horse silhouette sign, great for the barn or the back porch.</p>
+              <div class="store-card__rating" aria-label="4 out of 5 stars"><span class="text-amber">★★★★</span><span class="text-ink/25">★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$36.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="animal">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--teal aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">Cat Lover Throw Pillow</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">Animal Lover</span>
+              <h3 class="store-card__name">Cat Lover Throw Pillow</h3>
+              <p class="store-card__desc">A soft 18 by 18 inch pillow with an embroidered cat silhouette, hidden zipper.</p>
+              <div class="store-card__rating" aria-label="4 out of 5 stars"><span class="text-amber">★★★★</span><span class="text-ink/25">★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$21.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- AHC Merchandise -->
+          <article class="store-card" data-category="merch">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--sand aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">AHC Logo T-Shirt</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">AHC Merchandise</span>
+              <h3 class="store-card__name">AHC Logo T-Shirt</h3>
+              <p class="store-card__desc">Soft cotton tee with the Animal Health Center logo, sizes S through XXL.</p>
+              <div class="store-card__rating" aria-label="5 out of 5 stars"><span class="text-amber">★★★★★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$18.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="store-card" data-category="merch">
+            <div class="store-card__img">
+              <div class="photo-soon photo-soon--forest aspect-square">
+                <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M3.27 6.96 12 12l8.73-5.04M12 22.08V12"/></svg>
+                <span class="photo-soon__label">AHC Trucker Cap</span>
+              </div>
+            </div>
+            <div class="store-card__body">
+              <span class="store-card__cat">AHC Merchandise</span>
+              <h3 class="store-card__name">AHC Trucker Cap</h3>
+              <p class="store-card__desc">An adjustable trucker cap with an embroidered AHC patch, one size fits most.</p>
+              <div class="store-card__rating" aria-label="4 out of 5 stars"><span class="text-amber">★★★★</span><span class="text-ink/25">★</span></div>
+              <div class="store-card__footer">
+                <span class="store-card__price">$20.00</span>
+                <a href="tel:+15075325000" class="text-sm font-heading font-800 text-teal hover:text-teal2 transition-colors">Call to purchase</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p data-no-results hidden class="text-center text-ink/50 py-16">No products in this category yet, check back soon.</p>
+
+        <!-- closing CTA -->
+        <div class="mt-14 flex flex-col sm:flex-row sm:items-center justify-between gap-5" data-anim="up">
+          <p class="text-ink/65 text-lg max-w-xl">See something you like? Call or stop in. Online ordering is on the way.</p>
+          <div class="flex flex-wrap gap-3 flex-none">
+            <a href="tel:+15075325000" class="btn btn--amber">Call (507) 532-5000</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=1300+N+Hwy+59+Marshall+MN+56258" target="_blank" rel="noopener" class="btn btn--ghost">Get Directions</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== SECTION 4 · VISIT US ===================== -->
+  <!-- ===================== VISIT US ===================== -->
   <section id="visit" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
     <div class="soft-glow bg-teal2/15 w-[26rem] h-[26rem] -left-20 top-10"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-start">
@@ -297,7 +489,7 @@
         <span class="service-kicker bg-teal/10 text-teal">Visit Us</span>
         <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">Come see it in person</h2>
         <p class="mt-5 text-ink/65 text-lg max-w-xl">
-          Our gift and decor section is not online yet, but it is very much in store. The best way to shop it is to walk in. Our team is happy to point you in the right direction.
+          Our gift and decor section is very much in store. The best way to shop it is to walk in. Our team is happy to point you in the right direction.
         </p>
         <div class="mt-8">
           <a href="https://www.google.com/maps/search/?api=1&query=1300+N+Hwy+59+Marshall+MN+56258" target="_blank" rel="noopener" class="btn btn--amber">Get Directions →</a>
@@ -336,65 +528,49 @@
     </div>
   </section>
 
-  <!-- ===================== SECTION 5 · ONLINE ORDERING COMING SOON ===================== -->
-  <section class="relative overflow-hidden bg-cream">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
-      <div class="rounded-[2rem] bg-gradient-to-br from-amber2 to-amber text-ink p-10 sm:p-16 text-center relative overflow-hidden dotgrid">
-        <div class="relative" data-anim="up">
-          <span class="inline-grid place-items-center w-14 h-14 rounded-2xl bg-ink/10 text-2xl">⭐</span>
-          <h2 class="mt-5 font-heading display text-4xl sm:text-5xl">Online ordering<br />is on its way</h2>
-          <p class="mt-4 text-ink/75 text-lg max-w-xl mx-auto">
-            We are working on bringing the full store to your screen. Soon you will be able to browse and order from our complete product range without leaving home. Pet food, livestock supplies, gifts and more, all in one place.
-          </p>
-          <p class="mt-6 font-heading font-800 text-ink">Want a heads up when it launches?</p>
-          <p class="mt-1 text-ink/75">Call or text us and we will add you to the list.</p>
-          <div class="mt-7 flex flex-wrap gap-3 justify-center">
-            <a href="tel:+15075325000" class="btn btn--ink">Call (507) 532-5000</a>
-            <a href="sms:+15078289458" class="btn btn--ghost">Text (507) 828-9458</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== SECTION 6 · GROOMING BAR ===================== -->
+  <!-- grooming bar -->
   <section class="bg-ink text-cream">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-center sm:justify-between gap-4 text-center sm:text-left">
       <p class="font-heading font-800 text-cream text-lg">The best gift for a furry friend? A spa day with Tira.</p>
-      <a href="grooming.html" class="btn btn--amber !py-2.5 !px-5 !text-sm">Send a grooming gift →</a>
+      <a href="grooming.html" class="btn btn--amber !py-2.5 !px-5 !text-sm">Book a grooming appointment →</a>
     </div>
   </section>
 
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="bg-ink text-cream/70">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-      <div>
-        <div><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-16 w-auto brightness-0 invert" /></div>
-        <p class="mt-4 text-sm">Southwest Minnesota's one-stop shop for pets and livestock, big animals and small. Locally owned in Marshall, MN.</p>
-        <a href="https://www.facebook.com/animalhealthcentermn/" target="_blank" rel="noopener" aria-label="Facebook" class="mt-4 inline-grid place-items-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 transition-colors"><svg viewBox="0 0 24 24" class="w-5 h-5 fill-cream"><path d="M13 22v-8h3l.5-3.5H13V8.3c0-1 .3-1.7 1.8-1.7H17V3.4A26 26 0 0 0 14.6 3C12 3 10 4.6 10 7.7v2.8H7V14h3v8Z"/></svg></a>
-      </div>
-      <div><h4 class="font-heading font-800 text-cream">Explore</h4><ul class="mt-3 space-y-2 text-sm"><li><a href="about.html" class="hover:text-amber2 transition-colors">About Us</a></li><li><a href="resort.html" class="hover:text-amber2 transition-colors">Pet Resort</a></li><li><a href="grooming.html" class="hover:text-amber2 transition-colors">Grooming</a></li><li><a href="livestock.html" class="hover:text-amber2 transition-colors">Livestock</a></li><li><a href="small-animal.html" class="hover:text-amber2 transition-colors">Small Animal</a></li></ul></div>
-      <div><h4 class="font-heading font-800 text-cream">Hours</h4><ul class="mt-3 space-y-1.5 text-sm"><li class="flex justify-between gap-4"><span>Mon to Fri</span><span class="text-cream">8:00am to 5:30pm</span></li><li class="flex justify-between gap-4"><span>Saturday</span><span class="text-cream">8:00am to 12:00pm</span></li><li class="flex justify-between gap-4"><span>Sunday</span><span class="text-cream/50">Closed</span></li></ul><span data-hours-badge class="hours-badge is-closed mt-3">Checking hours…</span></div>
-      <div><h4 class="font-heading font-800 text-cream">Visit / Call</h4><p class="mt-3 text-sm">1300 N. Hwy 59<br />Marshall, MN 56258</p><a href="tel:+15075325000" class="mt-2 inline-block font-heading font-800 text-cream text-lg hover:text-amber2 transition-colors">(507) 532-5000</a><a data-book class="mt-4 btn btn--amber !py-2.5 !px-4 !text-sm">Book the Pet Resort →</a></div>
-    </div>
-    <div class="border-t border-white/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-between gap-2 text-xs text-cream/50"><p>© <span data-year>2026</span> Animal Health Center &amp; Pet Resort. All rights reserved.</p><p>For animals big and small.</p></div></div>
-  </footer>
-
-  <!-- ===================== STICKY BOOK BAR ===================== -->
-  <div data-booknow-bar class="booknow-bar">
-    <div class="bg-ink text-cream md:rounded-2xl md:shadow-2xl">
-      <div class="max-w-7xl md:max-w-none mx-auto px-4 py-3 flex items-center justify-between gap-3 md:gap-6">
-        <span class="hidden sm:block font-heading font-800 text-sm">Ready when you are.</span>
-        <div class="flex items-center gap-2.5 ml-auto"><a data-book class="btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a><a href="tel:+15075325000" class="btn !py-2.5 !px-4 !text-sm bg-white/10 text-cream">Call Us</a></div>
-      </div>
-    </div>
-  </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/widgets.js" defer></script>
   <script src="js/animations.js" defer></script>
+
+  <!-- category filter (no cart logic) -->
+  <script>
+  (function () {
+    "use strict";
+    var grid = document.querySelector("[data-product-grid]");
+    if (!grid) return;
+
+    var filterBtns = document.querySelectorAll("[data-filter]");
+    var cards = grid.querySelectorAll(".store-card");
+    var noResults = document.querySelector("[data-no-results]");
+
+    function applyFilter(cat) {
+      var visible = 0;
+      cards.forEach(function (card) {
+        var match = cat === "all" || card.getAttribute("data-category") === cat;
+        card.style.display = match ? "" : "none";
+        if (match) visible++;
+      });
+      if (noResults) noResults.hidden = visible !== 0;
+    }
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        filterBtns.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+        applyFilter(btn.getAttribute("data-filter"));
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

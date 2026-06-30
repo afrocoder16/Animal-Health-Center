@@ -26,53 +26,8 @@
   <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🐾&lt;/text&gt;&lt;/svg&gt;" />
 </head>
 
-<body data-page="resort" class="font-body bg-cream text-ink">
-
-  <!-- ===== TOP BAR ===== -->
-  <div class="bg-ink text-cream/85 text-[13px]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-between gap-4">
-      <span class="hidden sm:flex items-center gap-2 min-w-0">
-        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-amber2 flex-none"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
-        <span class="truncate">1300 N. Hwy 59, Marshall, MN</span>
-      </span>
-      <div class="flex items-center gap-4 ml-auto">
-        <span data-hours-badge class="hours-badge is-closed">Checking hours…</span>
-        <a href="tel:+15075325000" class="font-bold text-cream hover:text-amber2 transition-colors">(507) 532-5000</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== NAV ===== -->
-  <div class="h-[86px]" aria-hidden="true"></div>
-
-  <header data-site-header class="fixed left-1/2 -translate-x-1/2 z-40 w-[min(calc(100%-24px),1180px)] top-[50px]">
-    <div class="relative flex items-center justify-between gap-4 min-h-[64px] px-3 py-2 rounded-3xl bg-cream/30 backdrop-blur-md shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] ring-1 ring-ink/10">
-      <a href="index.html" class="flex items-center pl-1" aria-label="Animal Health Center home"><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-12 w-auto" /></a>
-      <nav class="hidden lg:flex items-center gap-1 text-[15px] font-bold text-ink/70" aria-label="Primary">
-        <a data-nav="about" href="about.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">About Us</a>
-        <a data-nav="resort" href="resort.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Pet Resort</a>
-        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Gift Shop</a>
-        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Livestock</a>
-        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Small Animal</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a data-book class="hidden sm:inline-flex btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a>
-        <button data-menu-toggle class="lg:hidden grid place-items-center w-11 h-11 rounded-2xl bg-white shadow-sm text-ink" aria-label="Open menu" aria-controls="navDropdown" aria-expanded="false">
-          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
-        </button>
-      </div>
-
-      <!-- Mobile dropdown -->
-      <nav data-menu-drawer id="navDropdown" class="nav-dropdown lg:hidden absolute top-[calc(100%+10px)] right-0 w-[min(320px,calc(100vw-24px))] grid gap-1 p-3 rounded-3xl bg-cream/97 backdrop-blur-md shadow-[0_20px_60px_-20px_rgba(60,40,16,.5)] ring-1 ring-ink/10 text-base font-heading font-800 text-ink/80" aria-label="Mobile">
-        <a data-nav="about" href="about.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">About Us</a>
-        <a data-nav="resort" href="resort.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Pet Resort</a>
-        <a data-nav="shop" href="gift-shop.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Gift Shop</a>
-        <a data-nav="livestock" href="livestock.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Livestock</a>
-        <a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Small Animal</a>
-        <a data-book class="btn btn--amber justify-center mt-2">Book the Pet Resort →</a>
-      </nav>
-    </div>
-  </header>
+<body data-page="resort" data-nav-spacer class="font-body bg-cream text-ink">
+  <script src="js/chrome.js"></script>
 
   <main>
 
@@ -116,11 +71,11 @@
       <div class="relative h-[44vh] lg:h-[70vh] flex items-end justify-center">
         <div data-hero-star data-rate="7" class="absolute left-[4%] bottom-0 w-[52%]">
           <span class="ground-shadow"></span>
-          <img src="img/transparent/dog-sitting.png" alt="A happy golden retriever" class="cutout w-full h-auto" onerror="this.parentElement.style.display='none'" />
+          <img src="img/transparent/dog-sitting.webp" alt="A happy golden retriever" class="cutout w-full h-auto" onerror="this.parentElement.style.display='none'" />
         </div>
         <div data-hero-star data-rate="12" data-bob class="absolute right-[4%] bottom-0 w-[38%] z-[3]">
           <span class="ground-shadow"></span>
-          <img src="img/transparent/terrier-trot.png" alt="A small terrier trotting" class="cutout w-full h-auto" onerror="this.parentElement.style.display='none'" />
+          <img src="img/transparent/terrier-trot.webp" alt="A small terrier trotting" class="cutout w-full h-auto" onerror="this.parentElement.style.display='none'" />
         </div>
         <div class="absolute top-[8%] right-[6%] z-[4] hidden sm:block"><span class="inline-flex items-center gap-2 bg-white shadow-lg text-ink font-heading font-800 text-sm px-3.5 py-2 rounded-2xl"><span class="w-2 h-2 rounded-full bg-teal"></span> Daycare</span></div>
         <div class="absolute top-[34%] left-[0%] z-[4] hidden sm:block"><span class="inline-flex items-center gap-2 bg-teal shadow-lg text-cream font-heading font-800 text-sm px-3.5 py-2 rounded-2xl"><span class="w-2 h-2 rounded-full bg-amber2"></span> Boarding</span></div>
@@ -129,15 +84,16 @@
   </section>
 
   <!-- ===================== THREE WAYS TO STAY ===================== -->
-  <section class="py-20 sm:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+  <section class="py-20 sm:py-28 relative overflow-hidden">
+    <div class="paw-deco paw-deco--2" aria-hidden="true"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl" data-anim="up">
         <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">Pick a stay</p>
         <h2 class="mt-2 font-heading display text-ink text-4xl sm:text-5xl">Three ways<br />to hang out.</h2>
       </div>
       <div class="mt-10 grid md:grid-cols-3 gap-5" data-anim="cards">
         <article class="card-lift card overflow-hidden">
-          <img src="img/daycare-large-room-1.jpg" alt="Doggy daycare play room" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=70'"/>
+          <img src="img/daycare-large-room-1.webp" alt="Doggy daycare play room" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=70'"/>
           <div class="p-6">
             <h3 class="font-heading font-900 text-ink text-xl">Doggy Daycare</h3>
             <p class="text-ink/60 text-sm mt-1">Two play rooms split by size, under 40lbs &amp; over 40lbs.</p>
@@ -146,7 +102,7 @@
           </div>
         </article>
         <article class="card-lift card overflow-hidden">
-          <img src="img/dog-boarding-1.jpg" alt="Dog boarding suite" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=70'"/>
+          <img src="img/dog-boarding-1.webp" alt="Dog boarding suite" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=70'"/>
           <div class="p-6">
             <h3 class="font-heading font-900 text-ink text-xl">Dog Boarding</h3>
             <p class="text-ink/60 text-sm mt-1">16 kennels (large/medium/small) + 2 family suites.</p>
@@ -155,7 +111,7 @@
           </div>
         </article>
         <article class="card-lift card overflow-hidden">
-          <img src="img/cat-boarding-1.jpg" alt="The Kitty Korral cat boarding" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=70'"/>
+          <img src="img/cat-boarding-1.webp" alt="The Kitty Korral cat boarding" class="h-48 w-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=70'"/>
           <div class="p-6">
             <h3 class="font-heading font-900 text-ink text-xl">Kitty Korral</h3>
             <p class="text-ink/60 text-sm mt-1">A quiet, separate boarding space just for cats.</p>
@@ -172,50 +128,110 @@
   <!-- ===================== DOGGY DAYCARE (detail) ===================== -->
   <section id="daycare" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
     <div class="soft-glow bg-teal2/15 w-[26rem] h-[26rem] -left-20 top-10"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
-      <div class="lg:order-2 relative" data-anim="up">
-        <img src="img/daycare-large-room-1.jpg" alt="Large dog daycare play room" class="rounded-[26px] shadow-lg w-full object-cover aspect-[4/3]" onerror="this.src='https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=900&q=70'"/>
-      </div>
-      <div class="lg:order-1" data-anim="up">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+
+      <!-- Intro -->
+      <div class="max-w-2xl" data-anim="up">
         <span class="service-kicker bg-teal/10 text-teal">Doggy Daycare</span>
         <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">A whole day<br />of zoomies.</h2>
         <p class="mt-4 text-ink/65 text-lg">Two indoor play rooms, split by size so the little dogs and the big dogs each get room to run. Supervised play, naps, and a tired, happy pup at pickup.</p>
+      </div>
 
-        <div class="mt-7 grid sm:grid-cols-2 gap-4">
-          <div class="card p-5 bg-cream">
-            <h3 class="font-heading font-900 text-ink">Small dogs <span class="text-ink/45 font-body font-normal text-sm">under 40lbs</span></h3>
-            <ul class="mt-2 space-y-1.5 text-sm text-ink/65">
-              <li>Risers &amp; platforms at the windows</li>
-              <li>Toys scaled for smaller breeds</li>
-              <li>Climate-controlled, safe &amp; enclosed</li>
-            </ul>
-          </div>
-          <div class="card p-5 bg-cream">
-            <h3 class="font-heading font-900 text-ink">Large dogs <span class="text-ink/45 font-body font-normal text-sm">over 40lbs</span></h3>
-            <ul class="mt-2 space-y-1.5 text-sm text-ink/65">
-              <li>Steps &amp; deck with window views</li>
-              <li>Toys sized for bigger breeds</li>
-              <li>Climate-controlled, spacious play area</li>
-            </ul>
-          </div>
-        </div>
+      <!-- Two room blocks -->
+      <div class="mt-12 grid lg:grid-cols-2 gap-6 items-stretch" data-anim="cards">
 
-        <div data-widget="pricing" class="mt-7 card p-6 bg-cream max-w-md">
+        <!-- ROOM 1 · Maci's Playroom (SMALL dogs) -->
+        <article class="room-card room-card--teal flex flex-col">
+          <div class="flex items-center justify-between gap-3 flex-wrap">
+            <h3 class="font-heading font-900 text-ink text-2xl">Maci's Playroom</h3>
+            <span class="service-kicker bg-teal/10 text-teal !py-1.5">Small dogs, under 40 lbs</span>
+          </div>
+
+          <!-- photo cluster: one lead dog photo, then a 2-up of the second dog
+               photo and the empty room. Swap each .photo-soon block for the
+               matching <img ... .webp> commented above it (no layout change). -->
+          <div class="mt-5 grid grid-cols-2 gap-3">
+            <figure class="col-span-2 rounded-[18px] overflow-hidden shadow-sm ring-1 ring-ink/5">
+              <img src="img/daycare-maci-dog-1.webp" alt="Small dogs playing in Maci's Playroom" class="w-full aspect-[16/10] object-cover" loading="lazy" />
+            </figure>
+            <figure class="rounded-[18px] overflow-hidden shadow-sm ring-1 ring-ink/5">
+              <img src="img/daycare-maci-dog-2.webp" alt="A small dog at play in Maci's Playroom" class="w-full aspect-square object-cover" loading="lazy" />
+            </figure>
+            <figure class="relative rounded-[18px] overflow-hidden shadow-sm ring-1 ring-ink/5">
+              <img src="img/daycare-maci-room.webp" alt="Maci's Playroom, the empty small-dog play room" class="w-full aspect-square object-cover" loading="lazy" />
+              <span class="room-card__caption">The room</span>
+            </figure>
+          </div>
+
+          <ul class="mt-6 pt-5 border-t border-ink/10 space-y-2 text-sm text-ink/70">
+            <li class="feature-li">Risers &amp; platforms at the windows</li>
+            <li class="feature-li">Toys scaled for smaller breeds</li>
+            <li class="feature-li">Climate-controlled, safe &amp; enclosed</li>
+          </ul>
+        </article>
+
+        <!-- ROOM 2 · Nellis Playroom (LARGE dogs) -->
+        <article class="room-card room-card--amber flex flex-col">
+          <div class="flex items-center justify-between gap-3 flex-wrap">
+            <h3 class="font-heading font-900 text-ink text-2xl">Nellis Playroom</h3>
+            <span class="service-kicker bg-amber/10 text-amber !py-1.5">Large dogs, over 40 lbs</span>
+          </div>
+
+          <!-- photo cluster: one lead dog photo, then a 2-up of the second dog
+               photo and the empty room. Swap each .photo-soon block for the
+               matching <img ... .webp> commented above it (no layout change). -->
+          <div class="mt-5 grid grid-cols-2 gap-3">
+            <figure class="col-span-2 rounded-[18px] overflow-hidden shadow-sm ring-1 ring-ink/5">
+              <img src="img/daycare-nellis-dog-1.webp" alt="Large dogs playing in Nellis Playroom" class="w-full aspect-[16/10] object-cover" loading="lazy" />
+            </figure>
+            <figure class="rounded-[18px] overflow-hidden shadow-sm ring-1 ring-ink/5">
+              <img src="img/daycare-nellis-dog-2.webp" alt="A large dog at play in Nellis Playroom" class="w-full aspect-square object-cover" loading="lazy" />
+            </figure>
+            <figure class="relative rounded-[18px] overflow-hidden shadow-sm ring-1 ring-ink/5">
+              <img src="img/daycare-nellis-room.webp" alt="Nellis Playroom, the empty large-dog play space" class="w-full aspect-square object-cover" loading="lazy" />
+              <span class="room-card__caption">The room</span>
+            </figure>
+          </div>
+
+          <ul class="mt-6 pt-5 border-t border-ink/10 space-y-2 text-sm text-ink/70">
+            <li class="feature-li feature-li--amber">Steps &amp; deck with window views</li>
+            <li class="feature-li feature-li--amber">Toys sized for bigger breeds</li>
+            <li class="feature-li feature-li--amber">Climate-controlled, spacious play area</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- subtle gallery + estimate links for the whole section -->
+      <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2" data-anim="up">
+        <a href="gallery.html" class="inline-flex items-center gap-2 font-heading font-800 text-teal hover:gap-3 transition-all text-sm">See more photos of our rooms →</a>
+        <a href="#rates" class="text-sm text-ink/55 hover:text-teal underline underline-offset-2 transition-colors">Estimate the cost</a>
+      </div>
+
+      <!-- pricing + hours + reserve, one balanced band -->
+      <div data-widget="pricing" class="mt-10 card bg-cream ring-1 ring-ink/5 p-6 sm:p-8 grid lg:grid-cols-[auto_1fr_auto] gap-6 lg:gap-10 items-center" data-anim="up">
+        <!-- price + toggle -->
+        <div>
           <div class="flex gap-2 p-1 bg-white rounded-2xl shadow-sm w-max">
             <button data-plan="half" class="plan-btn" aria-pressed="true">Half day</button>
             <button data-plan="full" class="plan-btn" aria-pressed="false">Full day</button>
           </div>
-          <div class="mt-5 flex items-end gap-3">
+          <div class="mt-4 flex items-end gap-3">
             <span data-price class="font-heading display text-5xl text-teal">$12</span>
-            <span data-price-sub class="text-ink/55 mb-1.5">Half day · under 5 hours</span>
+            <span data-price-sub class="text-ink/55 mb-1.5">Half day, under 5 hours</span>
           </div>
-          <p class="mt-3 text-sm text-ink/45">Weekly-stay discount available, ask us in store.</p>
+          <p class="mt-2 text-sm text-ink/45">Weekly-stay discount available, ask us in store.</p>
         </div>
 
-        <p class="mt-6 text-ink/65"><strong class="text-ink">Hours:</strong> Monday to Friday, 8:00am to 5:00pm.</p>
+        <!-- hours -->
+        <div class="lg:border-l lg:border-ink/10 lg:pl-10">
+          <p class="service-kicker bg-ink/[.05] text-ink/60 !text-[.7rem]">Daycare hours</p>
+          <p class="mt-2 font-heading font-800 text-ink text-lg">Monday to Friday</p>
+          <p class="text-ink/60">8:00am to 5:00pm</p>
+        </div>
 
-        <div class="mt-7 flex flex-wrap gap-3">
-          <a data-book class="btn btn--amber">Reserve a daycare day →</a>
+        <!-- reserve -->
+        <div class="lg:justify-self-end">
+          <a data-book class="btn btn--amber w-full lg:w-auto justify-center">Reserve a daycare day →</a>
         </div>
       </div>
     </div>
@@ -226,6 +242,7 @@
   <!-- ===================== DOG BOARDING (detail) ===================== -->
   <section id="boarding" class="py-20 sm:py-28 relative overflow-hidden scroll-mt-24">
     <div data-blob class="blob blob--teal w-[24rem] h-[24rem] -left-24 top-10"></div>
+    <div class="paw-deco paw-deco--2" aria-hidden="true"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
       <div data-anim="up">
         <span class="service-kicker bg-teal/10 text-teal">Dog Boarding</span>
@@ -250,45 +267,198 @@
           <a data-book class="btn btn--amber">Book a boarding stay →</a>
         </div>
       </div>
-      <div class="relative" data-anim="up">
-        <img src="img/dog-boarding-1.jpg" alt="Dog boarding suite" class="rounded-[26px] shadow-lg w-full object-cover aspect-[4/3]" onerror="this.src='https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=900&q=70'"/>
+      <div data-anim="up">
+        <!-- photo cluster: Photo 1 (lead) is the dominant hero shot; Photo 2
+             & 3 are smaller supporting shots side by side beneath it. Swap
+             each .photo-soon block for the matching <img ... .webp> commented
+             above it, same wrapper & aspect ratio, so the layout never shifts. -->
+        <figure class="rounded-[24px] overflow-hidden shadow-lg ring-1 ring-ink/5">
+          <img src="img/boarding-lead-kennel-hallway.webp" alt="A happy dog standing in a clean indoor kennel hallway" class="w-full aspect-[4/3] object-cover" loading="lazy" />
+        </figure>
+        <div class="mt-3 grid grid-cols-2 gap-3">
+          <figure class="rounded-[18px] overflow-hidden shadow-sm ring-1 ring-ink/5">
+            <img src="img/boarding-kennel-row.webp" alt="A clean, bright row of boarding kennels" class="w-full aspect-square object-cover" loading="lazy" />
+          </figure>
+          <figure class="rounded-[18px] overflow-hidden shadow-sm ring-1 ring-ink/5">
+            <img src="img/boarding-outdoor-play.webp" alt="Dogs playing outside in the fenced yard" class="w-full aspect-square object-cover" loading="lazy" />
+          </figure>
+        </div>
+        <div class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <a href="gallery.html" class="inline-flex items-center gap-2 font-heading font-800 text-teal hover:gap-3 transition-all text-sm">See more photos of our kennels →</a>
+          <a href="#rates" class="text-sm text-ink/55 hover:text-teal underline underline-offset-2 transition-colors">Estimate the cost</a>
+        </div>
       </div>
     </div>
   </section>
 
   <div class="paw-divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
 
-  <!-- ===================== KITTY KORRAL (detail) ===================== -->
-  <section id="kitty-korral" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
-    <div class="soft-glow bg-amber2/15 w-[24rem] h-[24rem] right-[-6rem] top-10"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
-      <div class="lg:order-2 relative" data-anim="up">
-        <img src="img/cat-boarding-1.jpg" alt="The Kitty Korral cat boarding" class="rounded-[26px] shadow-lg w-full object-cover aspect-[4/3]" onerror="this.src='https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=900&q=70'"/>
-      </div>
-      <div class="lg:order-1" data-anim="up">
+  <!-- ===================== KITTY KORRAL (detail) =====================
+       Calm, spacious, magazine-style. Deliberately unlike the punchy dog
+       sections: lots of white space, one large quiet hero cat photo, a soft
+       cat-silhouette motif echoing the room's hand-painted sign. -->
+  <section id="kitty-korral" class="kitty py-24 sm:py-36 relative overflow-hidden scroll-mt-24">
+    <div class="soft-glow bg-amber2/12 w-[30rem] h-[30rem] right-[-8rem] top-0"></div>
+    <div class="soft-glow bg-teal2/8 w-[26rem] h-[26rem] -left-24 bottom-10"></div>
+
+    <!-- subtle walking-cat silhouette, a quiet nod to the painted sign -->
+    <svg class="kitty-cat-motif" viewBox="0 0 64 40" aria-hidden="true"><path d="M6 38c0-6 2-10 2-14 0-3-2-5-2-8 0-2 1-4 3-4 1 0 2 1 3 2 2-2 5-3 9-3s7 1 9 3c3 4 4 9 6 13 2 3 5 4 8 5 3 1 6 1 8 3 2 2 2 5 0 6-1 1-3 1-4 0M6 12c-1-2-3-3-3-6 0-1 0-3 1-3s2 2 3 4M14 12c1-2 1-4 0-7"/></svg>
+
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+
+      <!-- Quiet intro, centered with generous breathing room -->
+      <div class="max-w-2xl mx-auto text-center" data-anim="up">
         <span class="service-kicker bg-amber2/15 text-amber">Kitty Korral</span>
-        <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">A quiet wing,<br />just for cats.</h2>
-        <p class="mt-4 text-ink/65 text-lg">Separate from the dog kennels, so cats get a calm space of their own, daily care, fresh litter &amp; a window view.</p>
-        <div class="mt-7 card p-6 bg-cream max-w-md">
-          <h3 class="font-heading font-900 text-ink">Kitty Korral rates</h3>
-          <ul class="mt-3 space-y-2 text-sm text-ink/70">
-            <li class="flex justify-between gap-4"><span>First cat</span><span class="font-heading font-800 text-ink">$20 / day</span></li>
-            <li class="flex justify-between gap-4"><span>Additional cat</span><span class="font-heading font-800 text-ink">$17 / day</span></li>
+        <h2 class="mt-4 font-heading display text-ink text-4xl sm:text-6xl">A quiet wing,<br />just for cats.</h2>
+        <p class="mt-6 text-ink/60 text-lg sm:text-xl leading-relaxed">Separate from the dog kennels, so cats get a calm space of their own, daily care, fresh litter &amp; a window view.</p>
+      </div>
+
+      <!-- The reassurance, led loud and clear, away from the dogs -->
+      <p class="kitty-reassure mx-auto mt-10 max-w-3xl text-center" data-anim="up">
+        <span class="kitty-reassure__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C.7 9.1 1.6 5.7 4.6 4.6 7 3.7 9.4 4.8 11 6.6c.3.3.6.7 1 1.2.4-.5.7-.9 1-1.2 1.6-1.8 4-2.9 6.4-2 3 1.1 3.9 4.5 2.6 7.1C19.5 16.4 12 21 12 21Z"/></svg>
+        </span>
+        No barking next door. The Kitty Korral is its own quiet wing, tucked well away from the dogs, so your cat stays calm the whole stay.
+      </p>
+
+      <!-- LARGE, quiet centerpiece cat photo (Photo 1). One big calm image.
+           Swap the .photo-soon block for the <img ... .webp> commented above
+           it, same wrapper & aspect ratio, so the layout never shifts. -->
+      <figure class="mt-14 relative rounded-[32px] overflow-hidden shadow-[0_40px_90px_-40px_rgba(60,40,16,.45)] ring-1 ring-ink/5" data-anim="up">
+        <img src="img/kitty-lead-content-cat.webp" alt="A content cat relaxing in the Kitty Korral" class="w-full aspect-[16/9] object-cover" loading="lazy" />
+        <figcaption class="kitty-caption">One of our regulars, settling in.</figcaption>
+      </figure>
+
+      <!-- Three supporting photos in an airy magazine row -->
+      <div class="mt-6 grid sm:grid-cols-3 gap-6" data-anim="cards">
+        <figure class="relative rounded-[24px] overflow-hidden shadow-md ring-1 ring-ink/5">
+          <img src="img/kitty-wall-sign.webp" alt="The hand-painted Kitty Korral wall sign with a black cat" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+          <figcaption class="kitty-caption kitty-caption--soft">The hand-painted sign</figcaption>
+        </figure>
+        <figure class="relative rounded-[24px] overflow-hidden shadow-md ring-1 ring-ink/5">
+          <img src="img/kitty-shelves-condos.webp" alt="Wall-mounted climbing shelves and cat condos in the cat room" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+          <figcaption class="kitty-caption kitty-caption--soft">Shelves &amp; condos to climb</figcaption>
+        </figure>
+        <figure class="relative rounded-[24px] overflow-hidden shadow-md ring-1 ring-ink/5">
+          <img src="img/kitty-tree-window.webp" alt="The tall cat tree by the window with a view into the store" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+          <figcaption class="kitty-caption kitty-caption--soft">A window seat with a view</figcaption>
+        </figure>
+      </div>
+
+      <!-- subtle gallery + estimate links -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2" data-anim="up">
+        <a href="gallery.html" class="inline-flex items-center gap-2 font-heading font-800 text-amber hover:gap-3 transition-all text-sm">See more photos of the Kitty Korral →</a>
+        <a href="#rates" class="text-sm text-ink/55 hover:text-amber underline underline-offset-2 transition-colors">Estimate the cost</a>
+      </div>
+
+      <!-- Calm, airy info panel: rates + vaccinations + book -->
+      <div class="kitty-panel mt-14 mx-auto max-w-4xl grid md:grid-cols-2 gap-8 md:gap-12 items-center" data-anim="up">
+        <div>
+          <h3 class="font-heading font-900 text-ink text-xl">Kitty Korral rates</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-ink/70">
+            <li class="flex justify-between gap-4 border-b border-ink/5 pb-2.5"><span>First cat</span><span class="font-heading font-800 text-ink">$20 / day</span></li>
+            <li class="flex justify-between gap-4 border-b border-ink/5 pb-2.5"><span>Additional cat</span><span class="font-heading font-800 text-ink">$17 / day</span></li>
             <li class="flex justify-between gap-4"><span>Extended stay</span><span class="font-heading font-800 text-ink">Discounted</span></li>
           </ul>
           <p class="mt-3 text-xs text-ink/45">Charged by day, not by night.</p>
         </div>
-        <p class="mt-6 text-ink/65"><strong class="text-ink">Vaccinations needed:</strong> rabies, distemper, and feline leukemia (or a negative test).</p>
-        <div class="mt-7 flex flex-wrap gap-3">
-          <a data-book class="btn btn--amber">Book the Kitty Korral →</a>
+        <div class="md:border-l md:border-ink/10 md:pl-12">
+          <p class="text-ink/65"><strong class="text-ink">Vaccinations needed:</strong> rabies, distemper, and feline leukemia (or a negative test).</p>
+          <div class="mt-6">
+            <a data-book class="btn btn--amber w-full sm:w-auto justify-center">Book the Kitty Korral →</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <div class="paw-divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
+
+  <!-- ===================== IS MY PET READY CHECKLIST + REQUIREMENTS ===================== -->
+  <section id="ready" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
+    <div data-blob class="blob blob--amber w-[22rem] h-[22rem] right-[-6rem] top-10"></div>
+    <div class="paw-deco paw-deco--1" aria-hidden="true"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div data-anim="up">
+          <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">Before you book</p>
+          <h2 class="mt-2 font-heading display text-ink text-4xl sm:text-5xl">Is your pet<br />resort-ready?</h2>
+          <p class="mt-4 text-ink/65 text-lg">Tick off these four and the booking button unlocks. A quick checklist so the first stay goes smoothly.</p>
+          <div data-float="20" class="hidden lg:block mt-8 w-44">
+            <div class="in-frame aspect-square"><img src="img/transparent/puppy-sleeping.webp" alt="A sleeping puppy" onerror="this.parentElement.style.display='none'"/></div>
+          </div>
+        </div>
+
+        <div data-widget="ready" class="card p-7 bg-cream">
+          <ul class="space-y-3">
+            <li class="ready-item flex items-start gap-3">
+              <input id="r1" type="checkbox" data-required data-label="vaccinations" class="sr-only peer"/>
+              <label for="r1" class="ready-check grid place-items-center w-7 h-7 flex-none rounded-lg border-2 border-ink/20 bg-white cursor-pointer mt-0.5"><svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+              <label for="r1" class="ready-label text-ink/75 cursor-pointer"><strong class="text-ink">Up-to-date vaccinations</strong><br/><span class="text-sm text-ink/55">Rabies, DHPP &amp; Bordetella for dogs.</span></label>
+            </li>
+            <li class="ready-item flex items-start gap-3">
+              <input id="r2" type="checkbox" data-required data-label="flea & tick" class="sr-only peer"/>
+              <label for="r2" class="ready-check grid place-items-center w-7 h-7 flex-none rounded-lg border-2 border-ink/20 bg-white cursor-pointer mt-0.5"><svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+              <label for="r2" class="ready-label text-ink/75 cursor-pointer"><strong class="text-ink">Flea &amp; tick current</strong><br/><span class="text-sm text-ink/55">On a preventative for everyone's comfort.</span></label>
+            </li>
+            <li class="ready-item flex items-start gap-3">
+              <input id="r3" type="checkbox" data-required data-label="food & meds" class="sr-only peer"/>
+              <label for="r3" class="ready-check grid place-items-center w-7 h-7 flex-none rounded-lg border-2 border-ink/20 bg-white cursor-pointer mt-0.5"><svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+              <label for="r3" class="ready-label text-ink/75 cursor-pointer"><strong class="text-ink">Food &amp; meds packed</strong><br/><span class="text-sm text-ink/55">Labeled portions keep tummies happy.</span></label>
+            </li>
+            <li class="ready-item flex items-start gap-3">
+              <input id="r4" type="checkbox" data-required data-label="emergency contact" class="sr-only peer"/>
+              <label for="r4" class="ready-check grid place-items-center w-7 h-7 flex-none rounded-lg border-2 border-ink/20 bg-white cursor-pointer mt-0.5"><svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
+              <label for="r4" class="ready-label text-ink/75 cursor-pointer"><strong class="text-ink">Emergency contact ready</strong><br/><span class="text-sm text-ink/55">A name &amp; number we can reach if needed.</span></label>
+            </li>
+          </ul>
+          <p data-ready-todo class="mt-5 text-sm text-rust font-semibold">Tick all four to unlock booking.</p>
+          <div data-ready-cta hidden class="mt-5">
+            <a data-book class="btn btn--amber w-full justify-center">All set, Book the stay →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- the full "what ready means" reference: requirements + drop-off hours -->
+      <div class="mt-12 grid sm:grid-cols-3 gap-6" data-anim="cards">
+        <div class="card p-6 bg-cream">
+          <h3 class="font-heading font-900 text-ink">Dogs need</h3>
+          <ul class="mt-3 space-y-1.5 text-sm text-ink/65">
+            <li>Rabies</li>
+            <li>Distemper / parvo</li>
+            <li>Leptospirosis</li>
+            <li>Bordetella</li>
+            <li>Current flea &amp; tick preventative</li>
+          </ul>
+        </div>
+        <div class="card p-6 bg-cream">
+          <h3 class="font-heading font-900 text-ink">Cats need</h3>
+          <ul class="mt-3 space-y-1.5 text-sm text-ink/65">
+            <li>Rabies</li>
+            <li>Distemper</li>
+            <li>Feline leukemia, or a negative test</li>
+          </ul>
+          <p class="mt-3 text-xs text-ink/45">Bravecto, NexGard, Simparica &amp; Credelio are accepted prescriptions, OTC Frontline is fine too.</p>
+        </div>
+        <div class="card p-6 bg-cream">
+          <h3 class="font-heading font-900 text-ink">Drop-off / pickup</h3>
+          <ul class="mt-3 space-y-1.5 text-sm text-ink/65">
+            <li class="flex justify-between gap-3"><span>Mon to Fri</span><span class="text-ink font-semibold">7:30 to 4:30</span></li>
+            <li class="flex justify-between gap-3"><span>Saturday</span><span class="text-ink font-semibold">8 to 11:30 &amp; 5 to 6</span></li>
+            <li class="flex justify-between gap-3"><span>Sunday</span><span class="text-ink font-semibold">12 to 1 &amp; 5 to 6</span></li>
+            <li class="flex justify-between gap-3"><span>Holidays</span><span class="text-ink font-semibold">Pickup only, 5 to 6</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="paw-divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
+
   <!-- ===================== RATES ESTIMATOR ===================== -->
   <section id="rates" class="py-20 sm:py-28 relative overflow-hidden scroll-mt-24">
     <div data-blob class="blob blob--peach w-[22rem] h-[22rem] -left-20 top-10"></div>
+    <div class="paw-deco paw-deco--2" aria-hidden="true"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl mx-auto text-center" data-anim="up">
         <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">What will it cost?</p>
@@ -324,6 +494,8 @@
       </div>
     </div>
   </section>
+
+  <div class="paw-divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
 
   <!-- ===================== REWARDS ===================== -->
   <section id="rewards" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
@@ -366,207 +538,7 @@
     </div>
   </section>
 
-  <!-- ===================== A DAY IN THE LIFE (animated traveler) ===================== -->
-  <section class="py-20 sm:py-28 bg-white relative overflow-hidden">
-    <div class="soft-glow bg-teal2/15 w-[26rem] h-[26rem] right-[-6rem] top-10"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="max-w-2xl" data-anim="up">
-        <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">A day at daycare</p>
-        <h2 class="mt-2 font-heading display text-ink text-4xl sm:text-5xl">From drop-off<br />to tuckered out.</h2>
-        <p class="mt-4 text-ink/60 text-lg">Scroll through a typical daycare day, your pup's busy schedule of play, naps, and snacks.</p>
-      </div>
-
-      <div data-timeline class="mt-14 relative">
-        <!-- track -->
-        <div data-timeline-track class="relative h-2 md:h-2 max-md:w-2 max-md:h-[34rem] max-md:mx-auto bg-cream rounded-full">
-          <div class="absolute inset-0 rounded-full bg-gradient-to-r max-md:bg-gradient-to-b from-amber2/40 to-teal/40"></div>
-          <!-- traveler -->
-          <div data-timeline-icon class="absolute -top-5 max-md:top-0 max-md:-left-5 w-12 h-12 grid place-items-center rounded-2xl bg-white shadow-lg z-10"><svg viewBox="0 0 24 24" class="w-6 h-6 fill-teal"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
-        </div>
-        <!-- stations -->
-        <div class="mt-10 grid md:grid-cols-4 gap-6">
-          <div data-timeline-station class="dil-station text-center md:text-left">
-            <span class="dil-dot inline-block w-4 h-4 rounded-full border-2 border-amber bg-white mb-3"></span>
-            <p class="font-heading font-900 text-ink">8:00: Drop-off</p>
-            <p class="text-ink/55 text-sm mt-1">Wagging tails &amp; quick hellos. We get the day's notes.</p>
-          </div>
-          <div data-timeline-station class="dil-station text-center md:text-left">
-            <span class="dil-dot inline-block w-4 h-4 rounded-full border-2 border-amber bg-white mb-3"></span>
-            <p class="font-heading font-900 text-ink">10:00: Zoomies</p>
-            <p class="text-ink/55 text-sm mt-1">Supervised play in the size-matched room.</p>
-          </div>
-          <div data-timeline-station class="dil-station text-center md:text-left">
-            <span class="dil-dot inline-block w-4 h-4 rounded-full border-2 border-amber bg-white mb-3"></span>
-            <p class="font-heading font-900 text-ink">1:00: Nap &amp; snack</p>
-            <p class="text-ink/55 text-sm mt-1">Rest, water, and a treat to recharge.</p>
-          </div>
-          <div data-timeline-station class="dil-station text-center md:text-left">
-            <span class="dil-dot inline-block w-4 h-4 rounded-full border-2 border-amber bg-white mb-3"></span>
-            <p class="font-heading font-900 text-ink">5:00: Pickup</p>
-            <p class="text-ink/55 text-sm mt-1">One happy, tired pup, ready for the couch.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== ROOM GALLERY / FACILITY ===================== -->
-  <section class="py-20 sm:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="max-w-2xl mb-10" data-anim="up">
-        <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">A look around</p>
-        <h2 class="mt-2 font-heading display text-ink text-4xl sm:text-5xl">The rooms<br />they'll love.</h2>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" data-anim="cards">
-        <figure class="card-lift card overflow-hidden"><img src="img/daycare-large-room-2.jpg" alt="Large dog daycare room" class="aspect-square w-full object-cover"/><figcaption class="px-4 py-3 text-sm font-heading font-800 text-ink">Large-dog room</figcaption></figure>
-        <figure class="card-lift card overflow-hidden"><img src="img/daycare-small-room.jpg" alt="Small dog daycare room" class="aspect-square w-full object-cover"/><figcaption class="px-4 py-3 text-sm font-heading font-800 text-ink">Small-dog room</figcaption></figure>
-        <figure class="card-lift card overflow-hidden"><img src="img/dog-boarding-2.jpg" alt="Dog boarding suites" class="aspect-square w-full object-cover"/><figcaption class="px-4 py-3 text-sm font-heading font-800 text-ink">Boarding suites</figcaption></figure>
-        <figure class="card-lift card overflow-hidden"><img src="img/cat-boarding-2.png" alt="The Kitty Korral" class="aspect-square w-full object-cover"/><figcaption class="px-4 py-3 text-sm font-heading font-800 text-ink">Kitty Korral</figcaption></figure>
-      </div>
-
-      <div class="mt-14 grid sm:grid-cols-3 gap-6" data-anim="cards">
-        <div class="card p-6 bg-cream">
-          <h3 class="font-heading font-900 text-ink">Dogs need</h3>
-          <ul class="mt-3 space-y-1.5 text-sm text-ink/65">
-            <li>Rabies</li>
-            <li>Distemper / parvo</li>
-            <li>Leptospirosis</li>
-            <li>Bordetella</li>
-            <li>Current flea &amp; tick preventative</li>
-          </ul>
-        </div>
-        <div class="card p-6 bg-cream">
-          <h3 class="font-heading font-900 text-ink">Cats need</h3>
-          <ul class="mt-3 space-y-1.5 text-sm text-ink/65">
-            <li>Rabies</li>
-            <li>Distemper</li>
-            <li>Feline leukemia, or a negative test</li>
-          </ul>
-          <p class="mt-3 text-xs text-ink/45">Bravecto, NexGard, Simparica &amp; Credelio are accepted prescriptions, OTC Frontline is fine too.</p>
-        </div>
-        <div class="card p-6 bg-cream">
-          <h3 class="font-heading font-900 text-ink">Drop-off / pickup</h3>
-          <ul class="mt-3 space-y-1.5 text-sm text-ink/65">
-            <li class="flex justify-between gap-3"><span>Mon to Fri</span><span class="text-ink font-semibold">7:30 to 4:30</span></li>
-            <li class="flex justify-between gap-3"><span>Saturday</span><span class="text-ink font-semibold">8 to 11:30 &amp; 5 to 6</span></li>
-            <li class="flex justify-between gap-3"><span>Sunday</span><span class="text-ink font-semibold">12 to 1 &amp; 5 to 6</span></li>
-            <li class="flex justify-between gap-3"><span>Holidays</span><span class="text-ink font-semibold">Pickup only, 5 to 6</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== IS MY PET READY CHECKLIST ===================== -->
-  <section id="ready" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
-    <div data-blob class="blob blob--amber w-[22rem] h-[22rem] right-[-6rem] top-10"></div>
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
-      <div data-anim="up">
-        <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">Before you book</p>
-        <h2 class="mt-2 font-heading display text-ink text-4xl sm:text-5xl">Is your pet<br />resort-ready?</h2>
-        <p class="mt-4 text-ink/65 text-lg">Tick off these four and the booking button unlocks. A quick checklist so the first stay goes smoothly.</p>
-        <div data-float="20" class="hidden lg:block mt-8 w-44">
-          <div class="in-frame aspect-square"><img src="img/transparent/puppy-sleeping.png" alt="A sleeping puppy" onerror="this.parentElement.style.display='none'"/></div>
-        </div>
-      </div>
-
-      <div data-widget="ready" class="card p-7 bg-cream">
-        <ul class="space-y-3">
-          <li class="ready-item flex items-start gap-3">
-            <input id="r1" type="checkbox" data-required data-label="vaccinations" class="sr-only peer"/>
-            <label for="r1" class="ready-check grid place-items-center w-7 h-7 flex-none rounded-lg border-2 border-ink/20 bg-white cursor-pointer mt-0.5"><svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
-            <label for="r1" class="ready-label text-ink/75 cursor-pointer"><strong class="text-ink">Up-to-date vaccinations</strong><br/><span class="text-sm text-ink/55">Rabies, DHPP &amp; Bordetella for dogs.</span></label>
-          </li>
-          <li class="ready-item flex items-start gap-3">
-            <input id="r2" type="checkbox" data-required data-label="flea & tick" class="sr-only peer"/>
-            <label for="r2" class="ready-check grid place-items-center w-7 h-7 flex-none rounded-lg border-2 border-ink/20 bg-white cursor-pointer mt-0.5"><svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
-            <label for="r2" class="ready-label text-ink/75 cursor-pointer"><strong class="text-ink">Flea &amp; tick current</strong><br/><span class="text-sm text-ink/55">On a preventative for everyone's comfort.</span></label>
-          </li>
-          <li class="ready-item flex items-start gap-3">
-            <input id="r3" type="checkbox" data-required data-label="food & meds" class="sr-only peer"/>
-            <label for="r3" class="ready-check grid place-items-center w-7 h-7 flex-none rounded-lg border-2 border-ink/20 bg-white cursor-pointer mt-0.5"><svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
-            <label for="r3" class="ready-label text-ink/75 cursor-pointer"><strong class="text-ink">Food &amp; meds packed</strong><br/><span class="text-sm text-ink/55">Labeled portions keep tummies happy.</span></label>
-          </li>
-          <li class="ready-item flex items-start gap-3">
-            <input id="r4" type="checkbox" data-required data-label="emergency contact" class="sr-only peer"/>
-            <label for="r4" class="ready-check grid place-items-center w-7 h-7 flex-none rounded-lg border-2 border-ink/20 bg-white cursor-pointer mt-0.5"><svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></label>
-            <label for="r4" class="ready-label text-ink/75 cursor-pointer"><strong class="text-ink">Emergency contact ready</strong><br/><span class="text-sm text-ink/55">A name &amp; number we can reach if needed.</span></label>
-          </li>
-        </ul>
-        <p data-ready-todo class="mt-5 text-sm text-rust font-semibold">Tick all four to unlock booking.</p>
-        <div data-ready-cta hidden class="mt-5">
-          <a class="btn btn--amber w-full justify-center">All set, Book the stay →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== KENNELBOOKER APP ===================== -->
-  <section class="py-20 sm:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="rounded-[2rem] bg-gradient-to-br from-teal via-teal2 to-teal text-cream overflow-hidden shadow-lg relative">
-        <div class="grid lg:grid-cols-2 gap-8 items-center p-8 sm:p-14">
-          <div data-anim="up">
-            <p class="font-heading font-800 text-peach text-sm tracking-[0.2em] uppercase">Manage it from your phone</p>
-            <h2 class="mt-2 font-heading display text-3xl sm:text-4xl">Book &amp; manage in<br />the KennelBooker app.</h2>
-            <p class="mt-4 text-cream/85 text-lg">Reserve stays, view reservations, and keep your pet's details handy. Download the app and use our business code.</p>
-            <div class="mt-5 inline-flex items-center gap-3 bg-white/15 rounded-2xl px-5 py-3"><span class="text-cream/75 text-sm font-semibold">Business code</span><span class="font-heading font-900 text-2xl tracking-[0.3em] text-peach">AHCPR</span></div>
-            <div class="mt-6 flex flex-wrap gap-3"><a data-book class="btn btn--amber">Book online now →</a><a href="tel:+15075325000" class="btn btn--ink">Call us</a></div>
-          </div>
-          <div class="relative grid place-items-center" data-anim="up">
-            <div class="w-52 h-[24rem] rounded-[2.4rem] bg-ink p-3 shadow-2xl rotate-[-6deg]">
-              <div class="w-full h-full rounded-[1.9rem] bg-cream text-ink p-4 flex flex-col">
-                <div class="h-1.5 w-12 bg-ink/20 rounded-full mx-auto"></div>
-                <p class="mt-4 font-heading font-900 text-teal text-lg leading-tight">Welcome back!</p><p class="text-xs text-ink/60 mt-0.5">Bailey's next stay</p>
-                <div class="mt-3 rounded-xl bg-white p-3 text-xs shadow-sm"><p class="font-heading font-800 text-ink">Boarding · 3 nights</p><p class="text-ink/60 mt-0.5">Check-in Fri · 8:00am</p></div>
-                <div class="mt-auto rounded-xl bg-amber2 text-ink text-center font-heading font-800 text-sm py-2.5">Book a Stay</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CTA ===================== -->
-  <section class="relative overflow-hidden bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
-      <div class="rounded-[2rem] bg-gradient-to-br from-amber2 to-amber text-ink p-10 sm:p-16 text-center relative overflow-hidden dotgrid">
-        <div class="relative" data-anim="up">
-          <h2 class="font-heading display text-4xl sm:text-5xl">Reserve their<br />next great stay.</h2>
-          <p class="mt-4 text-ink/75 text-lg max-w-xl mx-auto">Day or night, big or small, the Pet Resort is ready when you are.</p>
-          <div class="mt-8 flex flex-wrap gap-3 justify-center"><a data-book class="btn btn--ink">Book the Pet Resort →</a><a href="tel:+15075325000" class="btn btn--ghost">Call (507) 532-5000</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   </main>
-
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="bg-ink text-cream/70">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-      <div>
-        <div><img src="img/logo.png" alt="Animal Health Center &amp; Pet Resort" class="h-16 w-auto brightness-0 invert" /></div>
-        <p class="mt-4 text-sm">Southwest Minnesota's one-stop shop for pets and livestock, big animals &amp; small. Locally owned in Marshall, MN.</p>
-        <a href="https://www.facebook.com/animalhealthcentermn/" target="_blank" rel="noopener" aria-label="Facebook" class="mt-4 inline-grid place-items-center w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 transition-colors"><svg viewBox="0 0 24 24" class="w-5 h-5 fill-cream"><path d="M13 22v-8h3l.5-3.5H13V8.3c0-1 .3-1.7 1.8-1.7H17V3.4A26 26 0 0 0 14.6 3C12 3 10 4.6 10 7.7v2.8H7V14h3v8Z"/></svg></a>
-      </div>
-      <div><h4 class="font-heading font-800 text-cream">Explore</h4><ul class="mt-3 space-y-2 text-sm"><li><a href="about.html" class="hover:text-amber2 transition-colors">About Us</a></li><li><a href="resort.html" class="hover:text-amber2 transition-colors">Pet Resort</a></li><li><a href="grooming.html" class="hover:text-amber2 transition-colors">Grooming</a></li><li><a href="livestock.html" class="hover:text-amber2 transition-colors">Livestock</a></li><li><a href="small-animal.html" class="hover:text-amber2 transition-colors">Small Animal</a></li></ul></div>
-      <div><h4 class="font-heading font-800 text-cream">Hours</h4><ul class="mt-3 space-y-1.5 text-sm"><li class="flex justify-between gap-4"><span>Mon to Fri</span><span class="text-cream">8:00am to 5:30pm</span></li><li class="flex justify-between gap-4"><span>Saturday</span><span class="text-cream">8:00am to 12:00pm</span></li><li class="flex justify-between gap-4"><span>Sunday</span><span class="text-cream/50">Closed</span></li></ul><span data-hours-badge class="hours-badge is-closed mt-3">Checking hours…</span></div>
-      <div><h4 class="font-heading font-800 text-cream">Visit / Call</h4><p class="mt-3 text-sm">1300 N. Hwy 59<br />Marshall, MN 56258</p><a href="tel:+15075325000" class="mt-2 inline-block font-heading font-800 text-cream text-lg hover:text-amber2 transition-colors">(507) 532-5000</a><a data-book class="mt-4 btn btn--amber !py-2.5 !px-4 !text-sm">Book the Pet Resort →</a></div>
-    </div>
-    <div class="border-t border-white/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-between gap-2 text-xs text-cream/50"><p>© <span data-year>2026</span> Animal Health Center &amp; Pet Resort. All rights reserved.</p><p>For animals big &amp; small.</p></div></div>
-  </footer>
-
-  <!-- ===================== STICKY BOOK BAR ===================== -->
-  <div data-booknow-bar class="booknow-bar">
-    <div class="bg-ink text-cream md:rounded-2xl md:shadow-2xl">
-      <div class="max-w-7xl md:max-w-none mx-auto px-4 py-3 flex items-center justify-between gap-3 md:gap-6">
-        <span class="hidden sm:block font-heading font-800 text-sm">Ready when you are.</span>
-        <div class="flex items-center gap-2.5 ml-auto"><a data-book class="btn btn--amber !py-2.5 !px-4 !text-sm">Book a Stay</a><a href="tel:+15075325000" class="btn !py-2.5 !px-4 !text-sm bg-white/10 text-cream">Call Us</a></div>
-      </div>
-    </div>
-  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
