@@ -349,67 +349,61 @@
   }
 
   /* ======================================================================
-     8. CONTACT FORM  (about.html) — DEMO MODE
-     Native Constraint Validation, then a simulated success. Sends nothing.
+     8. FORM VALIDATION HELPER + CONTACT/QUOTE FORMS
+     validateForm: runs Constraint Validation on all .form-input fields,
+     marks invalids with aria-invalid, focuses the first bad field, shows
+     an error on the status element, then calls onValid() if all pass.
      ====================================================================== */
+  function validateForm(form, status, onValid) {
+    $$(".form-input", form).forEach(function (i) { i.removeAttribute("aria-invalid"); });
+    if (!form.checkValidity()) {
+      $$(".form-input", form).forEach(function (i) {
+        if (!i.checkValidity()) i.setAttribute("aria-invalid", "true");
+      });
+      var firstBad = form.querySelector('[aria-invalid="true"]');
+      if (firstBad) firstBad.focus();
+      if (status) { status.textContent = "Please fill in the highlighted fields."; status.style.color = "#c25b3a"; }
+      return;
+    }
+    onValid();
+  }
+
+  /* Contact form (about.html) — DEMO MODE. Sends nothing. */
   function initContactForm(form) {
     var status = $("[data-form-status]", form);
     var btn = form.querySelector('button[type="submit"]');
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      // clear previous invalid flags
-      $$(".form-input", form).forEach(function (i) { i.removeAttribute("aria-invalid"); });
-
-      if (!form.checkValidity()) {
-        $$(".form-input", form).forEach(function (i) {
-          if (!i.checkValidity()) i.setAttribute("aria-invalid", "true");
-        });
-        var firstBad = form.querySelector('[aria-invalid="true"]');
-        if (firstBad) firstBad.focus();
-        if (status) { status.textContent = "Please fill in the highlighted fields."; status.style.color = "#c25b3a"; }
-        return;
-      }
-
-      if (btn) { btn.disabled = true; btn.style.opacity = ".7"; }
-      if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
-
-      setTimeout(function () {
-        form.reset();
-        if (btn) { btn.disabled = false; btn.style.opacity = "1"; }
-        if (status) { status.textContent = "Thanks! We'll be in touch soon. 🐾"; status.style.color = "#1f8a4c"; }
-      }, 900);
+      validateForm(form, status, function () {
+        if (btn) { btn.disabled = true; btn.style.opacity = ".7"; }
+        if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
+        setTimeout(function () {
+          form.reset();
+          if (btn) { btn.disabled = false; btn.style.opacity = "1"; }
+          if (status) { status.textContent = "Thanks! We'll be in touch soon. 🐾"; status.style.color = "#1f8a4c"; }
+        }, 900);
+      });
     });
   }
 
-  /* Grooming quote request (grooming.html). Validates with the Constraint
-     Validation API, then either POSTs to a real form endpoint or — while the
-     action is still the placeholder — simulates a friendly success so the demo
-     never errors. Wire `action` to Formspree / a Resend endpoint to go live. */
+  /* Grooming quote request (grooming.html). Validates, then either POSTs to a
+     real form endpoint or simulates success while the action is a placeholder.
+     Wire action to Formspree / a Resend endpoint to go live. */
   function initQuoteForm(form) {
     var status = $("[data-form-status]", form);
     var btn = form.querySelector('button[type="submit"]');
     var action = form.getAttribute("action") || "";
     var live = action && action.indexOf("REPLACE_WITH_FORM_ID") === -1 && action.indexOf("REPLACE") === -1;
 
-    function flagInvalid() {
-      $$(".form-input", form).forEach(function (i) { i.removeAttribute("aria-invalid"); });
-      $$(".form-input", form).forEach(function (i) { if (!i.checkValidity()) i.setAttribute("aria-invalid", "true"); });
-      var firstBad = form.querySelector('[aria-invalid="true"]');
-      if (firstBad) firstBad.focus();
-    }
-
     form.addEventListener("submit", function (e) {
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        flagInvalid();
-        if (status) { status.textContent = "Please fill in the highlighted fields."; status.style.color = "#c25b3a"; }
-        return;
-      }
-
-      // Endpoint not wired yet: intercept and simulate success (nothing sent).
-      if (!live) {
-        e.preventDefault();
+      e.preventDefault();
+      validateForm(form, status, function () {
+        if (live) {
+          if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
+          form.submit();
+          return;
+        }
         if (btn) { btn.disabled = true; btn.style.opacity = ".7"; }
         if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
         setTimeout(function () {
@@ -417,10 +411,7 @@
           if (btn) { btn.disabled = false; btn.style.opacity = "1"; }
           if (status) { status.textContent = "Thanks! We'll be in touch with a quote soon. 🐾"; status.style.color = "#1f8a4c"; }
         }, 900);
-        return;
-      }
-      // live endpoint: let the browser submit the POST normally.
-      if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
+      });
     });
   }
 
