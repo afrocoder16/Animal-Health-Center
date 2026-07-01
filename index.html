@@ -32,46 +32,77 @@
 
   <main>
 
-  <!-- ===================== HERO, photo slideshow ===================== -->
-  <section data-hero data-booknow-after class="hero-slideshow relative overflow-hidden">
-    <div class="hero-slideshow__slides absolute inset-0">
-      <div class="hero-slideshow__slide is-active" style="background-image:url('img/hero-home.webp')"></div>
-    </div>
-    <div class="hero-slideshow__scrim absolute inset-0"></div>
+  <!-- ===================== HERO — full-bleed diagonal-sliced panorama.
+       Four photos (equine wall · store floor · play yards) tile the whole hero
+       edge to edge, separated only by angled seams, like one continuous strip.
+       A left-to-right scrim keeps the headline readable over the photos.
+       Panels drift a touch on scroll; the mid panel auto-rotates store shots.
+       Stacks to a single rotating photo under the copy on mobile.
+       ===================== -->
+  <section data-hero data-booknow-after class="home-hero relative overflow-hidden">
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center min-h-[84vh]">
-      <div class="w-full max-w-xl pt-[150px] pb-16">
+    <!-- the panorama band: absolutely-positioned diagonal slices -->
+    <div class="home-hero__band" aria-hidden="true">
+      <!-- 1 · equine / feed wall -->
+      <div data-hero-slice data-rate="-5" class="home-hero__slice home-hero__slice--1">
+        <div class="home-hero__img" style="background-image:url('img/home-hero/4.webp')"></div>
+      </div>
+      <!-- 2 · store floor, auto-rotating -->
+      <div data-hero-slice data-rate="4" class="home-hero__slice home-hero__slice--2" data-photo-rotate>
+        <div class="home-hero__img is-active" data-rotate-slide style="background-image:url('img/home-hero/2.webp')"></div>
+        <div class="home-hero__img" data-rotate-slide style="background-image:url('img/home-hero/1.webp')"></div>
+        <div class="home-hero__img" data-rotate-slide style="background-image:url('img/home-hero/3.webp')"></div>
+      </div>
+      <!-- 3 · play yard, wide -->
+      <div data-hero-slice data-rate="-4" class="home-hero__slice home-hero__slice--3">
+        <div class="home-hero__img" style="background-image:url('img/home-hero/6.webp')"></div>
+      </div>
+      <!-- 4 · play yard, shade sail -->
+      <div data-hero-slice data-rate="6" class="home-hero__slice home-hero__slice--4">
+        <div class="home-hero__img" style="background-image:url('img/home-hero/5.webp')"></div>
+      </div>
+      <!-- thin light seam lines drawn on top of the seams -->
+      <span class="home-hero__seam home-hero__seam--a"></span>
+      <span class="home-hero__seam home-hero__seam--b"></span>
+      <span class="home-hero__seam home-hero__seam--c"></span>
+    </div>
+
+    <!-- readability scrim: dark on the left, clearing to the right -->
+    <div class="home-hero__scrim" aria-hidden="true"></div>
+
+    <!-- Copy -->
+    <div class="relative z-20 w-full px-4 sm:px-6 lg:pl-[4vw] lg:pr-10 pt-[128px] sm:pt-[150px] pb-16 lg:pb-24 flex items-center min-h-[86vh]">
+      <div class="max-w-xl">
         <p data-hero-line class="inline-flex items-center gap-2 text-amber2 font-bold text-sm bg-white/15 ring-1 ring-white/25 backdrop-blur-sm rounded-full px-4 py-2">
           <span class="w-2 h-2 rounded-full bg-amber2"></span> For animals big &amp; small · Serving SW Minnesota since 1998
         </p>
-        <h1 class="mt-6 font-heading display text-white text-[3.6rem] leading-[.92] sm:text-7xl xl:text-[5.4rem]">
+        <h1 class="mt-6 font-heading display text-white text-[3.4rem] leading-[.9] sm:text-7xl xl:text-[5.2rem] drop-shadow-[0_2px_20px_rgba(0,0,0,.45)]">
           <span data-hero-line class="block">One stop shop.</span>
           <span data-hero-line class="block italic text-amber2">Big animals &amp; small.</span>
         </h1>
-        <p data-hero-line class="mt-6 text-white/80 text-lg max-w-md">
-          Southwest Minnesota's one stop shop for all your animal needs a full retail store
-          for pets and livestock, a pet resort for boarding &amp; daycare, and on-staff grooming,
-          all in Marshall.
+        <p data-hero-line class="mt-6 text-white/85 text-lg sm:text-xl max-w-md drop-shadow-[0_1px_10px_rgba(0,0,0,.5)]">
+          One roof in Marshall for everything your animals need: a full retail store
+          for pets and livestock, the Pet Resort for boarding &amp; daycare, and on-staff grooming.
         </p>
         <div data-hero-line class="mt-8 flex flex-wrap gap-3">
           <a href="gift-shop.html" class="btn btn--amber">Explore the Store →</a>
           <a data-book class="btn btn--ghost-light">Book the Pet Resort</a>
         </div>
-        <div data-hero-line class="mt-9 flex items-center gap-2 text-white/75 text-sm">
-          <span class="text-amber2 text-base">★★★★★</span> Trusted by Marshall-area pet owners &amp; producers
+        <div data-hero-line class="mt-8 flex items-center gap-2 text-white/80 text-sm">
+          <span class="text-amber2 text-base">★★★★★</span> Loved by Marshall-area pet owners &amp; producers
         </div>
       </div>
     </div>
 
     <!-- marquee strip -->
-    <div data-carousel class="relative z-10 border-t border-white/15 bg-black/20 backdrop-blur-sm">
+    <div data-carousel class="relative z-20 border-t border-white/15 bg-black/25 backdrop-blur-sm">
       <div class="edge-fade overflow-hidden py-3.5">
-        <div class="marquee-track marquee-css flex items-center text-white/50 font-heading font-800 text-lg whitespace-nowrap">
+        <div class="marquee-track marquee-css flex items-center text-white/55 font-heading font-800 text-lg whitespace-nowrap">
           <span class="marquee-set flex items-center gap-9 pr-9">
-            <span>Dogs</span><span class="text-amber2/60">·</span><span>Cats</span><span class="text-amber2/60">·</span><span>Equine</span><span class="text-amber2/60">·</span><span>Cattle</span><span class="text-amber2/60">·</span><span>Swine</span><span class="text-amber2/60">·</span><span>Goats</span><span class="text-amber2/60">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
+            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
           </span>
           <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
-            <span>Dogs</span><span class="text-amber2/60">·</span><span>Cats</span><span class="text-amber2/60">·</span><span>Equine</span><span class="text-amber2/60">·</span><span>Cattle</span><span class="text-amber2/60">·</span><span>Swine</span><span class="text-amber2/60">·</span><span>Goats</span><span class="text-amber2/60">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
+            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
           </span>
         </div>
       </div>
@@ -90,16 +121,16 @@
         </g>
       </defs>
       <!-- top-right cluster -->
-      <use href="#pw" transform="translate(1340,70) rotate(-15)" fill="#C17F24" opacity="0.18"/>
-      <use href="#pw" transform="translate(1390,140) rotate(20) scale(0.7)" fill="#1B6B6B" opacity="0.15"/>
-      <use href="#pw" transform="translate(1290,190) rotate(-5) scale(0.85)" fill="#C17F24" opacity="0.13"/>
+      <use href="#pw" transform="translate(1340,70) rotate(-15)" fill="#C17F24" opacity="0.38"/>
+      <use href="#pw" transform="translate(1390,140) rotate(20) scale(0.7)" fill="#1B6B6B" opacity="0.32"/>
+      <use href="#pw" transform="translate(1290,190) rotate(-5) scale(0.85)" fill="#C17F24" opacity="0.30"/>
       <!-- bottom-left cluster -->
-      <use href="#pw" transform="translate(55,600) rotate(15) scale(0.9)" fill="#1B6B6B" opacity="0.15"/>
-      <use href="#pw" transform="translate(110,680) rotate(-20) scale(0.65)" fill="#C17F24" opacity="0.18"/>
-      <use href="#pw" transform="translate(28,700) rotate(8) scale(0.75)" fill="#1B6B6B" opacity="0.12"/>
+      <use href="#pw" transform="translate(55,600) rotate(15) scale(0.9)" fill="#1B6B6B" opacity="0.32"/>
+      <use href="#pw" transform="translate(110,680) rotate(-20) scale(0.65)" fill="#C17F24" opacity="0.38"/>
+      <use href="#pw" transform="translate(28,700) rotate(8) scale(0.75)" fill="#1B6B6B" opacity="0.28"/>
       <!-- scattered mid -->
-      <use href="#pw" transform="translate(720,60) rotate(10) scale(0.6)" fill="#C17F24" opacity="0.10"/>
-      <use href="#pw" transform="translate(1100,640) rotate(-12) scale(0.75)" fill="#1B6B6B" opacity="0.12"/>
+      <use href="#pw" transform="translate(720,60) rotate(10) scale(0.6)" fill="#C17F24" opacity="0.25"/>
+      <use href="#pw" transform="translate(1100,640) rotate(-12) scale(0.75)" fill="#1B6B6B" opacity="0.28"/>
     </svg>
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl" data-anim="up">

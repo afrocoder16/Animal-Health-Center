@@ -31,37 +31,103 @@
 
   <main>
 
-  <!-- ===================== HERO ===================== -->
-  <section data-hero data-booknow-after class="hero-slideshow relative overflow-hidden">
-    <div class="hero-slideshow__slides absolute inset-0">
-      <div class="hero-slideshow__slide is-active" style="background-image:url('img/pet-resort-hero4.webp')"></div>
-    </div>
-    <div class="hero-slideshow__scrim absolute inset-0"></div>
+  <!-- ===================== HERO (split editorial) ===================== -->
+  <section data-hero data-booknow-after class="resort-hero relative overflow-hidden">
+    <!-- warm brand gradient wash + soft drifting blobs -->
+    <div class="resort-hero__wash absolute inset-0" aria-hidden="true"></div>
+    <div data-blob class="soft-glow bg-teal2/25 w-[30rem] h-[30rem] -left-24 -top-24" aria-hidden="true"></div>
+    <div data-blob class="soft-glow bg-amber/20 w-[26rem] h-[26rem] right-[-6rem] bottom-[-8rem]" aria-hidden="true"></div>
+    <div class="paw-deco paw-deco--1" aria-hidden="true"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center min-h-[84vh]">
-      <div class="w-full max-w-2xl pt-[150px] pb-16">
-        <p data-hero-line class="inline-flex items-center gap-2 text-amber2 font-bold text-sm bg-white/15 ring-1 ring-white/25 backdrop-blur-sm rounded-full px-4 py-2">
-          <span class="w-2 h-2 rounded-full bg-amber2"></span> Boarding · Daycare · Kitty Korral
-        </p>
-        <h1 class="mt-6 font-heading display text-white text-[3.2rem] leading-[.92] sm:text-7xl xl:text-[5rem]">
-          <span data-hero-line class="block">Their <span class="text-amber2">favorite</span></span>
-          <span data-hero-line class="block">staycation.</span>
-        </h1>
-        <p data-hero-line class="mt-6 text-white/90 text-xl max-w-xl font-heading font-800">
-          Two split-by-size play rooms, comfy boarding suites, and the quiet Kitty Korral.
-          Drop in for the day or book an overnight stay, all online.
-        </p>
-        <div data-hero-line class="mt-8 flex flex-wrap gap-3">
-          <a data-book class="btn btn--amber">Book a Stay →</a>
-          <a href="#ready" class="btn btn--ghost-light">Is my pet ready?</a>
+    <div class="relative z-10 w-full px-4 sm:px-6 lg:pl-[4vw] lg:pr-10 pt-[128px] sm:pt-[150px] pb-16 lg:pb-24">
+      <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-10 items-center">
+
+        <!-- Copy -->
+        <div class="max-w-xl">
+          <p data-hero-line class="inline-flex items-center gap-2 text-teal font-bold text-sm bg-teal/10 ring-1 ring-teal/15 rounded-full px-4 py-2">
+            <span class="w-2 h-2 rounded-full bg-amber2"></span> Boarding · Daycare · Kitty Korral
+          </p>
+          <h1 class="mt-6 font-heading display text-ink text-[3.1rem] leading-[.92] sm:text-7xl xl:text-[4.8rem]">
+            <span data-hero-line class="block">Their <span class="text-amber2">favorite</span></span>
+            <span data-hero-line class="block">staycation.</span>
+          </h1>
+          <p data-hero-line class="mt-6 text-ink/70 text-lg sm:text-xl max-w-lg">
+            Two split-by-size play rooms, comfy boarding suites, and the quiet Kitty Korral.
+            Drop in for the day or book an overnight stay, all online.
+          </p>
+          <div data-hero-line class="mt-8 flex flex-wrap gap-3">
+            <a data-book class="btn btn--amber">Book a Stay →</a>
+            <a href="#ready" class="btn btn--ghost">Is my pet ready?</a>
+          </div>
+          <div data-hero-line class="mt-7 flex flex-wrap gap-2.5">
+            <a href="#daycare" class="chip-link">Daycare</a>
+            <a href="#boarding" class="chip-link">Boarding</a>
+            <a href="#kitty-korral" class="chip-link">Kitty Korral</a>
+            <a href="#rates" class="chip-link">Rates</a>
+            <a href="#rewards" class="chip-link">Rewards</a>
+          </div>
         </div>
-        <div data-hero-line class="mt-6 flex flex-wrap gap-2.5">
-          <a href="#daycare" class="chip-link">Daycare</a>
-          <a href="#boarding" class="chip-link">Boarding</a>
-          <a href="#kitty-korral" class="chip-link">Kitty Korral</a>
-          <a href="#rates" class="chip-link">Rates</a>
-          <a href="#rewards" class="chip-link">Rewards</a>
+
+        <!-- Photo collage of happy guests. Outer slot = GSAP-animated position;
+             inner tilt = the CSS rotation, so the entrance tween never wipes the
+             polaroid angle. All faces are real guests from the gallery, and none
+             repeat photos used further down this page. -->
+        <div class="resort-hero__gallery relative" aria-hidden="true">
+
+          <!-- MAIN · auto-rotating slideshow of happy guests. Crossfades via the
+               shared .hero-slideshow__slide CSS (opacity). First slide is
+               .is-active so it shows without JS / under reduced motion. On mobile
+               this is the only visible card, so the hero becomes a mini gallery. -->
+          <div data-hero-star class="resort-hero__slot resort-hero__slot--main">
+            <div class="resort-hero__card resort-hero__tilt--main" data-photo-rotate>
+              <div class="hero-slideshow__slide is-active" data-rotate-slide style="background-image:url('img/gallery/g-dogs-husky-mix-grin.webp')"></div>
+              <div class="hero-slideshow__slide" data-rotate-slide style="background-image:url('img/gallery/g-dogs-golden-sit-smile.webp')"></div>
+              <div class="hero-slideshow__slide" data-rotate-slide style="background-image:url('img/gallery/g-dogs-shepherd-mix-pet.webp')"></div>
+              <div class="hero-slideshow__slide" data-rotate-slide style="background-image:url('img/gallery/g-daycare-puppies-ramp-play.webp')"></div>
+            </div>
+          </div>
+
+          <!-- TOP-LEFT · a thrilled doodle -->
+          <div data-hero-star data-rate="-16" class="resort-hero__slot resort-hero__slot--top">
+            <div class="resort-hero__card resort-hero__tilt--top">
+              <img src="img/gallery/g-dogs-doodle-big-grin.webp" alt="" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+          </div>
+
+          <!-- BOTTOM-LEFT · cozy pittie under a blanket -->
+          <div data-hero-star data-rate="14" class="resort-hero__slot resort-hero__slot--bottom">
+            <figure class="resort-hero__card resort-hero__tilt--bottom">
+              <img src="img/gallery/g-dogs-pittie-blanket-smile.webp" alt="" loading="lazy" class="h-full w-full object-cover" />
+              <figcaption class="resort-hero__cap resort-hero__cap--teal">Cozy overnight guest</figcaption>
+            </figure>
+          </div>
+
+          <!-- CENTER-LEFT peek · a Kitty Korral cat -->
+          <div data-hero-star data-rate="-8" class="resort-hero__slot resort-hero__slot--cat">
+            <div class="resort-hero__card resort-hero__tilt--cat">
+              <img src="img/gallery/g-cats-tabby-cat-tree.webp" alt="" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+          </div>
+
+          <!-- TOP-RIGHT peek · a chocolate pup in the grass -->
+          <div data-hero-star data-rate="10" class="resort-hero__slot resort-hero__slot--pup">
+            <div class="resort-hero__card resort-hero__tilt--pup">
+              <img src="img/gallery/g-dogs-choc-pup-grass.webp" alt="" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+          </div>
+
+          <!-- floating review badge -->
+          <div data-hero-star class="resort-hero__badge">
+            <span class="text-amber2 text-lg leading-none">★★★★★</span>
+            <span class="block font-heading font-900 text-ink text-sm mt-1">Loved by local pet parents</span>
+          </div>
+
+          <!-- floating paw-heart accent -->
+          <div class="resort-hero__pawheart" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="9" r="2.1"/><circle cx="11" cy="6.5" r="2.1"/><circle cx="16" cy="9" r="2.1"/><path d="M11 11c-3.2 0-5.4 2.1-5.4 4.2 0 2 2.1 3.2 5.4 3.2s5.4-1.2 5.4-3.2C16.4 13.1 14.2 11 11 11Z"/></svg>
+          </div>
         </div>
+
       </div>
     </div>
   </section>

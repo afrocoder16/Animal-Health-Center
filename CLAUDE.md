@@ -29,19 +29,24 @@ There is nothing to build, lint, or test. "Deploy" = copy the root files (HTML +
 
 ## Architecture
 
-A multi-page static site at the repo **root**. Every page shares one stylesheet and the
-same two scripts, and repeats the shared chrome (top bar / floating nav / footer / sticky
-book bar) inline — there is **no templating or include mechanism**, so a change to the nav
-or footer must be applied to all nine HTML files.
+A multi-page static site at the repo **root** (11 HTML files). Every page shares one
+stylesheet and the same three scripts. The shared page chrome (top bar / floating nav /
+footer / sticky book bar) is **no longer inline** — it is generated once in `js/chrome.js`
+and injected at runtime, so edit the nav or footer **there**, not per page.
 
-Pages (all linked from the homepage; nav shows six + home):
+> Exception: `gift-shop-store.html` still carries its own inline chrome and does not load
+> `chrome.js`. If you touch shared chrome, remember this page won't pick it up automatically.
+
+Pages (all linked from the homepage; the injected nav shows four links + logo/home, with
+Gallery added in the mobile drawer):
 
 - `index.html` — homepage (hero slideshow, about, "who are you caring for" routing tiles,
-  services, team, contact form, footer).
+  services, team, contact form).
 - `about.html` — about + team + the demo contact form (`data-widget="contact"`).
 - `resort.html` — Pet Resort (boarding + daycare).
-- `shop.html` — the Gift Shop (seasonal spotlight, Town & Country, the gallery-wall
-  routing section, visit info).
+- `gift-shop.html` — the Gift Shop (seasonal spotlight, Town & Country, the gallery-wall
+  routing section, visit info). `gift-shop-store.html` is the standalone store/product page.
+- `gallery.html` — photo gallery.
 - `livestock.html`, `small-animal.html`, `grooming.html` — service detail pages.
 - `services.html`, `promotions.html` — supporting pages linked from the homepage.
 
@@ -50,11 +55,17 @@ Pages (all linked from the homepage; nav shows six + home):
   hand-written here). Design tokens live in `:root` at the top (palette, easings, shadows).
   Per-page Tailwind color/font aliases (`cream`, `ink`, `teal`, `amber`, `forest`, …,
   `heading`/`body` fonts) are configured inline in each HTML `<head>` via `tailwind.config`.
+- `js/chrome.js` — one IIFE that holds the shared chrome markup as strings (TOPBAR, NAV,
+  FOOTER, STICKYBAR) and injects it: top bar + nav synchronously right after the script tag
+  (so nav paints before `<main>`), footer + sticky bar after `DOMContentLoaded`. Loaded
+  **synchronously in `<head>`**, before the deferred scripts. Each page's `<body>` sets
+  `data-page="…"` (drives nav highlighting) and, when the nav doesn't float over a hero,
+  `data-nav-spacer` (adds a spacer below the fixed nav).
 - `js/widgets.js` — one IIFE (`"use strict"`) wiring all non-animation interactions:
   live open/closed hours badge, mobile menu, sticky floating header, sticky "Book a Stay"
   bar, booking links, contact-form demo, the shop's seasonal photo rotator
-  (`data-photo-rotate`), and other per-page widgets (`data-widget="…"`). Loads first.
-- `js/animations.js` — GSAP/ScrollTrigger reveals and motion. Loads after `widgets.js`.
+  (`data-photo-rotate`), and other per-page widgets (`data-widget="…"`). Deferred.
+- `js/animations.js` — GSAP/ScrollTrigger reveals and motion. Deferred, after `widgets.js`.
 
 ### Conventions that matter
 
@@ -81,10 +92,11 @@ Pages (all linked from the homepage; nav shows six + home):
 
 ### Images
 
-All images live in `img/` (with cutout PNGs under `img/transparent/`) and are referenced by
-relative path from the HTML (`img/<file>`), either as `<img src>` or inline
+All images live in `img/` (mostly `.webp` now, plus some `.png`; cutout PNGs under
+`img/transparent/`, with a few grouping subfolders) and are referenced by relative path
+from the HTML (`img/<file>`), either as `<img src>` or inline
 `style="background-image:url('img/…')"`. Filenames are lowercase kebab-case
-(`team-theresa.png`, `dog-boarding-1.jpg`, `shop-hero3.png`, `transparent/wall-pic2.png`).
+(`about-dog-cat.webp`, `boarding-kennel-row.webp`, `transparent/wall-pic2.png`).
 `img/` is kept lean — only files actually referenced by the site are present; surplus
 source photos were moved to `_archive/unused-images/`.
 

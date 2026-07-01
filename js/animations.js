@@ -12,7 +12,7 @@
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
   function revealAll() {
-    $$("[data-anim],[data-hero-line],[data-hero-star]").forEach(function (el) {
+    $$("[data-anim],[data-hero-line],[data-hero-star],[data-hero-slice]").forEach(function (el) {
       el.style.opacity = "1"; el.style.transform = "none";
     });
   }
@@ -40,6 +40,14 @@
   if (hero) {
     gsap.fromTo("[data-hero-star]", { y: 60, opacity: 0, scale: .96 }, { y: 0, opacity: 1, scale: 1, duration: 1.1, stagger: .15, ease: "power3.out", delay: .1 });
     gsap.fromTo("[data-hero-line]", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: .8, stagger: .1, ease: "power2.out", delay: .15 });
+
+    // home hero panorama: slices wipe/settle in on load, then drift on scroll.
+    // Only x/opacity are tweened here so the CSS clip-path is never disturbed.
+    gsap.fromTo("[data-hero-slice]", { xPercent: 6, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 1.1, stagger: .12, ease: "power3.out" });
+    $$("[data-hero-slice]").forEach(function (el) {
+      var rate = parseFloat(el.getAttribute("data-rate")) || 4;
+      gsap.to(el, { yPercent: rate, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } });
+    });
 
     // subtle scroll parallax — each star drifts a touch at its own rate
     $$("[data-hero-star]").forEach(function (el) {

@@ -104,6 +104,195 @@ h1,h2,h3,h4,h5,.font-heading {
 }
 
 /* ==========================================================================
+   HOME HERO — full-bleed diagonal-sliced panorama.
+   Four photos tile the whole hero edge to edge, separated only by angled
+   seams, so they read as one continuous strip cut on the diagonal. Each slice
+   is an absolutely-positioned parallelogram; neighbours overlap by the skew
+   amount so there is never a gap. A scrim keeps the left-side copy readable.
+   ========================================================================== */
+.home-hero { min-height: 86vh; display: flex; flex-direction: column; justify-content: center;
+  background: var(--ink); }
+
+/* the panorama band fills the hero */
+.home-hero__band { position: absolute; inset: 0; z-index: 0; }
+
+/* --- SEAM GEOMETRY ---
+   Vertical seams run at a slant. Each slice spans from just-before its start
+   edge to just-after its end edge, then a clip-path parallelogram trims it to
+   the slanted band. The top of each seam sits SKEW% to the right of the bottom,
+   giving the forward-leaning diagonal. Boundaries (bottom x): 26% · 52% · 76%.
+   --skew is how far the top edge shifts right of the bottom edge. */
+.home-hero__slice {
+  position: absolute; top: 0; bottom: 0; overflow: hidden;
+  will-change: transform;
+}
+.home-hero__img {
+  position: absolute; inset: -2% -2%;      /* slight bleed so parallax never shows an edge */
+  background-size: cover; background-position: center; background-color: var(--ink);
+}
+/* rotating panel: crossfade store shots (uses shared rotate widget) */
+.home-hero__slice[data-photo-rotate] .home-hero__img {
+  opacity: 0; transition: opacity 1.4s ease-in-out;
+}
+.home-hero__slice[data-photo-rotate] .home-hero__img.is-active { opacity: 1; }
+
+/* four slices, left→right. Each is clipped to a forward-leaning parallelogram.
+   Widths overlap generously; the clip does the real edge work. The right cut of
+   slices 1 to 3 is a diagonal from (right) at top to (right - 8vw) at bottom. */
+.home-hero__slice--1 { left: 0;    width: 40%; z-index: 4;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 8vw) 100%, 0 100%); }
+.home-hero__slice--2 { left: 18%;  width: 44%; z-index: 3;
+  clip-path: polygon(8vw 0, 100% 0, calc(100% - 8vw) 100%, 0 100%); }
+.home-hero__slice--3 { left: 44%;  width: 42%; z-index: 2;
+  clip-path: polygon(8vw 0, 100% 0, calc(100% - 8vw) 100%, 0 100%); }
+.home-hero__slice--4 { left: 68%;  width: 40%; z-index: 1;
+  clip-path: polygon(8vw 0, 100% 0, 100% 100%, 0 100%); }
+
+/* Seam line drawn ON the slice's own right clip edge, so it can never drift out
+   of register. The parent clip-path also clips its descendants, so we lay a
+   skewed bar STRADDLING the diagonal cut: the parent trims off its outer half
+   and the surviving inner half sits exactly on the cut. Because it shares the
+   slice's own geometry and the same 8vw lean, it can never fall out of register.
+   overflow:hidden clips a box-shadow, so the glow is baked into the gradient. */
+.home-hero__slice::after {
+  content: ""; position: absolute; top: -3%; bottom: -3%; z-index: 2;
+  /* a wide skewed band whose LEFT edge follows the same diagonal as the cut;
+     it starts 22px left of the cut and runs past it, so the parent clip leaves
+     a clean hairline with a soft inner shadow for depth. */
+  right: -20px; width: 44px; pointer-events: none;
+  transform: skewX(-6.2deg);
+  background: linear-gradient(90deg,
+    rgba(0,0,0,0) 0%, rgba(0,0,0,.30) 34%,
+    rgba(255,255,255,.92) 50%, rgba(255,255,255,.5) 56%,
+    rgba(0,0,0,0) 100%);
+}
+/* the seam belongs to the cut, so hide it on the last slice (no right cut) */
+.home-hero__slice--4::after { display: none; }
+
+/* readability scrim over the photos: strong on the left, clearing to the right,
+   plus a gentle bottom vignette so the marquee edge reads. */
+.home-hero__scrim {
+  position: absolute; inset: 0; z-index: 10; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(15,11,6,.86) 0%, rgba(15,11,6,.72) 28%, rgba(15,11,6,.34) 52%, rgba(15,11,6,.06) 74%, rgba(15,11,6,0) 100%),
+    linear-gradient(180deg, rgba(15,11,6,.35) 0%, rgba(15,11,6,0) 30%, rgba(15,11,6,0) 70%, rgba(15,11,6,.4) 100%);
+}
+
+/* mobile: a single diagonal cut looks cramped, so drop to one clean rotating
+   photo band behind the copy, full-bleed, with a heavier scrim. */
+@media (max-width: 640px) {
+  .home-hero__slice--1, .home-hero__slice--3, .home-hero__slice--4,
+  .home-hero__seam { display: none; }
+  .home-hero__slice--2 { left: 0; width: 100%; z-index: 1; clip-path: none; }
+  .home-hero__slice::after { display: none; }   /* no diagonal cut on mobile */
+  .home-hero__scrim {
+    background:
+      linear-gradient(180deg, rgba(15,11,6,.55) 0%, rgba(15,11,6,.45) 45%, rgba(15,11,6,.72) 100%);
+  }
+}
+
+/* ==========================================================================
+   RESORT HERO — split editorial layout (warm panel + tilted photo cluster).
+   Text and photos live side by side on desktop, stack cleanly on mobile so
+   nothing is ever printed over a busy photo.
+   ========================================================================== */
+.resort-hero { min-height: 84vh; display: flex; align-items: center; }
+.resort-hero__wash {
+  z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 85% 8%, rgba(27,107,107,.14), transparent 55%),
+    radial-gradient(90% 80% at 10% 100%, rgba(193,127,36,.12), transparent 55%),
+    linear-gradient(180deg, #FFFDF7 0%, var(--cream) 55%, var(--cream-2) 100%);
+}
+
+/* the tilted photo collage of happy guests.
+   __slot = position + z-index (GSAP animates this: y/scale/opacity + parallax)
+   __tilt = the fixed polaroid rotation (untouched by GSAP)
+   __card = the visual frame (radius, shadow, white border) */
+.resort-hero__gallery { position: relative; width: 100%; min-height: 32rem; }
+.resort-hero__slot { position: absolute; will-change: transform; }
+.resort-hero__card {
+  position: relative; border-radius: 26px; overflow: hidden; background: var(--cream);
+  box-shadow: 0 30px 60px -26px rgba(60,40,16,.5);
+  outline: 6px solid #fff; outline-offset: -6px; /* white polaroid border */
+  width: 100%; height: 100%;
+}
+
+/* sizes + positions — a balanced scrapbook scatter across the wide gallery box.
+   The main card anchors the box height; the four accents each own a clear zone
+   with only light, deliberate overlaps so every face reads.
+   Zones (across the box): top-left, lower-left, CENTER (main), top-right,
+   bottom-center-right. */
+.resort-hero__slot--main {
+  position: relative; width: 42%; margin-left: 29%; margin-right: auto;
+  margin-top: 2rem; aspect-ratio: 4/5; z-index: 5;
+}
+.resort-hero__slot--top    { top: -1.5rem;    left: 0;      width: 30%; aspect-ratio: 3/4; z-index: 3; }
+.resort-hero__slot--cat    { bottom: -0.5rem; left: 4%;     width: 27%; aspect-ratio: 3/4; z-index: 4; }
+.resort-hero__slot--pup    { top: -1rem;      right: 0;     width: 28%; aspect-ratio: 3/4; z-index: 3; }
+.resort-hero__slot--bottom { bottom: -2.5rem; right: 8%;    width: 28%; aspect-ratio: 3/4; z-index: 4; }
+
+.resort-hero__tilt--main   { transform: rotate(2.5deg); }
+.resort-hero__tilt--top    { transform: rotate(-6deg); }
+.resort-hero__tilt--bottom { transform: rotate(5deg); }
+.resort-hero__tilt--cat    { transform: rotate(-7deg); }
+.resort-hero__tilt--pup    { transform: rotate(7deg); }
+
+/* little hand-written-feel caption tag pinned to a card's lower edge */
+.resort-hero__cap {
+  position: absolute; left: 50%; bottom: .7rem; transform: translateX(-50%);
+  background: #fff; color: var(--ink); white-space: nowrap;
+  font-family: "Nunito", sans-serif; font-weight: 800; font-size: .72rem;
+  padding: .3rem .7rem; border-radius: 999px;
+  box-shadow: 0 8px 18px -8px rgba(60,40,16,.5);
+}
+.resort-hero__cap--teal { background: var(--teal); color: var(--cream); }
+
+.resort-hero__badge {
+  position: absolute; right: -1rem; bottom: 3.2rem; z-index: 6;
+  background: #fff; border-radius: 20px; padding: .85rem 1.1rem; max-width: 12.5rem;
+  box-shadow: 0 22px 44px -18px rgba(60,40,16,.45);
+  transform: rotate(-3deg);
+}
+
+/* floating paw-heart accent, amber, top-right of the collage */
+.resort-hero__pawheart {
+  position: absolute; top: -1.5rem; right: 3.5rem; z-index: 6;
+  width: 3.2rem; height: 3.2rem; color: var(--amber2);
+  display: grid; place-items: center;
+  background: #fff; border-radius: 50%; transform: rotate(10deg);
+  box-shadow: 0 14px 30px -12px rgba(60,40,16,.45);
+}
+.resort-hero__pawheart svg { width: 62%; height: 62%; }
+
+/* Tablet down: shrink the collage gracefully */
+@media (max-width: 1023px) {
+  .resort-hero__gallery { min-height: 26rem; max-width: 32rem; margin: 0 auto; }
+}
+
+/* Mobile: collapse the collage to ONE clean framed photo, no overlaps. */
+@media (max-width: 640px) {
+  .resort-hero { min-height: 0; }
+  .resort-hero__gallery { min-height: 0; max-width: 100%; }
+  .resort-hero__slot--main {
+    width: 100%; margin: 0; aspect-ratio: 16/11; z-index: 3;
+  }
+  .resort-hero__tilt--main { transform: none; }
+  .resort-hero__card {
+    box-shadow: 0 24px 48px -22px rgba(60,40,16,.45); border-radius: 26px;
+  }
+  .resort-hero__slot--top,
+  .resort-hero__slot--bottom,
+  .resort-hero__slot--cat,
+  .resort-hero__slot--pup,
+  .resort-hero__pawheart,
+  .resort-hero__cap { display: none; } /* badge carries the message on mobile */
+  .resort-hero__badge {
+    right: 1rem; bottom: 1rem; transform: none; padding: .7rem .9rem;
+  }
+}
+
+/* ==========================================================================
    CUTOUTS — the stars. Clean-edge ones float anywhere; haloed ones live in frames.
    ========================================================================== */
 .cutout { display:block; filter: var(--cut-shadow); user-select:none; -webkit-user-drag:none; position:relative; z-index:2; }
