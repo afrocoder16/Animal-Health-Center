@@ -607,6 +607,38 @@
     }, 4500);
   }
 
+  /* ======================================================================
+     READ MORE — clamp long team bios so cards stay even, with an inline
+     "Read more / Show less" toggle. Only clamps bios that actually overflow,
+     so short bios are left untouched. Progressive enhancement: no JS = full text.
+     ====================================================================== */
+  function initReadMore(container) {
+    var bio = $("[data-readmore-text]", container);
+    if (!bio) return;
+
+    // Clamp first, then measure: if the clamped box hides content, it overflows.
+    bio.classList.add("is-clamped");
+    var overflows = bio.scrollHeight - bio.clientHeight > 4;
+    if (!overflows) { bio.classList.remove("is-clamped"); return; }
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "team-more";
+    btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML =
+      '<span data-more-label>Read more</span>' +
+      '<svg class="team-more__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5 5.5 9 7 7.5l5 5 5-5L18.5 9Z"/></svg>';
+    var label = $("[data-more-label]", btn);
+    bio.insertAdjacentElement("afterend", btn);
+
+    btn.addEventListener("click", function () {
+      var expanded = bio.classList.toggle("is-clamped") === false;
+      btn.setAttribute("aria-expanded", expanded ? "true" : "false");
+      label.textContent = expanded ? "Show less" : "Read more";
+      refreshST(); // card height changed
+    });
+  }
+
   /* ScrollTrigger refresh helper (layout changed after a widget interaction) */
   function refreshST() {
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
@@ -628,6 +660,7 @@
     $$('[data-widget="contact"]').forEach(initContactForm);
     $$('[data-widget="quote"]').forEach(initQuoteForm);
     $$('[data-widget="dept-switcher"]').forEach(initDeptSwitcher);
+    $$('[data-readmore]').forEach(initReadMore);
     $$('[data-photo-rotate]').forEach(initPhotoRotate);
     initGallery();
     initCountUps();

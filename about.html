@@ -70,12 +70,9 @@
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 mt-16 grid lg:grid-cols-[minmax(0,.85fr)_1fr] gap-10 lg:gap-16 items-center">
 
-      <!-- Theresa photo, placeholder until a real photo is supplied -->
+      <!-- Theresa photo -->
       <div class="relative" data-anim="up">
-        <div class="photo-soon photo-soon--amber rounded-[28px] shadow-lg aspect-[4/5] ring-1 ring-ink/5">
-          <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
-          <span class="photo-soon__label">Photo coming soon</span>
-        </div>
+        <img src="img/team/team-theresa.webp" alt="Theresa, owner of Animal Health Center and Pet Resort" class="rounded-[28px] shadow-lg aspect-[4/5] w-full object-cover object-center ring-1 ring-ink/5" loading="lazy" width="900" height="1125" />
         <span class="absolute bottom-4 left-4 right-4 bg-teal text-cream shadow-lg rounded-2xl px-4 py-3 rotate-[-2deg]">
           <span class="block font-heading font-900">Theresa. Owner.</span>
           <span class="block text-cream/80 text-sm">Usually somewhere near the cat food.</span>
@@ -105,88 +102,241 @@
       <div class="max-w-2xl" data-anim="up">
         <span class="service-kicker bg-forest/12 text-forest">The people behind the counter</span>
         <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">Meet the team.</h2>
-        <p class="mt-4 text-ink/65 text-lg">Around here everyone comes with a sidekick. Every face on the team is happiest with an animal nearby, so that is how you will meet us.</p>
+        <p class="mt-4 text-ink/65 text-lg">Around here everyone comes with a sidekick. Almost every face on the team is happiest with an animal nearby, whether it is their own pet, a daycare regular, or one of the store cats, so that is how you will meet us.</p>
       </div>
 
-      <!-- group photo, placeholder until a real photo is supplied -->
-      <div class="mt-10 rounded-[28px] overflow-hidden shadow-lg ring-1 ring-ink/5" data-anim="up">
-        <div class="photo-soon photo-soon--forest aspect-[16/6]">
-          <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
-          <span class="photo-soon__label">Team photo coming soon</span>
-        </div>
+      <!-- ===== Leadership & vet care, featured up top ===== -->
+      <div class="mt-12" data-anim="up">
+        <h3 class="team-group-heading">Leadership &amp; vet care</h3>
       </div>
+      <div class="mt-7 grid grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch" data-anim="cards">
 
-      <!-- individual cards -->
-      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" data-anim="cards">
-
-        <!-- Theresa -->
-        <article class="card card-lift overflow-hidden flex flex-col">
-          <div class="photo-soon photo-soon--amber aspect-[4/3]">
-            <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
-            <span class="photo-soon__label">Photo coming soon</span>
+        <!-- Taylor -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame">
+            <img src="img/team/taylor.webp" alt="Taylor, Kennel Manager, holding her dog Maple" class="team-card__photo" loading="lazy" width="900" height="1200" />
+            <span class="pet-tag"><svg class="pet-tag__paw" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 10.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM5 14.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm14 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-7 .5c2.2 0 4 1.6 4 3.6 0 1.3-1 2.4-2.3 2.4-.7 0-1.1-.2-1.7-.4-.6-.2-1.3-.2-2 0-.6.2-1 .4-1.7.4C7.3 21 6.3 19.9 6.3 18.6 6.3 16.6 9.8 15 12 15Z"/></svg>with Maple</span>
+            <div class="team-card__id"><p class="team-card__name">Taylor</p><p class="team-card__role">Kennel Manager</p></div>
           </div>
-          <div class="p-6 flex-1">
-            <h3 class="font-heading font-900 text-ink text-xl">Theresa</h3>
-            <p class="text-teal text-sm font-bold">Owner</p>
-            <p class="mt-2 text-ink/55 text-sm font-semibold">Pictured with Gus, her grandkids' favorite shop cat.</p>
-            <p class="mt-3 text-ink/70 text-sm leading-relaxed">"I started here years before I ever owned the place. Bought it in 2020 and kept everything that made it ours. If I am not at the counter, I am probably reorganizing the gift shop or on the phone with a feed rep. Outside of work it is grandkids and a sewing machine that never quite cools down."</p>
+          <div class="team-card__body" data-readmore>
+            <p class="team-card__bio" data-readmore-text>Taylor runs the kennel and handles small animal purchasing, 4 years full time and part time since 2015. Home is Maple plus farm cats Archie and Penny, and with her husband and father in law she raises 225 Polypay cross ewes, lambing them out every spring. Any downtime goes to sewing and quilting.</p>
+            <div class="team-card__facts">
+              <span class="team-fact team-fact--ask"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span><b>Ask me about</b> dolphins &amp; turtles</span></span>
+              <span class="team-fact team-fact--rec"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3h-6.6c-.5 0-1 .2-1.4.6l-8.4 8.4a2 2 0 0 0 0 2.8l4.6 4.6a2 2 0 0 0 2.8 0l8.4-8.4c.4-.4.6-.9.6-1.4V4a1 1 0 0 0-1-1Zm-3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg><span><b>Rec:</b> Nutri-Source &amp; PureVita</span></span>
+            </div>
           </div>
         </article>
 
         <!-- Dr. Scott Kuecker -->
-        <article class="card card-lift overflow-hidden flex flex-col">
-          <div class="photo-soon photo-soon--teal aspect-[4/3]">
-            <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
-            <span class="photo-soon__label">Photo coming soon</span>
+        <article class="team-card card-lift">
+          <div class="team-card__frame team-card__frame--plain">
+            <img src="img/team/dr-scott-vet.webp" alt="Dr. Scott Kuecker, Staff Veterinarian, in his Marshall Animal Clinic scrub top" class="team-card__photo" loading="lazy" width="900" height="1125" />
+            <div class="team-card__id"><p class="team-card__name">Dr. Scott Kuecker</p><p class="team-card__role">Staff Veterinarian</p></div>
           </div>
-          <div class="p-6 flex-1">
-            <h3 class="font-heading font-900 text-ink text-xl">Dr. Scott Kuecker</h3>
-            <p class="text-teal text-sm font-bold">Staff Veterinarian</p>
-            <p class="mt-2 text-ink/55 text-sm font-semibold">Pictured outside the clinic.</p>
-            <p class="mt-3 text-ink/70 text-sm leading-relaxed">"University of Minnesota grad, 1992, with a large animal focus. I have cared for area herds for decades. Have a question about a prescription product or a VFD? Come in and talk to me. I am happy to help you make the right call for your operation."</p>
+          <div class="team-card__body" data-readmore><p class="team-card__bio" data-readmore-text>Dr. Scott is the calm hand behind the counter when a producer walks in with a real question. A University of Minnesota grad with a large animal focus, he has kept area herds healthy for decades and has pretty much seen it all. Wondering about a prescription product or a VFD? Track him down and just ask. He would rather talk it through with you than have you guess, and he will steer you to the right call for your operation every time.</p></div>
+        </article>
+
+        <!-- The Vet (name/details to confirm with client) -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame team-card__frame--plain">
+            <img src="img/team/the-vet.webp" alt="Veterinary team member in purple scrubs" class="team-card__photo" loading="lazy" width="900" height="786" />
+            <div class="team-card__id"><p class="team-card__name">The Vet</p><p class="team-card__role">Veterinary Team</p></div>
+          </div>
+          <div class="team-card__body" data-readmore><p class="team-card__bio" data-readmore-text>If the animals had a favorite, it might just be this guy. Steady, unhurried, and never rattled by a nervous patient, he is the one who makes even the jumpiest dog settle down. There is a proper introduction coming here soon, name, story, and all the good details, but for now know that your animals are in kind and capable hands.</p></div>
+        </article>
+      </div>
+
+      <!-- ===== Sales & Kennel Assistants ===== -->
+      <div class="mt-16" data-anim="up">
+        <h3 class="team-group-heading">Sales &amp; Kennel Assistants</h3>
+      </div>
+      <div class="mt-7 grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch" data-anim="cards">
+
+        <!-- Jenna -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame">
+            <img src="img/team/jenna.webp" alt="Jenna, Sales and Kennel Assistant, holding her dog Callie" class="team-card__photo" loading="lazy" width="900" height="1200" />
+            <span class="pet-tag"><svg class="pet-tag__paw" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 10.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM5 14.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm14 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-7 .5c2.2 0 4 1.6 4 3.6 0 1.3-1 2.4-2.3 2.4-.7 0-1.1-.2-1.7-.4-.6-.2-1.3-.2-2 0-.6.2-1 .4-1.7.4C7.3 21 6.3 19.9 6.3 18.6 6.3 16.6 9.8 15 12 15Z"/></svg>with Callie</span>
+            <div class="team-card__id"><p class="team-card__name">Jenna</p><p class="team-card__role">Sales &amp; Kennel Assistant</p></div>
+          </div>
+          <div class="team-card__body" data-readmore>
+            <p class="team-card__bio" data-readmore-text>A year in and college bound this fall to become a vet tech, with her sights set on large animals. Two dogs at home, Callie and Hank.</p>
+            <div class="team-card__facts">
+              <span class="team-fact team-fact--ask"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span><b>Ask me about</b> horses</span></span>
+              <span class="team-fact team-fact--rec"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3h-6.6c-.5 0-1 .2-1.4.6l-8.4 8.4a2 2 0 0 0 0 2.8l4.6 4.6a2 2 0 0 0 2.8 0l8.4-8.4c.4-.4.6-.9.6-1.4V4a1 1 0 0 0-1-1Zm-3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg><span><b>Rec:</b> dewormer</span></span>
+            </div>
           </div>
         </article>
 
-        <!-- Sarah -->
-        <article class="card card-lift overflow-hidden flex flex-col">
-          <div class="photo-soon photo-soon--sand aspect-[4/3]">
-            <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
-            <span class="photo-soon__label">Photo coming soon</span>
+        <!-- Kari -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame">
+            <img src="img/team/kari.webp" alt="Kari, Sales and Kennel Assistant, in her orange Animal Health Center shirt" class="team-card__photo" loading="lazy" width="900" height="1200" />
+            <div class="team-card__id"><p class="team-card__name">Kari</p><p class="team-card__role">Sales &amp; Kennel Assistant</p></div>
           </div>
-          <div class="p-6 flex-1">
-            <h3 class="font-heading font-900 text-ink text-xl">Sarah</h3>
-            <p class="text-teal text-sm font-bold">Pet Resort Lead</p>
-            <p class="mt-2 text-ink/55 text-sm font-semibold">Pictured with Biscuit, a daycare regular.</p>
-            <p class="mt-3 text-ink/70 text-sm leading-relaxed">"I run daycare and boarding, which means I know your dog's personality better than some people know their coworkers. Two rescues at home, Daisy and Bear. Ask me about boarding and I will talk until you regret it."</p>
-          </div>
-        </article>
-
-        <!-- Dale -->
-        <article class="card card-lift overflow-hidden flex flex-col">
-          <div class="photo-soon photo-soon--amber aspect-[4/3]">
-            <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
-            <span class="photo-soon__label">Photo coming soon</span>
-          </div>
-          <div class="p-6 flex-1">
-            <h3 class="font-heading font-900 text-ink text-xl">Dale</h3>
-            <p class="text-teal text-sm font-bold">Feed and Livestock</p>
-            <p class="mt-2 text-ink/55 text-sm font-semibold">Pictured with a customer's bottle calf.</p>
-            <p class="mt-3 text-ink/70 text-sm leading-relaxed">"Twenty years around cattle and I still load your truck myself. I will get you squared away for calving season and steer you to the right mineral. Weekends you will find me at the sale barn or in a deer stand."</p>
+          <div class="team-card__body" data-readmore>
+            <p class="team-card__bio" data-readmore-text>One of our long timers, 2 years this round plus 9 back in the day (2006 to 2015). Home is Porter the dog, Harry the cat, and horses Tanner and Jayde. Weekends, she is camping.</p>
+            <div class="team-card__facts">
+              <span class="team-fact team-fact--ask"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span><b>Ask me about</b> Porter</span></span>
+              <span class="team-fact team-fact--rec"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3h-6.6c-.5 0-1 .2-1.4.6l-8.4 8.4a2 2 0 0 0 0 2.8l4.6 4.6a2 2 0 0 0 2.8 0l8.4-8.4c.4-.4.6-.9.6-1.4V4a1 1 0 0 0-1-1Zm-3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg><span><b>Rec:</b> Vetericyn</span></span>
+            </div>
           </div>
         </article>
 
-        <!-- Tira Brady -->
-        <article class="card card-lift overflow-hidden flex flex-col">
-          <div class="photo-soon photo-soon--teal aspect-[4/3]">
-            <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
-            <span class="photo-soon__label">Photo coming soon</span>
+        <!-- Esther -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame">
+            <img src="img/team/esther.webp" alt="Esther, Sales and Kennel Assistant, holding boarding cat Maverick" class="team-card__photo" loading="lazy" width="900" height="1200" />
+            <span class="pet-tag"><svg class="pet-tag__paw" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 10.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM5 14.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm14 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-7 .5c2.2 0 4 1.6 4 3.6 0 1.3-1 2.4-2.3 2.4-.7 0-1.1-.2-1.7-.4-.6-.2-1.3-.2-2 0-.6.2-1 .4-1.7.4C7.3 21 6.3 19.9 6.3 18.6 6.3 16.6 9.8 15 12 15Z"/></svg>with Maverick</span>
+            <div class="team-card__id"><p class="team-card__name">Esther</p><p class="team-card__role">Sales &amp; Kennel Assistant</p></div>
           </div>
-          <div class="p-6 flex-1">
-            <h3 class="font-heading font-900 text-ink text-xl">Tira Brady</h3>
-            <p class="text-teal text-sm font-bold">Grooming</p>
-            <p class="mt-2 text-ink/55 text-sm font-semibold">Pictured with a freshly groomed pup.</p>
-            <p class="mt-3 text-ink/70 text-sm leading-relaxed">"I run the grooming studio inside the store. Baths, brush-outs, nail trims, the works. I do this because there is nothing better than handing a dog back looking and feeling brand new. Book me by phone and let's get your pup in."</p>
+          <div class="team-card__body" data-readmore>
+            <p class="team-card__bio" data-readmore-text>Six months in, and studying software engineering online on the side. Two dogs at home, Mel and Ness.</p>
+            <div class="team-card__facts">
+              <span class="team-fact team-fact--ask"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span><b>Ask me about</b> capybaras</span></span>
+              <span class="team-fact team-fact--rec"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3h-6.6c-.5 0-1 .2-1.4.6l-8.4 8.4a2 2 0 0 0 0 2.8l4.6 4.6a2 2 0 0 0 2.8 0l8.4-8.4c.4-.4.6-.9.6-1.4V4a1 1 0 0 0-1-1Zm-3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg><span><b>Rec:</b> Frontline</span></span>
+            </div>
           </div>
+        </article>
+
+        <!-- Elise -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame">
+            <img src="img/team/elise.webp" alt="Elise, Sales and Kennel Assistant, holding daycare dog Coco" class="team-card__photo" loading="lazy" width="900" height="1200" />
+            <span class="pet-tag"><svg class="pet-tag__paw" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 10.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM5 14.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm14 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-7 .5c2.2 0 4 1.6 4 3.6 0 1.3-1 2.4-2.3 2.4-.7 0-1.1-.2-1.7-.4-.6-.2-1.3-.2-2 0-.6.2-1 .4-1.7.4C7.3 21 6.3 19.9 6.3 18.6 6.3 16.6 9.8 15 12 15Z"/></svg>with Coco</span>
+            <div class="team-card__id"><p class="team-card__name">Elise</p><p class="team-card__role">Sales &amp; Kennel Assistant</p></div>
+          </div>
+          <div class="team-card__body" data-readmore>
+            <p class="team-card__bio" data-readmore-text>Our newest face, 2 months in. Two dogs at home, Nora and Knox, and most of her free time goes to them and her other animals.</p>
+            <div class="team-card__facts">
+              <span class="team-fact team-fact--ask"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span><b>Ask me about</b> my dogs</span></span>
+              <span class="team-fact team-fact--rec"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3h-6.6c-.5 0-1 .2-1.4.6l-8.4 8.4a2 2 0 0 0 0 2.8l4.6 4.6a2 2 0 0 0 2.8 0l8.4-8.4c.4-.4.6-.9.6-1.4V4a1 1 0 0 0-1-1Zm-3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg><span><b>Rec:</b> dog treats</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Ashley -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame">
+            <img src="img/team/ashley.webp" alt="Ashley, Sales and Kennel Assistant, holding store cat Jade" class="team-card__photo" loading="lazy" width="900" height="1200" />
+            <span class="pet-tag"><svg class="pet-tag__paw" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 10.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM5 14.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm14 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-7 .5c2.2 0 4 1.6 4 3.6 0 1.3-1 2.4-2.3 2.4-.7 0-1.1-.2-1.7-.4-.6-.2-1.3-.2-2 0-.6.2-1 .4-1.7.4C7.3 21 6.3 19.9 6.3 18.6 6.3 16.6 9.8 15 12 15Z"/></svg>with Jade</span>
+            <div class="team-card__id"><p class="team-card__name">Ashley</p><p class="team-card__role">Sales &amp; Kennel Assistant</p></div>
+          </div>
+          <div class="team-card__body" data-readmore>
+            <p class="team-card__bio" data-readmore-text>About 6 months in, with three dogs at home: Elena, Charlie, and Duke. Off the clock you will find her running or reading.</p>
+            <div class="team-card__facts">
+              <span class="team-fact team-fact--ask"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span><b>Ask me about</b> dogs</span></span>
+              <span class="team-fact team-fact--rec"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3h-6.6c-.5 0-1 .2-1.4.6l-8.4 8.4a2 2 0 0 0 0 2.8l4.6 4.6a2 2 0 0 0 2.8 0l8.4-8.4c.4-.4.6-.9.6-1.4V4a1 1 0 0 0-1-1Zm-3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg><span><b>Rec:</b> Pumpkin Firm Up</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Mackenzie -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame team-card__frame--plain">
+            <div class="team-card__photo photo-soon photo-soon--sand">
+              <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="photo-soon__label">Mackenzie<br>Sales &amp; Kennel Assistant<br><span class="font-normal normal-case tracking-normal">Photo coming soon</span></span>
+            </div>
+          </div>
+          <div class="team-card__body" data-readmore>
+            <p class="team-card__bio" data-readmore-text>Four years in, studying zoology at Mankato and working a boarding facility there too, so animals really are her whole life. Home is two dogs, Nyla and Sienna, and two cats, Ginger and Bella.</p>
+            <div class="team-card__facts">
+              <span class="team-fact team-fact--ask"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span><b>Ask me about</b> any animal</span></span>
+              <span class="team-fact team-fact--rec"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3h-6.6c-.5 0-1 .2-1.4.6l-8.4 8.4a2 2 0 0 0 0 2.8l4.6 4.6a2 2 0 0 0 2.8 0l8.4-8.4c.4-.4.6-.9.6-1.4V4a1 1 0 0 0-1-1Zm-3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg><span><b>Rec:</b> slow feeders</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Evea -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame team-card__frame--plain">
+            <div class="team-card__photo photo-soon photo-soon--amber">
+              <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="photo-soon__label">Evea<br>Sales &amp; Kennel Assistant<br><span class="font-normal normal-case tracking-normal">Photo coming soon</span></span>
+            </div>
+          </div>
+          <div class="team-card__body" data-readmore>
+            <p class="team-card__bio" data-readmore-text>Two and a half years in, and caretaker to 36 animals at home, including her dog Angel and cats Honey, Charlie, and Sabrina. Off the clock, she figure skates.</p>
+            <div class="team-card__facts">
+              <span class="team-fact team-fact--ask"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span><b>Ask me about</b> Ellie Mae</span></span>
+              <span class="team-fact team-fact--rec"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3h-6.6c-.5 0-1 .2-1.4.6l-8.4 8.4a2 2 0 0 0 0 2.8l4.6 4.6a2 2 0 0 0 2.8 0l8.4-8.4c.4-.4.6-.9.6-1.4V4a1 1 0 0 0-1-1Zm-3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg><span><b>Rec:</b> Vetericyn &amp; Nutri-Source</span></span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ===== Kennel Assistants ===== -->
+      <div class="mt-16" data-anim="up">
+        <h3 class="team-group-heading">Kennel Assistants</h3>
+      </div>
+      <div class="mt-7 grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch" data-anim="cards">
+
+        <!-- Sam -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame">
+            <img src="img/team/sam.webp" alt="Sam, Kennel Assistant, with her dalmatian Sorrel" class="team-card__photo" loading="lazy" width="900" height="1200" />
+            <span class="pet-tag"><svg class="pet-tag__paw" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 10.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4ZM5 14.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm14 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-7 .5c2.2 0 4 1.6 4 3.6 0 1.3-1 2.4-2.3 2.4-.7 0-1.1-.2-1.7-.4-.6-.2-1.3-.2-2 0-.6.2-1 .4-1.7.4C7.3 21 6.3 19.9 6.3 18.6 6.3 16.6 9.8 15 12 15Z"/></svg>with Sorrel</span>
+            <div class="team-card__id"><p class="team-card__name">Sam</p><p class="team-card__role">Kennel Assistant</p></div>
+          </div>
+          <div class="team-card__body" data-readmore>
+            <p class="team-card__bio" data-readmore-text>About 4 years in. Home is two dogs, Traveller and Sorrel, a cat named Cincinnati, and more fish than she can count. Off the clock: reading, the Civil War, and diamond art.</p>
+            <div class="team-card__facts">
+              <span class="team-fact team-fact--ask"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg><span><b>Ask me about</b> dogs</span></span>
+              <span class="team-fact team-fact--rec"><svg class="team-fact__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3h-6.6c-.5 0-1 .2-1.4.6l-8.4 8.4a2 2 0 0 0 0 2.8l4.6 4.6a2 2 0 0 0 2.8 0l8.4-8.4c.4-.4.6-.9.6-1.4V4a1 1 0 0 0-1-1Zm-3 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"/></svg><span><b>Rec:</b> Benebone chews</span></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Jason -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame team-card__frame--plain">
+            <div class="team-card__photo photo-soon photo-soon--sand">
+              <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="photo-soon__label">Jason<br>Kennel Assistant<br><span class="font-normal normal-case tracking-normal">Photo coming soon</span></span>
+            </div>
+          </div>
+          <div class="team-card__body" data-readmore><p class="team-card__bio team-card__bio--soon">Bio coming soon.</p></div>
+        </article>
+
+        <!-- Regan -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame team-card__frame--plain">
+            <div class="team-card__photo photo-soon photo-soon--amber">
+              <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="photo-soon__label">Regan<br>Kennel Assistant<br><span class="font-normal normal-case tracking-normal">Photo coming soon</span></span>
+            </div>
+          </div>
+          <div class="team-card__body" data-readmore><p class="team-card__bio team-card__bio--soon">Bio coming soon.</p></div>
+        </article>
+      </div>
+
+      <!-- ===== Kennel Volunteers ===== -->
+      <div class="mt-16" data-anim="up">
+        <h3 class="team-group-heading">Kennel Volunteers</h3>
+      </div>
+      <div class="mt-7 grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-stretch" data-anim="cards">
+
+        <!-- Maria -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame team-card__frame--plain">
+            <div class="team-card__photo photo-soon photo-soon--teal">
+              <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="photo-soon__label">Maria<br>Kennel Volunteer<br><span class="font-normal normal-case tracking-normal">Photo coming soon</span></span>
+            </div>
+          </div>
+          <div class="team-card__body" data-readmore><p class="team-card__bio team-card__bio--soon">Bio coming soon.</p></div>
+        </article>
+
+        <!-- Faith -->
+        <article class="team-card card-lift">
+          <div class="team-card__frame team-card__frame--plain">
+            <div class="team-card__photo photo-soon photo-soon--sand">
+              <svg class="photo-soon__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2Z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="photo-soon__label">Faith<br>Kennel Volunteer<br><span class="font-normal normal-case tracking-normal">Photo coming soon</span></span>
+            </div>
+          </div>
+          <div class="team-card__body" data-readmore><p class="team-card__bio team-card__bio--soon">Bio coming soon.</p></div>
         </article>
       </div>
     </div>
