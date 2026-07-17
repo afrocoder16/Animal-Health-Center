@@ -557,17 +557,10 @@
       </div>
 
       <div data-widget="punch" class="mt-10 max-w-xl mx-auto card p-7 sm:p-8 bg-cream relative" data-anim="up">
-        <div class="punch-locked">
-          <p class="text-sm font-bold text-ink/70 mb-3">Enter your name or phone to view your card</p>
-          <div class="flex gap-2">
-            <input data-punch-input type="text" placeholder="Name or phone" class="flex-1 rounded-xl border border-ink/15 bg-white px-3 py-2.5 text-ink"/>
-            <button data-punch-go class="btn btn--teal !px-5">Go</button>
-          </div>
-        </div>
-        <div class="punch-card" data-active="false" data-track="boarding">
+        <div class="punch-card p-6 sm:p-7" data-active="true" data-track="boarding">
           <div class="flex items-center justify-between mb-4">
-            <h3 class="font-heading font-900 text-ink text-lg">Boarding Rewards</h3>
-            <span data-count class="text-sm font-bold text-ink/55">0 / 10</span>
+            <h3 class="font-heading font-900 text-cream text-lg">Boarding Rewards</h3>
+            <span data-count class="text-sm font-bold text-cream/70">0 / 10</span>
           </div>
           <div class="grid grid-cols-5 gap-3">
             <span class="stamp" data-slot="1"></span>
@@ -581,8 +574,9 @@
             <span class="stamp" data-slot="9"></span>
             <span class="stamp is-reward" data-slot="10"></span>
           </div>
-          <p data-reward class="mt-4 text-sm text-ink/65">Four more nights unlock your free 10th!</p>
+          <p data-reward class="mt-4 text-sm text-cream/85">Four more nights unlock your free 10th!</p>
         </div>
+        <p class="mt-4 text-xs text-ink/45">Sample card shown. Ask at the front desk to start yours, we keep track of the stamps for you.</p>
       </div>
     </div>
   </section>

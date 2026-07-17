@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Animal Health Center & Pet Resort — Sample 3
+   Animal Health Center & Pet Resort
    widgets.js — ALL shared interactive logic for every page.
    Each widget inits only if its anchor element exists on the page, so this
    one file is safe to load everywhere (guarded inits = no duplication).
@@ -187,16 +187,26 @@
   }
 
   /* ======================================================================
-     4. LOYALTY PUNCH CARD  (home widget + promotions.html) — DEMO MODE
-     User types email/phone; card "activates" and shows a partial demo fill.
-     Tracks: grooming (5th free) and/or boarding (10th free) per markup.
+     4. LOYALTY PUNCH CARD  (resort.html + promotions.html)
+     Static sample cards: markup sets data-active="true" and the card renders
+     a sample fill (labeled as a sample in the page copy). Real stamps are
+     tracked in store. Tracks: grooming (5th free), boarding (10th free).
      ====================================================================== */
   var DEMO_FILL = { grooming: 3, boarding: 6 };
 
   function initPunchCard(root) {
     var input = $("[data-punch-input]", root);
     var go = $("[data-punch-go]", root);
-    if (!go) return;
+
+    /* cards marked data-active="true" in markup are static sample displays:
+       render the sample fill immediately, no lookup UI required */
+    var preActivated = $$('[data-active="true"]', root);
+    if (root.getAttribute("data-active") === "true") preActivated.push(root);
+
+    if (!go) {
+      if (preActivated.length) render();
+      return;
+    }
 
     function render() {
       $$("[data-track]", root).forEach(function (track) {
@@ -206,7 +216,9 @@
         slots.forEach(function (s, i) { s.classList.toggle("is-stamped", i < filled); });
         var reward = $("[data-reward]", track);
         if (reward) reward.classList.toggle("is-earned", filled >= slots.length);
-        var count = $("[data-count]", track);
+        /* the count badge may live in the card header, outside [data-track] */
+        var card = track.closest(".punch-card") || track;
+        var count = $("[data-count]", track) || $("[data-count]", card);
         if (count) count.textContent = filled + " / " + slots.length;
       });
     }

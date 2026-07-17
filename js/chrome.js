@@ -65,7 +65,6 @@
           '<li><a href="grooming.html" class="hover:text-amber2 transition-colors">Grooming</a></li>' +
           '<li><a href="livestock.html" class="hover:text-amber2 transition-colors">Livestock</a></li>' +
           '<li><a href="small-animal.html" class="hover:text-amber2 transition-colors">Small Animal</a></li>' +
-          '<li><a href="gift-shop.html" class="hover:text-amber2 transition-colors">Gift Shop</a></li>' +
           '<li><a href="gallery.html" class="hover:text-amber2 transition-colors">Gallery</a></li>' +
         '</ul></div>' +
         '<div><h4 class="font-heading font-800 text-cream">Hours</h4><ul class="mt-3 space-y-1.5 text-sm">' +

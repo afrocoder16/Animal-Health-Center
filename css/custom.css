@@ -449,98 +449,6 @@ h1,h2,h3,h4,h5,.font-heading {
 .ranch-cats--on-photo span { color: rgba(255,255,255,.5); }
 
 /* ==========================================================================
-   GIFT SHOP TEASER — editorial collage, "best kept secret" reveal.
-   Warm cream band + asymmetric photo grid + hang-tag kicker.
-   ========================================================================== */
-.giftshop {
-  background:
-    radial-gradient(120% 90% at 50% -10%, #FFFDF7 0%, transparent 55%),
-    linear-gradient(180deg, var(--cream) 0%, #F6EAD3 100%);
-}
-
-/* little stitched "hang tag" badge for the kicker */
-.giftshop-tag {
-  display:inline-flex; align-items:center; gap:.55rem;
-  font-family:"Nunito", system-ui, sans-serif; font-weight:800;
-  font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;
-  color:#8a4e1c; background:#fff;
-  padding:.5rem 1rem .5rem 1.6rem; border-radius:999px;
-  box-shadow:0 8px 20px -10px rgba(60,40,16,.4), inset 0 0 0 1px rgba(156,74,26,.14);
-  position:relative;
-}
-/* punched hole + ring, so it reads as a price tag */
-.giftshop-tag::before {
-  content:""; position:absolute; left:.7rem; top:50%; transform:translateY(-50%);
-  width:8px; height:8px; border-radius:50%;
-  background:var(--cream); box-shadow:inset 0 0 0 2px rgba(156,74,26,.45);
-}
-
-/* asymmetric editorial gallery: one tall, one wide, one square */
-.giftshop-gallery {
-  display:grid; gap:1.1rem;
-  grid-template-columns: 1.15fr 1fr;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "tall wide"
-    "tall square";
-}
-.gs-photo--tall   { grid-area: tall; }
-.gs-photo--wide   { grid-area: wide; }
-.gs-photo--square { grid-area: square; }
-
-.gs-photo {
-  position:relative; display:block; overflow:hidden;
-  border-radius:26px; text-decoration:none;
-  box-shadow:0 22px 55px -28px rgba(60,40,16,.5);
-  background:var(--cream-2);
-}
-.gs-photo img {
-  width:100%; height:100%; object-fit:cover; display:block;
-  transition: transform .9s var(--ease-out);
-}
-.gs-photo:hover img { transform: scale(1.06); }
-/* the tall photo stretches to match the stacked wide+square column height */
-.gs-photo--tall   { min-height:100%; }
-.gs-photo--tall img   { height:100%; min-height:26rem; }
-.gs-photo--wide img   { aspect-ratio: 16 / 9; }
-.gs-photo--square img { aspect-ratio: 1 / 1; }
-
-/* caption plate that fades up from the bottom of each photo */
-.gs-photo__cap {
-  position:absolute; left:0; right:0; bottom:0; z-index:2;
-  display:flex; flex-direction:column; gap:.1rem;
-  padding:2.2rem 1.25rem 1.1rem;
-  font-family:"Nunito", system-ui, sans-serif; font-weight:800;
-  color:#fff; font-size:1.05rem; line-height:1.2;
-  background:linear-gradient(180deg, transparent, rgba(32,22,10,.82));
-}
-.gs-photo__kicker {
-  font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
-  color:var(--amber-2); font-weight:800;
-}
-
-/* category chips */
-.giftshop-chips {
-  display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem;
-  list-style:none; margin:0; padding:0;
-}
-.giftshop-chips li {
-  font-family:"Nunito", system-ui, sans-serif; font-weight:800;
-  font-size:.9rem; color:#6b4a22;
-  background:#fff; border-radius:999px;
-  padding:.5rem 1.05rem;
-  box-shadow:inset 0 0 0 1px rgba(156,74,26,.16), 0 4px 12px -8px rgba(60,40,16,.4);
-}
-
-@media (max-width: 700px) {
-  .giftshop-gallery {
-    grid-template-columns: 1fr;
-    grid-template-areas: "tall" "wide" "square";
-  }
-  .gs-photo--tall img { aspect-ratio: 4 / 3; }
-}
-
-/* ==========================================================================
    LOYALTY PUNCH CARD — premium membership card (teal, pops on cream)
    ========================================================================== */
 .punch-card { position:relative; border-radius:24px; overflow:hidden; color:var(--cream);
@@ -550,9 +458,6 @@ h1,h2,h3,h4,h5,.font-heading {
 .punch-card::after { content:""; position:absolute; inset:0; pointer-events:none;
   background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.12) 50%,transparent 58%); }
 .punch-perf { height:0; border-top:2px dashed rgba(251,246,236,.4); margin:0 1.25rem; }
-.punch-card[data-active="true"] .punch-locked { display:none; }
-.punch-card:not([data-active="true"]) .punch-stamps,
-.punch-card:not([data-active="true"]) [data-reward] { opacity:.4; filter:blur(1px); }
 .stamp { position:relative; aspect-ratio:1/1; display:grid; place-items:center; border-radius:50%;
   border:2px dashed rgba(251,246,236,.5); color:rgba(251,246,236,.6); }
 .stamp svg{ width:58%; height:58%; }
@@ -867,42 +772,6 @@ body.menu-open { overflow:hidden; }
   font-size:2.4rem; line-height:1; }
 
 /* ==========================================================================
-   BOUTIQUE BRIDGE — minimal hero->boutique transition on the gift shop page.
-   Dark hero melts into the cream boutique via a gradient + a playful word
-   marquee + a soft scroll cue. No JS dependency beyond the shared marquee.
-   ========================================================================== */
-.boutique-bridge {
-  position:relative; overflow:hidden;
-  /* the actual transition: continues straight off the hero photo's red,
-     fades directly to cream (no brown/gray band in between) */
-  background:linear-gradient(180deg, #481910 0%, #481910 18%, var(--cream) 100%);
-  padding:3.5rem 0 4.5rem;
-}
-
-/* scrolling word marquee */
-.boutique-bridge__marquee { padding:.5rem 0 2.75rem; }
-.bridge-track {
-  display:flex; align-items:center; gap:1.6rem; width:max-content;
-  white-space:nowrap; will-change:transform;
-  font-family:"Nunito",sans-serif; font-weight:900;
-  font-size:clamp(1.6rem, 4.5vw, 2.6rem); letter-spacing:-.01em;
-  color:transparent; -webkit-text-stroke:1.4px rgba(255,247,236,.45);
-}
-.bridge-track .dot { -webkit-text-stroke:0; color:var(--amber-2); font-size:.7em; }
-
-/* centered handoff line */
-.boutique-bridge__inner { position:relative; z-index:2; text-align:center; padding:0 1.25rem; }
-.bridge-eyebrow {
-  font-family:"Nunito",sans-serif; font-weight:800; font-size:.82rem;
-  letter-spacing:.18em; text-transform:uppercase; color:var(--amber-2);
-}
-.bridge-line {
-  margin-top:.6rem; font-family:"Nunito",sans-serif; font-weight:900;
-  font-size:clamp(1.5rem, 3.6vw, 2.4rem); line-height:1.12; letter-spacing:-.02em;
-  color:#fff;
-}
-
-/* ==========================================================================
    LIVESTOCK DEPARTMENT SWITCHER — tabs on desktop, accordion on mobile.
    One markup tree; CSS swaps which control set is shown at the lg breakpoint.
    JS (data-widget="dept-switcher") keeps tabs + panels + accordion in sync.
@@ -1095,79 +964,6 @@ body.menu-open { overflow:hidden; }
 }
 
 /* ==========================================================================
-   INDEPENDENCE DAY (July 4th) "THIS WEEK" PROMO SECTION — index.html.
-   Minimalist seasonal dressing for the weekly-deals block: a clean cream
-   panel framed by a thin red/white/blue stripe, restrained star accents, and
-   two deal cards recolored navy + red. Self-contained, scoped to `.july4-*`
-   so nothing else on the site is affected. All section copy is unchanged.
-   ========================================================================== */
-:root {
-  --usa-navy:  #1a2b4a;
-  --usa-navy-2:#24365c;
-  --usa-red:   #b32430;
-  --usa-red-2: #cf3340;
-}
-
-.july4 {
-  position: relative;
-  border-radius: 28px;
-  padding: 2.75rem 1.75rem 3rem;
-  background:
-    radial-gradient(120% 80% at 50% -10%, rgba(26,43,74,.05) 0%, transparent 55%),
-    linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
-  border: 1px solid rgba(26,43,74,.08);
-  box-shadow: var(--shadow);
-}
-@media (min-width: 640px) { .july4 { padding: 3.25rem 3rem 3.5rem; } }
-
-/* thin red/white/blue stripe along the top edge */
-.july4::before {
-  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 5px;
-  border-radius: 28px 28px 0 0;
-  background: linear-gradient(90deg,
-    var(--usa-red) 0 33.33%, var(--white) 33.33% 66.66%, var(--usa-navy) 66.66% 100%);
-}
-
-/* faint star scatter in the panel corner — decorative, low contrast */
-.july4::after {
-  content: ""; position: absolute; right: 1.75rem; top: 1.75rem; width: 7rem; height: 7rem;
-  pointer-events: none; opacity: .14;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a2b4a'%3E%3Cpath d='M12 2l2.5 6.5L21 9l-5 4 1.6 7L12 16.6 6.4 20 8 13 3 9l6.5-.5z'/%3E%3C/svg%3E") 0 0 / 1.6rem no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23b32430'%3E%3Cpath d='M12 2l2.5 6.5L21 9l-5 4 1.6 7L12 16.6 6.4 20 8 13 3 9l6.5-.5z'/%3E%3C/svg%3E") 3.4rem 2.2rem / 1.1rem no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231a2b4a'%3E%3Cpath d='M12 2l2.5 6.5L21 9l-5 4 1.6 7L12 16.6 6.4 20 8 13 3 9l6.5-.5z'/%3E%3C/svg%3E") 1.2rem 4.6rem / .85rem no-repeat;
-}
-
-/* small "July 4th" pill above the kicker */
-.july4-flag {
-  display: inline-flex; align-items: center; gap: .45rem;
-  font-family: "Nunito", sans-serif; font-weight: 800; font-size: .72rem;
-  letter-spacing: .14em; text-transform: uppercase;
-  padding: .35rem .75rem; border-radius: 999px;
-  color: var(--usa-navy); background: rgba(26,43,74,.07);
-  border: 1px solid rgba(26,43,74,.14);
-}
-.july4-flag svg { width: .85rem; height: .85rem; fill: var(--usa-red); }
-
-/* recolored deal cards: clean navy + clean red, thin star tab, no heavy gradients */
-.july4-card { position: relative; overflow: hidden; }
-.july4-card--navy { background: linear-gradient(160deg, var(--usa-navy) 0%, var(--usa-navy-2) 100%); color: var(--white); }
-.july4-card--red  { background: linear-gradient(160deg, var(--usa-red) 0%, var(--usa-red-2) 100%); color: var(--white); }
-.july4-card .july4-card__day { color: rgba(255,255,255,.75); }
-.july4-card .july4-card__body { color: rgba(255,255,255,.85); }
-
-/* subtle star watermark bottom-right of each card */
-.july4-card::after {
-  content: ""; position: absolute; right: -1rem; bottom: -1.4rem; width: 6rem; height: 6rem;
-  pointer-events: none; opacity: .12;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2l2.5 6.5L21 9l-5 4 1.6 7L12 16.6 6.4 20 8 13 3 9l6.5-.5z'/%3E%3C/svg%3E") center/contain no-repeat;
-}
-
-/* patriotic accent for the section's link colors */
-.july4-link { color: var(--usa-navy); }
-.july4-link:hover { color: var(--usa-red); }
-
-/* ==========================================================================
    DAYCARE ROOM CARDS — resort.html. Two equal-height cards (Maci's Playroom
    teal, Nellis Playroom amber), each with a colored accent rail along the top
    edge, a tidy photo cluster, and a feature list pinned to the bottom so both
@@ -1274,56 +1070,16 @@ body.menu-open { overflow:hidden; }
 }
 @media (max-width: 768px) { .paw-deco { display: none; } }
 
-/* ==========================================================================
-   GIFT SHOP STORE DEMO — gift-shop-store.html. A familiar e-commerce product
-   grid: category filter pills, product cards with image/name/desc/price/
-   rating/Add to Cart, a cart-icon bump, and a brief "added" toast. Demo only,
-   in-memory cart count, no backend.
-   ========================================================================== */
-
-/* category filter pills */
-.store-filter { flex: none; font-family: "Nunito", sans-serif; font-weight: 800; font-size: .85rem;
-  padding: .6rem 1.1rem; border-radius: 999px; color: var(--ink-soft); background: var(--white);
-  border: 1px solid rgba(60,40,16,.1); white-space: nowrap;
-  transition: background .2s var(--ease-out), color .2s, box-shadow .2s, border-color .2s; }
-.store-filter:hover { border-color: rgba(27,107,107,.35); color: var(--teal-ink); }
-.store-filter.is-active { background: var(--teal); color: var(--cream); border-color: var(--teal); box-shadow: var(--shadow-sm); }
-.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
-.no-scrollbar::-webkit-scrollbar { display: none; }
-
-/* product card */
-.store-card { display: flex; flex-direction: column; background: var(--white); border-radius: 22px;
-  overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid rgba(60,40,16,.06);
-  transition: transform .3s var(--ease-out), box-shadow .3s var(--ease-out); }
-.store-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-.store-card__img { aspect-ratio: 1 / 1; overflow: hidden; background: var(--cream-2); }
-.store-card__img img, .store-card__img .photo-soon { width: 100%; height: 100%; object-fit: cover; }
-.store-card__body { padding: 1.1rem 1.2rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
-.store-card__cat { font-family: "Nunito", sans-serif; font-weight: 800; font-size: .68rem;
-  letter-spacing: .08em; text-transform: uppercase; color: var(--teal); }
-.store-card__name { margin-top: .35rem; font-family: "Nunito", sans-serif; font-weight: 900;
-  color: var(--ink); font-size: 1.05rem; line-height: 1.25; }
-.store-card__desc { margin-top: .35rem; color: var(--ink-soft); font-size: .88rem; line-height: 1.45; flex: 1; }
-.store-card__rating { margin-top: .55rem; font-size: .82rem; letter-spacing: .03em; }
-.store-card__footer { margin-top: .85rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
-.store-card__price { font-family: "Nunito", sans-serif; font-weight: 900; color: var(--ink); font-size: 1.15rem; }
-.store-card button[data-add-cart].is-added { background: var(--forest) !important; }
-
-/* cart icon bump on add */
-@keyframes cartBump { 0%{ transform:scale(1); } 35%{ transform:scale(1.15); } 100%{ transform:scale(1); } }
-[data-cart-btn].is-bumped [data-cart-count] { animation: cartBump .4s var(--ease-out); }
-
-/* brief "added to cart" toast, bottom-center */
-.store-toast { position: fixed; left: 50%; bottom: 1.5rem; z-index: 60; transform: translate(-50%, 1rem);
-  background: var(--ink); color: var(--cream); font-family: "Nunito", sans-serif; font-weight: 800;
-  font-size: .85rem; padding: .75rem 1.3rem; border-radius: 999px; box-shadow: var(--shadow-lg);
-  opacity: 0; pointer-events: none; transition: opacity .25s var(--ease-out), transform .25s var(--ease-out); }
-.store-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
-@media (max-width: 640px) { .store-toast { bottom: 5.5rem; width: max-content; max-width: calc(100vw - 2rem); } }
-
-/* ---- marquee CSS keyframe fallback ---- */
+/* ---- marquee CSS keyframe fallback ----
+   Layout lives here (not only in Tailwind utilities) so the strip renders
+   correctly at first paint even before the Tailwind CDN script has run.
+   The track holds six identical sets; -50% shifts three full sets, wider
+   than any viewport, so the loop is seamless. Duration is scaled to keep
+   the same px-per-second speed as the old two-set 32s version. */
+.marquee-track { width:max-content; display:flex; align-items:center; white-space:nowrap; }
+.marquee-set { display:flex; align-items:center; gap:2.25rem; padding-right:2.25rem; }
 @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-.marquee-css { animation: marquee-scroll 32s linear infinite; }
+.marquee-css { animation: marquee-scroll 96s linear infinite; }
 .marquee-css:hover { animation-play-state: paused; }
 
 /* reduced motion */

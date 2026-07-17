@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Animal Health Center & Pet Resort — Sample 3
+   Animal Health Center & Pet Resort
    animations.js — moderate & elegant motion. Gentle parallax, soft floats,
    scroll reveals, auto-scroll marquees. Loads AFTER widgets.js.
    Safety net: reduced-motion OR no-GSAP -> force [data-anim] visible.

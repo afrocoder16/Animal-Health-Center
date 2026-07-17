@@ -18,8 +18,7 @@
   <script>
     tailwind.config = { theme: { extend: {
       colors: { cream:"#FBF6EC", sand:"#EFE3CE", ink:"#20180F", teal:"#1B6B6B", teal2:"#2c9494",
-        amber:"#C17F24", amber2:"#E6A93F", peach:"#F6D9A8", forest:"#3E6B23", rust:"#9c4a1a",
-        "usa-navy":"#1a2b4a", "usa-red":"#b32430" },
+        amber:"#C17F24", amber2:"#E6A93F", peach:"#F6D9A8", forest:"#3E6B23", rust:"#9c4a1a" },
       fontFamily: { heading:["Nunito","system-ui","sans-serif"], body:["Inter","system-ui","sans-serif"] }
     } } };
   </script>
@@ -85,7 +84,7 @@
           for pets and livestock, the Pet Resort for boarding &amp; daycare, and on-staff grooming.
         </p>
         <div data-hero-line class="mt-8 flex flex-wrap gap-3">
-          <a href="gift-shop.html" class="btn btn--amber">Explore the Store →</a>
+          <a href="services.html#store" class="btn btn--amber">Explore the Store →</a>
           <a data-book class="btn btn--ghost-light">Book the Pet Resort</a>
         </div>
         <div data-hero-line class="mt-8 flex items-center gap-2 text-white/80 text-sm">
@@ -97,8 +96,22 @@
     <!-- marquee strip -->
     <div data-carousel class="relative z-20 border-t border-white/15 bg-black/25 backdrop-blur-sm">
       <div class="edge-fade overflow-hidden py-3.5">
+        <!-- six identical sets: the -50% loop shifts three full sets (~3100px), wider
+             than any desktop viewport, so no blank gap can ever scroll through. -->
         <div class="marquee-track marquee-css flex items-center text-white/55 font-heading font-800 text-lg whitespace-nowrap">
           <span class="marquee-set flex items-center gap-9 pr-9">
+            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
+          </span>
+          <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
+            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
+          </span>
+          <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
+            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
+          </span>
+          <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
+            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
+          </span>
+          <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
             <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
           </span>
           <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
@@ -192,31 +205,30 @@
     </div>
   </section>
 
-  <!-- ===================== WEEKLY PROMOTIONS (July 4th dressing) ===================== -->
+  <!-- ===================== WEEKLY PROMOTIONS ===================== -->
   <section class="py-20 sm:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="july4" data-anim="up">
+      <div data-anim="up">
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div class="max-w-2xl">
-            <span class="july4-flag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.5 6.5L21 9l-5 4 1.6 7L12 16.6 6.4 20 8 13 3 9l6.5-.5z"/></svg>July 4th</span>
-            <p class="mt-3 font-heading font-800 july4-link text-sm tracking-[0.2em] uppercase">This week</p>
-            <h2 class="mt-1 font-heading display text-ink text-4xl sm:text-5xl">A new deal every day.</h2>
+            <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">Deals &amp; rewards</p>
+            <h2 class="mt-1 font-heading display text-ink text-4xl sm:text-5xl">It pays to stop in.</h2>
           </div>
-          <a href="promotions.html" class="font-heading font-800 july4-link hover:gap-3 inline-flex items-center gap-2 transition-all">All weekly deals →</a>
+          <a href="promotions.html" class="font-heading font-800 text-teal hover:text-amber hover:gap-3 inline-flex items-center gap-2 transition-all">All weekly deals →</a>
         </div>
-        <div data-widget="promos" class="mt-10 grid sm:grid-cols-2 gap-5">
-          <article data-day="1" class="july4-card july4-card--navy relative card overflow-hidden p-7">
-            <span data-day-flag hidden class="absolute top-5 right-5 text-xs font-heading font-800 bg-white text-usa-navy px-2.5 py-1 rounded-full">Today's deal</span>
-            <p class="july4-card__day font-heading font-800 text-sm">Monday</p><h3 class="mt-1 font-heading font-900 text-2xl">Mutt Madness</h3>
-            <p class="july4-card__body mt-2">15% off all dog treats &amp; chews, start the week with a wagging tail.</p>
+        <div class="mt-10 grid sm:grid-cols-2 gap-5">
+          <article class="deal-card relative card overflow-hidden p-7 bg-gradient-to-br from-teal to-teal2 text-cream">
+            <p class="font-heading font-800 text-peach text-sm">Mon to Sat</p>
+            <h3 class="mt-1 font-heading font-900 text-2xl">A new deal every day</h3>
+            <p class="mt-2 text-cream/85">Six themed days of savings, from dog treats and cat toys to herd health and grooming. Today's deal is highlighted on the promotions page.</p>
           </article>
-          <article data-day="3" class="july4-card july4-card--red relative card overflow-hidden p-7">
-            <span data-day-flag hidden class="absolute top-5 right-5 text-xs font-heading font-800 bg-white text-usa-red px-2.5 py-1 rounded-full">Today's deal</span>
-            <p class="july4-card__day font-heading font-800 text-sm">Wednesday</p><h3 class="mt-1 font-heading font-900 text-2xl">Whisker Wednesday</h3>
-            <p class="july4-card__body mt-2">BOGO 50% off cat toys, plus $2 off any bag of cat food.</p>
+          <article class="deal-card relative card overflow-hidden p-7 bg-gradient-to-br from-amber2 to-amber text-ink">
+            <p class="font-heading font-800 text-rust text-sm">Loyalty rewards</p>
+            <h3 class="mt-1 font-heading font-900 text-2xl">Every visit adds up</h3>
+            <p class="mt-2 text-ink/80">Punch cards for grooming and boarding: your 5th groom and your 10th boarding night are on us.</p>
           </article>
         </div>
-        <div class="mt-6"><a href="promotions.html" class="inline-flex items-center gap-2 font-heading font-800 july4-link hover:gap-3 transition-all">See loyalty rewards &amp; both punch cards →</a></div>
+        <div class="mt-6"><a href="promotions.html" class="inline-flex items-center gap-2 font-heading font-800 text-teal hover:text-amber hover:gap-3 transition-all">See loyalty rewards &amp; both punch cards →</a></div>
       </div>
     </div>
   </section>
@@ -309,51 +321,6 @@
     </div>
   </section>
 
-  <!-- ===================== GIFT SHOP TEASER ===================== -->
-  <section class="giftshop relative overflow-hidden py-20 sm:py-28">
-    <div class="soft-glow bg-amber2/20 w-[26rem] h-[26rem] -left-24 top-10"></div>
-    <div class="soft-glow bg-rust/10 w-[22rem] h-[22rem] -right-20 -bottom-16"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
-      <!-- centered intro -->
-      <div class="max-w-2xl mx-auto text-center" data-anim="up">
-        <span class="giftshop-tag">Our best kept secret</span>
-        <h2 class="mt-5 font-heading display text-ink text-4xl sm:text-6xl">A gift shop tucked<br />inside the store.</h2>
-        <p class="mt-5 text-ink/60 text-lg">
-          Tucked between the pet aisle and the feed room is a little shop most first-time
-          visitors don't expect. A nice excuse to wander a bit longer.
-        </p>
-      </div>
-
-      <!-- editorial 3-photo collage -->
-      <div class="giftshop-gallery mt-14" data-anim="cards">
-        <a href="gift-shop.html" class="gs-photo gs-photo--tall card-lift" aria-label="Seasonal decor and florals">
-          <img src="img/decor2.webp" alt="Seasonal decor and florals in the gift shop" loading="lazy" />
-          <span class="gs-photo__cap"><span class="gs-photo__kicker">Seasonal</span>Decor &amp; florals</span>
-        </a>
-        <a href="gift-shop.html" class="gs-photo gs-photo--wide card-lift" aria-label="Farmhouse decor gifts">
-          <img src="img/gifts-a-farm-housedecor.webp" alt="Gifts and farmhouse decor display in the shop" loading="lazy" />
-          <span class="gs-photo__cap"><span class="gs-photo__kicker">Town &amp; Country</span>Gifts &amp; farmhouse decor</span>
-        </a>
-        <a href="gift-shop.html" class="gs-photo gs-photo--square card-lift" aria-label="AHC merchandise">
-          <img src="img/ahc-merch.webp" alt="Animal Health Center branded merchandise and apparel" loading="lazy" />
-          <span class="gs-photo__cap"><span class="gs-photo__kicker">AHC merch</span>Tees &amp; apparel</span>
-        </a>
-      </div>
-
-      <!-- category chips + CTA -->
-      <div class="mt-12 flex flex-col items-center gap-7" data-anim="up">
-        <ul class="giftshop-chips">
-          <li>Town &amp; Country gifts</li>
-          <li>Seasonal decor</li>
-          <li>Rustic farmhouse finds</li>
-          <li>AHC merchandise</li>
-        </ul>
-        <a href="gift-shop.html" class="btn btn--amber">Visit the Gift Shop →</a>
-      </div>
-    </div>
-  </section>
-
   <!-- ===================== REVIEWS ===================== -->
   <section class="py-20 sm:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -385,7 +352,7 @@
             <h2 class="mt-2 font-heading display text-3xl sm:text-4xl">The KennelBooker<br />Pet Parent app.</h2>
             <p class="mt-4 text-cream/85 text-lg">Book stays, see reservations, and manage your pet's details from your pocket. Download the app and use our business code to get started.</p>
             <div class="mt-5 inline-flex items-center gap-3 bg-white/15 rounded-2xl px-5 py-3"><span class="text-cream/75 text-sm font-semibold">Business code</span><span class="font-heading font-900 text-2xl tracking-[0.3em] text-peach">AHCPR</span></div>
-            <div class="mt-6 flex flex-wrap gap-3"><a href="https://apps.apple.com/" target="_blank" rel="noopener" class="btn btn--ink"> App Store</a><a href="https://play.google.com/store" target="_blank" rel="noopener" class="btn btn--ink">▶ Google Play</a></div>
+            <div class="mt-6 flex flex-wrap gap-3"><a href="https://apps.apple.com/us/app/kennelbooker-pet-parent/id6578441965" target="_blank" rel="noopener" class="btn btn--ink"> App Store</a><a href="https://play.google.com/store/apps/details?id=com.kennelbooker.android.petparent" target="_blank" rel="noopener" class="btn btn--ink">▶ Google Play</a></div>
           </div>
           <div class="relative grid place-items-center" data-anim="up">
             <div class="w-52 h-[24rem] rounded-[2.4rem] bg-ink p-3 shadow-2xl rotate-[-6deg]">
