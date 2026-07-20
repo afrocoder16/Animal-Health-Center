@@ -466,6 +466,17 @@ h1,h2,h3,h4,h5,.font-heading {
 .stamp.is-reward { border-color:var(--cream); }
 .stamp.is-reward.is-stamped { background:radial-gradient(circle at 35% 30%,#f6d98e,var(--amber-2)); }
 
+/* before a lookup succeeds, cards show their empty state dimmed so it's
+   clear the 0/5 and 0/10 shown isn't a real (zero-stamp) result yet */
+.punch-card[data-active="false"] .punch-stamps,
+.punch-card[data-active="false"] [data-reward] { opacity:.45; filter:grayscale(.3); }
+
+/* lookup box above the card(s) */
+.punch-lookup input[aria-invalid="true"] { border-color:#c25b3a; }
+[data-punch-status] { font-weight:700; }
+[data-punch-status].is-error { color:#c25b3a; }
+[data-punch-status]:not(.is-error) { color: var(--teal-ink); }
+
 /* checklist */
 .ready-item input:checked ~ .ready-check { background:var(--teal); border-color:var(--teal); color:var(--cream); }
 .ready-item input:checked ~ .ready-label { color:var(--teal-ink); }

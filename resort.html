@@ -557,7 +557,15 @@
       </div>
 
       <div data-widget="punch" class="mt-10 max-w-xl mx-auto card p-7 sm:p-8 bg-cream relative" data-anim="up">
-        <div class="punch-card p-6 sm:p-7" data-active="true" data-track="boarding">
+        <div class="punch-lookup flex flex-col sm:flex-row gap-3 sm:items-end mb-6">
+          <div class="flex-1">
+            <label class="block text-sm font-bold text-ink/70 mb-1.5" for="punchContactResort">Phone or email</label>
+            <input data-punch-input id="punchContactResort" type="text" placeholder="Name on file's phone or email" class="w-full rounded-xl border border-ink/15 bg-white px-3 py-2.5 text-ink"/>
+          </div>
+          <button data-punch-go class="btn btn--teal !px-5">View my card</button>
+        </div>
+        <p data-punch-status hidden class="mb-4 text-sm"></p>
+        <div class="punch-card p-6 sm:p-7" data-active="false" data-track="boarding">
           <div class="flex items-center justify-between mb-4">
             <h3 class="font-heading font-900 text-cream text-lg">Boarding Rewards</h3>
             <span data-count class="text-sm font-bold text-cream/70">0 / 10</span>
@@ -576,7 +584,6 @@
           </div>
           <p data-reward class="mt-4 text-sm text-cream/85">Four more nights unlock your free 10th!</p>
         </div>
-        <p class="mt-4 text-xs text-ink/45">Sample card shown. Ask at the front desk to start yours, we keep track of the stamps for you.</p>
       </div>
     </div>
   </section>

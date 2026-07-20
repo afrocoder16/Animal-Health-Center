@@ -92,9 +92,19 @@ Gallery added in the mobile drawer):
   Constraint Validation API and simulates success; nothing is sent. The grooming quote form
   (`grooming.html`) behaves the same until its `action` placeholder is replaced with a real
   form-service endpoint. Wire these up to make them real.
-- **Loyalty punch cards** (`resort.html`, `promotions.html`) are static sample displays:
-  markup sets `data-active="true"` and `widgets.js` renders a fixed sample fill, labeled
-  as a sample in the page copy. There is no account lookup.
+- **Loyalty punch cards** (`resort.html`, `promotions.html`) are a live, read-only lookup
+  against a Google Sheet, not a real backend. The Sheet is the customer roster (columns:
+  `name`, `phone`, `email`, `grooming_stamps`, `boarding_stamps`), published to the web as
+  CSV (Sheet's File → Share → Publish to web). `widgets.js` (`PUNCH_SHEET_CSV_URL` near the
+  top of the "LOYALTY PUNCH CARD" section, currently a `REPLACE_WITH_...` placeholder) fetches
+  and parses that CSV client-side, normalizes phone/email, and matches the value a visitor
+  types in `[data-punch-input]`. Because "publish to web" makes the CSV readable by anyone
+  with the URL, **every customer's name, phone, email, and stamp counts are exposed to
+  anyone who obtains that link**, so never post/link the published CSV URL anywhere public,
+  and don't put anything more sensitive than name/contact/stamp-count in that sheet.
+  Nothing is ever written back to the Sheet from the site; staff update stamp counts by
+  hand after each visit. `data-active="false"` in markup is the pre-lookup dimmed state;
+  `initPunchCard` flips it to `"true"` on a successful match.
 
 ### Images
 
