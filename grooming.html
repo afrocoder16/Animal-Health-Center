@@ -252,15 +252,19 @@
       </div>
 
       <!--
-        QUOTE FORM — wire to a real endpoint to go live.
-        Formspree-style: set the action to your Formspree form URL, OR point it
-        at a Resend-based serverless endpoint. Until then, JS intercepts submit
-        and shows a friendly confirmation (nothing is actually sent).
-        >>> REPLACE WITH BUSINESS EMAIL / FORM ENDPOINT <<<
-        e.g. action="https://formspree.io/f/yourFormId" method="POST"
+        QUOTE FORM — LIVE. Posts to Web3Forms, which emails the submission to the
+        address on the account that owns the access key below. The access key is a
+        public identifier (it ships in the page source by design); spam is handled by
+        the honeypot field and Web3Forms' own checks, not by keeping the key secret.
+        widgets.js submits this with fetch() so the visitor stays on the page.
       -->
-      <form data-widget="quote" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST"
+      <form data-widget="quote" action="https://api.web3forms.com/submit" method="POST"
             class="quote-form card bg-cream mt-10 p-6 sm:p-8" novalidate data-anim="up">
+        <input type="hidden" name="access_key" value="222be2aa-bc73-4e44-9d21-55fd98fb3c32" />
+        <input type="hidden" name="subject" value="New grooming quote request - Animal Health Center" />
+        <input type="hidden" name="from_name" value="Animal Health Center website" />
+        <!-- honeypot: bots fill this, humans never see it -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
         <div class="grid gap-5">
           <div>
             <label for="qName" class="form-label">Your name</label>

@@ -89,9 +89,15 @@ Gallery added in the mobile drawer):
   `[data-book]` element (`CONFIG.kennelBooker` at the top of the file). It is not an
   in-house feature.
 - **The contact form is a demo** (`about.html`) — `widgets.js` validates with the native
-  Constraint Validation API and simulates success; nothing is sent. The grooming quote form
-  (`grooming.html`) behaves the same until its `action` placeholder is replaced with a real
-  form-service endpoint. Wire these up to make them real.
+  Constraint Validation API and simulates success; nothing is sent. Wire it up to make it real.
+- **The grooming quote form is live** (`grooming.html`) — it POSTs to **Web3Forms**
+  (`https://api.web3forms.com/submit`) via `fetch` in `initQuoteForm`, so the visitor stays
+  on the page. The `access_key` hidden input in the markup identifies the Web3Forms account;
+  **the recipient address is configured in the Web3Forms dashboard, not in this repo**, so
+  the destination email appears nowhere in the code. The key is a public identifier by design
+  (it ships in page source); spam is filtered by the `botcheck` honeypot input plus Web3Forms'
+  own checks, so don't treat it as a secret to hide. On a failed POST the form shows the shop
+  phone number rather than a silent failure.
 - **Loyalty punch cards** (`resort.html`, `promotions.html`) are a live, read-only lookup
   against a Google Sheet, not a real backend. The Sheet is the customer roster (columns:
   `name`, `phone`, `email`, `grooming_stamps`, `boarding_stamps`), published to the web as

@@ -62,7 +62,10 @@ Do **not** upload `files/` (internal business documents), `README.md`, `CLAUDE.m
 ## Notes
 
 - **Booking** uses an external KennelBooker link, wired at runtime by `js/widgets.js`.
-- **The contact form** (on `about.html`) and the **grooming quote form** (`grooming.html`)
-  are front-end only and do not send anywhere yet; connect them to a form service
-  (e.g. Formspree, set the form `action`) to go live.
+- **The grooming quote form** (`grooming.html`) is live: it POSTs to Web3Forms via
+  `fetch`, which emails the submission to the address on the Web3Forms account that
+  owns the access key in the form markup. Change the recipient in the Web3Forms
+  dashboard, not in the code.
+- **The contact form** (on `about.html`) is still front-end only and does not send
+  anywhere; wire it the same way to go live.
 - Page copy intentionally avoids em/en dashes; keep that style when editing content.

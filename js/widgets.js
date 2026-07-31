@@ -513,30 +513,54 @@
     });
   }
 
-  /* Grooming quote request (grooming.html). Validates, then either POSTs to a
-     real form endpoint or simulates success while the action is a placeholder.
-     Wire action to Formspree / a Resend endpoint to go live. */
+  /* Grooming quote request (grooming.html) — LIVE via Web3Forms.
+     Validates, then POSTs the form data with fetch so the visitor stays on the
+     page instead of landing on the endpoint's JSON response. The access key and
+     honeypot live in the markup. On failure we surface the phone number so a real
+     lead is never silently lost. */
   function initQuoteForm(form) {
     var status = $("[data-form-status]", form);
     var btn = form.querySelector('button[type="submit"]');
     var action = form.getAttribute("action") || "";
-    var live = action && action.indexOf("REPLACE_WITH_FORM_ID") === -1 && action.indexOf("REPLACE") === -1;
+
+    function setBusy(busy) {
+      if (!btn) return;
+      btn.disabled = busy;
+      btn.style.opacity = busy ? ".7" : "1";
+    }
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       validateForm(form, status, function () {
-        if (live) {
-          if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
-          form.submit();
-          return;
-        }
-        if (btn) { btn.disabled = true; btn.style.opacity = ".7"; }
+        setBusy(true);
         if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
-        setTimeout(function () {
-          form.reset();
-          if (btn) { btn.disabled = false; btn.style.opacity = "1"; }
-          if (status) { status.textContent = "Thanks! We'll be in touch with a quote soon. 🐾"; status.style.color = "#1f8a4c"; }
-        }, 900);
+
+        fetch(action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form)
+        })
+          .then(function (res) {
+            return res.json().then(function (data) {
+              return { ok: res.ok && data && data.success, data: data };
+            });
+          })
+          .then(function (r) {
+            if (!r.ok) throw new Error((r.data && r.data.message) || "Submission failed");
+            form.reset();
+            setBusy(false);
+            if (status) {
+              status.textContent = "Thanks! We'll be in touch with a quote soon. 🐾";
+              status.style.color = "#1f8a4c";
+            }
+          })
+          .catch(function () {
+            setBusy(false);
+            if (status) {
+              status.textContent = "Sorry, that didn't go through. Please call (507) 532-5000.";
+              status.style.color = "#c25b3a";
+            }
+          });
       });
     });
   }
