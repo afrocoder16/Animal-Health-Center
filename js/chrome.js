@@ -26,10 +26,11 @@
 
   var NAV =
     '<header data-site-header class="fixed left-1/2 -translate-x-1/2 z-40 w-[min(calc(100%-24px),1180px)] top-[50px]">' +
-      '<div class="relative flex items-center justify-between gap-4 min-h-[64px] px-3 py-2 rounded-3xl bg-white/10 backdrop-blur-md shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] ring-1 ring-white/20">' +
+      '<div class="relative flex items-center justify-between gap-4 min-h-[64px] px-3 py-2 rounded-3xl bg-cream shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] ring-1 ring-ink/10">' +
         '<a href="index.html" class="flex items-center pl-1" aria-label="Animal Health Center home"><img src="img/logoo.webp" alt="Animal Health Center &amp; Pet Resort" class="h-14 w-auto" /></a>' +
         '<nav class="hidden lg:flex items-center gap-1 text-[15px] font-bold text-ink/70" aria-label="Primary">' +
           '<a data-nav="resort" href="resort.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Pet Resort</a>' +
+          '<a data-nav="grooming" href="grooming.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Grooming</a>' +
           '<a data-nav="livestock" href="livestock.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Livestock</a>' +
           '<a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">Small Animal</a>' +
           '<a data-nav="about" href="about.html" class="px-3.5 py-2.5 rounded-2xl hover:text-ink hover:bg-ink/[.06] transition-colors">About Us</a>' +
@@ -42,6 +43,7 @@
         '</div>' +
         '<nav data-menu-drawer id="navDropdown" class="nav-dropdown lg:hidden absolute top-[calc(100%+10px)] right-0 w-[min(320px,calc(100vw-24px))] grid gap-1 p-3 rounded-3xl bg-cream/97 backdrop-blur-md shadow-[0_20px_60px_-20px_rgba(60,40,16,.5)] ring-1 ring-ink/10 text-base font-heading font-800 text-ink/80" aria-label="Mobile">' +
           '<a data-nav="resort" href="resort.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Pet Resort</a>' +
+          '<a data-nav="grooming" href="grooming.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Grooming</a>' +
           '<a data-nav="livestock" href="livestock.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Livestock</a>' +
           '<a data-nav="small-animal" href="small-animal.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Small Animal</a>' +
           '<a data-nav="gallery" href="gallery.html" class="px-3.5 py-3 rounded-2xl hover:bg-ink/[.06] hover:text-ink transition-colors">Gallery</a>' +
@@ -71,7 +73,10 @@
           '<li class="flex justify-between gap-4"><span>Mon to Fri</span><span class="text-cream">8:00am to 5:30pm</span></li>' +
           '<li class="flex justify-between gap-4"><span>Saturday</span><span class="text-cream">8:00am to 12:00pm</span></li>' +
           '<li class="flex justify-between gap-4"><span>Sunday</span><span class="text-cream/50">Closed</span></li>' +
-        '</ul><span data-hours-badge class="hours-badge is-closed mt-3">Checking hours…</span></div>' +
+        '</ul><span data-hours-badge class="hours-badge is-closed mt-3">Checking hours…</span>' +
+          '<p class="mt-4 text-xs text-cream/50 leading-relaxed">Closed: New Year\'s Day, Memorial Day, Fourth of July, Labor Day, Thanksgiving, Christmas Day.</p>' +
+          '<p class="mt-2 text-xs text-cream/50 leading-relaxed">Limited hours 8am to 12pm: New Year\'s Eve and Christmas Eve.</p>' +
+        '</div>' +
         '<div><h4 class="font-heading font-800 text-cream">Visit / Call</h4><p class="mt-3 text-sm">1300 N. Hwy 59<br />Marshall, MN 56258</p>' +
           '<a href="tel:+15075325000" class="mt-2 inline-block font-heading font-800 text-cream text-lg hover:text-amber2 transition-colors">(507) 532-5000</a>' +
           '<a data-book class="mt-4 btn btn--amber !py-2.5 !px-4 !text-sm">Book the Pet Resort →</a>' +

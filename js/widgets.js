@@ -392,28 +392,67 @@
      5b. RATE ESTIMATOR  (resort.html)
      Per-night/day rate, first pet full price, additional pets at the
      discounted rate. Daycare rates are flat per pet (no per-night discount).
+
+     Two special tiers on top of that:
+     - EXTENDED STAY. Boarding and Kitty Korral stays of `extendedFrom` nights
+       or more drop the first/additional split entirely: every pet bills at the
+       same flat `extended` rate. Detected from the day count.
+     - SHORT STAY. One night, conditional on dropping off after 12 or picking
+       up before 12. That condition can't be read off a day count, so it is its
+       own service option; picking it pins days to 1 (`fixedDays`).
      ====================================================================== */
   function initRateEstimator(root) {
     var serviceEl = $("#rateService", root);
     var daysEl = $("#rateDays", root);
     var petsEl = $("#ratePets", root);
     var totalEl = $("#rateTotal", root);
+    var noteEl = $("[data-rate-note]", root);
+    var noteText = $("[data-rate-note-text]", root);
     if (!serviceEl || !daysEl || !petsEl || !totalEl) return;
 
     var RATES = {
-      boarding: { first: 20, extra: 17, perDay: true },
-      kitty:    { first: 20, extra: 17, perDay: true },
-      full:     { first: 22, extra: 22, perDay: true },
-      half:     { first: 12, extra: 12, perDay: true }
+      boarding: { first: 20, extra: 17, extended: 17, extendedFrom: 10, unit: "night" },
+      kitty:    { first: 20, extra: 17, extended: 17, extendedFrom: 10, unit: "day" },
+      short:    { first: 15, extra: 10, fixedDays: 1 },
+      full:     { first: 22, extra: 22 },
+      half:     { first: 12, extra: 12 }
     };
+
+    function setNote(msg) {
+      if (!noteEl) return;
+      noteEl.hidden = !msg;
+      if (noteText) noteText.textContent = msg || "";
+    }
 
     function calc() {
       var rate = RATES[serviceEl.value] || RATES.boarding;
-      var days = Math.max(1, parseInt(daysEl.value, 10) || 1);
       var pets = Math.max(1, parseInt(petsEl.value, 10) || 1);
-      var perDayTotal = rate.first + (pets - 1) * rate.extra;
-      var total = perDayTotal * days;
-      totalEl.textContent = "$" + total.toLocaleString();
+      var days;
+
+      if (rate.fixedDays) {
+        days = rate.fixedDays;
+        daysEl.value = days;
+        daysEl.disabled = true;
+      } else {
+        daysEl.disabled = false;
+        days = Math.max(1, parseInt(daysEl.value, 10) || 1);
+      }
+
+      var extended = rate.extendedFrom && days >= rate.extendedFrom;
+      var perDayTotal = extended
+        ? rate.extended * pets
+        : rate.first + (pets - 1) * rate.extra;
+
+      totalEl.textContent = "$" + (perDayTotal * days).toLocaleString();
+
+      if (extended) {
+        setNote("Extended stay rate applied: " + days + " " + rate.unit + "s, so every pet bills at $" +
+                rate.extended + " per " + rate.unit + ".");
+      } else if (rate.fixedDays) {
+        setNote("Short stay is a single night, and applies when you drop off after 12pm or pick up before 12pm.");
+      } else {
+        setNote("");
+      }
     }
 
     [serviceEl, daysEl, petsEl].forEach(function (el) {
@@ -495,23 +534,6 @@
   }
 
   /* Contact form (about.html) — DEMO MODE. Sends nothing. */
-  function initContactForm(form) {
-    var status = $("[data-form-status]", form);
-    var btn = form.querySelector('button[type="submit"]');
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      validateForm(form, status, function () {
-        if (btn) { btn.disabled = true; btn.style.opacity = ".7"; }
-        if (status) { status.textContent = "Sending…"; status.style.color = "var(--ink-soft)"; }
-        setTimeout(function () {
-          form.reset();
-          if (btn) { btn.disabled = false; btn.style.opacity = "1"; }
-          if (status) { status.textContent = "Thanks! We'll be in touch soon. 🐾"; status.style.color = "#1f8a4c"; }
-        }, 900);
-      });
-    });
-  }
 
   /* Grooming quote request (grooming.html) — LIVE via Web3Forms.
      Validates, then POSTs the form data with fetch so the visitor stays on the
@@ -522,6 +544,10 @@
     var status = $("[data-form-status]", form);
     var btn = form.querySelector('button[type="submit"]');
     var action = form.getAttribute("action") || "";
+    // Each form can word its own confirmation (a quote request and a general
+    // question warrant different replies); falls back to the grooming wording.
+    var successMsg = form.getAttribute("data-success") ||
+      "Thanks! We'll be in touch with a quote soon. 🐾";
 
     function setBusy(busy) {
       if (!btn) return;
@@ -550,7 +576,7 @@
             form.reset();
             setBusy(false);
             if (status) {
-              status.textContent = "Thanks! We'll be in touch with a quote soon. 🐾";
+              status.textContent = successMsg;
               status.style.color = "#1f8a4c";
             }
           })
@@ -738,17 +764,20 @@
 
   /* crossfade photo rotator (Seasonal Spotlight) — reuses .hero-slideshow__slide CSS.
      First slide is already .is-active in markup, so non-JS / reduced motion still
-     shows a photo; we only start the loop when motion is allowed. */
+     shows a photo; we only start the loop when motion is allowed.
+     Pace defaults to 4.5s; data-rotate-interval="3000" overrides it per element
+     (the homepage care tiles run faster than the full-bleed heroes). */
   function initPhotoRotate(root) {
     var slides = $$("[data-rotate-slide]", root);
     if (slides.length < 2) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var ms = parseInt(root.getAttribute("data-rotate-interval"), 10) || 4500;
     var i = 0;
     setInterval(function () {
       slides[i].classList.remove("is-active");
       i = (i + 1) % slides.length;
       slides[i].classList.add("is-active");
-    }, 4500);
+    }, ms);
   }
 
   /* ======================================================================
@@ -801,7 +830,6 @@
     $$('[data-widget="pricing"]').forEach(initPricingToggle);
     $$('[data-widget="rate-estimator"]').forEach(initRateEstimator);
     $$('[data-widget="promos"]').forEach(initWeeklyPromos);
-    $$('[data-widget="contact"]').forEach(initContactForm);
     $$('[data-widget="quote"]').forEach(initQuoteForm);
     $$('[data-widget="dept-switcher"]').forEach(initDeptSwitcher);
     $$('[data-readmore]').forEach(initReadMore);

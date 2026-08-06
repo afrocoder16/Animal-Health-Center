@@ -31,53 +31,24 @@
 
   <main>
 
-  <!-- ===================== HERO — full-bleed diagonal-sliced panorama.
-       Four photos (equine wall · store floor · play yards) tile the whole hero
-       edge to edge, separated only by angled seams, like one continuous strip.
-       A left-to-right scrim keeps the headline readable over the photos.
-       Panels drift a touch on scroll; the mid panel auto-rotates store shots.
-       Stacks to a single rotating photo under the copy on mobile.
-       ===================== -->
-  <section data-hero data-booknow-after class="home-hero relative overflow-hidden">
-
-    <!-- the panorama band: absolutely-positioned diagonal slices -->
-    <div class="home-hero__band" aria-hidden="true">
-      <!-- 1 · equine / feed wall -->
-      <div data-hero-slice data-rate="-5" class="home-hero__slice home-hero__slice--1">
-        <div class="home-hero__img" style="background-image:url('img/home-hero/4.webp')"></div>
-      </div>
-      <!-- 2 · store floor, auto-rotating -->
-      <div data-hero-slice data-rate="4" class="home-hero__slice home-hero__slice--2" data-photo-rotate>
-        <div class="home-hero__img is-active" data-rotate-slide style="background-image:url('img/home-hero/2.webp')"></div>
-        <div class="home-hero__img" data-rotate-slide style="background-image:url('img/home-hero/1.webp')"></div>
-        <div class="home-hero__img" data-rotate-slide style="background-image:url('img/home-hero/3.webp')"></div>
-      </div>
-      <!-- 3 · play yard, wide -->
-      <div data-hero-slice data-rate="-4" class="home-hero__slice home-hero__slice--3">
-        <div class="home-hero__img" style="background-image:url('img/home-hero/6.webp')"></div>
-      </div>
-      <!-- 4 · play yard, shade sail -->
-      <div data-hero-slice data-rate="6" class="home-hero__slice home-hero__slice--4">
-        <div class="home-hero__img" style="background-image:url('img/home-hero/5.webp')"></div>
-      </div>
-      <!-- thin light seam lines drawn on top of the seams -->
-      <span class="home-hero__seam home-hero__seam--a"></span>
-      <span class="home-hero__seam home-hero__seam--b"></span>
-      <span class="home-hero__seam home-hero__seam--c"></span>
+  <!-- ===================== HERO — single full-bleed storefront photo behind a
+       vertical scrim, the same treatment about.html uses so the two pages read
+       as one site. ===================== -->
+  <section data-hero data-booknow-after class="hero-slideshow relative overflow-hidden">
+    <div class="hero-slideshow__slides absolute inset-0">
+      <div class="hero-slideshow__slide is-active" style="background-image:url('img/front-store.webp')"></div>
     </div>
-
-    <!-- readability scrim: dark on the left, clearing to the right -->
-    <div class="home-hero__scrim" aria-hidden="true"></div>
+    <div class="hero-slideshow__scrim absolute inset-0"></div>
 
     <!-- Copy -->
-    <div class="relative z-20 w-full px-4 sm:px-6 lg:pl-[4vw] lg:pr-10 pt-[128px] sm:pt-[150px] pb-16 lg:pb-24 flex items-center min-h-[86vh]">
-      <div class="max-w-xl">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex items-center min-h-[86vh]">
+      <div class="w-full max-w-2xl pt-[128px] sm:pt-[150px] pb-16">
         <p data-hero-line class="inline-flex items-center gap-2 text-amber2 font-bold text-sm bg-white/15 ring-1 ring-white/25 backdrop-blur-sm rounded-full px-4 py-2">
-          <span class="w-2 h-2 rounded-full bg-amber2"></span> For animals big &amp; small · Serving SW Minnesota since 1998
+          <span class="w-2 h-2 rounded-full bg-amber2"></span> Serving SW Minnesota since 1998
         </p>
         <h1 class="mt-6 font-heading display text-white text-[3.4rem] leading-[.9] sm:text-7xl xl:text-[5.2rem] drop-shadow-[0_2px_20px_rgba(0,0,0,.45)]">
-          <span data-hero-line class="block">One stop shop.</span>
-          <span data-hero-line class="block italic text-amber2">Big animals &amp; small.</span>
+          <span data-hero-line class="block">Your one-stop shop</span>
+          <span data-hero-line class="block italic text-amber2">for animals big &amp; small.</span>
         </h1>
         <p data-hero-line class="mt-6 text-white/85 text-lg sm:text-xl max-w-md drop-shadow-[0_1px_10px_rgba(0,0,0,.5)]">
           One roof in Marshall for everything your animals need: a full retail store
@@ -92,37 +63,52 @@
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- marquee strip -->
-    <div data-carousel class="relative z-20 border-t border-white/15 bg-black/25 backdrop-blur-sm">
-      <div class="edge-fade overflow-hidden py-3.5">
-        <!-- six identical sets: the -50% loop shifts three full sets (~3100px), wider
-             than any desktop viewport, so no blank gap can ever scroll through. -->
-        <div class="marquee-track marquee-css flex items-center text-white/55 font-heading font-800 text-lg whitespace-nowrap">
-          <span class="marquee-set flex items-center gap-9 pr-9">
-            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
+  <!-- ===================== ABOUT, who we are ===================== -->
+  <section class="py-20 sm:py-28 relative overflow-hidden">
+    <div class="soft-glow bg-amber2/15 w-[26rem] h-[26rem] -right-20 top-10"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <div class="relative w-full max-w-[480px] mx-auto lg:mx-0" data-anim="up">
+        <div class="aspect-[4/5] rounded-3xl shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] bg-cover bg-center" style="background-image:linear-gradient(180deg, rgba(32,24,15,.05), rgba(32,24,15,.25)), url('img/theresa-bg.webp')"></div>
+        <!-- Theresa's inset portrait. The caption sits inside the frame on a
+             bottom scrim, the same treatment the care tiles use, so the name
+             stays with the face without adding a line under the photo. -->
+        <div class="absolute -right-[6%] -bottom-[10%] w-[48%] aspect-square rounded-3xl border-[6px] border-cream shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] bg-cover bg-center overflow-hidden" style="background-image:url('img/team-theresa.webp')">
+          <span class="absolute inset-x-0 bottom-0 px-3.5 pt-10 pb-3 bg-gradient-to-t from-ink/90 via-ink/50 to-transparent">
+            <span class="block font-heading font-900 text-white text-sm sm:text-base leading-tight drop-shadow">Theresa</span>
+            <span class="block text-white/75 text-[11px] sm:text-xs leading-tight">Owner</span>
           </span>
-          <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
-            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
-          </span>
-          <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
-            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
-          </span>
-          <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
-            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
-          </span>
-          <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
-            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
-          </span>
-          <span aria-hidden="true" class="marquee-set flex items-center gap-9 pr-9">
-            <span>Dogs</span><span class="text-amber2/70">·</span><span>Cats</span><span class="text-amber2/70">·</span><span>Equine</span><span class="text-amber2/70">·</span><span>Cattle</span><span class="text-amber2/70">·</span><span>Swine</span><span class="text-amber2/70">·</span><span>Goats</span><span class="text-amber2/70">·</span><span>Sheep</span><span class="text-amber2">· All under one roof ·</span>
-          </span>
+        </div>
+        <div class="absolute -left-[6%] top-[8%] grid gap-0.5 px-5 py-4 rounded-2xl bg-amber2 text-ink shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] max-w-[200px]">
+          <span class="font-heading font-900 text-2xl leading-none">100%</span>
+          <span class="font-bold text-[13px] leading-tight">Locally owned &amp; family run</span>
+        </div>
+      </div>
+
+      <div data-anim="up">
+        <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">Who we are</p>
+        <h2 class="mt-2 font-heading display text-ink text-4xl sm:text-5xl">One stop for every<br />animal you care for.</h2>
+        <p class="mt-4 text-ink/60 text-lg">
+          Animal Health Center has been Marshall's go-to for animals big and small since 1998.
+          From pet food and grooming to livestock vaccines and supplies, we're the friendly,
+          family-run shop that keeps Southwest Minnesota's animals healthy and happy.
+        </p>
+        <ul class="mt-6 grid gap-3">
+          <li class="feature-li">Full retail store for pets &amp; livestock alike</li>
+          <li class="feature-li">Pet Resort dog &amp; cat boarding and doggy daycare</li>
+          <li class="feature-li">On-staff grooming: bathing, brushing &amp; nails</li>
+          <li class="feature-li">We work closely with the vets at Marshall Animal Clinic</li>
+        </ul>
+        <div class="mt-8 pt-6 border-t border-ink/10 flex items-center gap-4 flex-wrap">
+          <a href="about.html" class="btn btn--ink">Meet the team →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== WHO ARE YOU CARING FOR (moved up) ===================== -->
+  <!-- ===================== WHO ARE YOU CARING FOR ===================== -->
   <section class="py-20 sm:py-28 relative overflow-hidden">
     <!-- decorative scattered paws: one SVG covers the whole section -->
     <svg class="absolute inset-0 w-full h-full pointer-events-none select-none" aria-hidden="true" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice">
@@ -167,8 +153,14 @@
         </a>
         <!-- Small Animals -->
         <a href="small-animal.html" class="care-tile group block relative overflow-hidden rounded-3xl shadow-[0_18px_50px_-26px_rgba(60,40,16,.55)]">
-          <div class="aspect-[4/5] w-full overflow-hidden bg-sand/60">
-            <img src="img/pets-sa-home.webp" alt="Pets &amp; small animals" loading="lazy" class="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]" onerror="this.style.objectFit='contain';this.src='img/transparent/dogs-group.webp'"/>
+          <!-- rotates dogs → rabbits → chickens every 5s, crossfading.
+               chickens.jpg is landscape, so it is pulled left to keep the near
+               hen in frame instead of cropping her off the edge. -->
+          <div class="aspect-[4/5] w-full overflow-hidden bg-sand/60 relative" data-photo-rotate data-rotate-interval="5000">
+            <img data-rotate-slide class="care-tile__photo is-active" src="img/pets-sa-home.webp" alt="Pets &amp; small animals" onerror="this.style.objectFit='contain';this.src='img/transparent/dogs-group.webp'"/>
+            <img data-rotate-slide class="care-tile__photo" src="img/gallery/g-dogs-golden-sit-smile.webp" alt="" loading="lazy"/>
+            <img data-rotate-slide class="care-tile__photo" src="img/rabit.jpg" alt="" loading="lazy"/>
+            <img data-rotate-slide class="care-tile__photo" src="img/chickens.jpg" alt="" loading="lazy" style="object-position:left center"/>
           </div>
           <span class="care-tile__overlay"></span>
           <span class="care-tile__label">
@@ -179,8 +171,12 @@
         </a>
         <!-- Livestock -->
         <a href="livestock.html" class="care-tile group block relative overflow-hidden rounded-3xl shadow-[0_18px_50px_-26px_rgba(60,40,16,.55)]">
-          <div class="aspect-[4/5] w-full overflow-hidden bg-amber/20">
-            <img src="img/livestock.webp" alt="Livestock, cattle &amp; farm animals" loading="lazy" class="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]" onerror="this.style.objectFit='contain';this.src='img/transparent/farm-animals.webp'"/>
+          <!-- rotates cattle → swine → horses → sheep every 5s, crossfading -->
+          <div class="aspect-[4/5] w-full overflow-hidden bg-amber/20 relative" data-photo-rotate data-rotate-interval="5000">
+            <img data-rotate-slide class="care-tile__photo is-active" src="img/livestock.webp" alt="Livestock, cattle &amp; farm animals" onerror="this.style.objectFit='contain';this.src='img/transparent/farm-animals.webp'"/>
+            <img data-rotate-slide class="care-tile__photo" src="img/swine.jpg" alt="" loading="lazy"/>
+            <img data-rotate-slide class="care-tile__photo" src="img/horses.jpg" alt="" loading="lazy"/>
+            <img data-rotate-slide class="care-tile__photo" src="img/sheep.jpg" alt="" loading="lazy"/>
           </div>
           <span class="care-tile__overlay"></span>
           <span class="care-tile__label">
@@ -192,7 +188,7 @@
         <!-- Grooming -->
         <a href="grooming.html" class="care-tile group block relative overflow-hidden rounded-3xl shadow-[0_18px_50px_-26px_rgba(60,40,16,.55)]">
           <div class="aspect-[4/5] w-full overflow-hidden bg-peach/50">
-            <img src="img/grooming.webp" alt="Grooming, bath, brush &amp; a bow" loading="lazy" class="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]" onerror="this.style.objectFit='contain';this.src='img/transparent/dog-groomed.webp'"/>
+            <img src="img/gallery/g-grooming-doodle-fresh-cut.webp" alt="A doodle with a fresh haircut" loading="lazy" class="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]" onerror="this.style.objectFit='contain';this.src='img/transparent/dog-groomed.webp'"/>
           </div>
           <span class="care-tile__overlay"></span>
           <span class="care-tile__label">
@@ -303,7 +299,7 @@
         <div class="max-w-2xl" data-anim="up">
           <p class="font-heading font-800 text-amber2 text-sm tracking-[0.25em] uppercase">From the barn to the back door</p>
           <h2 class="mt-2 font-heading display text-cream text-4xl sm:text-6xl">Stocked for every<br />head you raise.</h2>
-          <p class="mt-4 text-cream/85 text-lg max-w-xl">Cattle, swine, equine, sheep &amp; goats: name-brand vaccines, wormers, feed, implants, and VFD products. If we don't have it, we'll get it. And Dr. Kuecker is right here for the large-animal calls.</p>
+          <p class="mt-4 text-cream/85 text-lg max-w-xl">Cattle, swine, equine, sheep &amp; goats: name-brand vaccines, wormers, feed, implants, and VFD products. If we don't have it, we'll get it, usually by the next delivery. Ask anyone behind the counter, they raise animals out here too.</p>
           <div data-lasso class="lasso-rope mt-6 max-w-xs"></div>
         </div>
         <div class="sm:mt-2" data-anim="up"><a href="livestock.html" class="btn btn--amber">Browse livestock supplies →</a></div>
@@ -369,45 +365,6 @@
     </div>
   </section>
 
-  <!-- ===================== ABOUT, who we are (moved down) ===================== -->
-  <section class="py-20 sm:py-28 relative overflow-hidden">
-    <div class="soft-glow bg-amber2/15 w-[26rem] h-[26rem] -right-20 top-10"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-      <div class="relative w-full max-w-[480px] mx-auto lg:mx-0" data-anim="up">
-        <div class="aspect-[4/5] rounded-3xl shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] bg-cover bg-center" style="background-image:linear-gradient(180deg, rgba(32,24,15,.05), rgba(32,24,15,.25)), url('img/theresa-bg.webp')"></div>
-        <div class="absolute -right-[6%] -bottom-[10%] w-[48%] aspect-square rounded-3xl border-[6px] border-cream shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] bg-cover bg-center" style="background-image:url('img/team-theresa.webp')"></div>
-        <div class="absolute -left-[6%] top-[8%] grid gap-0.5 px-5 py-4 rounded-2xl bg-amber2 text-ink shadow-[0_20px_60px_-24px_rgba(60,40,16,.45)] max-w-[200px]">
-          <span class="font-heading font-900 text-2xl leading-none">100%</span>
-          <span class="font-bold text-[13px] leading-tight">Locally owned &amp; family run</span>
-        </div>
-      </div>
-
-      <div data-anim="up">
-        <p class="font-heading font-800 text-teal text-sm tracking-[0.2em] uppercase">Who we are</p>
-        <h2 class="mt-2 font-heading display text-ink text-4xl sm:text-5xl">One stop for every<br />animal you care for.</h2>
-        <p class="mt-4 text-ink/60 text-lg">
-          Animal Health Center has been Marshall's go-to for animals big and small since 1998.
-          From pet food and grooming to livestock vaccines and supplies, we're the friendly,
-          family-run shop that keeps Southwest Minnesota's animals healthy and happy.
-        </p>
-        <ul class="mt-6 grid gap-3">
-          <li class="feature-li">Full retail store for pets &amp; livestock alike</li>
-          <li class="feature-li">Pet Resort dog &amp; cat boarding and doggy daycare</li>
-          <li class="feature-li">On-staff grooming: bathing, brushing &amp; nails</li>
-          <li class="feature-li">We work closely with the vets at Marshall Animal Clinic</li>
-        </ul>
-        <div class="mt-8 pt-6 border-t border-ink/10 flex items-center justify-between gap-4 flex-wrap">
-          <div>
-            <span class="block font-heading font-800 text-ink text-lg">Theresa</span>
-            <span class="block text-ink/55 text-sm">Owner</span>
-          </div>
-          <a href="about.html" class="btn btn--ink">Meet the team →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===================== CTA (action only) ===================== -->
   <section class="relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
@@ -415,9 +372,9 @@
         <div class="relative" data-anim="up">
           <h2 class="font-heading display text-4xl sm:text-5xl">Ready when you are.</h2>
           <div class="mt-8 flex flex-wrap gap-3 justify-center">
-            <a data-book class="btn btn--ink">Book a Stay →</a>
             <a href="tel:+15075325000" class="btn btn--ghost">Call Us</a>
             <a href="https://maps.google.com/?q=1300+N+Hwy+59+Marshall+MN+56258" target="_blank" rel="noopener" class="btn btn--ghost">Visit Us</a>
+            <a data-book class="btn btn--ink">Book a Stay →</a>
           </div>
         </div>
       </div>

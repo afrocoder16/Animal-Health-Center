@@ -35,9 +35,10 @@ and injected at runtime, so edit the nav or footer **there**, not per page.
 Pages (all linked from the homepage; the injected nav shows four links + logo/home, with
 Gallery added in the mobile drawer):
 
-- `index.html` — homepage (diagonal-slice hero, routing tiles, weekly deals + loyalty
-  teaser, Pet Resort highlight, livestock section, reviews, KennelBooker app, about, CTA).
-- `about.html` — about + team + the demo contact form (`data-widget="contact"`).
+- `index.html` — homepage (single-photo hero sharing `about.html`'s `.hero-slideshow`
+  treatment, routing tiles, weekly deals + loyalty teaser, Pet Resort highlight,
+  livestock section, reviews, KennelBooker app, about, CTA).
+- `about.html` — about + team + the general contact form (`data-widget="quote"`).
 - `resort.html` — Pet Resort (boarding + daycare).
 - `gallery.html` — photo gallery.
 - `livestock.html`, `small-animal.html`, `grooming.html` — service detail pages.
@@ -74,11 +75,11 @@ Gallery added in the mobile drawer):
   to load, `animations.js` calls `revealAll()` and forces every `[data-anim]`/`[data-hero-line]`
   visible immediately. Keep any new animation behind this guard, and make content readable
   without JS.
-- **The homepage marquee strip** ("Dogs · Cats · … All under one roof") is a pure-CSS
-  animation. Its layout rules are duplicated in `custom.css` (`.marquee-track`/`.marquee-set`)
-  so it paints correctly before the Tailwind CDN runs, and it holds **six identical sets**
-  so the `-50%` keyframe loop never shows a blank gap on wide screens. Keep all six in sync
-  if the word list changes.
+- **Crossfading photo stacks** use the shared rotator in `widgets.js` (`initPhotoRotate`):
+  put `data-photo-rotate` on a container and `data-rotate-slide` on each stacked child,
+  with `is-active` pre-set on the first one so no-JS and reduced motion still show a photo.
+  Pace defaults to 4.5s; `data-rotate-interval="3000"` overrides it (the homepage
+  `.care-tile__photo` stacks run at 3s). The crossfade itself is CSS, not JS.
 - **Design language**: warm palette (cream, ink, teal, amber, forest, rust), **Nunito** for
   headings (`font-heading`, `.display`) and **Inter** for body. Buttons use `.btn` +
   `.btn--amber|--teal|--ink|--ghost|--ghost-light`. Reusable bits: `.card`/`.card-lift`,
@@ -88,11 +89,14 @@ Gallery added in the mobile drawer):
 - **Booking** is an external KennelBooker link, applied at runtime by `widgets.js` to every
   `[data-book]` element (`CONFIG.kennelBooker` at the top of the file). It is not an
   in-house feature.
-- **The contact form is a demo** (`about.html`) — `widgets.js` validates with the native
-  Constraint Validation API and simulates success; nothing is sent. Wire it up to make it real.
-- **The grooming quote form is live** (`grooming.html`) — it POSTs to **Web3Forms**
-  (`https://api.web3forms.com/submit`) via `fetch` in `initQuoteForm`, so the visitor stays
-  on the page. The `access_key` hidden input in the markup identifies the Web3Forms account;
+- **All four forms are live** and share one implementation: `data-widget="quote"` +
+  `initQuoteForm` in `widgets.js`. They are the grooming quote (`grooming.html`), the
+  livestock and small-animal "Ask us" forms (`#ask` on each), and the general contact form
+  (`about.html`). Each POSTs to **Web3Forms** (`https://api.web3forms.com/submit`) via
+  `fetch`, so the visitor stays on the page. Per-form wording comes from markup, not JS:
+  the hidden `subject` input labels which page it came from, and an optional
+  `data-success="…"` attribute overrides the confirmation text (the default is the
+  grooming quote wording). The `access_key` hidden input identifies the Web3Forms account;
   **the recipient address is configured in the Web3Forms dashboard, not in this repo**, so
   the destination email appears nowhere in the code. The key is a public identifier by design
   (it ships in page source); spam is filtered by the `botcheck` honeypot input plus Web3Forms'

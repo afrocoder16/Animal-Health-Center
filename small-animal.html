@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FBF6EC" />
   <title>Pets and Small Animals · Dog &amp; Cat Supplies · Animal Health Center, Marshall MN</title>
-  <meta name="description" content="Dog and cat food, treats, supplements, CBD and everyday supplies in Marshall, MN. NutriSource, Fromm, Royal Canin, Diamond, Honest Paws CBD and more." />
+  <meta name="description" content="Food, treats, supplements, CBD and everyday supplies for dogs, cats, rabbits and chickens in Marshall, MN. NutriSource, Fromm, Royal Canin, Diamond, Purina, Honest Paws and Suzie's CBD and more." />
   <meta property="og:title" content="Pets and Small Animals · Animal Health Center &amp; Pet Resort" />
   <meta property="og:description" content="Everything your dog, cat, and small animal needs, all in one place in Marshall, MN." />
   <meta property="og:type" content="website" />
@@ -34,9 +34,14 @@
   <!-- ===================== HERO ===================== -->
   <section data-hero data-booknow-after class="hero-slideshow relative overflow-hidden">
     <div class="hero-slideshow__slides absolute inset-0">
-      <div class="hero-slideshow__slide is-active" style="background-image:url('img/small-animal-hero.webp');background-position:left center"></div>
+      <!-- the store interior is lit warm but shot dim, so the photo itself gets
+           a brightness lift before the scrim goes over it -->
+      <div class="hero-slideshow__slide is-active" style="background-image:url('img/small-animal-hero.webp');background-position:left center;filter:brightness(1.18) saturate(1.06)"></div>
     </div>
-    <div class="hero-slideshow__scrim absolute inset-0" style="background:linear-gradient(90deg,rgba(10,8,4,.82) 0%,rgba(10,8,4,.60) 45%,rgba(10,8,4,.20) 100%),linear-gradient(180deg,rgba(20,15,8,.55) 0%,rgba(20,15,8,.40) 45%,rgba(20,15,8,.65) 100%)"></div>
+    <!-- Two stacked scrims multiply, so both are pulled back. The horizontal one
+         still carries most of the weight on the left where the white copy sits;
+         the right side clears out so the aisles actually read. -->
+    <div class="hero-slideshow__scrim absolute inset-0" style="background:linear-gradient(90deg,rgba(10,8,4,.74) 0%,rgba(10,8,4,.46) 45%,rgba(10,8,4,.08) 100%),linear-gradient(180deg,rgba(20,15,8,.28) 0%,rgba(20,15,8,.14) 45%,rgba(20,15,8,.40) 100%)"></div>
 
     <div class="relative z-10 w-full px-4 sm:px-6 flex items-center justify-start min-h-[84vh]">
       <div class="w-full max-w-2xl pt-[150px] pb-16 ml-[4vw]">
@@ -51,7 +56,7 @@
           Everything your dog, cat, and small animal needs, all in one place in Marshall.
         </p>
         <p data-hero-line class="mt-3 text-white/80 text-lg max-w-xl">
-          NutriSource, Fromm, Royal Canin, Honest Paws CBD and more. If we do not have it on the shelf, we can almost always get it.
+          NutriSource, Fromm, Royal Canin, Purina, Honest Paws and Suzie's CBD and more. If we do not have it on the shelf, we can almost always get it.
         </p>
         <div data-hero-line class="mt-8 flex flex-wrap gap-3">
           <a href="#departments" class="btn btn--amber">Browse the aisles →</a>
@@ -62,32 +67,11 @@
         <div data-hero-line class="mt-8 flex flex-wrap gap-2.5">
           <a href="#departments" class="chip-link chip-link--light" data-dept-jump="dogs">Dogs</a>
           <a href="#departments" class="chip-link chip-link--light" data-dept-jump="cats">Cats</a>
+          <a href="#departments" class="chip-link chip-link--light" data-dept-jump="rabbits-chickens">Rabbits &amp; chickens</a>
           <a href="#departments" class="chip-link chip-link--light">Food &amp; treats</a>
           <a href="#departments" class="chip-link chip-link--light">CBD</a>
           <a href="#also-in-store" class="chip-link chip-link--light">Grooming &amp; more</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== TRUST BAND ===================== -->
-  <section class="bg-ink text-cream relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-7 grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6 text-center" data-anim="cards">
-      <div>
-        <p class="font-heading display text-3xl sm:text-4xl text-amber2" data-countup data-to="12" data-suffix="+">12+</p>
-        <p class="text-cream/65 text-sm mt-1">food brands stocked</p>
-      </div>
-      <div>
-        <p class="font-heading display text-3xl sm:text-4xl text-amber2">CBD</p>
-        <p class="text-cream/65 text-sm mt-1">Honest Paws on shelf</p>
-      </div>
-      <div>
-        <p class="font-heading display text-3xl sm:text-4xl text-amber2">Dog &amp; Cat</p>
-        <p class="text-cream/65 text-sm mt-1">aisles up front</p>
-      </div>
-      <div>
-        <p class="font-heading display text-3xl sm:text-4xl text-amber2">Special</p>
-        <p class="text-cream/65 text-sm mt-1">orders welcome</p>
       </div>
     </div>
   </section>
@@ -100,7 +84,7 @@
       <div class="max-w-3xl" data-anim="up">
         <span class="service-kicker bg-forest/12 text-forest">Shop by pet</span>
         <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">Pick your pet. <span class="italic text-forest">See what we carry.</span></h2>
-        <p class="mt-4 text-ink/65 text-lg">Choose dogs or cats to see everything we stock, laid out aisle by aisle. On a phone, tap a pet to open it.</p>
+        <p class="mt-4 text-ink/65 text-lg">Dogs, cats, rabbits &amp; chickens. Pick one to see everything we stock, laid out aisle by aisle. On a phone, tap a pet to open it.</p>
       </div>
 
       <div class="dept-switcher mt-10" data-widget="dept-switcher" data-default="dogs">
@@ -109,6 +93,7 @@
         <div class="dept-tabs" role="tablist" aria-label="Pet departments" data-anim="up">
           <button type="button" class="dept-tab" role="tab" data-dept-tab="dogs">Dogs</button>
           <button type="button" class="dept-tab" role="tab" data-dept-tab="cats">Cats</button>
+          <button type="button" class="dept-tab" role="tab" data-dept-tab="rabbits-chickens">Rabbits &amp; Chickens</button>
         </div>
 
         <div class="mt-6 lg:mt-8">
@@ -132,16 +117,15 @@
                   <div class="prod-block prod-block--compact sm:col-span-2"><h3 class="prod-block__h">Dry Dog Food</h3><p class="prod-block__p">NutriSource, Pure-Vita, Element Series, Diamond Naturals, Diamond, Fromm, Bil-Jac, Royal Canin, Natural Balance, Purina One, Purina Pro Plan, Tuffy's. Several varieties available in store. Special orders welcome.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Wet Dog Food</h3><p class="prod-block__p">NutriSource, Purina Pro Plan.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Treats</h3><p class="prod-block__p">Wide selection of dog treats in store. Ask our team for recommendations.</p></div>
-                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">CBD Products</h3><p class="prod-block__p">Honest Paws CBD. One of the few stores in Southwest Minnesota carrying this brand. Ask our team for dosing guidance.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">CBD Products</h3><p class="prod-block__p">Honest Paws and Suzie's CBD. One of the few stores in Southwest Minnesota carrying these brands. Ask our team for dosing guidance.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Supplements and Vitamins</h3><p class="prod-block__p">Supplements, vitamins, and health support products available in store.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Flea and Tick</h3><p class="prod-block__p">Frontline available in store.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Feeding and Water</h3><p class="prod-block__p">Slow feeders, bowls, and accessories.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Collars, Harnesses and Leashes</h3><p class="prod-block__p">Full selection of collars, harnesses, leashes, and slip leads.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Beds and Furniture</h3><p class="prod-block__p">Dog beds and raised beds.</p></div>
-                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Toys</h3><p class="prod-block__p">Selection of dog toys in store.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Toys</h3><p class="prod-block__p">Large selection of dog toys in store, from chew toys and ropes to squeakers and puzzle feeders.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Grooming Supplies</h3><p class="prod-block__p">Shampoos, brushes, nail trimmers, and grooming accessories.</p></div>
-                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Health and Hygiene</h3><p class="prod-block__p">Pill pockets, toothpaste, toothbrushes, skunk remover, puppy training pads, waste cleanup bags.</p></div>
-                  <div class="prod-block prod-block--compact sm:col-span-2"><h3 class="prod-block__h">Muzzles</h3><p class="prod-block__p">Available in store in multiple sizes.</p></div>
+                  <div class="prod-block prod-block--compact sm:col-span-2"><h3 class="prod-block__h">Health and Hygiene</h3><p class="prod-block__p">Pill pockets, toothpaste, toothbrushes, skunk remover, puppy training pads, waste cleanup bags, and muzzles in multiple sizes.</p></div>
                 </div>
               </div>
             </div>
@@ -166,13 +150,35 @@
                   <div class="prod-block prod-block--compact sm:col-span-2"><h3 class="prod-block__h">Dry Cat Food</h3><p class="prod-block__p">NutriSource, Pure-Vita, Diamond Naturals, Diamond Maintenance, Fromm, Tuffy's. Several varieties available in store. Special orders welcome.</p></div>
                   <div class="prod-block prod-block--compact sm:col-span-2"><h3 class="prod-block__h">Wet Cat Food</h3><p class="prod-block__p">NutriSource, Pure-Vita, Diamond Naturals, Natural Balance, Fancy Feast, Element Series. Special orders welcome.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Treats</h3><p class="prod-block__p">Cat treats available in store.</p></div>
-                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">CBD Products</h3><p class="prod-block__p">Honest Paws CBD for cats. Ask our team for guidance.</p></div>
-                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Flea and Tick</h3><p class="prod-block__p">Frontline and Feliway available in store.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">CBD Products</h3><p class="prod-block__p">Honest Paws and Suzie's CBD for cats. Ask our team for guidance.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Flea and Tick</h3><p class="prod-block__p">Frontline available in store.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Collars and Harnesses</h3><p class="prod-block__p">Cat collars and harnesses available in store.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Beds and Cat Trees</h3><p class="prod-block__p">Cat beds and cat trees in store.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Toys</h3><p class="prod-block__p">Cat toy selection available in store.</p></div>
                   <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Grooming Supplies</h3><p class="prod-block__p">Cat shampoos and grooming accessories.</p></div>
-                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Health and Hygiene</h3><p class="prod-block__p">Pill pockets, slow feeders, and general health supplies.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Health and Hygiene</h3><p class="prod-block__p">Pill pockets, slow feeders, Feliway calming diffusers, and general health supplies.</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== RABBITS AND CHICKENS ===== -->
+          <div class="dept-panel" data-dept-panel="rabbits-chickens">
+            <button type="button" class="dept-acc-head" data-dept-acc="rabbits-chickens" aria-expanded="false">
+              <span>Rabbits &amp; Chickens</span>
+              <svg class="dept-acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="dept-panel__body">
+              <div class="grid lg:grid-cols-[minmax(0,18rem)_1fr] gap-8 lg:gap-12 items-start">
+                <div data-anim="up">
+                  <span class="service-kicker bg-forest/12 text-forest">Rabbits &amp; Chickens</span>
+                  <p class="mt-3 text-ink/65 text-lg">Keeping rabbits indoors or a small flock out back? We stock the feed, bedding, and everyday supplies to keep them going.</p>
+                  <img src="img/rabit.jpg" alt="A rabbit in the grass" class="mt-6 rounded-[26px] shadow-lg w-full object-cover aspect-[4/3] ring-1 ring-ink/5" loading="lazy" />
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4" data-anim="cards">
+                  <div class="prod-block prod-block--compact sm:col-span-2"><h3 class="prod-block__h">Feed</h3><p class="prod-block__p">Purina feed for rabbits and chickens. Special orders welcome if you need something we do not have on the shelf.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Rabbit Supplies</h3><p class="prod-block__p">Treats, feeders, toys, bedding, and hay.</p></div>
+                  <div class="prod-block prod-block--compact"><h3 class="prod-block__h">Chicken Supplies</h3><p class="prod-block__p">Treats and feed for your flock.</p></div>
                 </div>
               </div>
             </div>
@@ -198,10 +204,125 @@
             <a href="tel:+15075325000" class="btn btn--amber">Call us at (507) 532-5000</a>
             <a href="sms:+15078289458" class="btn btn--ghost-light">Text us at (507) 828-9458</a>
           </div>
+          <p class="mt-5 text-cream/75 text-sm">Rather write it down? <a href="#ask" class="font-heading font-800 text-amber2 underline underline-offset-4 hover:text-cream transition-colors">Send us your question below</a>.</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ===================== SECTION 3b · ASK US (pet & small animal contact form) =====================
+       Live form, POSTs to Web3Forms via fetch in initQuoteForm, the same wiring
+       the grooming quote form and the livestock form use, so the visitor never
+       leaves the page. The recipient address lives in the Web3Forms dashboard,
+       not in this repo. Fields mirror this page: the animal list matches the
+       department tabs, and the brand field exists because the section directly
+       above it is about special-ordering a brand we do not shelve. -->
+  <section id="ask" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
+    <div class="soft-glow bg-teal2/12 w-[26rem] h-[26rem] -left-24 top-0"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[.9fr_1.1fr] gap-12 lg:gap-16 items-start">
+
+      <div data-anim="up">
+        <span class="service-kicker bg-teal/10 text-teal">Ask us</span>
+        <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">Question about<br />your pet?</h2>
+        <p class="mt-5 text-ink/65 text-lg max-w-xl">
+          Not sure which food to switch to, want to know if we have something in stock, or after a brand you do not see on the shelf? Send it over and we will get back to you.
+        </p>
+
+        <ul class="mt-7 grid gap-3 max-w-md">
+          <li class="feature-li">Is it in stock, and can you order it</li>
+          <li class="feature-li">Food and nutrition advice</li>
+          <li class="feature-li">CBD, flea &amp; tick and health products</li>
+          <li class="feature-li">Toys, beds and everyday supplies</li>
+        </ul>
+
+        <div class="mt-8 pt-7 border-t border-ink/10 grid sm:grid-cols-2 gap-5 max-w-md">
+          <div>
+            <span class="block text-ink/50 text-sm">In a hurry? Call</span>
+            <a href="tel:+15075325000" class="font-heading font-800 text-ink text-lg hover:text-teal transition-colors">(507) 532-5000</a>
+          </div>
+          <div>
+            <span class="block text-ink/50 text-sm">Or text us</span>
+            <a href="sms:+15078289458" class="font-heading font-800 text-ink text-lg hover:text-teal transition-colors">(507) 828-9458</a>
+          </div>
+        </div>
+      </div>
+
+      <form data-widget="quote" action="https://api.web3forms.com/submit" method="POST"
+            data-success="Thanks! We got your question and will get back to you soon. 🐾"
+            class="quote-form card bg-cream p-6 sm:p-8" novalidate data-anim="up">
+        <input type="hidden" name="access_key" value="222be2aa-bc73-4e44-9d21-55fd98fb3c32" />
+        <input type="hidden" name="subject" value="New pet and small animal question - Animal Health Center" />
+        <input type="hidden" name="from_name" value="Animal Health Center website" />
+        <!-- honeypot: bots fill this, humans never see it -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="grid gap-5">
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="saName" class="form-label">Your name</label>
+              <input id="saName" name="name" type="text" required class="form-input" placeholder="Jane Doe" />
+            </div>
+            <div>
+              <label for="saContact" class="form-label">Phone or email</label>
+              <input id="saContact" name="phone_or_email" type="text" required class="form-input" placeholder="(507) 555-0123 or you@email.com" />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="saReach" class="form-label">Best way to reach you</label>
+              <select id="saReach" name="preferred_contact" class="form-input">
+                <option>Phone call</option>
+                <option>Text</option>
+                <option>Email</option>
+              </select>
+            </div>
+            <div>
+              <label for="saAnimal" class="form-label">Animal</label>
+              <select id="saAnimal" name="animal" class="form-input">
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Rabbit</option>
+                <option>Chicken</option>
+                <option>Other or multiple</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="saTopic" class="form-label">What is this about?</label>
+              <select id="saTopic" name="topic" class="form-input">
+                <option>In stock or special order</option>
+                <option>Food and nutrition advice</option>
+                <option>CBD products</option>
+                <option>Flea, tick and health products</option>
+                <option>Toys, beds and supplies</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div>
+              <label for="saBrand" class="form-label">Brand or product <span class="font-normal text-ink/45">(optional)</span></label>
+              <input id="saBrand" name="brand_or_product" type="text" class="form-input" placeholder="e.g. Fromm Gold, 30 lb bag" />
+            </div>
+          </div>
+
+          <div>
+            <label for="saMessage" class="form-label">Your question</label>
+            <textarea id="saMessage" name="message" rows="4" required class="form-input" placeholder="Tell us what you are after. Your pet's age, size, and anything they are sensitive to all help us answer faster."></textarea>
+          </div>
+        </div>
+
+        <div class="mt-6 flex items-center gap-4 flex-wrap">
+          <button type="submit" class="btn btn--amber">Send my question →</button>
+          <p data-form-status class="text-sm font-semibold" role="status" aria-live="polite"></p>
+        </div>
+        <p class="mt-4 text-sm text-ink/55">We usually reply within a business day. For anything urgent with an animal, please call <a href="tel:+15075325000" class="font-bold text-teal hover:text-amber transition-colors">(507) 532-5000</a>.</p>
+      </form>
+    </div>
+  </section>
+
+  <div class="paw-divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
 
   <!-- ===================== SECTION 4 · ALSO IN STORE ===================== -->
   <section id="also-in-store" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
