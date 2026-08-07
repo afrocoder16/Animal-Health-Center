@@ -58,9 +58,19 @@
     gsap.fromTo(el, { y: -amt / 2 }, { y: amt / 2, ease: "none", scrollTrigger: { trigger: el.closest("section"), start: "top bottom", end: "bottom top", scrub: true } });
   });
 
-  /* ---- blobs drift slowly for life ---- */
+  /* ---- blobs drift for life ----
+     Amplitude matters more than duration here: 26px on a 30rem blob is ~5% of
+     its own width, which reads as static no matter how long you watch. Bigger
+     travel over a shorter leg makes the drift legible while staying calm. The
+     per-blob stagger keeps a page with several of them from moving in lockstep. */
   $$('[data-blob]').forEach(function (el, i) {
-    gsap.to(el, { x: (i % 2 ? 26 : -26), y: (i % 2 ? -18 : 18), duration: 9 + i * 2, ease: "sine.inOut", yoyo: true, repeat: -1 });
+    gsap.to(el, {
+      x: (i % 2 ? 115 : -115),
+      y: (i % 2 ? -78 : 78),
+      rotation: (i % 2 ? 9 : -9),
+      duration: 3.6 + i * 0.6,
+      ease: "sine.inOut", yoyo: true, repeat: -1
+    });
   });
 
   /* ---- ranch section: photo background parallax + rope draw ----

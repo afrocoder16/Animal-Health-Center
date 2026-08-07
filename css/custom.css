@@ -863,6 +863,217 @@ body.menu-open { overflow:hidden; }
 }
 .groom-framed:hover > img { transform:scale(1.05); }
 
+/* ==========================================================================
+   PROMO SPOT — index.html #promo. One dated offer, swapped regularly from the
+   monthly promotional calendar in promo/. Built as a date-led feature rather
+   than a grid of deal cards, because there is only ever one live promo and it
+   should read like a specific thing happening on a specific day.
+   ========================================================================== */
+.promo-sec {
+  background:
+    radial-gradient(80% 60% at 15% 0%, rgba(246,217,168,.45), transparent 60%),
+    linear-gradient(180deg, #FFFDF7 0%, var(--cream) 100%);
+}
+
+/* the month-long umbrella campaign, above the dated offer */
+.promo-flag {
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.82rem;
+  color:var(--forest); background:rgba(62,107,35,.1);
+  border:1px solid rgba(62,107,35,.2);
+  padding:.5rem 1rem; border-radius:999px;
+}
+.promo-flag__dot {
+  width:.5rem; height:.5rem; border-radius:50%; background:var(--forest); flex:none;
+}
+
+/* torn-off calendar page holding the date */
+.promo-date {
+  flex:none; display:grid; place-items:center; gap:.05rem;
+  width:4.6rem; padding:.55rem .5rem .65rem;
+  background:var(--white); border-radius:18px;
+  border:1px solid rgba(60,40,16,.1);
+  box-shadow:0 14px 30px -16px rgba(60,40,16,.55);
+  position:relative;
+}
+.promo-date::before {   /* the red header strip of a calendar page */
+  content:""; position:absolute; left:0; right:0; top:0; height:.5rem;
+  background:var(--amber); border-radius:18px 18px 0 0;
+}
+.promo-date__day {
+  font-family:"Nunito",sans-serif; font-weight:900; font-size:2.1rem;
+  line-height:1; color:var(--ink); margin-top:.5rem;
+}
+.promo-date__mon {
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.7rem;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--amber);
+}
+
+.promo-kicker {
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.85rem;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--teal);
+}
+.promo-copy { color:var(--ink-soft); font-size:1.06rem; line-height:1.65; max-width:34rem; }
+
+/* what is being pushed, as scannable pills */
+.promo-chips { display:flex; flex-wrap:wrap; gap:.55rem; }
+.promo-chip {
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.85rem;
+  padding:.45rem .95rem; border-radius:999px; white-space:nowrap;
+  background:var(--white); color:var(--ink);
+  border:1px solid rgba(60,40,16,.12); box-shadow:var(--shadow-sm);
+}
+.promo-chip--owner { color:var(--teal-ink); border-color:rgba(27,107,107,.28); }
+
+/* promo photo, tilted just enough to feel hand-placed */
+.promo-photo {
+  position:relative; margin:0; overflow:hidden;
+  border-radius:28px; border:7px solid #fff;
+  box-shadow:0 36px 74px -32px rgba(60,40,16,.5);
+  transform:rotate(-1.4deg);
+  transition:transform .45s var(--ease-out);
+}
+.promo-photo:hover { transform:rotate(0deg); }
+.promo-photo > img { width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:4/3; }
+.promo-photo__cap {
+  position:absolute; left:1rem; bottom:1rem; z-index:2;
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.82rem; color:var(--ink);
+  background:rgba(251,246,236,.92); backdrop-filter:blur(3px);
+  padding:.45rem .9rem; border-radius:999px;
+  box-shadow:0 10px 24px -12px rgba(60,40,16,.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-photo, .promo-photo:hover { transform:none; }
+}
+
+/* ==========================================================================
+   GROOMING FLOURISHES — the bow motif and the styled blocks built on it.
+   The headline is "Bath, brush & a bow", so the bow is the page's signature
+   shape: it scatters in the margins, sits under the headline word, and pins
+   the photo frames. One <symbol id="bow"> in the markup feeds all of them.
+   ========================================================================== */
+
+/* scattered decorative bows, behind content and non-interactive */
+.bow-deco {
+  position:absolute; z-index:0; pointer-events:none;
+  width:clamp(3.5rem, 7vw, 6.5rem); height:auto;
+  fill:var(--amber-2); color:var(--amber-2); opacity:.16;
+}
+.bow-deco--1 { top:12%;  right:6%;  transform:rotate(-14deg); }
+.bow-deco--2 { bottom:8%; left:4%;  transform:rotate(11deg); opacity:.11; }
+.bow-deco--3 { top:14%;  right:5%;  transform:rotate(9deg);  fill:var(--teal); color:var(--teal); opacity:.10; }
+.bow-deco--4 { bottom:10%; left:3%; transform:rotate(-8deg); opacity:.13; }
+@media (max-width:640px) { .bow-deco { display:none; } }
+
+/* bow pinned to the corner of a framed photo */
+.groom-hero__bow, .groom-framed__bow {
+  position:absolute; z-index:3; width:clamp(2.75rem,5vw,4rem);
+  fill:var(--amber-2); color:var(--amber-2);
+  filter:drop-shadow(0 8px 16px rgba(60,40,16,.35));
+  pointer-events:none;
+}
+.groom-hero__bow { top:-1.1rem; left:-.9rem; transform:rotate(-18deg); }
+.groom-framed__bow { top:-1rem; left:-.75rem; transform:rotate(-16deg); }
+.groom-hero__bow svg, .groom-framed__bow svg { width:100%; height:auto; display:block; }
+
+/* "taking new clients" status pill: a live dot makes it read as current
+   availability rather than boilerplate */
+.groom-openslots {
+  display:inline-flex; align-items:flex-start; gap:.7rem;
+  max-width:30rem; padding:.75rem 1.1rem; border-radius:18px;
+  background:rgba(62,107,35,.08); border:1px solid rgba(62,107,35,.2);
+  color:var(--ink-soft); font-size:.92rem; line-height:1.45;
+}
+.groom-openslots strong { color:var(--forest); font-family:"Nunito",sans-serif; font-weight:900; }
+.groom-openslots__dot {
+  flex:none; width:.6rem; height:.6rem; margin-top:.42rem; border-radius:50%;
+  background:var(--forest); box-shadow:0 0 0 0 rgba(62,107,35,.55);
+  animation:openPulse 2.4s ease-out infinite;
+}
+@keyframes openPulse {
+  0%   { box-shadow:0 0 0 0 rgba(62,107,35,.5); }
+  70%  { box-shadow:0 0 0 .55rem rgba(62,107,35,0); }
+  100% { box-shadow:0 0 0 0 rgba(62,107,35,0); }
+}
+
+/* cats panel: yes / ask, so the limits are visible at a glance */
+.groom-cats {
+  display:flex; gap:1rem; align-items:flex-start;
+  padding:1.15rem 1.25rem; border-radius:22px;
+  background:var(--white); border:1px solid rgba(60,40,16,.09);
+  box-shadow:var(--shadow-sm);
+}
+.groom-cats__ic {
+  flex:none; display:grid; place-items:center; width:2.6rem; height:2.6rem;
+  border-radius:14px; background:rgba(193,127,36,.12); color:var(--amber);
+}
+.groom-cats__ic svg { width:1.5rem; height:1.5rem; }
+.groom-cats__list { margin-top:.6rem; display:grid; gap:.5rem; font-size:.9rem; color:var(--ink-soft); line-height:1.5; }
+.groom-cats__list li { display:flex; gap:.55rem; align-items:baseline; }
+.groom-cats__yes, .groom-cats__ask {
+  flex:none; font-family:"Nunito",sans-serif; font-weight:900; font-size:.66rem;
+  letter-spacing:.08em; text-transform:uppercase;
+  padding:.2rem .5rem; border-radius:999px;
+}
+.groom-cats__yes { background:rgba(62,107,35,.14); color:var(--forest); }
+.groom-cats__ask { background:rgba(193,127,36,.16); color:var(--amber); }
+
+/* "why groom here" perks: icon tile + a colored rule that grows on hover,
+   which gives three flat cards a bit of life without adding noise */
+.groom-perk {
+  position:relative; overflow:hidden;
+  padding:1.6rem 1.5rem 1.5rem; border-radius:24px;
+  background:var(--cream); border:1px solid rgba(60,40,16,.07);
+  box-shadow:var(--shadow-sm);
+  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+}
+.groom-perk::before {
+  content:""; position:absolute; left:0; top:0; height:4px; width:34%;
+  background:var(--teal); border-radius:0 0 4px 0;
+  transition: width .45s var(--ease-out);
+}
+.groom-perk:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
+.groom-perk:hover::before { width:100%; }
+.groom-perk--amber::before  { background:var(--amber-2); }
+.groom-perk--forest::before { background:var(--forest); }
+.groom-perk__ic {
+  display:grid; place-items:center; width:3rem; height:3rem; border-radius:16px;
+  background:rgba(27,107,107,.1); color:var(--teal); margin-bottom:1rem;
+}
+.groom-perk--amber  .groom-perk__ic { background:rgba(193,127,36,.13); color:var(--amber); }
+.groom-perk--forest .groom-perk__ic { background:rgba(62,107,35,.12); color:var(--forest); }
+.groom-perk__ic svg { width:1.6rem; height:1.6rem; }
+.groom-perk__h { font-family:"Nunito",sans-serif; font-weight:900; color:var(--ink); font-size:1.1rem; }
+.groom-perk__p { margin-top:.45rem; color:var(--ink-soft); font-size:.9rem; line-height:1.55; }
+
+/* room photos pinned up like snapshots: each sits at its own angle and
+   straightens under the cursor */
+.groom-snap { position:relative; margin:0; padding-top:.5rem; }
+.groom-snap__frame { display:block; }
+.groom-snap__pin {
+  position:absolute; top:0; left:50%; z-index:4;
+  width:.85rem; height:.85rem; border-radius:50%;
+  background:var(--amber-2); transform:translate(-50%,-35%);
+  box-shadow:0 4px 10px -3px rgba(60,40,16,.6), inset 0 -2px 3px rgba(0,0,0,.18);
+}
+.groom-snap__cap {
+  display:block; margin-top:.7rem; text-align:center;
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.83rem; color:var(--ink-soft);
+}
+.groom-snap { transition: transform .45s var(--ease-out); }
+.groom-snap--a { transform:rotate(-2.2deg); }
+.groom-snap--b { transform:rotate(1.4deg); }
+.groom-snap--c { transform:rotate(-1.2deg); }
+.groom-snap:hover { transform:rotate(0deg) translateY(-6px); z-index:5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .groom-openslots__dot { animation:none; }
+  .groom-snap, .groom-snap--a, .groom-snap--b, .groom-snap--c,
+  .groom-snap:hover, .groom-perk, .groom-perk:hover { transform:none; }
+  .groom-perk::before { width:100%; }
+}
+
 /* ---- the fresh-cut gallery wall (real grooms showcase) ---- */
 .groom-gallery-sec { background:linear-gradient(180deg, var(--cream) 0%, #fff 100%); }
 

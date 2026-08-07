@@ -31,10 +31,25 @@
 
   <main>
 
+  <!-- Bow symbol, defined once and reused by every <use href="#bow"> on the page:
+       the decorative scatter, the headline flourish, and the section dividers.
+       One path, so the motif can never drift out of sync with itself. -->
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <symbol id="bow" viewBox="0 0 64 44">
+      <path d="M32 22c-3.4-6.6-9-11.4-15.4-12.8C10.6 7.9 5 10.6 3.2 15.6c-1.9 5.2.6 10.9 5.8 13.4 5.7 2.7 13.3 1.5 18.6-2.6l4.4-3.4Zm0 0c3.4-6.6 9-11.4 15.4-12.8 6-1.3 11.6 1.4 13.4 6.4 1.9 5.2-.6 10.9-5.8 13.4-5.7 2.7-13.3 1.5-18.6-2.6L32 22Z"/>
+      <ellipse cx="32" cy="22" rx="5.2" ry="6"/>
+      <path d="M28.6 27.4 24 41.2M35.4 27.4 40 41.2" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
   <!-- ===================== PAGE HERO (editorial split, real photo) ===================== -->
   <section data-booknow-after class="groom-hero relative overflow-hidden">
     <div data-blob class="blob blob--teal w-[30rem] h-[30rem] -left-44 -top-16"></div>
     <div class="soft-glow bg-amber2/20 w-[24rem] h-[24rem] right-[-4rem] bottom-[-6rem]"></div>
+
+    <!-- decorative bows: the page's own motif, echoing "& a bow" in the headline -->
+    <svg class="bow-deco bow-deco--1" viewBox="0 0 64 44" aria-hidden="true"><use href="#bow"/></svg>
+    <svg class="bow-deco bow-deco--2" viewBox="0 0 64 44" aria-hidden="true"><use href="#bow"/></svg>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-16 grid lg:grid-cols-[1.05fr_.95fr] gap-10 lg:gap-14 items-center min-h-[78vh]">
 
@@ -48,9 +63,17 @@
           <span data-hero-line class="block">&amp; a <span class="text-teal">bow.</span></span>
         </h1>
         <p data-hero-line class="mt-6 text-ink/65 text-lg max-w-md">
-          Our in-house groomers bathe, brush, and tidy up dogs and cats, from a quick freshen-up
+          Our in-house groomers bathe, brush, and tidy up, from a quick freshen-up
           to a full clean-up. They know the regulars by name and tail wag.
         </p>
+
+        <!-- taking-new-clients notice: a live-looking status pill rather than a
+             line of body copy, so it reads as current and gets noticed -->
+        <p data-hero-line class="groom-openslots mt-6">
+          <span class="groom-openslots__dot" aria-hidden="true"></span>
+          <span><strong>Taking new clients.</strong> Give us a call and we'll get you on the books.</span>
+        </p>
+
         <div data-hero-line class="mt-8 flex flex-wrap gap-3">
           <a href="tel:+15075325000" class="btn btn--teal">Call to book grooming</a>
           <a href="#quote" class="btn btn--ghost">Request a quote</a>
@@ -66,17 +89,8 @@
             Dogs &amp; cats welcome
           </figcaption>
         </figure>
+        <span class="groom-hero__bow" aria-hidden="true"><svg viewBox="0 0 64 44"><use href="#bow"/></svg></span>
       </div>
-    </div>
-  </section>
-
-  <!-- ===================== AT-A-GLANCE STRIP ===================== -->
-  <section class="bg-white border-y border-ink/5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center" data-anim="cards">
-      <div><p class="font-heading display text-3xl text-teal" data-countup data-to="25" data-suffix="+">25+</p><p class="text-ink/55 text-sm">years serving the area</p></div>
-      <div><p class="font-heading display text-3xl text-teal">2</p><p class="text-ink/55 text-sm">species welcome, dogs &amp; cats</p></div>
-      <div><p class="font-heading display text-3xl text-teal">4</p><p class="text-ink/55 text-sm">core grooming services</p></div>
-      <div><p class="font-heading display text-3xl text-teal">1</p><p class="text-ink/55 text-sm">in-house tub, no drop &amp; wait elsewhere</p></div>
     </div>
   </section>
 
@@ -86,12 +100,13 @@
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 items-center">
       <div class="relative" data-anim="up">
         <figure class="groom-framed aspect-[4/5] max-w-lg mx-auto lg:mx-0">
-          <img src="img/groom-pup-2.webp" alt="A freshly groomed standard poodle on the grooming table" loading="lazy" />
+          <img src="img/groom-dog.webp" alt="A freshly groomed dog after a visit to the tub" loading="lazy" />
         </figure>
         <span class="absolute bottom-4 -right-2 sm:right-4 bg-white shadow-lg rounded-2xl px-4 py-3 rotate-[3deg]">
           <span class="block font-heading font-900 text-ink">On-staff groomers</span>
           <span class="block text-ink/55 text-sm">dogs &amp; cats welcome</span>
         </span>
+        <span class="groom-framed__bow" aria-hidden="true"><svg viewBox="0 0 64 44"><use href="#bow"/></svg></span>
       </div>
       <div data-anim="up">
         <span class="service-kicker bg-teal/10 text-teal">What's included</span>
@@ -101,8 +116,25 @@
           <li class="feature-li">Bathing &amp; blow-dry</li>
           <li class="feature-li">Brush-outs &amp; de-shedding</li>
           <li class="feature-li">Nail trims &amp; ear cleaning</li>
-          <li class="feature-li">Cats welcome too</li>
+          <li class="feature-li">Bandana or bow to finish</li>
         </ul>
+
+        <!-- Cats are a real but limited service, so they get their own panel
+             rather than a bullet that overstates it. Two lines, split yes/ask,
+             so nobody arrives expecting a full cat groom off the street. -->
+        <div class="groom-cats mt-7">
+          <span class="groom-cats__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-6.5a8 8 0 0 1 16 0V20Z"/><path d="M5.4 8.2 4.6 3.6l3.9 2.3M18.6 8.2l.8-4.6-3.9 2.3"/><path d="M9.5 13h.01M14.5 13h.01M12 16l-1 1M12 16l1 1"/></svg>
+          </span>
+          <div>
+            <h3 class="font-heading font-900 text-ink">Cats, specifically</h3>
+            <ul class="groom-cats__list">
+              <li><span class="groom-cats__yes">Yes</span> Nail trims, any time we are open.</li>
+              <li><span class="groom-cats__ask">Ask</span> Full grooms are by consultation only, so we can meet your cat and plan the visit first.</li>
+            </ul>
+          </div>
+        </div>
+
         <div class="mt-7 flex flex-wrap gap-3">
           <a href="tel:+15075325000" class="btn btn--teal">Call to book grooming</a>
         </div>
@@ -116,6 +148,7 @@
   <!-- ===================== WHY HERE ===================== -->
   <section class="py-20 sm:py-28 bg-white relative overflow-hidden">
     <div class="soft-glow bg-teal2/15 w-[26rem] h-[26rem] -left-20 top-10"></div>
+    <svg class="bow-deco bow-deco--3" viewBox="0 0 64 44" aria-hidden="true"><use href="#bow"/></svg>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl" data-anim="up">
         <span class="service-kicker bg-teal/10 text-teal">Why groom here</span>
@@ -123,17 +156,28 @@
         <p class="mt-4 text-ink/65 text-lg">Pick up food, toys, or boarding supplies on the same trip, your pet's groomer, store, and resort are all under one roof in Marshall.</p>
       </div>
       <div class="mt-10 grid sm:grid-cols-3 gap-6" data-anim="cards">
-        <div class="card p-6 bg-cream">
-          <h3 class="font-heading font-800 text-lg">Regulars welcome</h3>
-          <p class="mt-2 text-ink/65 text-sm">Our groomers know returning pets by name, and by what makes them comfortable.</p>
+        <div class="groom-perk">
+          <span class="groom-perk__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1l8.8 8.8 8.8-8.8a5 5 0 0 0 0-7.1Z"/></svg>
+          </span>
+          <h3 class="groom-perk__h">New &amp; returning</h3>
+          <p class="groom-perk__p">We are taking new clients, and our groomers know the regulars by name and by what keeps them comfortable.</p>
         </div>
-        <div class="card p-6 bg-cream">
-          <h3 class="font-heading font-800 text-lg">Dogs &amp; cats</h3>
-          <p class="mt-2 text-ink/65 text-sm">Most grooming shops skip cats. Ours doesn't.</p>
+
+        <div class="groom-perk groom-perk--amber">
+          <span class="groom-perk__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-6.5a8 8 0 0 1 16 0V20Z"/><path d="M5.4 8.2 4.6 3.6l3.9 2.3M18.6 8.2l.8-4.6-3.9 2.3"/><path d="M9.5 13h.01M14.5 13h.01"/></svg>
+          </span>
+          <h3 class="groom-perk__h">Cats too</h3>
+          <p class="groom-perk__p">Nail trims any time we are open. Full cat grooms are by consultation, so we can meet them first.</p>
         </div>
-        <div class="card p-6 bg-cream">
-          <h3 class="font-heading font-800 text-lg">Pair it with a stay</h3>
-          <p class="mt-2 text-ink/65 text-sm">Boarding or daycare guests can roll straight into a grooming slot before pickup.</p>
+
+        <div class="groom-perk groom-perk--forest">
+          <span class="groom-perk__ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg>
+          </span>
+          <h3 class="groom-perk__h">Pair it with a stay</h3>
+          <p class="groom-perk__p">Boarding and daycare guests can roll straight into a grooming slot before pickup. As long as your dog is current on Bordetella, we can do both in the one visit.</p>
         </div>
       </div>
     </div>
@@ -150,7 +194,7 @@
       <div class="max-w-2xl" data-anim="up">
         <span class="service-kicker bg-teal/10 text-teal">Off the table</span>
         <h2 class="mt-3 font-heading display text-ink text-4xl sm:text-5xl">Fresh cuts,<br />happy faces.</h2>
-        <p class="mt-4 text-ink/65 text-lg">A wall of real dogs that walked out of our tub looking and feeling their best. Bandanas, bows, and the occasional splash of pink, every one of them a Marshall regular.</p>
+        <p class="mt-4 text-ink/65 text-lg">A wall of real dogs that walked out of our tub looking and feeling their best. Bandanas, bows, and the occasional splash of pink, every one of them a happy dog.</p>
       </div>
 
       <!-- the wall: a layered mosaic of real grooms -->
@@ -217,6 +261,7 @@
   <!-- ===================== A LOOK AROUND (grooming room peek) ===================== -->
   <section class="py-20 sm:py-28 relative overflow-hidden">
     <div class="soft-glow bg-amber2/15 w-[22rem] h-[22rem] -right-16 top-0"></div>
+    <svg class="bow-deco bow-deco--4" viewBox="0 0 64 44" aria-hidden="true"><use href="#bow"/></svg>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
       <div class="max-w-2xl" data-anim="up">
         <span class="service-kicker bg-teal/10 text-teal">A look around</span>
@@ -224,16 +269,30 @@
         <p class="mt-4 text-ink/65 text-lg">A clean tub, the right tools, and a calm space. Here's a peek at our grooming room.</p>
       </div>
 
-      <!-- 3 real room photos, modest cluster -->
-      <div class="mt-10 grid sm:grid-cols-3 gap-5" data-anim="cards">
-        <figure class="groom-framed aspect-[4/3]">
-          <img src="img/groom-room-1.webp" alt="The grooming room with wash station, dryer and dyson" loading="lazy" />
+      <!-- 3 real room photos, pinned up like snapshots on a board. Each sits at
+           its own slight angle and straightens on hover, which keeps a row of
+           three plain interior shots from reading as a stock grid. -->
+      <div class="mt-12 grid sm:grid-cols-3 gap-6 sm:gap-5" data-anim="cards">
+        <figure class="groom-snap groom-snap--a">
+          <span class="groom-snap__pin" aria-hidden="true"></span>
+          <span class="groom-snap__frame groom-framed aspect-[4/3]">
+            <img src="img/groom-room-1.webp" alt="The grooming room with wash station, dryer and dyson" loading="lazy" />
+          </span>
+          <figcaption class="groom-snap__cap">The wash station</figcaption>
         </figure>
-        <figure class="groom-framed aspect-[4/3]">
-          <img src="img/groom-room-2.webp" alt="Inside the grooming room" loading="lazy" />
+        <figure class="groom-snap groom-snap--b">
+          <span class="groom-snap__pin" aria-hidden="true"></span>
+          <span class="groom-snap__frame groom-framed aspect-[4/3]">
+            <img src="img/groom-room-2.webp" alt="Inside the grooming room" loading="lazy" />
+          </span>
+          <figcaption class="groom-snap__cap">Room to work</figcaption>
         </figure>
-        <figure class="groom-framed aspect-[4/3]">
-          <img src="img/groom-room-3.webp" alt="The grooming area" loading="lazy" />
+        <figure class="groom-snap groom-snap--c">
+          <span class="groom-snap__pin" aria-hidden="true"></span>
+          <span class="groom-snap__frame groom-framed aspect-[4/3]">
+            <img src="img/groom-room-3.webp" alt="The grooming area" loading="lazy" />
+          </span>
+          <figcaption class="groom-snap__cap">Tub &amp; dryers</figcaption>
         </figure>
       </div>
     </div>
