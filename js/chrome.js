@@ -18,6 +18,9 @@
           '<span class="truncate">1300 N. Hwy 59, Marshall, MN</span>' +
         '</span>' +
         '<div class="flex items-center gap-4 ml-auto">' +
+          // Hiring pill. Remove this line and the #hiring section in about.html
+          // when the roles are filled.
+          '<a href="about.html#hiring" class="hiring-pill"><span class="hiring-pill__dot" aria-hidden="true"></span>We are hiring</a>' +
           '<span data-hours-badge class="hours-badge is-closed">Checking hours…</span>' +
           '<a href="tel:+15075325000" class="font-bold text-cream hover:text-amber2 transition-colors">(507) 532-5000</a>' +
         '</div>' +

@@ -367,6 +367,51 @@
     </div>
   </section>
 
+  <!-- =====================================================================
+       WE ARE HIRING  ·  TAKE THIS DOWN WHEN THE ROLES ARE FILLED
+       =====================================================================
+       Two places to remove when hiring closes:
+         1. the whole hiring section below, id="hiring"
+         2. the "We are hiring" pill in TOPBAR, js/chrome.js (it links here)
+       The "Be part of the team" option in the contact form topic list at
+       #contact can stay either way, it does no harm.
+       ===================================================================== -->
+  <section id="hiring" class="hiring-sec py-14 sm:py-16 relative overflow-hidden scroll-mt-24">
+    <div class="soft-glow bg-teal2/12 w-[18rem] h-[18rem] right-[-5rem] top-0" aria-hidden="true"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="hiring-card" data-anim="up">
+
+        <div class="hiring-card__main">
+          <span class="hiring-flag">
+            <span class="hiring-flag__dot" aria-hidden="true"></span>
+            We are hiring
+          </span>
+          <h2 class="mt-4 font-heading display text-ink text-3xl sm:text-4xl">Be part of <span class="italic text-teal">the team.</span></h2>
+          <p class="mt-3 text-ink/65">
+            We are losing a few of our daytime staff this fall, so we are hiring one or two part time people
+            to help on the sales floor and in the boarding kennel. Daytime or after-school hours, plus one to
+            two weekends a month. Animal or retail experience is a plus, not a must.
+          </p>
+          <ul class="hiring-chips mt-4">
+            <li class="hiring-chip">Hard working</li>
+            <li class="hiring-chip">Reliable</li>
+            <li class="hiring-chip">Flexible</li>
+          </ul>
+        </div>
+
+        <div class="hiring-card__side">
+          <p class="text-ink/70 text-sm leading-relaxed">Family owned, flexible with time off, and closed for the major holidays.</p>
+          <div class="mt-4 flex flex-wrap gap-2.5">
+            <a href="tel:+15075325000" class="btn btn--teal !py-2.5 !px-4 !text-sm">Call the store</a>
+            <a href="#contact" data-contact-topic="Be part of the team" class="btn btn--ghost !py-2.5 !px-4 !text-sm">Send us a note</a>
+          </div>
+          <p class="mt-3 text-xs text-ink/45">Or stop in for an application.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== VISIT / HOURS / MAP ===================== -->
   <section id="visit" class="py-20 sm:py-28 scroll-mt-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -489,6 +534,7 @@
               <option>Boarding &amp; daycare</option>
               <option>Store &amp; products</option>
               <option>Large-animal vet care</option>
+              <option>Be part of the team</option>
             </select>
           </div>
           <div class="mt-5 flex-1 flex flex-col">

@@ -64,7 +64,6 @@
             <a href="#boarding" class="chip-link">Boarding</a>
             <a href="#kitty-korral" class="chip-link">Kitty Korral</a>
             <a href="#rates" class="chip-link">Rates</a>
-            <a href="#rewards" class="chip-link">Rewards</a>
           </div>
         </div>
 
@@ -605,49 +604,15 @@
     </div>
   </section>
 
-  <div class="paw-divider" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="10" r="2"/><circle cx="12" cy="8" r="2"/><circle cx="18" cy="10" r="2"/><path d="M12 12c-3 0-5 2-5 4s2 3 5 3 5-1 5-3-2-4-5-4Z"/></svg></div>
-
-  <!-- ===================== REWARDS ===================== -->
-  <section id="rewards" class="py-20 sm:py-28 bg-white relative overflow-hidden scroll-mt-24">
-    <div class="soft-glow bg-amber2/20 w-[24rem] h-[24rem] right-[-6rem] top-10"></div>
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="max-w-2xl mx-auto text-center" data-anim="up">
-        <p class="font-heading font-800 text-amber text-sm tracking-[0.2em] uppercase">Stay loyal, stay rewarded</p>
-        <h2 class="mt-2 font-heading display text-ink text-4xl sm:text-5xl">Your boarding<br />punch card.</h2>
-        <p class="mt-4 text-ink/65 text-lg">Every paid stay earns a stamp. Fill the card and the next stay's on us.</p>
-      </div>
-
-      <div data-widget="punch" class="mt-10 max-w-xl mx-auto card p-7 sm:p-8 bg-cream relative" data-anim="up">
-        <div class="punch-lookup flex flex-col sm:flex-row gap-3 sm:items-end mb-6">
-          <div class="flex-1">
-            <label class="block text-sm font-bold text-ink/70 mb-1.5" for="punchContactResort">Phone or email</label>
-            <input data-punch-input id="punchContactResort" type="text" placeholder="Name on file's phone or email" class="w-full rounded-xl border border-ink/15 bg-white px-3 py-2.5 text-ink"/>
-          </div>
-          <button data-punch-go class="btn btn--teal !px-5">View my card</button>
-        </div>
-        <p data-punch-status hidden class="mb-4 text-sm"></p>
-        <div class="punch-card p-6 sm:p-7" data-active="false" data-track="boarding">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="font-heading font-900 text-cream text-lg">Boarding Rewards</h3>
-            <span data-count class="text-sm font-bold text-cream/70">0 / 10</span>
-          </div>
-          <div class="grid grid-cols-5 gap-3">
-            <span class="stamp" data-slot="1"></span>
-            <span class="stamp" data-slot="2"></span>
-            <span class="stamp" data-slot="3"></span>
-            <span class="stamp" data-slot="4"></span>
-            <span class="stamp" data-slot="5"></span>
-            <span class="stamp" data-slot="6"></span>
-            <span class="stamp" data-slot="7"></span>
-            <span class="stamp" data-slot="8"></span>
-            <span class="stamp" data-slot="9"></span>
-            <span class="stamp is-reward" data-slot="10"></span>
-          </div>
-          <p data-reward class="mt-4 text-sm text-cream/85">Four more nights unlock your free 10th!</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- The boarding punch card / loyalty rewards section used to sit here and
+       was pulled out for launch. It is a phase two project, not a deletion.
+       The working implementation is still intact: `initPunchCard` in
+       js/widgets.js (the Google Sheet CSV lookup), the .punch-* and .stamp
+       styles in css/custom.css, and the full two-card markup on
+       promotions.html. To bring it back, lift the markup from there.
+       See the LOYALTY PUNCH CARD notes in CLAUDE.md before wiring it up: the
+       published Sheet exposes every customer's name, phone and email to
+       anyone with the URL. -->
 
   </main>
 

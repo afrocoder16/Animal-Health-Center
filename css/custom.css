@@ -864,6 +864,78 @@ body.menu-open { overflow:hidden; }
 .groom-framed:hover > img { transform:scale(1.05); }
 
 /* ==========================================================================
+   WE ARE HIRING — the top-bar pill (chrome.js) and the #hiring section on
+   about.html. Temporary by nature: both come out when the roles are filled.
+   ========================================================================== */
+
+/* pill in the dark top bar, sitting beside the hours badge */
+.hiring-pill {
+  display:inline-flex; align-items:center; gap:.45rem;
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.76rem;
+  letter-spacing:.02em; white-space:nowrap;
+  color:#0f2a0f; background:var(--amber-2);
+  padding:.2rem .7rem; border-radius:999px; text-decoration:none;
+  transition: background .2s var(--ease-out), transform .2s var(--ease-out);
+}
+.hiring-pill:hover { background:#f2bd57; transform:translateY(-1px); }
+.hiring-pill__dot {
+  width:.42rem; height:.42rem; border-radius:50%; background:#0f2a0f; flex:none;
+  animation: hiringPulse 2.2s ease-out infinite;
+}
+@keyframes hiringPulse {
+  0%   { box-shadow:0 0 0 0 rgba(15,42,15,.5); }
+  70%  { box-shadow:0 0 0 .4rem rgba(15,42,15,0); }
+  100% { box-shadow:0 0 0 0 rgba(15,42,15,0); }
+}
+@media (max-width: 420px) { .hiring-pill { display:none; } }
+
+.hiring-sec {
+  background:
+    radial-gradient(70% 55% at 85% 0%, rgba(191,230,230,.35), transparent 60%),
+    linear-gradient(180deg, var(--cream) 0%, #FFFDF7 100%);
+}
+
+.hiring-flag {
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:"Nunito",sans-serif; font-weight:900; font-size:.8rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  color:var(--forest); background:rgba(62,107,35,.1);
+  border:1px solid rgba(62,107,35,.22);
+  padding:.5rem 1.05rem; border-radius:999px;
+}
+.hiring-flag__dot {
+  width:.5rem; height:.5rem; border-radius:50%; background:var(--forest); flex:none;
+  animation: hiringPulse 2.2s ease-out infinite;
+}
+
+/* one compact card: copy on the left, the ask on the right */
+.hiring-card {
+  display:grid; gap:1.5rem;
+  padding:1.75rem; border-radius:26px;
+  background:var(--white); border:1px solid rgba(60,40,16,.09);
+  box-shadow:var(--shadow-sm);
+}
+@media (min-width: 860px) {
+  .hiring-card { grid-template-columns:1.55fr .95fr; gap:2.5rem; align-items:center; padding:2rem 2.25rem; }
+  .hiring-card__side {
+    border-left:1px solid rgba(60,40,16,.1); padding-left:2.5rem; align-self:stretch;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+}
+
+.hiring-chips { display:flex; flex-wrap:wrap; gap:.45rem; }
+.hiring-chip {
+  font-family:"Nunito",sans-serif; font-weight:800; font-size:.78rem;
+  padding:.3rem .8rem; border-radius:999px; white-space:nowrap;
+  background:rgba(27,107,107,.1); color:var(--teal-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hiring-pill__dot, .hiring-flag__dot { animation:none; }
+  .hiring-pill:hover { transform:none; }
+}
+
+/* ==========================================================================
    PROMO SPOT — index.html #promo. One dated offer, swapped regularly from the
    monthly promotional calendar in promo/. Built as a date-led feature rather
    than a grid of deal cards, because there is only ever one live promo and it
