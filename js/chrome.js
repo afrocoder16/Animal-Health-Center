@@ -12,7 +12,7 @@
 
   var TOPBAR =
     '<div class="bg-ink text-cream/85 text-[13px]">' +
-      '<div class="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-between gap-4">' +
+      '<div class="max-w-7xl mx-auto px-4 sm:px-6 h-9 flex items-center justify-between gap-2.5 sm:gap-4">' +
         '<span class="hidden sm:flex items-center gap-2 min-w-0">' +
           '<svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-amber2 flex-none"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>' +
           '<span class="truncate">1300 N. Hwy 59, Marshall, MN</span>' +
@@ -20,7 +20,7 @@
         '<div class="flex items-center gap-4 ml-auto">' +
           // Hiring pill. Remove this line and the #hiring section in about.html
           // when the roles are filled.
-          '<a href="about.html#hiring" class="hiring-pill"><span class="hiring-pill__dot" aria-hidden="true"></span>We are hiring</a>' +
+          '<a href="about.html#hiring" class="hiring-pill" aria-label="We are hiring"><span class="hiring-pill__dot" aria-hidden="true"></span><span class="hiring-pill__full">We are hiring</span><span class="hiring-pill__short">Hiring</span></a>' +
           '<span data-hours-badge class="hours-badge is-closed">Checking hours…</span>' +
           '<a href="tel:+15075325000" class="font-bold text-cream hover:text-amber2 transition-colors">(507) 532-5000</a>' +
         '</div>' +
