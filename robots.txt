@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Once the domain is live, generate a sitemap and reference it here, e.g.
-# Sitemap: https://www.yourdomain.com/sitemap.xml
+Sitemap: https://marshallanimalhealth.com/sitemap.xml

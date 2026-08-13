@@ -9,6 +9,7 @@
   <meta property="og:title" content="The Pet Resort · Animal Health Center" />
   <meta property="og:description" content="Boarding, daycare and the Kitty Korral. Book online in Marshall, MN." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://marshallanimalhealth.com/img/front-store.webp" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -606,13 +607,14 @@
 
   <!-- The boarding punch card / loyalty rewards section used to sit here and
        was pulled out for launch. It is a phase two project, not a deletion.
-       The working implementation is still intact: `initPunchCard` in
-       js/widgets.js (the Google Sheet CSV lookup), the .punch-* and .stamp
-       styles in css/custom.css, and the full two-card markup on
-       promotions.html. To bring it back, lift the markup from there.
-       See the LOYALTY PUNCH CARD notes in CLAUDE.md before wiring it up: the
-       published Sheet exposes every customer's name, phone and email to
-       anyone with the URL. -->
+       As of the pre-launch cleanup the feature is fully removed from the live
+       site: the markup is gone from promotions.html and `initPunchCard` plus
+       the Google Sheet CSV lookup are gone from js/widgets.js. Only the
+       .punch-* and .stamp styles remain in css/custom.css. To bring it back,
+       recover the markup and JS from git history.
+       Before wiring it up again: the lookup read a Google Sheet published to
+       the web, which exposes every customer's name, phone and email to anyone
+       with that URL. Do not republish that link publicly. -->
 
   </main>
 

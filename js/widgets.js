@@ -187,172 +187,6 @@
   }
 
   /* ======================================================================
-     4. LOYALTY PUNCH CARD  (resort.html + promotions.html) — LIVE LOOKUP
-     Customer roster lives in a Google Sheet, published to the web as CSV
-     (File -> Share -> Publish to web -> CSV). Columns: name, phone, email,
-     grooming_stamps, boarding_stamps. A visitor types their phone or email;
-     we fetch the CSV, find the matching row, and render their real counts.
-     Nothing is written back, this is a read-only lookup. If the sheet can't
-     be reached or no row matches, the card shows a friendly message instead
-     of silently failing. Tracks: grooming (5th free), boarding (10th free).
-     ====================================================================== */
-  var PUNCH_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFll8Z90QrYxUxXrOZ8IT69DTjstRZu7iytJNv8iga107r3vM5vxzkuhUyy-NPuwUdCK9G9CeFK-r-/pub?output=csv";
-
-  var punchSheetRows = null;      // cached parsed rows, fetched once per page load
-  var punchSheetPromise = null;
-
-  /* minimal CSV parser: handles quoted fields with embedded commas/quotes,
-     which is all a Sheets CSV export produces (no embedded newlines expected
-     in name/phone/email/stamp columns) */
-  function parseCsv(text) {
-    var rows = [];
-    var row = [];
-    var field = "";
-    var inQuotes = false;
-    for (var i = 0; i < text.length; i++) {
-      var c = text[i];
-      if (inQuotes) {
-        if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
-        else if (c === '"') { inQuotes = false; }
-        else { field += c; }
-      } else if (c === '"') {
-        inQuotes = true;
-      } else if (c === ",") {
-        row.push(field); field = "";
-      } else if (c === "\n" || c === "\r") {
-        if (c === "\r" && text[i + 1] === "\n") i++;
-        row.push(field); field = "";
-        if (row.length > 1 || row[0] !== "") rows.push(row);
-        row = [];
-      } else {
-        field += c;
-      }
-    }
-    if (field !== "" || row.length) { row.push(field); rows.push(row); }
-    return rows;
-  }
-
-  function normalizeContact(s) {
-    return (s || "").trim().toLowerCase().replace(/[\s().-]/g, "");
-  }
-
-  function fetchPunchSheet() {
-    if (punchSheetPromise) return punchSheetPromise;
-    punchSheetPromise = fetch(PUNCH_SHEET_CSV_URL, { cache: "no-store" })
-      .then(function (r) { if (!r.ok) throw new Error("sheet fetch failed"); return r.text(); })
-      .then(function (text) {
-        var rows = parseCsv(text);
-        if (!rows.length) throw new Error("empty sheet");
-        var header = rows[0].map(function (h) { return h.trim().toLowerCase(); });
-        var idx = {
-          phone: header.indexOf("phone"),
-          email: header.indexOf("email"),
-          grooming: header.indexOf("grooming_stamps"),
-          boarding: header.indexOf("boarding_stamps")
-        };
-        punchSheetRows = rows.slice(1).map(function (r) {
-          return {
-            phone: normalizeContact(r[idx.phone]),
-            email: normalizeContact(r[idx.email]),
-            grooming: parseInt(r[idx.grooming], 10) || 0,
-            boarding: parseInt(r[idx.boarding], 10) || 0
-          };
-        });
-        return punchSheetRows;
-      })
-      .catch(function (err) { punchSheetPromise = null; throw err; }); // allow retry on next lookup
-    return punchSheetPromise;
-  }
-
-  function findCustomer(contact) {
-    var needle = normalizeContact(contact);
-    return fetchPunchSheet().then(function (rows) {
-      for (var i = 0; i < rows.length; i++) {
-        if ((rows[i].phone && rows[i].phone === needle) || (rows[i].email && rows[i].email === needle)) {
-          return rows[i];
-        }
-      }
-      return null;
-    });
-  }
-
-  function initPunchCard(root) {
-    var input = $("[data-punch-input]", root);
-    var go = $("[data-punch-go]", root);
-    var status = $("[data-punch-status]", root);
-    if (!input || !go) return;
-
-    function setStatus(msg, isError) {
-      if (!status) return;
-      status.textContent = msg || "";
-      status.hidden = !msg;
-      status.classList.toggle("is-error", !!isError);
-    }
-
-    function render(counts) {
-      $$("[data-track]", root).forEach(function (track) {
-        var key = track.getAttribute("data-track");
-        var slots = $$("[data-slot]", track);
-        var filled = Math.max(0, Math.min((counts && counts[key]) || 0, slots.length));
-        slots.forEach(function (s, i) { s.classList.toggle("is-stamped", i < filled); });
-        var reward = $("[data-reward]", track);
-        var earned = filled >= slots.length;
-        if (reward) {
-          reward.classList.toggle("is-earned", earned);
-          reward.textContent = earned
-            ? "Your free one is ready, show this at the counter!"
-            : (slots.length - filled) + " more to unlock your free " + slots.length + "th!";
-        }
-        /* the count badge may live in the card header, outside [data-track] */
-        var card = track.closest(".punch-card") || track;
-        card.setAttribute("data-active", "true");
-        var count = $("[data-count]", track) || $("[data-count]", card);
-        if (count) count.textContent = filled + " / " + slots.length;
-      });
-      /* promotions.html: [data-track] sits inside .punch-card; resort.html:
-         [data-track] IS the .punch-card. Either way, also flip any
-         .punch-card in this widget that has no [data-track] of its own
-         (defensive, in case markup ever separates them further). */
-      $$(".punch-card", root).forEach(function (card) { card.setAttribute("data-active", "true"); });
-    }
-
-    function activate() {
-      if (!input.value.trim()) {
-        input.focus();
-        input.setAttribute("aria-invalid", "true");
-        setStatus("Enter your phone or email first.", true);
-        return;
-      }
-      input.removeAttribute("aria-invalid");
-      go.disabled = true;
-      setStatus("Looking up your card…", false);
-
-      findCustomer(input.value).then(function (customer) {
-        go.disabled = false;
-        if (!customer) {
-          setStatus("We couldn't find a card for that phone or email. Double check it, or ask in store to get started.", true);
-          return;
-        }
-        setStatus("", false);
-        root.setAttribute("data-active", "true");
-        render(customer);
-        if (hasGsap() && !reduce) {
-          window.gsap.from($$(".stamp.is-stamped", root),
-            { scale: 0, duration: 0.4, stagger: 0.05, ease: "back.out(2)" });
-        }
-      }).catch(function () {
-        go.disabled = false;
-        setStatus("We couldn't load rewards right now. Please try again in a moment, or ask in store.", true);
-      });
-    }
-
-    go.addEventListener("click", activate);
-    input.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") { e.preventDefault(); activate(); }
-    });
-  }
-
-  /* ======================================================================
      5. DAYCARE PRICING TOGGLE  (services.html + resort.html)
      Half $12 (<5 hrs)  /  Full $22 (>5 hrs)
      ====================================================================== */
@@ -533,9 +367,8 @@
     onValid();
   }
 
-  /* Contact form (about.html) — DEMO MODE. Sends nothing. */
-
-  /* Grooming quote request (grooming.html) — LIVE via Web3Forms.
+  /* All four forms (grooming quote, livestock ask, small-animal ask, and the
+     about.html contact form) are LIVE via Web3Forms and share initQuoteForm.
      Validates, then POSTs the form data with fetch so the visitor stays on the
      page instead of landing on the endpoint's JSON response. The access key and
      honeypot live in the markup. On failure we surface the phone number so a real
@@ -844,7 +677,6 @@
 
     $$('[data-widget="profile"]').forEach(initProfileBuilder);
     $$('[data-widget="ready"]').forEach(initReadyCheck);
-    $$('[data-widget="punch"]').forEach(initPunchCard);
     $$('[data-widget="pricing"]').forEach(initPricingToggle);
     $$('[data-widget="rate-estimator"]').forEach(initRateEstimator);
     $$('[data-widget="promos"]').forEach(initWeeklyPromos);
@@ -943,7 +775,9 @@
       if (!lb) return;
       lb.classList.remove("is-open");
       document.body.style.overflow = "";
-      setTimeout(function () { lb.hidden = true; lbImg.src = ""; }, 300);
+      // removeAttribute, not src = "": an empty src makes the browser re-request
+      // the page itself, which is the bug we removed from the markup.
+      setTimeout(function () { lb.hidden = true; lbImg.removeAttribute("src"); }, 300);
     }
 
     if (lb) {
@@ -969,7 +803,12 @@
     render("all");
   }
 
-  if (document.readyState === "loading") {
+  /* chrome.js appends the footer + sticky bar from its own DOMContentLoaded
+     handler (registered first, since it loads synchronously in <head>). This
+     file is deferred, so at execution time readyState is already "interactive"
+     and DOMContentLoaded has NOT fired yet. Waiting on it here is what
+     guarantees the footer and sticky bar exist before init() queries them. */
+  if (document.readyState === "loading" || document.readyState === "interactive") {
     document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
