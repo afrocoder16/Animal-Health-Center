@@ -297,7 +297,7 @@
   }
 
   /* ======================================================================
-     6. WEEKLY PROMOTIONS — auto-highlight TODAY  (promotions.html + home)
+     6. WEEKLY PROMOTIONS — auto-highlight TODAY  (home)
      ====================================================================== */
   function initWeeklyPromos(root) {
     var today = new Date().getDay();
