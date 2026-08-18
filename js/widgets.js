@@ -373,24 +373,6 @@
      page instead of landing on the endpoint's JSON response. The access key and
      honeypot live in the markup. On failure we surface the phone number so a real
      lead is never silently lost. */
-  /* Links that jump to a contact form AND preselect what it is about, e.g.
-     the hiring section's "Send us a note". Without this the visitor lands on
-     a form still set to "General question" and has to find the right option.
-     Falls back to a plain anchor jump if the option is not present. */
-  function initContactTopicLinks() {
-    $$("[data-contact-topic]").forEach(function (link) {
-      link.addEventListener("click", function () {
-        var wanted = link.getAttribute("data-contact-topic");
-        var target = document.querySelector(link.getAttribute("href") || "");
-        var select = target && $("select[name='topic']", target);
-        if (!select) return;
-        $$("option", select).forEach(function (o) {
-          if (o.textContent.trim() === wanted) select.value = o.value || o.textContent;
-        });
-      });
-    });
-  }
-
   function initQuoteForm(form) {
     var status = $("[data-form-status]", form);
     var btn = form.querySelector('button[type="submit"]');
@@ -681,7 +663,6 @@
     $$('[data-widget="rate-estimator"]').forEach(initRateEstimator);
     $$('[data-widget="promos"]').forEach(initWeeklyPromos);
     $$('[data-widget="quote"]').forEach(initQuoteForm);
-    initContactTopicLinks();
     $$('[data-widget="dept-switcher"]').forEach(initDeptSwitcher);
     $$('[data-readmore]').forEach(initReadMore);
     $$('[data-photo-rotate]').forEach(initPhotoRotate);

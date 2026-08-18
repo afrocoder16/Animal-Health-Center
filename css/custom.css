@@ -670,6 +670,53 @@ body.menu-open { overflow:hidden; }
 .pet-tag__paw { width:1rem; height:1rem; flex:none; fill:#2a1c08; }
 .team-card:hover .pet-tag { transform:translate(-50%,-42%) rotate(-6deg); }
 
+/* ===========================================================================
+   HOME WHO WE ARE — one candid, family-first photo with team-card details.
+   The landscape frame preserves Theresa, both dogs, and the hydrangeas instead
+   of forcing the image into the old portrait-and-inset composition.
+   =========================================================================== */
+.who-photo { position:relative; width:100%; isolation:isolate; }
+.who-photo__image { display:block; width:100%; height:auto; aspect-ratio:4 / 3;
+  object-fit:cover; object-position:center; border-radius:28px;
+  box-shadow:0 26px 62px -26px rgba(60,40,16,.48); }
+.who-photo__shade { position:absolute; inset:0; z-index:1; border-radius:28px;
+  background:linear-gradient(to top, rgba(20,14,7,.68), rgba(20,14,7,.08) 34%, transparent 52%);
+  pointer-events:none; }
+
+/* Name and title mirror the caption treatment used on the About team cards. */
+.who-photo__id { position:absolute; left:0; right:0; bottom:0; z-index:2;
+  display:grid; justify-items:start; padding:1.25rem 1.4rem; }
+.who-photo__name { font-family:"Nunito",sans-serif; font-weight:900; color:#fff;
+  font-size:1.45rem; line-height:1.05; text-shadow:0 2px 10px rgba(0,0,0,.4); }
+.who-photo__role { margin-top:.22rem; font-family:"Nunito",sans-serif; font-weight:800;
+  font-size:.7rem; line-height:1; letter-spacing:.12em; text-transform:uppercase;
+  color:#ffe6bd; text-shadow:0 1px 6px rgba(0,0,0,.45); }
+
+/* Reuse the About-card collar tag, anchored where it will not cover a face. */
+.who-photo .who-photo__pet-tag { top:0; right:1.25rem; left:auto;
+  transform:translateY(-42%); }
+.who-photo:hover .who-photo__pet-tag { transform:translateY(-42%) rotate(5deg); }
+
+.who-photo__local { position:absolute; top:1.25rem; left:-1.25rem; z-index:2;
+  display:grid; gap:.15rem; max-width:10.75rem; padding:.85rem 1rem;
+  border-radius:16px; color:var(--ink);
+  background:linear-gradient(150deg, var(--amber-2), #efbd62);
+  box-shadow:0 18px 38px -20px rgba(60,40,16,.65), inset 0 1px 0 rgba(255,255,255,.35); }
+.who-photo__local-number { font-family:"Nunito",sans-serif; font-weight:900;
+  font-size:1.45rem; line-height:1; }
+.who-photo__local-copy { font-family:"Nunito",sans-serif; font-weight:800;
+  font-size:.76rem; line-height:1.2; }
+
+@media (max-width:639px) {
+  .who-photo__image, .who-photo__shade { border-radius:22px; }
+  .who-photo .who-photo__pet-tag { right:.75rem; font-size:.75rem; }
+  .who-photo__local { top:1rem; left:.75rem; max-width:9.5rem; padding:.7rem .8rem; }
+  .who-photo__local-number { font-size:1.2rem; }
+  .who-photo__local-copy { font-size:.68rem; }
+  .who-photo__id { padding:1rem; }
+  .who-photo__name { font-size:1.2rem; }
+}
+
 /* --- bio footer --- */
 .team-card__body { padding:1.1rem 1.2rem 1.3rem; display:flex; flex-direction:column; gap:.85rem; height:100%; }
 .team-card__bio { color:var(--ink-soft); font-size:.86rem; line-height:1.58; }
@@ -862,86 +909,6 @@ body.menu-open { overflow:hidden; }
   transition: transform .8s var(--ease-out);
 }
 .groom-framed:hover > img { transform:scale(1.05); }
-
-/* ==========================================================================
-   WE ARE HIRING — the top-bar pill (chrome.js) and the #hiring section on
-   about.html. Temporary by nature: both come out when the roles are filled.
-   ========================================================================== */
-
-/* pill in the dark top bar, sitting beside the hours badge */
-.hiring-pill {
-  display:inline-flex; align-items:center; gap:.45rem;
-  font-family:"Nunito",sans-serif; font-weight:800; font-size:.76rem;
-  letter-spacing:.02em; white-space:nowrap;
-  color:#0f2a0f; background:var(--amber-2);
-  padding:.2rem .7rem; border-radius:999px; text-decoration:none;
-  transition: background .2s var(--ease-out), transform .2s var(--ease-out);
-}
-.hiring-pill:hover { background:#f2bd57; transform:translateY(-1px); }
-.hiring-pill__dot {
-  width:.42rem; height:.42rem; border-radius:50%; background:#0f2a0f; flex:none;
-  animation: hiringPulse 2.2s ease-out infinite;
-}
-@keyframes hiringPulse {
-  0%   { box-shadow:0 0 0 0 rgba(15,42,15,.5); }
-  70%  { box-shadow:0 0 0 .4rem rgba(15,42,15,0); }
-  100% { box-shadow:0 0 0 0 rgba(15,42,15,0); }
-}
-/* The top bar drops the address below 640px, so the pill has room on phones.
-   Under 480px it shortens to "Hiring" so the pill, the hours badge and the
-   phone number all still fit on one 36px line. */
-.hiring-pill__short { display:none; }
-@media (max-width: 480px) {
-  .hiring-pill { padding:.2rem .6rem; font-size:.72rem; }
-  .hiring-pill__full { display:none; }
-  .hiring-pill__short { display:inline; }
-}
-
-.hiring-sec {
-  background:
-    radial-gradient(70% 55% at 85% 0%, rgba(191,230,230,.35), transparent 60%),
-    linear-gradient(180deg, var(--cream) 0%, #FFFDF7 100%);
-}
-
-.hiring-flag {
-  display:inline-flex; align-items:center; gap:.55rem;
-  font-family:"Nunito",sans-serif; font-weight:900; font-size:.8rem;
-  letter-spacing:.1em; text-transform:uppercase;
-  color:var(--forest); background:rgba(62,107,35,.1);
-  border:1px solid rgba(62,107,35,.22);
-  padding:.5rem 1.05rem; border-radius:999px;
-}
-.hiring-flag__dot {
-  width:.5rem; height:.5rem; border-radius:50%; background:var(--forest); flex:none;
-  animation: hiringPulse 2.2s ease-out infinite;
-}
-
-/* one compact card: copy on the left, the ask on the right */
-.hiring-card {
-  display:grid; gap:1.5rem;
-  padding:1.75rem; border-radius:26px;
-  background:var(--white); border:1px solid rgba(60,40,16,.09);
-  box-shadow:var(--shadow-sm);
-}
-@media (min-width: 860px) {
-  .hiring-card { grid-template-columns:1.55fr .95fr; gap:2.5rem; align-items:center; padding:2rem 2.25rem; }
-  .hiring-card__side {
-    border-left:1px solid rgba(60,40,16,.1); padding-left:2.5rem; align-self:stretch;
-    display:flex; flex-direction:column; justify-content:center;
-  }
-}
-
-.hiring-chips { display:flex; flex-wrap:wrap; gap:.45rem; }
-.hiring-chip {
-  font-family:"Nunito",sans-serif; font-weight:800; font-size:.78rem;
-  padding:.3rem .8rem; border-radius:999px; white-space:nowrap;
-  background:rgba(27,107,107,.1); color:var(--teal-ink);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hiring-pill__dot, .hiring-flag__dot { animation:none; }
-  .hiring-pill:hover { transform:none; }
-}
 
 /* ==========================================================================
    PROMO SPOT — index.html #promo. One dated offer, swapped regularly from the
