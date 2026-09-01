@@ -84,7 +84,11 @@
       '</div>' +
       '<div class="border-t border-white/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap items-center justify-between gap-2 text-xs text-cream/50">' +
         '<p>© <span data-year></span> Animal Health Center &amp; Pet Resort. All rights reserved.</p>' +
-        '<p>For animals big &amp; small.</p>' +
+        '<div class="flex flex-wrap items-center gap-x-3 gap-y-1">' +
+          '<p>For animals big &amp; small.</p>' +
+          '<span class="hidden sm:inline text-cream/25" aria-hidden="true">•</span>' +
+          '<p>Website by <a href="https://midvora.com" target="_blank" rel="noopener noreferrer" class="text-cream/70 hover:text-amber2 transition-colors">Midvora</a></p>' +
+        '</div>' +
       '</div></div>' +
     '</footer>';
 

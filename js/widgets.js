@@ -651,6 +651,68 @@
   }
 
   /* ======================================================================
+     SCHEDULED CONTENT
+     A page can keep its current content in a data-scheduled-content target
+     and preload future replacements in matching <template> elements. Start
+     times are compared in the template's named IANA time zone, so publishing
+     from another state (or viewing from another country) cannot shift a
+     Minnesota campaign. The short interval also updates an already-open tab.
+     ====================================================================== */
+  function zonedMinuteKey(date, timeZone) {
+    var parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: timeZone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23"
+    }).formatToParts(date);
+    var values = {};
+    parts.forEach(function (part) {
+      if (part.type !== "literal") values[part.type] = part.value;
+    });
+    return values.year + "-" + values.month + "-" + values.day + "T" + values.hour + ":" + values.minute;
+  }
+
+  function initScheduledContent() {
+    $$('[data-scheduled-content]:not(template)').forEach(function (target) {
+      var scheduleName = target.getAttribute("data-scheduled-content");
+      var templates = $$('template[data-scheduled-content="' + scheduleName + '"]');
+      if (!templates.length) return;
+
+      var original = target.innerHTML;
+      var activeKey = "original";
+
+      function update() {
+        var now = new Date();
+        var active = null;
+
+        templates.forEach(function (template) {
+          var start = template.getAttribute("data-start");
+          var end = template.getAttribute("data-end");
+          var timeZone = template.getAttribute("data-time-zone") || "America/Chicago";
+          var nowKey = zonedMinuteKey(now, timeZone);
+          if (start && nowKey >= start && (!end || nowKey < end)) {
+            if (!active || start > active.start) active = { node: template, start: start };
+          }
+        });
+
+        var nextKey = active ? active.start : "original";
+        if (nextKey === activeKey) return;
+
+        if (active) target.replaceChildren(active.node.content.cloneNode(true));
+        else target.innerHTML = original;
+        activeKey = nextKey;
+        refreshST();
+      }
+
+      update();
+      setInterval(update, 30000);
+    });
+  }
+
+  /* ======================================================================
      BOOTSTRAP
      ====================================================================== */
   function init() {
@@ -666,6 +728,7 @@
     $$('[data-widget="dept-switcher"]').forEach(initDeptSwitcher);
     $$('[data-readmore]').forEach(initReadMore);
     $$('[data-photo-rotate]').forEach(initPhotoRotate);
+    initScheduledContent();
     initGallery();
     initCountUps();
 
