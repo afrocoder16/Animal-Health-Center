@@ -47,6 +47,9 @@
         <p data-hero-line class="inline-flex items-center gap-2 text-amber2 font-bold text-sm bg-white/15 ring-1 ring-white/25 backdrop-blur-sm rounded-full px-4 py-2">
           <span class="w-2 h-2 rounded-full bg-amber2"></span> Serving SW Minnesota since 1998
         </p>
+        <!-- Timely campaign note only. The permanent service message above and
+             the hero headline below intentionally stay unchanged. -->
+        <div class="mt-3 min-h-[2rem] sm:min-h-[2.25rem]" data-scheduled-content="home-hero-note" aria-live="polite"></div>
         <h1 class="mt-6 font-heading display text-white text-[3.4rem] leading-[.9] sm:text-7xl xl:text-[5.2rem] drop-shadow-[0_2px_20px_rgba(0,0,0,.45)]">
           <span data-hero-line class="block">Your one-stop shop</span>
           <span data-hero-line class="block italic text-amber2">for animals big &amp; small.</span>
@@ -65,6 +68,22 @@
       </div>
     </div>
   </section>
+
+  <!-- Small homepage campaign tags. Times use Central time, independent of the
+       visitor's device time zone. -->
+  <template data-scheduled-content="home-hero-note" data-start="2026-09-07T00:00" data-end="2026-09-11T09:00" data-time-zone="America/Chicago">
+    <p class="hero-campaign-tag hero-campaign-tag--dog">
+      <span class="hero-campaign-tag__dot" aria-hidden="true"></span>
+      Dog Walker Appreciation · Sep 8
+    </p>
+  </template>
+
+  <template data-scheduled-content="home-hero-note" data-start="2026-09-11T09:00" data-time-zone="America/Chicago">
+    <p class="hero-campaign-tag hero-campaign-tag--remembrance">
+      <span class="hero-campaign-tag__dot" aria-hidden="true"></span>
+      A quiet note of remembrance · Sep 13
+    </p>
+  </template>
 
   <!-- ===================== WHO ARE YOU CARING FOR ===================== -->
   <section class="py-20 sm:py-28 relative overflow-hidden">
@@ -291,7 +310,7 @@
     </div>
   </section>
 
-  <!-- Preloaded now; widgets.js activates this at 5:00pm Central on Sep 3. -->
+  <!-- Preloaded scheduled promos. widgets.js compares these against Central time. -->
   <template data-scheduled-content="home-promo" data-start="2026-09-03T17:00" data-time-zone="America/Chicago">
     <div data-anim="up" data-promo-date="2026-09-07">
       <span class="promo-flag">
@@ -333,6 +352,90 @@
         <img src="img/boarding-outdoor-play.webp" alt="Dogs enjoying outdoor play at the Animal Health Center Pet Resort" loading="lazy" />
         <figcaption class="promo-photo__cap">Long-weekend plans are better with happy pets.</figcaption>
       </figure>
+    </div>
+  </template>
+
+  <!-- Dog Walker Appreciation begins just after Labor Day, at midnight Central. -->
+  <template data-scheduled-content="home-promo" data-start="2026-09-07T00:00" data-end="2026-09-11T09:00" data-time-zone="America/Chicago">
+    <div data-anim="up" data-promo-date="2026-09-08">
+      <span class="promo-flag">
+        <span class="promo-flag__dot" aria-hidden="true"></span>
+        Dog Walker Appreciation · September 8
+      </span>
+
+      <div class="mt-6 flex items-start gap-5">
+        <span class="promo-date" aria-hidden="true">
+          <span class="promo-date__day">8</span>
+          <span class="promo-date__mon">Sep · Tue</span>
+        </span>
+        <div class="min-w-0">
+          <p class="promo-kicker">National Dog Walker Appreciation Day</p>
+          <h2 class="mt-1.5 font-heading display text-ink text-4xl sm:text-5xl leading-[1.02]">Every good walk<br />deserves a <span class="italic text-amber">good treat.</span></h2>
+        </div>
+      </div>
+
+      <p class="promo-copy mt-6">
+        Here’s to the people who know every sniff-stop, shortcut, and tail-wag on the route. Send your pup home with something special from our dog-favorite shelf.
+      </p>
+
+      <ul class="promo-chips mt-6">
+        <li class="promo-chip">Dog treats</li>
+        <li class="promo-chip">Benebone chews</li>
+        <li class="promo-chip promo-chip--owner">Everyday dog favorites</li>
+      </ul>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="small-animal.html" class="btn btn--amber">Shop Dog Favorites →</a>
+        <a href="services.html#store" class="btn btn--ghost !py-2.5 !px-4 !text-sm">Explore the Store</a>
+      </div>
+
+      <p class="mt-4 text-sm text-ink/50">A little thank-you for every person who gets the tails wagging.</p>
+    </div>
+
+    <div data-anim="up">
+      <figure class="promo-photo">
+        <img src="img/doggy-day-care.webp" alt="Four happy dogs together at Animal Health Center" loading="lazy" />
+        <figcaption class="promo-photo__cap">For every good dog—and the humans who walk them.</figcaption>
+      </figure>
+    </div>
+  </template>
+
+  <!-- A deliberately image-free memorial moment: no products, booking push,
+       animal photo, or call to action. It takes over Friday morning and stays
+       live until a later scheduled promo replaces it. -->
+  <template data-scheduled-content="home-promo" data-start="2026-09-11T09:00" data-time-zone="America/Chicago">
+    <div data-anim="up" data-promo-date="2026-09-13">
+      <span class="promo-flag promo-flag--remembrance">
+        <span class="promo-flag__dot" aria-hidden="true"></span>
+        National Pet Memorial Day · September 13
+      </span>
+
+      <div class="mt-6 flex items-start gap-5">
+        <span class="promo-date promo-date--remembrance" aria-hidden="true">
+          <span class="promo-date__day">13</span>
+          <span class="promo-date__mon">Sep · Sun</span>
+        </span>
+        <div class="min-w-0">
+          <p class="promo-kicker promo-kicker--remembrance">A quiet weekend note</p>
+          <h2 class="mt-1.5 font-heading display text-ink text-4xl sm:text-5xl leading-[1.02]">The love<br /><span class="italic text-teal">stays.</span></h2>
+        </div>
+      </div>
+
+      <p class="promo-copy mt-6">
+        For the pets we miss, the memories we keep, and the love that remains part of home. This weekend, we remember them with gratitude.
+      </p>
+
+      <p class="remembrance-signoff mt-7">With love, from all of us at Animal Health Center.</p>
+    </div>
+
+    <div data-anim="up" class="promo-remembrance" role="img" aria-label="A warm, quiet remembrance card that reads Remembered with love">
+      <div class="promo-remembrance__window" aria-hidden="true"></div>
+      <div class="promo-remembrance__note">
+        <span class="promo-remembrance__eyebrow">A quiet place for a memory</span>
+        <p>Remembered<br /><em>with love.</em></p>
+        <span class="promo-remembrance__rule" aria-hidden="true"></span>
+        <span class="promo-remembrance__date">September 13</span>
+      </div>
     </div>
   </template>
 

@@ -106,6 +106,22 @@ h1,h2,h3,h4,h5,.font-heading {
   background: linear-gradient(180deg, rgba(20,15,8,.65) 0%, rgba(20,15,8,.55) 45%, rgba(20,15,8,.72) 100%);
 }
 
+/* Small scheduled campaign note below the permanent hometown-service tag on
+   the homepage. It adds a timely cue without competing with the main hero. */
+.hero-campaign-tag {
+  display:inline-flex; align-items:center; gap:.55rem; margin:0;
+  font-family:"Nunito",sans-serif; font-size:.72rem; font-weight:900;
+  letter-spacing:.12em; line-height:1.2; text-transform:uppercase;
+  padding:.48rem .78rem; border:1px solid rgba(255,255,255,.24);
+  border-radius:999px; background:rgba(32,24,15,.22); backdrop-filter:blur(7px);
+  box-shadow:0 10px 28px -18px rgba(0,0,0,.7);
+}
+.hero-campaign-tag__dot { width:.45rem; height:.45rem; flex:none; border-radius:50%; }
+.hero-campaign-tag--dog { color:#fff4dd; }
+.hero-campaign-tag--dog .hero-campaign-tag__dot { background:var(--amber-2); box-shadow:0 0 0 4px rgba(230,169,63,.16); }
+.hero-campaign-tag--remembrance { color:rgba(255,255,255,.9); border-color:rgba(215,242,239,.3); background:rgba(15,61,61,.22); }
+.hero-campaign-tag--remembrance .hero-campaign-tag__dot { background:#a6d8d1; box-shadow:0 0 0 4px rgba(166,216,209,.14); }
+
 /* ==========================================================================
    RESORT HERO — split editorial layout (warm panel + tilted photo cluster).
    Text and photos live side by side on desktop, stack cleanly on mobile so
@@ -988,6 +1004,61 @@ body.menu-open { overflow:hidden; }
   background:rgba(251,246,236,.92); backdrop-filter:blur(3px);
   padding:.45rem .9rem; border-radius:999px;
   box-shadow:0 10px 24px -12px rgba(60,40,16,.5);
+}
+
+/* Memorial treatment: deliberately uses a handmade paper card instead of a
+   pet image, product list, or booking CTA. */
+.promo-flag--remembrance { color:var(--teal-ink); background:rgba(27,107,107,.09); border-color:rgba(27,107,107,.18); }
+.promo-flag--remembrance .promo-flag__dot { background:var(--teal); }
+.promo-date--remembrance::before { background:var(--teal); }
+.promo-date--remembrance .promo-date__mon,
+.promo-kicker--remembrance { color:var(--teal); }
+.remembrance-signoff { color:var(--teal-ink); font-family:"Nunito",sans-serif; font-weight:800; font-size:1rem; }
+
+.promo-remembrance {
+  position:relative; isolation:isolate; min-height:22rem; overflow:hidden;
+  display:grid; place-items:center; padding:2rem;
+  border:7px solid rgba(255,255,255,.88); border-radius:28px;
+  background:
+    radial-gradient(90% 95% at 90% 0%, rgba(246,217,168,.72), transparent 55%),
+    radial-gradient(70% 80% at 0% 100%, rgba(174,220,215,.38), transparent 60%),
+    linear-gradient(135deg, #fffdf7 0%, #f7edda 100%);
+  box-shadow:0 36px 74px -32px rgba(60,40,16,.42);
+}
+.promo-remembrance::before {
+  content:""; position:absolute; inset:1rem; z-index:-1; border:1px solid rgba(60,40,16,.1);
+  border-radius:20px; pointer-events:none;
+}
+.promo-remembrance::after {
+  content:""; position:absolute; z-index:-1; width:18rem; height:18rem; right:-7rem; top:-7rem;
+  border:1px solid rgba(193,127,36,.18); border-radius:50%;
+  box-shadow:0 0 0 28px rgba(193,127,36,.045), 0 0 0 56px rgba(193,127,36,.035);
+}
+.promo-remembrance__window {
+  position:absolute; right:7%; top:7%; width:35%; aspect-ratio:1; z-index:-1; opacity:.6;
+  border:8px solid rgba(255,255,255,.56);
+  background:linear-gradient(90deg, transparent 48%, rgba(60,40,16,.12) 49% 51%, transparent 52%),
+             linear-gradient(transparent 48%, rgba(60,40,16,.12) 49% 51%, transparent 52%),
+             radial-gradient(circle at 20% 18%, rgba(255,255,255,.95), rgba(246,217,168,.44) 45%, rgba(44,148,148,.14));
+  box-shadow:0 16px 32px -20px rgba(60,40,16,.45); transform:rotate(4deg);
+}
+.promo-remembrance__note {
+  position:relative; z-index:1; width:min(100%, 20rem); padding:2.1rem 1.5rem 1.7rem;
+  text-align:center; background:rgba(255,253,247,.78); border:1px solid rgba(60,40,16,.1);
+  border-radius:18px; box-shadow:0 20px 36px -25px rgba(60,40,16,.44);
+  transform:rotate(-1.8deg);
+}
+.promo-remembrance__eyebrow,
+.promo-remembrance__date { display:block; font-family:"Nunito",sans-serif; font-size:.68rem; font-weight:900; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); }
+.promo-remembrance__note p { margin:.7rem 0 .6rem; font-family:"Nunito",sans-serif; font-weight:900; font-size:clamp(2rem, 4vw, 3rem); line-height:.9; letter-spacing:-.05em; color:var(--ink); }
+.promo-remembrance__note em { color:var(--teal); }
+.promo-remembrance__rule { display:block; width:2.4rem; height:1px; margin:.85rem auto; background:var(--amber); }
+
+@media (max-width:640px) {
+  .hero-campaign-tag { font-size:.64rem; letter-spacing:.09em; }
+  .promo-remembrance { min-height:18rem; }
+  .promo-remembrance__window { width:42%; right:3%; top:4%; }
+  .promo-remembrance__note { padding:1.7rem 1.1rem 1.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
