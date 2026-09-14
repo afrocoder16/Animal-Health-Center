@@ -121,6 +121,8 @@ h1,h2,h3,h4,h5,.font-heading {
 .hero-campaign-tag--dog .hero-campaign-tag__dot { background:var(--amber-2); box-shadow:0 0 0 4px rgba(230,169,63,.16); }
 .hero-campaign-tag--remembrance { color:rgba(255,255,255,.9); border-color:rgba(215,242,239,.3); background:rgba(15,61,61,.22); }
 .hero-campaign-tag--remembrance .hero-campaign-tag__dot { background:#a6d8d1; box-shadow:0 0 0 4px rgba(166,216,209,.14); }
+.hero-campaign-tag--preparedness { color:#fff4dd; border-color:rgba(230,169,63,.38); background:rgba(31,73,61,.34); }
+.hero-campaign-tag--preparedness .hero-campaign-tag__dot { background:var(--amber-2); box-shadow:0 0 0 4px rgba(230,169,63,.16); }
 
 /* ==========================================================================
    RESORT HERO — split editorial layout (warm panel + tilted photo cluster).
@@ -1006,6 +1008,60 @@ body.menu-open { overflow:hidden; }
   box-shadow:0 10px 24px -12px rgba(60,40,16,.5);
 }
 
+/* Sep 14 preparedness feature: a warm, practical fall checklist with Taylor's
+   community-only harvest reminder kept in its own clearly separated panel. */
+.promo-flag--preparedness { color:var(--teal-ink); background:rgba(27,107,107,.09); border-color:rgba(27,107,107,.2); }
+.promo-flag--preparedness .promo-flag__dot { background:var(--teal); box-shadow:0 0 0 4px rgba(27,107,107,.1); }
+.promo-date--preparedness::before { background:linear-gradient(90deg, var(--teal), var(--forest)); }
+.promo-date--preparedness .promo-date__mon { color:var(--teal); }
+
+.promo-community-note {
+  display:grid; grid-template-columns:auto 1fr; gap:.9rem; max-width:36rem;
+  padding:1rem 1.1rem; color:var(--ink); border:1px solid rgba(193,127,36,.2);
+  border-radius:18px; background:linear-gradient(135deg, rgba(255,255,255,.82), rgba(246,217,168,.35));
+  box-shadow:0 18px 36px -30px rgba(60,40,16,.65);
+}
+.promo-community-note__marker {
+  display:grid; place-items:center; width:2.55rem; height:2.55rem; color:var(--amber);
+  border-radius:13px; background:rgba(230,169,63,.18); border:1px solid rgba(193,127,36,.18);
+}
+.promo-community-note__marker svg { width:1.35rem; height:1.35rem; }
+.promo-community-note__eyebrow {
+  margin-bottom:.18rem; color:var(--amber); font-family:"Nunito",sans-serif;
+  font-size:.67rem; font-weight:900; letter-spacing:.13em; text-transform:uppercase;
+}
+.promo-community-note__copy { color:var(--ink-soft); font-size:.88rem; line-height:1.5; }
+.promo-community-note__copy strong { color:var(--ink); }
+
+.promo-preparedness-visual { position:relative; padding:0 0 2.7rem; }
+.promo-photo--preparedness {
+  border-color:rgba(255,255,255,.96);
+  background:linear-gradient(135deg, rgba(27,107,107,.12), rgba(230,169,63,.2));
+}
+.promo-photo--preparedness::after {
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, transparent 56%, rgba(24,37,31,.24));
+}
+.promo-photo--preparedness .promo-photo__cap { z-index:3; }
+.promo-preparedness-checklist {
+  position:absolute; z-index:4; left:clamp(.8rem,4vw,2.5rem); right:clamp(.2rem,2vw,1rem); bottom:0;
+  display:flex; align-items:center; gap:.8rem; padding:.9rem 1rem; color:#fff;
+  border:1px solid rgba(255,255,255,.24); border-radius:18px;
+  background:linear-gradient(120deg, rgba(15,61,61,.97), rgba(27,107,107,.94));
+  box-shadow:0 24px 44px -22px rgba(15,61,61,.9);
+}
+.promo-preparedness-checklist__icon {
+  display:grid; place-items:center; width:2.65rem; height:2.65rem; flex:none;
+  color:var(--amber-2); border-radius:50%; background:rgba(255,255,255,.1);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+}
+.promo-preparedness-checklist__icon svg { width:1.45rem; height:1.45rem; }
+.promo-preparedness-checklist small {
+  display:block; margin-bottom:.18rem; color:var(--amber-2); font-family:"Nunito",sans-serif;
+  font-size:.64rem; font-weight:900; letter-spacing:.13em; line-height:1.15; text-transform:uppercase;
+}
+.promo-preparedness-checklist strong { display:block; font-family:"Nunito",sans-serif; font-size:.9rem; line-height:1.3; }
+
 /* Memorial treatment: deliberately uses a handmade paper card instead of a
    pet image, product list, or booking CTA. */
 .promo-flag--remembrance { color:var(--teal-ink); background:rgba(27,107,107,.09); border-color:rgba(27,107,107,.18); }
@@ -1056,6 +1112,10 @@ body.menu-open { overflow:hidden; }
 
 @media (max-width:640px) {
   .hero-campaign-tag { font-size:.64rem; letter-spacing:.09em; }
+  .promo-community-note { grid-template-columns:1fr; }
+  .promo-community-note__marker { width:2.35rem; height:2.35rem; }
+  .promo-preparedness-visual { padding-bottom:0; }
+  .promo-preparedness-checklist { position:relative; left:auto; right:auto; bottom:auto; margin:-1rem .5rem 0; }
   .promo-remembrance { min-height:18rem; }
   .promo-remembrance__window { width:42%; right:3%; top:4%; }
   .promo-remembrance__note { padding:1.7rem 1.1rem 1.4rem; }
