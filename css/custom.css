@@ -121,6 +121,10 @@ h1,h2,h3,h4,h5,.font-heading {
 .hero-campaign-tag--dog .hero-campaign-tag__dot { background:var(--amber-2); box-shadow:0 0 0 4px rgba(230,169,63,.16); }
 .hero-campaign-tag--remembrance { color:rgba(255,255,255,.9); border-color:rgba(215,242,239,.3); background:rgba(15,61,61,.22); }
 .hero-campaign-tag--remembrance .hero-campaign-tag__dot { background:#a6d8d1; box-shadow:0 0 0 4px rgba(166,216,209,.14); }
+.hero-campaign-tag--livestock { color:#f8efd9; border-color:rgba(224,197,127,.32); background:rgba(45,66,25,.32); }
+.hero-campaign-tag--livestock .hero-campaign-tag__dot { background:#d8b45b; box-shadow:0 0 0 4px rgba(216,180,91,.15); }
+.hero-campaign-tag--rabies { color:#fff4dd; border-color:rgba(230,169,63,.34); background:rgba(104,61,17,.28); }
+.hero-campaign-tag--rabies .hero-campaign-tag__dot { background:var(--amber-2); box-shadow:0 0 0 4px rgba(230,169,63,.16); }
 .hero-campaign-tag--preparedness { color:#fff4dd; border-color:rgba(230,169,63,.38); background:rgba(31,73,61,.34); }
 .hero-campaign-tag--preparedness .hero-campaign-tag__dot { background:var(--amber-2); box-shadow:0 0 0 4px rgba(230,169,63,.16); }
 
@@ -1062,6 +1066,52 @@ body.menu-open { overflow:hidden; }
 }
 .promo-preparedness-checklist strong { display:block; font-family:"Nunito",sans-serif; font-size:.9rem; line-height:1.3; }
 
+/* Remaining September scheduled promos share the existing tilted-photo system
+   and add compact, campaign-specific information cards—no new graphic assets
+   are needed. */
+.promo-flag--livestock { color:#405827; background:rgba(62,107,35,.1); border-color:rgba(62,107,35,.22); }
+.promo-flag--livestock .promo-flag__dot { background:var(--forest); }
+.promo-date--livestock::before { background:var(--forest); }
+.promo-date--livestock .promo-date__mon,
+.promo-kicker--livestock { color:var(--forest); }
+
+.promo-flag--dogweek { color:var(--teal-ink); background:rgba(27,107,107,.09); border-color:rgba(27,107,107,.2); }
+.promo-flag--dogweek .promo-flag__dot { background:var(--teal); }
+.promo-date--dogweek::before { background:var(--teal); }
+.promo-date--dogweek .promo-date__mon,
+.promo-kicker--dogweek { color:var(--teal); }
+
+.promo-flag--rabies { color:#7a4a12; background:rgba(230,169,63,.15); border-color:rgba(193,127,36,.24); }
+.promo-flag--rabies .promo-flag__dot { background:var(--amber); }
+.promo-date--rabies::before { background:var(--amber); }
+.promo-date--rabies .promo-date__mon,
+.promo-kicker--rabies { color:var(--amber); }
+
+.promo-livestock-visual,
+.promo-dogweek-visual,
+.promo-rabies-visual { position:relative; padding:0 0 2.7rem; }
+.promo-photo--livestock { transform:rotate(1.2deg); }
+.promo-photo--dogweek { transform:rotate(-1.2deg); }
+.promo-photo--rabies { transform:rotate(1.2deg); }
+.promo-detail-card {
+  position:absolute; z-index:4; left:clamp(.8rem,4vw,2.5rem); right:clamp(.2rem,2vw,1rem); bottom:0;
+  display:grid; gap:.15rem; padding:.9rem 1rem; color:#fff; border-radius:17px;
+  box-shadow:0 24px 44px -22px rgba(15,61,61,.86);
+}
+.promo-detail-card span { color:rgba(255,255,255,.78); font-family:"Nunito",sans-serif; font-size:.64rem; font-weight:900; letter-spacing:.13em; line-height:1.15; text-transform:uppercase; }
+.promo-detail-card strong { font-family:"Nunito",sans-serif; font-size:.92rem; line-height:1.3; }
+.promo-detail-card--livestock { background:linear-gradient(135deg,#3e6b23,#5b7b37); }
+.promo-detail-card--dogweek { background:linear-gradient(135deg,var(--teal),var(--teal-2)); }
+.promo-detail-card--rabies { color:#2a1c08; background:linear-gradient(135deg,var(--amber-2),#f4c56f); box-shadow:0 24px 44px -22px rgba(90,52,11,.55); }
+.promo-detail-card--rabies span { color:rgba(42,28,8,.68); }
+
+/* Memorial card is reused for Remember Me Thursday, but its copy changes to
+   recognize shelter pets still waiting for home rather than pets remembered. */
+.promo-remembrance.promo-remembrance--shelter { background:
+  radial-gradient(90% 95% at 90% 0%, rgba(246,217,168,.7), transparent 55%),
+  radial-gradient(70% 80% at 0% 100%, rgba(174,220,215,.42), transparent 60%),
+  linear-gradient(135deg,#fffdf7 0%,#f7edda 100%); }
+
 /* Memorial treatment: deliberately uses a handmade paper card instead of a
    pet image, product list, or booking CTA. */
 .promo-flag--remembrance { color:var(--teal-ink); background:rgba(27,107,107,.09); border-color:rgba(27,107,107,.18); }
@@ -1116,6 +1166,8 @@ body.menu-open { overflow:hidden; }
   .promo-community-note__marker { width:2.35rem; height:2.35rem; }
   .promo-preparedness-visual { padding-bottom:0; }
   .promo-preparedness-checklist { position:relative; left:auto; right:auto; bottom:auto; margin:-1rem .5rem 0; }
+  .promo-livestock-visual, .promo-dogweek-visual, .promo-rabies-visual { padding-bottom:0; }
+  .promo-detail-card { position:relative; left:auto; right:auto; bottom:auto; margin:-1rem .5rem 0; }
   .promo-remembrance { min-height:18rem; }
   .promo-remembrance__window { width:42%; right:3%; top:4%; }
   .promo-remembrance__note { padding:1.7rem 1.1rem 1.4rem; }
